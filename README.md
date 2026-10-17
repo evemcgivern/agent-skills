@@ -33,7 +33,7 @@ Every skill README shows three badges, one per group of hosts. The first two spl
 | [`efficient-frontier-routing`](plugins/agent-workflow/skills/efficient-frontier-routing/README.md) | agent-workflow | ✔ | ✖ | ✔ | ✖ | ◐ |
 | [`fable-chief-agent`](plugins/agent-workflow/skills/fable-chief-agent/README.md) | agent-workflow | ✔ | ✖ | ✔ | ✖ | ◐ |
 | [`goal-checklist`](plugins/agent-workflow/skills/goal-checklist/README.md) | agent-workflow | ✔ | ◐ | ✔ | ◐ | ✔ |
-| [`handoff`](plugins/agent-workflow/skills/handoff/README.md) | agent-workflow | ✔ | ◐ | ◐ | ◐ | ◐ |
+| [`handoff`](plugins/agent-workflow/skills/handoff/README.md) | agent-workflow | ✔ | ◐ | ✔ | ◐ | ✔ |
 | [`mission`](plugins/agent-workflow/skills/mission/README.md) | agent-workflow | ✔ | ✖ | ✔ | ✖ | ✔ |
 | [`problem-first`](plugins/agent-workflow/skills/problem-first/README.md) | agent-workflow | ✔ | ✔ | ✔ | ✔ | ✔ |
 | [`quick-recap`](plugins/agent-workflow/skills/quick-recap/README.md) | agent-workflow | ✔ | ◐ | ✔ | ◐ | ✔ |
@@ -117,7 +117,7 @@ These agents load `SKILL.md` folders directly. Copy the whole skill folder to th
 - Windsurf: `<repo>/.agents/skills/<skill>/`.
 - Cline: `<repo>/.cline/skills/<skill>/`, `<repo>/.claude/skills/<skill>/` or `~/.cline/skills/<skill>/`.
 
-Five skills have limits in these agents (agent-doctor, efficient-frontier-routing, fable-chief-agent, handoff, stay-within-limits); see [Compatibility](#compatibility).
+Four skills have limits in these agents (agent-doctor, efficient-frontier-routing, fable-chief-agent, stay-within-limits); see [Compatibility](#compatibility).
 </details>
 
 <details>
@@ -162,7 +162,7 @@ Working habits for coding agents: model routing, status recaps, usage-limit paci
 - [`efficient-frontier-routing`](plugins/agent-workflow/skills/efficient-frontier-routing/README.md) v0.2.0 — Routes each task to a suitable model tier in Claude Code, Codex, or another agent host that can start subagents on a chosen model (Gemini CLI, for example), following the user's routing preferences. Keeps small tasks local, delegates discovery, routine coding, and testing to cheaper subagents, and sends difficult decisions and risky reviews to a stronger one.
 - [`fable-chief-agent`](plugins/agent-workflow/skills/fable-chief-agent/README.md) v0.2.0 — Makes the most expensive model in a session the senior decision-maker, keeping its reasoning for intent, architecture, decomposition, tradeoffs, final review, and synthesis while cheaper agents handle discovery, implementation, tests, logs, and verification.
 - [`goal-checklist`](plugins/agent-workflow/skills/goal-checklist/README.md) v0.2.0 — Tracks a multi-issue goal as a one-line progress strip: seeds a checklist from issue numbers, adds or drops items, marks state, syncs merged vs shipped from git, and re-emits status unprompted as work advances.
-- [`handoff`](plugins/agent-workflow/skills/handoff/README.md) v0.2.0 — Writes a copy-pasteable handoff prompt that lets a fresh Claude Code session resume the current work cold.
+- [`handoff`](plugins/agent-workflow/skills/handoff/README.md) v0.2.0 — Writes a copy-pasteable handoff prompt that lets a fresh session of your agent (Claude Code, Codex, Gemini CLI and others) resume the current work cold.
 - [`mission`](plugins/agent-workflow/skills/mission/README.md) v0.2.0 — Persist a small, worktree-bound mission record across agent sessions: outcome, constraints, milestones, decisions, next action, and hashed evidence files.
 - [`problem-first`](plugins/agent-workflow/skills/problem-first/README.md) v0.2.0 — Rewrites a draft agent prompt into problem, evidence, ideas, autonomy and done criteria, so you hand over the problem instead of your solution.
 - [`quick-recap`](plugins/agent-workflow/skills/quick-recap/README.md) v0.2.0 — Defines a one-line red/yellow/green status line that ends every agent response that completes work, and how to install it as standing instructions in AGENTS.md or CLAUDE.md.

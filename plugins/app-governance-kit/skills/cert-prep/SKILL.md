@@ -46,7 +46,7 @@ A session summary (drills run, rating for each, reasoning), the ranked gap list,
 - Show the reasoning behind each conclusion.
 - Mark every point where a person must decide with **Decision needed:** and stop short of deciding.
 - Flag any figure you could not verify from the input with **Unverified:**.
-- Cite framework clauses by number from [`crosswalk.csv`](../crosswalk/crosswalk.csv). Paraphrase; never quote standards text.
+- Cite framework clauses by number from [`crosswalk.csv`](crosswalk.csv). Paraphrase; never quote standards text.
 - Never write or recall real exam questions, and never claim a drill matches exam content.
 - Say plainly that this is practice, not a prediction of the result.
 - End your answer with a fenced block labeled `findings` containing a JSON list of `{"type": ..., "id": ...}` objects, as the task describes. Use `[]` when there are none.

@@ -2,10 +2,10 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: Code full, app partial](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex partial, ChatGPT partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%97%90%20%C2%B7%20ChatGPT%20%E2%97%90-yellow)](../../../../README.md#compatibility) [![Other agents: partial](https://img.shields.io/badge/Other%20agents-%E2%97%90-yellow)](../../../../README.md#compatibility)
-> The Claude app and ChatGPT get no git or GitHub state. Outside Claude Code, the prompt still targets a fresh Claude Code session and reads CLAUDE.md, so adapt it by hand.
+[![Claude: Code full, app partial](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
+> The Claude app and ChatGPT get no git or GitHub state.
 
-Writes a copy-pasteable handoff prompt that lets a fresh Claude Code session resume the current work cold: why the work matters, what shipped, decisions not to reopen, branch and PR state, the next concrete action, relevant files, standing constraints, and the last few exchanges. Use when ending a session with "hand this off", "park this for tomorrow", or before `/clear`.
+Writes a copy-pasteable handoff prompt that lets a fresh session of your agent (Claude Code, Codex, Gemini CLI and others) resume the current work cold: why the work matters, what shipped, decisions not to reopen, branch and PR state, the next concrete action, relevant files, standing constraints, and the last few exchanges. Use when ending a session with "hand this off", "park this for tomorrow", or before `/clear`.
 
 ## What it looks like
 
@@ -52,11 +52,11 @@ then run `npm test -- import` before opening the PR.
 Agreed the bar shows rows, not percent: the total is unknown while streaming.
 ```
 
-Below the block, the reply has exactly one more line: "Copy the block above into a fresh Claude Code session after `/new` or `/clear`."
+Below the block, the reply has exactly one more line: "Copy the block above into a fresh session of your agent (for example after `/new` or `/clear`)."
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/handoff/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/handoff/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/handoff/` or `.agents/skills/handoff/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/handoff/` or `.claude/skills/handoff/`. The git and GitHub checks work in any local agent, but the prompt it writes is addressed to a fresh Claude Code session and takes the project name from `CLAUDE.md`, so in other agents adjust the closing line and project name by hand. See the [collection README](../../../../README.md#install) for current platform notes.
+Copy this complete folder to `~/.claude/skills/handoff/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/handoff/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/handoff/` or `.agents/skills/handoff/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/handoff/` or `.claude/skills/handoff/`. The git and GitHub checks work in any local agent, and the project name comes from `CLAUDE.md`, `AGENTS.md` or `GEMINI.md`, whichever exists. See the [collection README](../../../../README.md#install) for current platform notes.
 
 ## Contents
 
