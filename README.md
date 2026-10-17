@@ -1,6 +1,6 @@
 # Eve McGivern's Agent Skills
 
-[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-29-blue.svg)](#skills)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-36-blue.svg)](#skills)
 
 Skills for Claude Code and Codex, packaged as a Claude Code plugin marketplace. Each skill is a folder with a `SKILL.md`. Pick your tool below; one click opens the steps.
 
@@ -16,6 +16,7 @@ claude plugin install writing@evemcgivern-skills
 claude plugin install role-ready-application@evemcgivern-skills
 claude plugin install app-governance-kit@evemcgivern-skills
 claude plugin install engineering-practices@evemcgivern-skills
+claude plugin install tutor@evemcgivern-skills
 ```
 
 Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install <plugin>@evemcgivern-skills`. Skills then appear as `/<plugin>:<skill>`, for example `/writing:clearly`.
@@ -77,15 +78,21 @@ Check out others at [stylusnexus/agent-plugins](https://github.com/stylusnexus/a
 
 ### `agent-workflow`
 
-Working habits for coding agents: model routing, status recaps, usage-limit pacing, prompt tuning, problem framing, and checking whether an idea is worth acting on.
+Working habits for coding agents: model routing, status recaps, usage-limit pacing, goal tracking, handoffs, onboarding briefings, prompt tuning, problem framing, and agent-setup checks.
 
+- [`agent-doctor`](plugins/agent-workflow/skills/agent-doctor/README.md) v0.1.0 — Inspects a project's discovered agent instructions (AGENTS.md, CLAUDE.md) and skill definitions for static wiring problems, without loading, changing, or enabling them.
+- [`ambition`](plugins/agent-workflow/skills/ambition/README.md) v0.1.0 — Reconsiders a project or shelved idea against current capabilities, proposes three ambitious outcomes, and designs an experiment for the hardest uncertainty.
 - [`check-worth`](plugins/agent-workflow/skills/check-worth/README.md) v0.1.0 — Review an external PDF, image, screenshot, article, or URL against a repository's current issues and code to sort its ideas into new, already tracked, shipped, contradicted, or unverifiable, read-only by default.
 - [`efficient-frontier`](plugins/agent-workflow/skills/efficient-frontier/README.md) v0.2.0 — Routes model effort across research, coding, testing, and review so strong models handle judgment and cheaper subagents handle volume, including for users with limited quotas.
+- [`fable-chief-agent`](plugins/agent-workflow/skills/fable-chief-agent/README.md) v0.1.0 — Makes the most expensive model in a session the senior decision-maker, keeping its reasoning for intent, architecture, decomposition, tradeoffs, final review, and synthesis while cheaper agents handle discovery, implementation, tests, logs, and verification.
+- [`goal-checklist`](plugins/agent-workflow/skills/goal-checklist/README.md) v0.1.0 — Tracks a multi-issue goal as a one-line progress strip: seeds a checklist from issue numbers, adds or drops items, marks state, syncs merged vs shipped from git, and re-emits status unprompted as work advances.
+- [`handoff`](plugins/agent-workflow/skills/handoff/README.md) v0.1.0 — Writes a copy-pasteable handoff prompt that lets a fresh Claude Code session resume the current work cold.
 - [`mission`](plugins/agent-workflow/skills/mission/README.md) v0.1.0 — Persist a small, worktree-bound mission record across agent sessions: outcome, constraints, milestones, decisions, next action, and hashed evidence files.
 - [`problem-first`](plugins/agent-workflow/skills/problem-first/README.md) v0.1.0 — Rewrites a draft agent prompt into problem, evidence, ideas, autonomy and done criteria, so you hand over the problem instead of your solution.
 - [`quick-recap`](plugins/agent-workflow/skills/quick-recap/README.md) v0.2.0 — Defines a one-line red/yellow/green status line that ends every agent response that completes work, and how to install it as standing instructions in AGENTS.md or CLAUDE.md.
 - [`sonnet-prompt-improver`](plugins/agent-workflow/skills/sonnet-prompt-improver/README.md) v0.1.0 — Improves a prompt, system prompt, agent definition or skill for Claude Sonnet 5.5 by applying problem-first framing, adding only the Sonnet 5.5 fixes that match an observed symptom, and suggesting effort and thinking settings.
 - [`stay-within-limits`](plugins/agent-workflow/skills/stay-within-limits/README.md) v0.2.0 — Keeps long-running or parallel agent work inside 5-hour and weekly usage limits by running work in bounded waves, checking usage between waves, pausing at 95%, and resuming only after the window resets.
+- [`up-to-speed`](plugins/agent-workflow/skills/up-to-speed/README.md) v0.1.0 — Get up to speed on an unfamiliar field in one sitting (roughly 45-90 minutes, shorter on request): the core map, the 8-10 terms insiders use, the 3-5 ideas that explain most of it, live debates, and a scored no-hints exam.
 
 ### `writing`
 
@@ -117,10 +124,11 @@ Application portfolio, AI, and access governance methods.
 
 ### `engineering-practices`
 
-Everyday engineering skills: service debugging, background jobs, transactional email, SaaS metrics, spec-workflow companions, LLM engineering, and older-issue triage.
+Everyday engineering skills: service debugging, background jobs, transactional email, SaaS metrics, spec-workflow companions, LLM engineering, older-issue triage, and debugging a browser from your agent.
 
 - [`audit-background-processes`](plugins/engineering-practices/skills/audit-background-processes/README.md) v0.1.0 — Inventory and safely clean up stray background processes left by agent sessions — watch loops, tails, orphaned sleeps, detached runs — killing only by PID after confirming ownership.
 - [`background-jobs`](plugins/engineering-practices/skills/background-jobs/README.md) v0.1.0 — Design cron jobs and background workers on Render — cron job versus long-running worker, idempotency, Postgres job claiming with advisory or row locks, retries with backoff, timeout budgets, catch-up after downtime, and heartbeat monitoring so silent failures surface.
+- [`launch-chrome-debug`](plugins/engineering-practices/skills/launch-chrome-debug/README.md) v0.1.0 — Starts Google Chrome with remote debugging on port 9222 and a separate profile so the Chrome DevTools MCP server can connect, on macOS, Linux or Windows.
 - [`llm-engineer`](plugins/engineering-practices/skills/llm-engineer/README.md) v0.1.0 — Evidence-based diagnosis of language-model behavior, serving/runtime configuration, tool-call protocols, and agent evaluation, turning a failure into a bounded, falsifiable experiment.
 - [`review-older-issues`](plugins/engineering-practices/skills/review-older-issues/README.md) v0.1.0 — Revalidate a bounded batch of open GitHub issues against current code, pull requests, and related closed issues; close issues already shipped or no longer warranted, and rescope issues whose remaining work differs from the body.
 - [`saas-metrics`](plugins/engineering-practices/skills/saas-metrics/README.md) v0.1.0 — Compute and report MRR, churn, activation, and retention for a small SaaS product from Stripe and PostHog data, with metric definitions a small team can maintain, starter Stripe and HogQL snippets, a monthly business-review template, and warnings about common miscounts (trials, refunds, currency, proration).
@@ -128,6 +136,12 @@ Everyday engineering skills: service debugging, background jobs, transactional e
 - [`spec-workflow`](plugins/engineering-practices/skills/spec-workflow/README.md) v0.1.0 — Drive spec-driven development through the spec-workflow MCP server: create specs, request approvals, check status, execute tasks from tasks.md and log implementations.
 - [`spec-workflow-drift`](plugins/engineering-practices/skills/spec-workflow-drift/README.md) v0.1.0 — Detect drift between spec-workflow specs (.spec-workflow/) and the code: map which source files each spec covers, list files no spec documents, flag stale specs, and write a coverage report.
 - [`transactional-email`](plugins/engineering-practices/skills/transactional-email/README.md) v0.1.0 — Set up and audit transactional email for a web app — provider choice (Resend or Postmark), SPF/DKIM/DMARC with verification commands, templates in code, deliverability testing, the transactional-vs-marketing compliance line, and unsubscribe handling.
+
+### `tutor`
+
+Spaced-repetition tutoring for Claude Code and Codex: generation-first Socratic teaching, blind-graded free recall, and FSRS-scheduled review.
+
+Lives in its own repository: [evemcgivern/tutor](https://github.com/evemcgivern/tutor). Installing it from this marketplace pulls it from there.
 
 ## Keeping versions current
 
@@ -137,7 +151,7 @@ Each skill has its own `VERSION` and `CHANGELOG.md`. [release-please](https://gi
 2. release-please opens one release PR that bumps `VERSION` and `CHANGELOG.md` for each skill that changed (`fix:` is a patch, `feat:` a minor, `feat!:` or a `BREAKING CHANGE:` footer a major).
 3. Merging that PR tags each skill (`clearly-v0.2.1`) and creates its GitHub release.
 
-Every pull request runs `python3 -I tests/validate.py` (frontmatter, versions, changelogs, scripts, personal-data scan, marketplace and release config) and `bash tests/install_test.sh`.
+Every pull request runs `python3 -I tests/validate.py` (frontmatter, versions, changelogs, scripts, personal-data scan, marketplace and release config), `bash tests/install_test.sh`, and `bash tests/run_skill_tests.sh` (every skill's bundled unit tests).
 
 ## Provenance
 
