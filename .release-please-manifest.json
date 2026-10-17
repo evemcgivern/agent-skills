@@ -2,7 +2,7 @@
   "plugins/agent-workflow/skills/agent-doctor": "0.2.0",
   "plugins/agent-workflow/skills/ambition": "0.2.0",
   "plugins/agent-workflow/skills/check-worth": "0.2.0",
-  "plugins/agent-workflow/skills/efficient-frontier": "0.2.0",
+  "plugins/agent-workflow/skills/efficient-frontier-routing": "0.2.0",
   "plugins/agent-workflow/skills/fable-chief-agent": "0.2.0",
   "plugins/agent-workflow/skills/goal-checklist": "0.2.0",
   "plugins/agent-workflow/skills/handoff": "0.2.0",
