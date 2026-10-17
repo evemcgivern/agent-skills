@@ -1,5 +1,12 @@
 # Changelog: check-worth
 
+## [0.2.1](https://github.com/evemcgivern/agent-skills/compare/check-worth-v0.2.0...check-worth-v0.2.1) (2026-10-17)
+
+
+### Bug Fixes
+
+* **security:** harden scripts, workflows, skills ([#55](https://github.com/evemcgivern/agent-skills/issues/55)) ([ea6cddd](https://github.com/evemcgivern/agent-skills/commit/ea6cdddb245ac6a43dd8a17afc010222a658f0ce)), closes [#52](https://github.com/evemcgivern/agent-skills/issues/52)
+
 ## [0.2.0](https://github.com/evemcgivern/agent-skills/compare/check-worth-v0.1.0...check-worth-v0.2.0) (2026-10-17)
 
 

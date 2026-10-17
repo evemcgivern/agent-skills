@@ -1,5 +1,12 @@
 # Changelog: stay-within-limits
 
+## [0.2.2](https://github.com/evemcgivern/agent-skills/compare/stay-within-limits-v0.2.1...stay-within-limits-v0.2.2) (2026-10-17)
+
+
+### Bug Fixes
+
+* **security:** harden scripts, workflows, skills ([#55](https://github.com/evemcgivern/agent-skills/issues/55)) ([ea6cddd](https://github.com/evemcgivern/agent-skills/commit/ea6cdddb245ac6a43dd8a17afc010222a658f0ce)), closes [#52](https://github.com/evemcgivern/agent-skills/issues/52)
+
 ## [0.2.1](https://github.com/evemcgivern/agent-skills/compare/stay-within-limits-v0.2.0...stay-within-limits-v0.2.1) (2026-10-17)
 
 
