@@ -6,7 +6,7 @@ Nine portable application-governance skills for application portfolios, AI, acce
 
 ## Install
 
-See the [repository README](../../../../README.md#install) for Claude Code, Codex, Claude.ai and ChatGPT steps.
+See the [repository README](../../README.md#install) for Claude Code, Codex, Claude.ai and ChatGPT steps.
 
 ## Included
 

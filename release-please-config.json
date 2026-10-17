@@ -3,6 +3,18 @@
   "separate-pull-requests": false,
   "include-component-in-tag": true,
   "packages": {
+    "plugins/agent-workflow/skills/agent-doctor": {
+      "release-type": "simple",
+      "package-name": "agent-doctor",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/agent-workflow/skills/ambition": {
+      "release-type": "simple",
+      "package-name": "ambition",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
     "plugins/agent-workflow/skills/check-worth": {
       "release-type": "simple",
       "package-name": "check-worth",
@@ -12,6 +24,24 @@
     "plugins/agent-workflow/skills/efficient-frontier": {
       "release-type": "simple",
       "package-name": "efficient-frontier",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/agent-workflow/skills/fable-chief-agent": {
+      "release-type": "simple",
+      "package-name": "fable-chief-agent",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/agent-workflow/skills/goal-checklist": {
+      "release-type": "simple",
+      "package-name": "goal-checklist",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/agent-workflow/skills/handoff": {
+      "release-type": "simple",
+      "package-name": "handoff",
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
@@ -42,6 +72,12 @@
     "plugins/agent-workflow/skills/stay-within-limits": {
       "release-type": "simple",
       "package-name": "stay-within-limits",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/agent-workflow/skills/up-to-speed": {
+      "release-type": "simple",
+      "package-name": "up-to-speed",
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
@@ -108,6 +144,12 @@
     "plugins/engineering-practices/skills/background-jobs": {
       "release-type": "simple",
       "package-name": "background-jobs",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/engineering-practices/skills/launch-chrome-debug": {
+      "release-type": "simple",
+      "package-name": "launch-chrome-debug",
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },

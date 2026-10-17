@@ -5,6 +5,7 @@ plus marketplace and release-please config consistency.
 Run from anywhere:  python3 -I tests/validate.py
 Exit code 0 = all checks pass, 1 = at least one failure.
 """
+import json
 import re
 import shutil
 import subprocess
@@ -12,7 +13,6 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-import json
 
 
 def skill_dirs():
@@ -28,8 +28,10 @@ LEAKS = [
     (re.compile(r"\b(?:sk|pk|rk)_(?:live|test)_[A-Za-z0-9]{8,}"), "Stripe-style key"),
     (re.compile(r"\bghp_[A-Za-z0-9]{20,}|\bsk-[A-Za-z0-9_-]{20,}"), "API token"),
 ]
-# Addresses that are documentation placeholders, not leaks.
-EMAIL_OK = re.compile(r"(@(example\.(com|org|net)|localhost)\b|^noreply@anthropic\.com$)")
+# Addresses that are documentation placeholders (RFC 2606 names included), not leaks.
+EMAIL_OK = re.compile(
+    r"(@(example\.(com|org|net)|localhost)\b|\.(test|example|invalid|localhost)$|^noreply@anthropic\.com$)"
+)
 
 failures = []
 
@@ -97,7 +99,9 @@ def check_skill(d):
 
 def check_leaks():
     for path in sorted(ROOT.rglob("*")):
-        if not path.is_file() or ".git" in path.parts or "tests" in path.parts:
+        rel_parts = path.relative_to(ROOT).parts
+        # Only the repo's own test fixtures are exempt; skill tests ship and get scanned.
+        if not path.is_file() or ".git" in path.parts or rel_parts[0] == "tests":
             continue
         try:
             text = path.read_text(encoding="utf-8")
@@ -113,7 +117,10 @@ def check_leaks():
 
 def check_marketplace():
     mp = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text())
-    listed = {p["name"]: p for p in mp["plugins"]}
+    listed = {p["name"]: p for p in mp["plugins"] if isinstance(p["source"], str)}
+    for p in mp["plugins"]:
+        if isinstance(p["source"], dict) and not p["source"].get("repo"):
+            fail("marketplace.json", f"external plugin {p['name']!r} has no repo")
     on_disk = {p.parent.parent.name for p in ROOT.glob("plugins/*/.claude-plugin/plugin.json")}
     for name in sorted(set(listed) ^ on_disk):
         fail("marketplace.json", f"plugin {name!r} is listed or on disk but not both")

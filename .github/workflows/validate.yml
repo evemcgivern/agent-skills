@@ -14,6 +14,8 @@ jobs:
         run: python3 -I tests/validate.py
       - name: Test install script
         run: bash tests/install_test.sh
+      - name: Run skill unit tests
+        run: bash tests/run_skill_tests.sh
   pr-title:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest

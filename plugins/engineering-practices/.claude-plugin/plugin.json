@@ -1,6 +1,6 @@
 {
   "name": "engineering-practices",
-  "description": "Everyday engineering skills: service debugging, background jobs, transactional email, SaaS metrics, spec-workflow companions, LLM engineering, and older-issue triage.",
+  "description": "Everyday engineering skills: service debugging, background jobs, transactional email, SaaS metrics, spec-workflow companions, LLM engineering, older-issue triage, and debugging a browser from your agent.",
   "author": {
     "name": "Eve McGivern"
   },
