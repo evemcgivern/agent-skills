@@ -8,21 +8,21 @@ trap 'rm -rf "$tmp"' EXIT
 fail() { echo "FAIL: $*" >&2; exit 1; }
 
 n=$("$INSTALL" --list | wc -l | tr -d ' ')
-[ "$n" -ge 20 ] || fail "--list returned $n skills"
+[ "$n" -ge 10 ] || fail "--list returned $n skills"
 
-"$INSTALL" --target claude --project "$tmp/a" cdf clearly >/dev/null
-[ -f "$tmp/a/.claude/skills/cdf/SKILL.md" ] || fail "claude project install missing deploy"
+"$INSTALL" --target claude --project "$tmp/a" repo-activity-summary clearly >/dev/null
+[ -f "$tmp/a/.claude/skills/repo-activity-summary/SKILL.md" ] || fail "claude project install missing deploy"
 [ -f "$tmp/a/.claude/skills/clearly/SKILL.md" ] || fail "claude project install missing pr-wait"
 
 "$INSTALL" --target codex --project "$tmp/b" --all >/dev/null
 count=$(find "$tmp/b/.agents/skills" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')
 [ "$count" -eq "$n" ] || fail "codex --all installed $count of $n"
 
-out=$("$INSTALL" --target claude --project "$tmp/a" cdf)
-echo "$out" | grep -q "skip cdf" || fail "existing skill was not skipped"
-touch "$tmp/a/.claude/skills/cdf/stale"
-"$INSTALL" --target claude --project "$tmp/a" --force cdf >/dev/null
-[ ! -e "$tmp/a/.claude/skills/cdf/stale" ] || fail "--force did not replace the folder"
+out=$("$INSTALL" --target claude --project "$tmp/a" repo-activity-summary)
+echo "$out" | grep -q "skip repo-activity-summary" || fail "existing skill was not skipped"
+touch "$tmp/a/.claude/skills/repo-activity-summary/stale"
+"$INSTALL" --target claude --project "$tmp/a" --force repo-activity-summary >/dev/null
+[ ! -e "$tmp/a/.claude/skills/repo-activity-summary/stale" ] || fail "--force did not replace the folder"
 
 for bad in nope "../x" "*" "a/b"; do
   if "$INSTALL" --project "$tmp/c" --force "$bad" >/dev/null 2>&1; then fail "bad name $bad should exit non-zero"; fi

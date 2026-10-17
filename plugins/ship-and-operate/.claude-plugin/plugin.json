@@ -1,6 +1,6 @@
 {
   "name": "ship-and-operate",
-  "description": "Run production and keep tabs on work: incident response, observability setup, repo activity summaries, comma-delimited issue lists.",
+  "description": "Summarize repo activity: open issues and PRs, CI health, and progress.",
   "author": {
     "name": "Eve McGivern"
   },

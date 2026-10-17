@@ -75,45 +75,9 @@
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
-    "plugins/build-patterns/skills/analytics-instrumentation": {
-      "release-type": "simple",
-      "package-name": "analytics-instrumentation",
-      "version-file": "VERSION",
-      "changelog-path": "CHANGELOG.md"
-    },
-    "plugins/build-patterns/skills/api-design": {
-      "release-type": "simple",
-      "package-name": "api-design",
-      "version-file": "VERSION",
-      "changelog-path": "CHANGELOG.md"
-    },
-    "plugins/build-patterns/skills/stripe-billing": {
-      "release-type": "simple",
-      "package-name": "stripe-billing",
-      "version-file": "VERSION",
-      "changelog-path": "CHANGELOG.md"
-    },
     "plugins/role-ready-application/skills/role-ready-application": {
       "release-type": "simple",
       "package-name": "role-ready-application",
-      "version-file": "VERSION",
-      "changelog-path": "CHANGELOG.md"
-    },
-    "plugins/ship-and-operate/skills/cdf": {
-      "release-type": "simple",
-      "package-name": "cdf",
-      "version-file": "VERSION",
-      "changelog-path": "CHANGELOG.md"
-    },
-    "plugins/ship-and-operate/skills/incident-response": {
-      "release-type": "simple",
-      "package-name": "incident-response",
-      "version-file": "VERSION",
-      "changelog-path": "CHANGELOG.md"
-    },
-    "plugins/ship-and-operate/skills/observability-setup": {
-      "release-type": "simple",
-      "package-name": "observability-setup",
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
