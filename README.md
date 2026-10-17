@@ -109,7 +109,7 @@ Build truthful, role-tailored resumes and cover letters with candidate-voice rev
 
 ### `app-governance-kit`
 
-Application portfolio, AI, and access governance methods.
+Application portfolio, AI, and access governance methods. Full site with visuals and an interactive practicum: https://evemcgivern.github.io/app-governance-kit/
 
 - [`access-review`](plugins/app-governance-kit/skills/access-review/README.md) v0.1.0 — Review application user and role exports against HR records, find orphaned, excessive, and privileged access, and produce an evidence summary and auditor-ready memo mapped to ISO/IEC 27001 and COBIT DSS05.
 - [`ai-intake`](plugins/app-governance-kit/skills/ai-intake/README.md) v0.1.0 — Take a description of an AI use case, assign a risk tier under the EU AI Act with NIST AI RMF and ISO/IEC 42001 controls, and produce an AI inventory record.

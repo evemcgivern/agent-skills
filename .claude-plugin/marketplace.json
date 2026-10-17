@@ -28,8 +28,9 @@
     {
       "name": "app-governance-kit",
       "source": "./plugins/app-governance-kit",
-      "description": "Application portfolio, AI, and access governance methods.",
-      "license": "MIT"
+      "description": "Application portfolio, AI, and access governance methods. Full site with visuals and an interactive practicum: https://evemcgivern.github.io/app-governance-kit/",
+      "license": "MIT",
+      "homepage": "https://evemcgivern.github.io/app-governance-kit/"
     },
     {
       "name": "engineering-practices",
