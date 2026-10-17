@@ -51,8 +51,10 @@ machine.
 ## Procedure
 
 1. **Inventory, don't guess.** `bash <this-skill-directory>/audit.sh` lists
-   interactive shells, live test and benchmark runs, and suspected orphans
-   with PID, parent PID, age and command. It never kills anything.
+   your own interactive shells, live test and benchmark runs, and suspected
+   orphans with PID, parent PID, age and command. Other users' processes are
+   left out, because their command lines can hold secrets. It never kills
+   anything.
 2. **Resolve each PID before acting.** `ps -o pid=,args= -p <pid>` — read what
    it actually is. A PID that looked like a watch loop turned out to be an
    interactive shell in the incident above.

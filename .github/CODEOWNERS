@@ -1,6 +1,12 @@
-# Workflow, release and manifest changes need the owner's review.
+# CODEOWNERS marks the sensitive paths: workflows, release config, manifests,
+# and the scripts and tests that run on machines and in CI. Branch protection
+# does not currently require code-owner review; these rules take effect only
+# if "Require review from Code Owners" is enabled.
 /.github/                       @evemcgivern
 /release-please-config.json     @evemcgivern
 /.release-please-manifest.json  @evemcgivern
 /.claude-plugin/                @evemcgivern
 /scripts/                       @evemcgivern
+/tests/                         @evemcgivern
+/plugins/**/*.sh                @evemcgivern
+/plugins/**/*.py                @evemcgivern

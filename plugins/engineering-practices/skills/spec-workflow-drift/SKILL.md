@@ -188,11 +188,15 @@ Use the project's real source roots and languages (detected in Step 3); the
 TypeScript example below is only one case.
 
 ```bash
-# Get all implementation files
-find src -type f \( -name "*.ts" -o -name "*.tsx" \) | sort > /tmp/all-files.txt
+# Get all implementation files into a private temporary file
+all_files="$(mktemp)"
+find src -type f \( -name "*.ts" -o -name "*.tsx" \) | sort > "$all_files"
 
 # Compare against spec-referenced files
 # Files not in any spec = DRIFT
+
+# Remove the temporary file when done
+rm -f "$all_files"
 ```
 
 **Report format:**

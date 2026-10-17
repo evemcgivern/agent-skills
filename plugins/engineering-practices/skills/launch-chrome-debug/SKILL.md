@@ -17,18 +17,20 @@ The MCP server only connects to this browser when its client configuration passe
 
 ## Command
 
-The macOS, Linux and Windows Command Prompt commands are copied from the Chrome DevTools MCP [advanced usage guide](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/advanced-usage.md#manual-connection-using-port-forwarding); the PowerShell variant is written for this skill. Run the one for your system in a separate terminal, or append ` &` in a macOS or Linux shell to keep it in the background.
+The macOS, Linux and Windows Command Prompt commands are adapted from the Chrome DevTools MCP [advanced usage guide](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/docs/advanced-usage.md#manual-connection-using-port-forwarding); the PowerShell variant is written for this skill. Run the one for your system in a separate terminal, or append ` &` in a macOS or Linux shell to keep it in the background.
 
 **macOS**
 
 ```bash
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-profile-stable
+mkdir -p "$HOME/.cache/chrome-debug-profile" && chmod 700 "$HOME/.cache/chrome-debug-profile"
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir="$HOME/.cache/chrome-debug-profile"
 ```
 
 **Linux**
 
 ```bash
-/usr/bin/google-chrome --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-profile-stable
+mkdir -p "$HOME/.cache/chrome-debug-profile" && chmod 700 "$HOME/.cache/chrome-debug-profile"
+/usr/bin/google-chrome --remote-debugging-port=9222 --user-data-dir="$HOME/.cache/chrome-debug-profile"
 ```
 
 **Windows, PowerShell** (the default Windows terminal; untested)
@@ -43,7 +45,7 @@ The macOS, Linux and Windows Command Prompt commands are copied from the Chrome 
 "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir="%TEMP%\chrome-profile-stable"
 ```
 
-`--user-data-dir` is required: since Chrome 136, Chrome ignores `--remote-debugging-port` when it points at the default profile ([Chrome blog](https://developer.chrome.com/blog/remote-debugging-port)). The separate directory also keeps your regular browsing profile out of the debugging session.
+`--user-data-dir` is required: since Chrome 136, Chrome ignores `--remote-debugging-port` when it points at the default profile ([Chrome blog](https://developer.chrome.com/blog/remote-debugging-port)). The separate directory also keeps your regular browsing profile out of the debugging session. On macOS and Linux it lives in your home folder with owner-only permissions, so other users on the machine cannot read or plant files in it, as they could with a fixed folder under `/tmp`. On Windows, `%TEMP%` is already inside your own user folder.
 
 While the port is open, any application on the machine can connect to it and control the browser. Do not browse sensitive sites in this window, and close it when you are done.
 
@@ -71,4 +73,4 @@ A successful response returns JSON with `Browser`, `Protocol-Version`, and `webS
 
 ## Credit
 
-The launch commands and the `--browser-url` setup are adapted from the [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) project's documentation (`docs/advanced-usage.md`), © Google LLC, licensed under the [Apache License 2.0](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/LICENSE). The macOS, Linux and Command Prompt commands are reproduced unchanged; the PowerShell variant and the surrounding text are original to this skill.
+The launch commands and the `--browser-url` setup are adapted from the [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) project's documentation (`docs/advanced-usage.md`), © Google LLC, licensed under the [Apache License 2.0](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/LICENSE). The Command Prompt command is reproduced unchanged. The macOS and Linux commands keep the upstream flags but use a private profile folder in your home directory instead of `/tmp`; the PowerShell variant and the surrounding text are original to this skill.

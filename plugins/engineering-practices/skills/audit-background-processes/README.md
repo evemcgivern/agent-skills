@@ -19,7 +19,7 @@ Inventories stray background processes that long agent sessions leave behind, su
 List the stray background processes on this machine. Do not kill anything yet.
 The report shows PIDs 4120 and 4133 as old sleep loops that I started. Kill only those two.
 ```
-You get a report of shells, live test runs and suspected orphans, each with PID, parent, age and command. Kills go by PID only, and only for PIDs still on the list.
+You get a report of your own shells, live test runs and suspected orphans, each with PID, parent, age and command. Other users' processes are left out of the report. Kills go by PID only, and only for PIDs still on the list.
 
 **Skip it when**
 - You started one job and know its PID. Run `kill <pid>` yourself. The Claude app and ChatGPT cannot see your processes.
@@ -29,11 +29,11 @@ You get a report of shells, live test runs and suspected orphans, each with PID,
 Real output from a report run on a test machine, after starting three throwaway processes and closing the shell that launched them. The other suspects on that machine were login helpers and app agents, which is why you read every line before passing a PID to `--kill`:
 
 ```text
-=== interactive shells (never kill) ===
+=== your interactive shells (never kill) ===
   959   958 02-00:17:06 -zsh
 81810 81809    03:47:12 -zsh
 
-=== live test and benchmark runs (killing one loses its in-flight work) ===
+=== your live test and benchmark runs (killing one loses its in-flight work) ===
   none
 
 === suspected orphans: PID PPID AGE COMMAND ===

@@ -25,7 +25,9 @@ def skill_dirs():
 ALLOWED_FIELDS = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
 SEMVER = re.compile(r"^\d+\.\d+\.\d+$")
 LEAKS = [
-    (re.compile(r"[\w.+-]+@(?!users\.noreply\.github\.com)[\w-]+\.[\w.]+"), "email address"),
+    # The domain must end in a letter label, so pinned package specs such as
+    # tool@1.2.3 are not reported as addresses.
+    (re.compile(r"[\w.+-]+@(?!users\.noreply\.github\.com)[\w-]+(?:\.[\w-]+)*\.[A-Za-z]{2,}\b"), "email address"),
     (re.compile(r"/Users/[A-Za-z0-9_.-]+"), "absolute macOS home path"),
     (re.compile(r"/home/[A-Za-z0-9_.-]+"), "absolute Linux home path"),
     (re.compile(r"\b(?:sk|pk|rk)_(?:live|test)_[A-Za-z0-9]{8,}"), "Stripe-style key"),
