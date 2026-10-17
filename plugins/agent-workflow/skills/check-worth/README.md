@@ -2,8 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
-> Claude: Works in Claude Code; the Claude app can read the source but cannot check it against your repo or GitHub issues. Codex / ChatGPT: Works in Codex once network access is on for the GitHub CLI; ChatGPT can read the source but cannot check your repo or issues.
+[![Claude: Code full, app partial](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
+> In the Claude app and ChatGPT it reads the source but cannot check it against your repo or GitHub issues.
 
 Reviews an external PDF, image, screenshot, article, or URL against a repository's open and closed issues and its code, and sorts each idea into already tracked, shipped, superseded, a candidate new issue, or not actionable, with `file:line` evidence and `UNABLE TO VERIFY` where the source falls short. Read-only unless you authorize issue creation or code changes. Use on "/check-worth" or when asking whether an external idea is worth pulling into a repository.
 
@@ -28,7 +28,7 @@ After the table come the existing issue and code matches, the draft for the new 
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/check-worth/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/check-worth/` for Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/check-worth/` or `.agents/skills/check-worth/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/check-worth/` or `.claude/skills/check-worth/`. Supporting files in this folder may be required. See the [install section of the collection README](../../../../README.md#install) for plugin installs and current platform notes.
+Copy this complete folder to `~/.claude/skills/check-worth/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/check-worth/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/check-worth/` or `.agents/skills/check-worth/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/check-worth/` or `.claude/skills/check-worth/`. Supporting files in this folder may be required. See the [install section of the collection README](../../../../README.md#install) for plugin installs and current platform notes.
 
 ## Contents
 

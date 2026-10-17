@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-0.2.0-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
-[![Claude: full](https://img.shields.io/badge/Claude-full-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-full-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
+[![Claude: Code full, app full](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%9C%94-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%9C%94-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
 
 Tailor a truthful resume and cover letter to one job, then review clarity, candidate voice, factual fidelity, and rendered documents.
 
@@ -49,7 +49,7 @@ Pick your platform. Each section opens with one click.
 | Codex (CLI, IDE, app) | Copy the folder | Skill folder |
 | Claude app (claude.ai, Desktop, Cowork) | Upload | ZIP |
 | ChatGPT | Upload, or paste | ZIP or `COPY-PASTE.txt` |
-| Gemini CLI, Cursor, GitHub Copilot and other skill-folder agents | Copy the folder | Skill folder |
+| Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and other skill-folder agents | Copy the folder | Skill folder |
 | Any other assistant | Paste | `COPY-PASTE.txt` |
 
 <details>
@@ -137,9 +137,9 @@ Pick your platform. Each section opens with one click.
 </details>
 
 <details>
-<summary><b>Gemini CLI, Cursor, GitHub Copilot and other skill-folder agents</b></summary>
+<summary><b>Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and other skill-folder agents</b></summary>
 
-1. Copy this folder to `~/.agents/skills/role-ready-application/` (Gemini CLI, Cursor, GitHub Copilot, OpenCode) or to the folder your agent reads. `scripts/install.sh --target codex role-ready-application` does this.
+1. Copy this folder to `~/.agents/skills/role-ready-application/` (Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode) or to the folder your agent reads. `scripts/install.sh --target codex role-ready-application` does this.
 2. Start a new session and ask for a resume or cover letter tailored to a job.
 
 See [Install](../../../../README.md#install) in the repository README for Windsurf and Cline.

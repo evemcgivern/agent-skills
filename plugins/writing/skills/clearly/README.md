@@ -2,8 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
-> Claude: Works in Claude Code on macOS; in the Claude app the writing rules work but not the --explain video. Codex / ChatGPT: Works in Codex on macOS; in ChatGPT the writing rules work but not the --explain video.
+[![Claude: Code full, app partial](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
+> In the Claude app and ChatGPT the writing rules work; the --explain video needs a local install, so it uses a diagram or page. On a computer, it asks before installing `manim` and `ffmpeg`.
 
 Plain, short, scannable writing for tired readers, with comma-delimited lists and an optional `--explain` mode that picks a diagram, page, or short video.
 

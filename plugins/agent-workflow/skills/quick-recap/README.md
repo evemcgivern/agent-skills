@@ -2,8 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.2.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
-> Claude: Works in Claude Code; in the Claude app the status line works, but paste the install text into project instructions. Codex / ChatGPT: Works in Codex; in ChatGPT the status line works but there is no AGENTS.md to install it into.
+[![Claude: Code full, app partial](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
+> In the Claude app and ChatGPT the status line works, but the install step cannot write to your instruction files; paste the text in yourself.
 
 Defines a one-line red/yellow/green status line that ends every agent response that completes work, and how to install it as standing instructions in AGENTS.md or CLAUDE.md. Use when asked to "add a status line", "end responses with a recap", "show done/pending/blocked at the end", or when project instructions require the quick-recap convention.
 
@@ -30,7 +30,7 @@ These fail the convention: `🟢 Done` (says nothing), `🟡 Open a PR next` (a 
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/quick-recap/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/quick-recap/` for Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/quick-recap/` or `.agents/skills/quick-recap/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/quick-recap/` or `.claude/skills/quick-recap/`. Supporting files in this folder may be required. See the [collection README](../../../../README.md) for current platform notes.
+Copy this complete folder to `~/.claude/skills/quick-recap/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/quick-recap/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/quick-recap/` or `.agents/skills/quick-recap/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/quick-recap/` or `.claude/skills/quick-recap/`. Supporting files in this folder may be required. See the [collection README](../../../../README.md) for current platform notes.
 
 ## Contents
 

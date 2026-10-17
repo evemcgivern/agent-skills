@@ -2,8 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: partial](https://img.shields.io/badge/Other%20agents-partial-yellow)](../../../../README.md#compatibility)
-> Claude: Works in Claude Code; in the Claude app the handoff has no git or GitHub state. Codex / ChatGPT: The handoff is written for a fresh Claude Code session and reads CLAUDE.md, so adapt it by hand in Codex; in ChatGPT it has no git state. Other agents: The handoff is written for a fresh Claude Code session and reads CLAUDE.md, not AGENTS.md, so adapt it by hand.
+[![Claude: Code full, app partial](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex partial, ChatGPT partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%97%90%20%C2%B7%20ChatGPT%20%E2%97%90-yellow)](../../../../README.md#compatibility) [![Other agents: partial](https://img.shields.io/badge/Other%20agents-%E2%97%90-yellow)](../../../../README.md#compatibility)
+> The Claude app and ChatGPT get no git or GitHub state. Outside Claude Code, the prompt still targets a fresh Claude Code session and reads CLAUDE.md, so adapt it by hand.
 
 Writes a copy-pasteable handoff prompt that lets a fresh Claude Code session resume the current work cold: why the work matters, what shipped, decisions not to reopen, branch and PR state, the next concrete action, relevant files, standing constraints, and the last few exchanges. Use when ending a session with "hand this off", "park this for tomorrow", or before `/clear`.
 
@@ -56,7 +56,7 @@ Below the block, the reply has exactly one more line: "Copy the block above into
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/handoff/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/handoff/` for Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/handoff/` or `.agents/skills/handoff/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/handoff/` or `.claude/skills/handoff/`. The git and GitHub checks work in any local agent, but the prompt it writes is addressed to a fresh Claude Code session and takes the project name from `CLAUDE.md`, so in other agents adjust the closing line and project name by hand. See the [collection README](../../../../README.md#install) for current platform notes.
+Copy this complete folder to `~/.claude/skills/handoff/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/handoff/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/handoff/` or `.agents/skills/handoff/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/handoff/` or `.claude/skills/handoff/`. The git and GitHub checks work in any local agent, but the prompt it writes is addressed to a fresh Claude Code session and takes the project name from `CLAUDE.md`, so in other agents adjust the closing line and project name by hand. See the [collection README](../../../../README.md#install) for current platform notes.
 
 ## Contents
 

@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: full](https://img.shields.io/badge/Claude-full-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-full-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
+[![Claude: Code full, app full](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%9C%94-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%9C%94-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
 
 Reconsiders a project or shelved idea against what tools and models can do now. It proposes three different, grounded outcomes, separates observed facts from assumptions, recommends one, and designs the smallest experiment that would settle its hardest uncertainty. It is advisory: it never starts work, spends money, or expands an assignment on its own. It can hand a chosen outcome to the mission skill, if installed.
 
@@ -37,7 +37,7 @@ Nothing starts until you answer: the skill only advises.
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/ambition/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/ambition/` for Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/ambition/` or `.agents/skills/ambition/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/ambition/` or `.claude/skills/ambition/`. Supporting files in this folder may be required. See the [collection README](../../../../README.md#install) for current platform notes.
+Copy this complete folder to `~/.claude/skills/ambition/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/ambition/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/ambition/` or `.agents/skills/ambition/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/ambition/` or `.claude/skills/ambition/`. Supporting files in this folder may be required. See the [collection README](../../../../README.md#install) for current platform notes.
 
 ## Contents
 

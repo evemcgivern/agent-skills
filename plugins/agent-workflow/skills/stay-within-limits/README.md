@@ -2,8 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.2.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: partial](https://img.shields.io/badge/Other%20agents-partial-yellow)](../../../../README.md#compatibility)
-> Claude: Works in Claude Code; the Claude app has no subagents, shell or scheduled wake-up. Codex / ChatGPT: In Codex the waves run, but the usage checks read Claude Code only, so you supply the usage numbers; ChatGPT cannot run it. Other agents: Needs subagents, a usage reading and a scheduled wake-up, and its usage checks target Claude Code only.
+[![Claude: Code full, app no](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%9C%96-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex partial, ChatGPT no](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%97%90%20%C2%B7%20ChatGPT%20%E2%9C%96-yellow)](../../../../README.md#compatibility) [![Other agents: partial](https://img.shields.io/badge/Other%20agents-%E2%97%90-yellow)](../../../../README.md#compatibility)
+> The Claude app and ChatGPT cannot run it. Codex and other agents: the usage checks read Claude Code only, so you supply the usage numbers, and no scheduled wake-up is documented.
 
 Keeps long-running or parallel agent work inside 5-hour and weekly usage limits by running work in bounded waves, checking usage between waves, pausing at 95%, and resuming only after the window resets. Use for multi-wave subagent runs, overnight or unattended jobs, or when asked to "don't blow my usage", "watch my limits", "pause before the cap", or "resume when the window resets".
 
@@ -33,7 +33,7 @@ then hourly until it drops below 95%. Remaining: waves 3 and 4, six subagents.
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/stay-within-limits/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/stay-within-limits/` for Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/stay-within-limits/` or `.agents/skills/stay-within-limits/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/stay-within-limits/` or `.claude/skills/stay-within-limits/`. The usage checks (`ccusage` and `/usage`) read Claude Code only: in Codex and other agents it still runs work in waves, but you supply the usage numbers and no automatic wake-up is documented for those agents. Supporting files in this folder may be required. See the [collection README](../../../../README.md) for current platform notes.
+Copy this complete folder to `~/.claude/skills/stay-within-limits/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/stay-within-limits/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/stay-within-limits/` or `.agents/skills/stay-within-limits/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/stay-within-limits/` or `.claude/skills/stay-within-limits/`. The usage checks (`ccusage` and `/usage`) read Claude Code only: in Codex and other agents it still runs work in waves, but you supply the usage numbers and no automatic wake-up is documented for those agents. Supporting files in this folder may be required. See the [collection README](../../../../README.md) for current platform notes.
 
 ## Contents
 

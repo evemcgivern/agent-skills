@@ -2,8 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
-> Claude: Works in Claude Code on macOS or Linux; the Claude app has no git worktree and keeps no state between sessions. Codex / ChatGPT: Works in Codex on macOS or Linux (state outside the workspace needs approval or --state-dir); ChatGPT keeps no state and has no worktree.
+[![Claude: Code full, app no](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%9C%96-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT no](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%9C%96-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
+> The Claude app and ChatGPT cannot run it: they have no git worktree and keep no state between sessions.
 
 Keeps a small mission record outside the repository so work can resume cleanly in a later agent session. The record holds the outcome, constraints, milestones, decisions, next action, and hashed evidence files, and is bound to one Git worktree. The bundled script never runs stored actions, starts background processes, or changes Git state, and it uses revision checks and file locks so stale writers fail instead of overwriting state. Use it when asked to start, checkpoint, resume, or complete a mission across sessions.
 
