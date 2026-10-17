@@ -7,6 +7,25 @@
 
 Tracks a multi-issue goal as a one-line progress strip that the agent re-prints whenever an item changes state. Symbols separate not started, in progress, merged to the integration branch, shipped, and verified, plus unproven and blocked markers. The strip round-trips, so pasting it back restores the list, and `--sync` checks recorded merge SHAs against git to move merged items to shipped.
 
+## When and how to use it
+
+**Use it when**
+- You track six issues for one release and are tired of asking for status.
+- You need to see which merged work is not yet deployed.
+- You add or drop issues during the week and want one line that stays current.
+
+**Try it**
+
+```text
+/goal-checklist 130, 107, 106
+/goal-checklist --sync
+```
+
+A one-line strip: one symbol per issue (not started, in progress, merged, shipped, verified, unproven or blocked) and a tally. After that, the agent adds the strip to any reply where an item changes. The list lasts for the session. Paste the last strip into a new session to restore it. Other agents can ask in words.
+
+**Skip it when**
+- You have one issue or one task. A plain to-do list is enough.
+
 ## What it looks like
 
 The legend, left to right through the pipeline:

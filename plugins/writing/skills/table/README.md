@@ -6,6 +6,25 @@
 
 Turns information into a table a reader can scan in one pass: rows are the things compared, columns are the attributes that change the decision, unknown cells are marked, and the answer is bolded. It also says when content should stay prose or a list. Use on `/table` or when asked to "put that in a table", "tabulate this", or "compare these side by side".
 
+## When and how to use it
+
+**Use it when**
+- You compare three vendor quotes side by side.
+- You have test failures across several cases with the same fields.
+- A paragraph repeats the same fields for each item.
+
+**Try it**
+
+```text
+/table Acme: $4,200, 14 days. Birch: $3,900, 21 days. Cedar: $4,500, 10 days.
+Put the failing tests from this log in a table, sorted by cause.
+```
+
+A Markdown table with one row per item, the answer cells in bold, a source line if the values came from a file or command, and one line for any cell it could not fill. Other agents can ask in words.
+
+**Skip it when**
+- Your content is a list of steps or a single idea. The skill gives prose or a list instead.
+
 ## What it looks like
 
 A messy comparison turned into a table. Example output, invented data.

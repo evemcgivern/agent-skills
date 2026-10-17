@@ -6,6 +6,23 @@
 
 Score an organization's IT asset management maturity across nine process areas, name the three biggest gaps, and produce a 90-day plan tied to ISO/IEC 19770-1 and COBIT BAI09. Use for a baseline assessment or a yearly re-check.
 
+## When and how to use it
+
+**Use it when**
+- You need a baseline for a new IT asset management program.
+- You run the yearly re-check and want to see what moved.
+- Your leadership asks for a 90-day plan.
+
+**Try it**
+```text
+Assess our ITAM maturity. Ask me the questions one area at a time.
+Here are our answers for the nine areas. Score them and write the 90-day plan.
+```
+You get a 1 to 5 score for each of nine areas, the three biggest gaps, and a 90-day plan with an owner role, three actions and proof for each gap. Scores drop where evidence is thin.
+
+**Skip it when**
+- You want to decide keep or retire for single apps. Use the rationalization skill.
+
 ## What it looks like
 
 Example output on the stated scores in the kit's fictional demo estate (1 ad hoc, 5 improving):

@@ -6,6 +6,25 @@
 
 Rewrites a prompt, system prompt, agent definition or skill so Claude Sonnet 5.5 does what you meant. It frames the request problem-first, adds only the fixes that match a symptom you have seen, and suggests effort and thinking settings. The fixes paraphrase Anthropic's [Prompting Claude Sonnet 5.5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5) guide (read 2026-10-03, rechecked 2026-10-17). Use on `/sonnet-prompt-improver` or when asked to "improve this prompt for Sonnet".
 
+## When and how to use it
+
+**Use it when**
+- Sonnet keeps stopping to ask questions before the work is done.
+- You write a system prompt or agent definition for Sonnet 5.5.
+- A JSON answer is wrong or does not parse.
+
+**Try it**
+
+```text
+/sonnet-prompt-improver Why does Sonnet keep stopping to ask me? Here is my system prompt: [paste]
+Improve this agent definition for Sonnet 5.5: [paste]
+```
+
+The improved prompt in one code block, with one line per change tied to the symptom you named. For standing prompts, you also get a suggested effort setting. Other agents can ask in words.
+
+**Skip it when**
+- The prompt works, or the model is not Sonnet 5.5. The skill adds fixes only for a symptom you can see.
+
 ## What it looks like
 
 Example, invented prompt. What you type, including the symptom you have seen:

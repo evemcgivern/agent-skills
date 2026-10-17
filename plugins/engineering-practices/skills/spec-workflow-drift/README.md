@@ -9,6 +9,23 @@
 
 Compares the specs in `.spec-workflow/` with the code. It maps which source files each spec covers, lists files no spec documents, flags specs with no recent implementation activity and critical files (auth, AI safety, licensing rules) that lack a spec, and writes a coverage report. Use on `/spec-workflow-drift` or when asked to "check spec drift", "show spec coverage", or "which files aren't in any spec".
 
+## When and how to use it
+
+**Use it when**
+- You finished an implementation phase and want to know which files no spec covers.
+- You prepare a code review and want to check that specs still match the code.
+- You suspect some specs went stale.
+
+**Try it**
+```text
+/spec-workflow-drift --quick
+Check drift for the checkout-flow spec only, for files changed since 2026-09-01.
+```
+You get a report under `docs/spec-drift-reports/` with coverage by spec, uncovered files, risk levels, stale specs and action items. `--quick` gives a one-page summary. Other agents can ask in words.
+
+**Skip it when**
+- You want to write or approve specs. Use the spec-workflow skill.
+
 ## What it looks like
 
 Example output, invented data. A full report starts with the totals, flags any security-relevant file that no spec covers, and ends with prioritized actions:

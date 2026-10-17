@@ -7,6 +7,25 @@
 
 Makes the most capable, most expensive model in a session the senior decision-maker. It keeps that model's reasoning for intent, architecture, decomposition, tradeoffs, final review, and synthesis, and routes discovery, implementation, tests, logs, and verification to cheaper agents by tier. For high-risk work it recommends a review by a model from a different vendor when one is available, and otherwise a fresh same-vendor reviewer, labelled as not cross-vendor.
 
+## When and how to use it
+
+**Use it when**
+- Your main session runs on the most expensive model and you want it to decide, not to read files.
+- A large refactor needs design choices and also a lot of searching and test runs.
+- You want a short final answer with the decisions and the checks, not a long log.
+
+**Try it**
+
+```text
+Act as chief agent. Plan the move of the orders service to a new queue and delegate the file reading and test runs.
+Delegate the grunt work and keep your own reasoning for the design choices.
+```
+
+Cheaper agents gather facts and do scoped edits. The top model decides and reviews their evidence. You get a short answer: what was decided, the check result and the remaining risk.
+
+**Skip it when**
+- The task is small, or the main model is not top-tier. Use efficient-frontier-routing instead.
+
 ## What it looks like
 
 Who does what. Tier names follow the Claude 5 family; with another provider, map them to its strong, standard, and small models.

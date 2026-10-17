@@ -6,6 +6,23 @@
 
 Design or review the launch of a governance body such as a software governance council, ITAM steering group, or AI governance board — charter, decision rights, membership, intake path, cadence, 90-day launch plan, and success measures. Use when starting a council or when an existing one has become a bottleneck or a rubber stamp.
 
+## When and how to use it
+
+**Use it when**
+- You start a software or AI governance council from scratch.
+- Your council is a bottleneck and every request waits for the meeting.
+- Your council approves everything and nobody trusts it.
+
+**Try it**
+```text
+Draft a charter for an AI governance board at a 400-person company.
+Review this council charter and list the gaps.
+```
+You get a draft charter, a decision-rights table and a 90-day launch plan. For a review, you get a gap table. The sponsor signs off.
+
+**Skip it when**
+- You need a decision on one request. Use ai-intake or rationalization.
+
 ## What it looks like
 
 Review mode on the draft council charter in the kit's fictional demo estate:

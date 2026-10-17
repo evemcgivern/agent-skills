@@ -6,6 +6,23 @@
 
 Review application user and role exports against HR records, find orphaned, excessive, and privileged access, and produce an evidence summary and auditor-ready memo mapped to ISO/IEC 27001 and COBIT DSS05. Use for quarterly or annual access reviews.
 
+## When and how to use it
+
+**Use it when**
+- Your quarterly access review is due and you have an account export and an HR list.
+- A person left in May and you need to know if their accounts still exist.
+- An auditor asks for a memo on who can reach the finance apps.
+
+**Try it**
+```text
+Review this account export against the HR list. Flag orphaned, dormant and privileged accounts.
+Write the auditor memo for the Q3 access review of the finance apps.
+```
+You get an exceptions table, an evidence summary and a one-page auditor memo. Dormant means no login in 90 days. Each removal is marked **Decision needed** for the application owner.
+
+**Skip it when**
+- You want accounts removed. This skill lists exceptions. The application owner decides each removal.
+
 ## What it looks like
 
 Example output on the kit's fictional demo estate (120 accounts, 80 HR records, export checked 2026-09-01). Accounts on confidential applications come first:

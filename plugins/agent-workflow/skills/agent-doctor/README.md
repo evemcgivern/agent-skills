@@ -7,6 +7,25 @@
 
 Inspects a project's discovered agent instructions (`AGENTS.md`, `CLAUDE.md`) and skill folders under `.agents`, `.codex`, and `.claude` for static wiring problems. The bundled scanner is read-only and bounded: it never loads, changes, or enables anything, rejects symlink escapes, and reports findings as Markdown or JSON. An optional `--model <name>` option reports, as an advisory, skills whose prose claims a different model identity. The `--usage` mode reads local Claude Code and Codex session logs (read-only, skill names and counts only) and lists skills that are rarely or never called, with offline freshness notes. The agent then asks the owner, skill by skill, whether to update, keep, or archive; `scripts/skill_archive.py` archives only after an explicit yes, never deletes, and can restore.
 
+## When and how to use it
+
+**Use it when**
+- A skill you wrote does not load, and you do not know why.
+- Two skills share a name, or a link inside a skill points to a missing file.
+- Your skill folder is crowded and you want to know which skills you never call.
+
+**Try it**
+
+```text
+Why does my release-notes skill not load? Check my agent setup.
+Which of my skills have no calls in the last 90 days?
+```
+
+A table of problems with severity, file and line, or a usage table with a verdict for each skill. For each rarely used skill, the agent asks if you want to update, keep or archive it. It archives only after your yes.
+
+**Skip it when**
+- You need to know if a skill works when it runs. This scan reads files only and does not run anything.
+
 ## What it looks like
 
 Real output, from a run on a throwaway project and home folder built for this example (paths shortened to `~` and `<project>`, sources list left out). The wiring scan lists each problem with its file and line:

@@ -7,6 +7,25 @@
 
 Routes each task to a suitable model tier in Claude Code, Codex, or another agent host that can start subagents on a chosen model (Gemini CLI, for example), following the user's routing preferences. Keeps small tasks local, delegates discovery, routine coding, and testing to cheaper subagents, and sends difficult decisions and risky reviews to a stronger one. Use when deciding whether to delegate, writing subagent handoffs, or setting routing preferences, or when asked to "save tokens", "use cheaper models", "fan out subagents", "stay inside my quota", or "efficient-frontier-routing help".
 
+## When and how to use it
+
+**Use it when**
+- A task mixes search, edits and test runs, and you want cheaper models for the routine parts.
+- A change touches billing or auth and you want a stronger model to review it.
+- You want to write a clear handoff for a subagent.
+
+**Try it**
+
+```text
+Fix the failing checkout tests. Use cheaper agents to search and run tests. Use a stronger one to review the refund change.
+/efficient-frontier-routing help
+```
+
+The work is split by model tier. The agent reviews what the subagents return and reports which model ran each step. The help command explains the settings and then stops. Other agents can ask in words.
+
+**Skip it when**
+- The task is small, such as a one-file edit. Doing it in the main session costs less than a handoff.
+
 ## What it looks like
 
 How one task gets routed with the default settings:

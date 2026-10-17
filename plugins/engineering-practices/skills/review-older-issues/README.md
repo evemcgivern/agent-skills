@@ -7,6 +7,23 @@
 
 Revalidates a bounded batch of open GitHub issues against current code, pull requests and related closed issues. Each issue gets one verdict: still valid, shipped, superseded or duplicate, needs rescoping, unwarranted, or unverified. The skill closes or rewrites issues only when the evidence supports it. It detects the repository's own labels, issue templates and branch conventions instead of assuming them, and needs the GitHub CLI (`gh`). Use on `/review-older-issues` or when asked to "review issues 1-100" or "clean up stale issues".
 
+## When and how to use it
+
+**Use it when**
+- Your backlog has issues #1 to #100 and many may be shipped already.
+- You plan a sprint and need to know which old issues still hold.
+- A big merge landed on an integration branch and its issues stayed open.
+
+**Try it**
+```text
+/review-older-issues 1-50
+Are issues 12, 18 and 31 still valid? Check the code and the pull requests.
+```
+You get one verdict per open issue (VALID, SHIPPED, SUPERSEDED, RESCOPE, UNWARRANTED or UNVERIFIED) with evidence. It closes or rescopes issues with a comment, so start with a small batch. Other agents can ask in words.
+
+**Skip it when**
+- You want new issues written or code changed. This skill does neither.
+
 ## What it looks like
 
 Example output, invented data. Each issue that was open when the batch started gets exactly one verdict, the evidence behind it, and the action taken:

@@ -11,6 +11,25 @@ Plain, short, scannable writing for tired readers, with comma-delimited lists an
 
 Adapted from ASD-STE100 (controlled technical English), Strunk's *The Elements of Style*, and the [i-have-adhd](https://github.com/ayghri/i-have-adhd) plugin (MIT, Ayoub Ghriss). See [THIRD-PARTY.md](../../../../THIRD-PARTY.md).
 
+## When and how to use it
+
+**Use it when**
+- You write a status update, error message or commit message and want it short.
+- A doc is hard to read and needs plain sentences.
+- You want a topic explained as a diagram, page or short video.
+
+**Try it**
+
+```text
+Rewrite this status update clearly: [paste]
+Explain how our retry queue works --explain
+```
+
+Text that leads with the answer, with short sentences and one action per step. With --explain, the agent picks a diagram, page, video or text only, and tells you which in one line. Video needs manim, ffmpeg and macOS say. The agent asks before it installs anything.
+
+**Skip it when**
+- You write fiction, marketing copy, or text that must keep your own voice.
+
 ## What it looks like
 
 The same status update before and after the skill. Example output, invented data.

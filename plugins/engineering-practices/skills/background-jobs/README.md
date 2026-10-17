@@ -6,6 +6,23 @@
 
 Designs scheduled and background work on Render: when to use a cron job and when to use a long-running worker, how to make jobs idempotent, how to claim jobs from a Postgres queue table, retries with backoff, timeout budgets, catch-up after missed runs, and heartbeat monitoring so a failed job raises an alert instead of failing silently. Use it when asked to set up a cron job, build a background worker, or find out why a nightly job failed without anyone noticing.
 
+## When and how to use it
+
+**Use it when**
+- You need a nightly report job on Render and cannot tell if it is a cron job or a worker.
+- A 3am job failed and nobody knew until a customer wrote in.
+- Two workers pick the same row from a Postgres queue table.
+
+**Try it**
+```text
+Design a nightly cron job on Render that emails a usage digest. Make it safe to run twice.
+Our invoice sync worker sometimes handles the same row twice. Show me how to claim jobs safely and add a heartbeat alert.
+```
+You get the job code and a short runbook note: schedule, expected duration, what the heartbeat alert means, and how to re-run it by hand.
+
+**Skip it when**
+- The work must react within seconds of an event and fits a request timeout. Use a webhook route handler instead.
+
 ## What it looks like
 
 The life of one job pulled from a Postgres queue table. A worker claims exactly one row in a single statement, so two workers never take the same job. Only transient errors are retried, with a capped backoff; anything else, or a job that runs out of attempts, is marked `failed` and raises an alert instead of disappearing:

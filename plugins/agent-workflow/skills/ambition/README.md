@@ -6,6 +6,25 @@
 
 Reconsiders a project or shelved idea against what tools and models can do now. It proposes three different, grounded outcomes, separates observed facts from assumptions, recommends one, and designs the smallest experiment that would settle its hardest uncertainty. It is advisory: it never starts work, spends money, or expands an assignment on its own. It can hand a chosen outcome to the mission skill, if installed.
 
+## When and how to use it
+
+**Use it when**
+- You shelved an idea a year ago and wonder if it is easier now.
+- A project feels small and you want options for something bigger.
+- You must choose where to spend the next month and want a test before you commit.
+
+**Try it**
+
+```text
+Revisit the offline sync idea we shelved for the notes app. Is it worth trying now?
+Think bigger about my recipe app. What outcomes are worth a test?
+```
+
+A short context note, a table of three options, one recommendation, and a small experiment with a pass or fail rule and a cost ceiling. The agent does not run the experiment until you say go.
+
+**Skip it when**
+- The work is already approved and you want it built. Ask for the build directly.
+
 ## What it looks like
 
 Example output, invented data, shortened. The reply is a short context, an options table, the experiment for the recommended option, and the decision left to you.

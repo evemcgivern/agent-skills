@@ -7,6 +7,25 @@
 
 Reports and removes the characters that mark prose as machine-written: invisible characters (zero-width space, word joiner, byte-order mark, soft hyphen) and non-standard spaces always, and visible tells (em dashes, en dashes, curly quotes, the ellipsis glyph) only when asked. It is not watermark removal. Use before publishing a blog post, doc, or README written with AI help, or when someone asks to "strip invisible Unicode" or says text "looks like AI wrote it". The bundled script is stdlib-only Python and exits 1 when tells are found, so report mode also works as a CI check.
 
+## When and how to use it
+
+**Use it when**
+- You will publish a blog post that you drafted with AI help.
+- Pasted text has invisible characters that break search or diffs.
+- You want a check on a docs folder that fails when such characters appear.
+
+**Try it**
+
+```text
+/scrub-ai-tells draft.md
+Remove the invisible characters in draft.md and show me the diff.
+```
+
+A report with counts per character type, such as zero-width spaces, em dashes and curly quotes. Invisible characters are removed with --write, and the original is saved as draft.md.bak. Punctuation changes happen only after you agree. Other agents can ask in words.
+
+**Skip it when**
+- You want text that sounds less like AI, or you want to remove a watermark. This skill changes characters only.
+
 ## What it looks like
 
 A real run on a two-line draft that holds a zero-width space, a no-break space, a narrow no-break space, two em dashes, three curly quotes and an ellipsis glyph. Report mode counts each kind and exits 1, so it also works as a CI check:

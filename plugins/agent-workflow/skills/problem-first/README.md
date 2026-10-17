@@ -6,6 +6,25 @@
 
 Rewrites a draft prompt for an agent so it hands over the problem instead of your solution: problem, evidence, your fix ideas labelled as optional, an autonomy line, and what done means. It moves and labels your words without changing them, and says so when a prompt is already specific enough to send as is. Use on "/problem-first", "rewrite this prompt problem-first", or "am I prescribing a fix".
 
+## When and how to use it
+
+**Use it when**
+- You wrote a prompt that already says how to fix the bug, and you are not sure the fix is right.
+- An agent keeps failing with your instructions and you want to hand over the problem.
+- You have a screenshot or error text and want it placed where the agent will use it.
+
+**Try it**
+
+```text
+/problem-first The export button is slow. Add a spinner and cache the CSV.
+Rewrite this prompt problem-first before I send it: [paste your draft]
+```
+
+A rewrite in one code block with Problem, Evidence, Ideas, Autonomy and Done means, plus one line per change. Your words stay as you typed them. The skill does not send or run the prompt. Other agents can ask in words.
+
+**Skip it when**
+- The change is exact, such as a rename. The skill tells you to send it as it is.
+
 ## What it looks like
 
 Example, invented prompt. What you type:

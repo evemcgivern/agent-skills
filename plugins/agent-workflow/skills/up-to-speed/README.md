@@ -6,6 +6,25 @@
 
 Gets you up to speed on an unfamiliar field in one sitting (roughly 45-90 minutes, shorter on request), one question at a time: the field's map, the 8-10 terms insiders use, the 3-5 ideas that explain most of it, live debates, and a scored exam with no hints. Use with "get me up to speed on", "crash course", "brief me on", or before a meeting in an industry you don't know.
 
+## When and how to use it
+
+**Use it when**
+- You have a meeting tomorrow with a client in an industry you do not know.
+- You start a new job and hear terms you cannot follow.
+- You keep hearing about a topic and want the core in one sitting.
+
+**Try it**
+
+```text
+/up-to-speed freight logistics
+Get me up to speed on carbon credits. I have 30 minutes.
+```
+
+A live session, one question at a time, with a no-hints exam at the end. Then a written briefing with the map, key terms, core ideas, debates, your score, your weak spot and three recall questions. With less time, the agent shortens the plan. Other agents can ask in words.
+
+**Skip it when**
+- You need one fact or a source summary. Ask the question directly.
+
 ## What it looks like
 
 One sitting, one question at a time. Every round ends with a check, and every miss is logged and re-tested before the exam:

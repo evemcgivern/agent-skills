@@ -7,6 +7,23 @@
 
 Starts Google Chrome with remote debugging on port 9222 and a separate profile on macOS, Linux or Windows, so the Chrome DevTools MCP server can connect to it through `--browser-url`. Use when Chrome DevTools MCP tools fail because no debug target is available.
 
+## When and how to use it
+
+**Use it when**
+- Your Chrome DevTools MCP tools fail with a connection error.
+- You want an agent to inspect a live page in a real browser on port 9222.
+- You want a separate debug profile so your daily browsing stays out of the session.
+
+**Try it**
+```text
+Start Chrome for debugging so the DevTools MCP can connect.
+The list_pages call failed. Check that port 9222 is responding.
+```
+You get the launch command for macOS, Linux or Windows, and a `curl` check on `http://127.0.0.1:9222/json/version` that returns JSON when it works.
+
+**Skip it when**
+- Your MCP server does not use `--browser-url`. It starts its own Chrome, so you do not need this.
+
 ## What it looks like
 
 A representative exchange on macOS (example output, invented data):

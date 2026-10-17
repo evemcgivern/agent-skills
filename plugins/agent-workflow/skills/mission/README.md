@@ -7,6 +7,25 @@
 
 Keeps a small mission record outside the repository so work can resume cleanly in a later agent session. The record holds the outcome, constraints, milestones, decisions, next action, and hashed evidence files, and is bound to one Git worktree. The bundled script never runs stored actions, starts background processes, or changes Git state, and it uses revision checks and file locks so stale writers fail instead of overwriting state. Use it when asked to start, checkpoint, resume, or complete a mission across sessions.
 
+## When and how to use it
+
+**Use it when**
+- A job runs for several days and has clear milestones.
+- You want to record decisions and proof files so the next session does not guess.
+- You return to a task after a break and need the next unfinished step.
+
+**Try it**
+
+```text
+Start a mission called release-notes. Outcome: publish accurate release notes. Milestone: draft, done when the notes name every user-facing change.
+Resume the release-notes mission.
+```
+
+A saved record outside your repo. On resume, you get the next unfinished milestone and the recorded next action. Each finished milestone needs an evidence file, and the record stores that file's hash. The skill never runs the next action for you. It needs a Git worktree and a POSIX system.
+
+**Skip it when**
+- The task fits one session, or you want the agent to carry out the work. Mission only records progress.
+
 ## What it looks like
 
 Real output, from a throwaway Git repository and state folder. The mission has two milestones, `draft` and `review`. One checkpoint marked `draft` complete with an evidence file. A later session asks where things stand (JSON trimmed to the keys that matter):

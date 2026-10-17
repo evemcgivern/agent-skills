@@ -7,6 +7,25 @@
 
 Writes a copy-pasteable handoff prompt that lets a fresh session of your agent (Claude Code, Codex, Gemini CLI and others) resume the current work cold: why the work matters, what shipped, decisions not to reopen, branch and PR state, the next concrete action, relevant files, standing constraints, and the last few exchanges. Use when ending a session with "hand this off", "park this for tomorrow", or before `/clear`.
 
+## When and how to use it
+
+**Use it when**
+- You stop mid-work and the next session must resume without re-reading everything.
+- You are about to clear the session and want to keep the decisions.
+- You want to move the work to a different agent.
+
+**Try it**
+
+```text
+/handoff parking this for tomorrow
+Write up where we are so a new session can resume this work.
+```
+
+One block to paste into a fresh session. It has the reason for the work, what shipped, decisions not to reopen, branch and uncommitted files, the next action and the key files. Your note goes in at the end, word for word. Other agents can ask in words.
+
+**Skip it when**
+- The work is finished and merged. A commit message or PR note is enough.
+
 ## What it looks like
 
 Example output, invented data, shortened (a real handoff runs 600-1500 words). The sections always appear in this order. Open questions and the free-text note are left out here because there were none:
