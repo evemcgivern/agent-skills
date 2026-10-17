@@ -43,7 +43,7 @@ This copies the skill to `~/.agents/skills/role-ready-application`. Start a new 
    ```bash
    cd plugins/role-ready-application/skills && zip -r role-ready-application.zip role-ready-application
    ```
-2. In Claude, open **Settings → Capabilities → Skills** and upload `role-ready-application.zip`.
+2. In Claude, turn on code execution under **Settings → Capabilities**, then open **Customize → Skills → + → Create skill → Upload a skill** and upload `role-ready-application.zip`. On Enterprise, an owner must first enable skills under Organization settings.
 3. Start a chat and attach your resume and the job description.
 
 Local files in `~/.claude/skills/` do not sync to Claude.ai, so the upload step is needed.
@@ -52,7 +52,7 @@ Local files in `~/.claude/skills/` do not sync to Claude.ai, so the upload step 
 <details>
 <summary><b>ChatGPT</b></summary>
 
-Where your workspace allows uploadable skills, zip the folder as above and upload it under **Plugins → Skills → Create → Upload from your computer**. Availability depends on your plan and workspace admin settings.
+Skills in ChatGPT are available on Business, Enterprise, Healthcare and Edu plans. Zip the folder as above and upload it under **Plugins → Skills → Create → Upload from your computer**; an admin must enable skill uploading, and ChatGPT may mark an upload Needs Review or Blocked.
 
 If you cannot upload skills, open a new chat or project and paste the contents of [`COPY-PASTE.txt`](skills/role-ready-application/COPY-PASTE.txt) as the instructions, then attach your resume and the job description. It is the same workflow as a single plain-text file.
 </details>
