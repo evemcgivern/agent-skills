@@ -10,13 +10,7 @@
     {
       "name": "ship-and-operate",
       "source": "./plugins/ship-and-operate",
-      "description": "Run production and keep tabs on work: incident response, observability setup, repo activity summaries, comma-delimited issue lists.",
-      "license": "MIT"
-    },
-    {
-      "name": "build-patterns",
-      "source": "./plugins/build-patterns",
-      "description": "Patterns for building product code: API design, Stripe billing, and analytics instrumentation.",
+      "description": "Summarize repo activity: open issues and PRs, CI health, and progress.",
       "license": "MIT"
     },
     {

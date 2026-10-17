@@ -1,6 +1,6 @@
 # Eve McGivern's Agent Skills
 
-[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-21-blue.svg)](#skills)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-15-blue.svg)](#skills)
 
 Skills for Claude Code and Codex, packaged as a Claude Code plugin marketplace. Each skill is a folder with a `SKILL.md`. Pick your tool below; one click opens the steps.
 
@@ -12,7 +12,6 @@ Skills for Claude Code and Codex, packaged as a Claude Code plugin marketplace. 
 ```bash
 claude plugin marketplace add evemcgivern/agent-skills
 claude plugin install ship-and-operate@evemcgivern-skills
-claude plugin install build-patterns@evemcgivern-skills
 claude plugin install agent-workflow@evemcgivern-skills
 claude plugin install writing@evemcgivern-skills
 claude plugin install role-ready-application@evemcgivern-skills
@@ -66,7 +65,7 @@ A `SKILL.md` folder is not an account-level ChatGPT install. On workspaces that 
 
 ## Skills
 
-Looking for `deploy`, `pr-wait`, `review-merge-pipeline`, `spec-review`, `auth-hardening`, `rate-limit-audit`, `webhook-reliability`, `exposure-scan`, `db-migration-safety`, `backup-verify` or `dependency-upgrade`? They live in [stylusnexus/agent-plugins](https://github.com/stylusnexus/agent-plugins), a separate marketplace. Five more worth a look there:
+Looking for `deploy`, `pr-wait`, `review-merge-pipeline`, `spec-review`, `auth-hardening`, `rate-limit-audit`, `webhook-reliability`, `exposure-scan`, `db-migration-safety`, `backup-verify`, `dependency-upgrade`, `stripe-billing`, `api-design`, `analytics-instrumentation`, `incident-response`, `observability-setup` or `cdf`? They live in [stylusnexus/agent-plugins](https://github.com/stylusnexus/agent-plugins), a separate marketplace. Five more worth a look there:
 
 - `ship-issues` takes a batch of GitHub issues from intake through merge, and on to deploy when you ask for a release.
 - `start-issue` reads an issue in full, checks the work isn't already shipped, and cuts a correctly named branch.
@@ -78,20 +77,9 @@ Check out others at [stylusnexus/agent-plugins](https://github.com/stylusnexus/a
 
 ### `ship-and-operate`
 
-Run production and keep tabs on work: incident response, observability setup, repo activity summaries, comma-delimited issue lists.
+Summarize repo activity: open issues and PRs, CI health, and progress.
 
-- [`cdf`](plugins/ship-and-operate/skills/cdf/README.md) v0.1.0 — Use when the user types /cdf or $cdf, or asks for issue numbers "comma-delimited". Output any list of GitHub issues as one plain comma-separated line of numbers, nothing else added.
-- [`incident-response`](plugins/ship-and-operate/skills/incident-response/README.md) v0.2.0 — Production incident runbook for a small team - severity call, fixed triage order, rollback-first decision, user comms, and a one-page blameless postmortem.
-- [`observability-setup`](plugins/ship-and-operate/skills/observability-setup/README.md) v0.2.0 — Wire a web service for observability sized for a small team - health-check endpoint, uptime checks, log forwarding, error tracking, product analytics, LLM cost tracking, and page-vs-ticket alert thresholds.
 - [`repo-activity-summary`](plugins/ship-and-operate/skills/repo-activity-summary/README.md) v0.2.0 — Summarize current GitHub repo activity - open issues, open PRs with check status, recent CI runs, and local branch state - in one report with planning takeaways, via the gh CLI.
-
-### `build-patterns`
-
-Patterns for building product code: API design, Stripe billing, and analytics instrumentation.
-
-- [`analytics-instrumentation`](plugins/build-patterns/skills/analytics-instrumentation/README.md) v0.2.0 — PostHog event taxonomy and instrumentation review - object_verb naming, flat property schemas, identify/reset/group calls, PII exclusion, LLM usage events, a starter dashboard set (activation, retention, feature funnel), and a per-feature checklist.
-- [`api-design`](plugins/build-patterns/skills/api-design/README.md) v0.2.0 — REST conventions for Next.js App Router route handlers — resource naming, versioning, cursor pagination, one error envelope, Zod request/response validation, status-code rules, OpenAPI generated from Zod, and response scrubbing (no secrets, hashes, or other users' data).
-- [`stripe-billing`](plugins/build-patterns/skills/stripe-billing/README.md) v0.2.0 — Implement or review Stripe subscription billing in a Next.js App Router app — Checkout Sessions, customer portal, signed and idempotent webhook handler, plan changes and proration, trials, and dunning.
 
 ### `agent-workflow`
 
