@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: full](https://img.shields.io/badge/Claude-full-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-full-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
+[![Claude: Code full, app full](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%9C%94-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%9C%94-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
 
 Rewrites a draft prompt for an agent so it hands over the problem instead of your solution: problem, evidence, your fix ideas labelled as optional, an autonomy line, and what done means. It moves and labels your words without changing them, and says so when a prompt is already specific enough to send as is. Use on "/problem-first", "rewrite this prompt problem-first", or "am I prescribing a fix".
 
@@ -34,7 +34,7 @@ A fully specified edit, such as "rename `userId` to `accountId` in auth.ts", get
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/problem-first/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/problem-first/` for Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/problem-first/` or `.agents/skills/problem-first/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/problem-first/` or `.claude/skills/problem-first/`. Supporting files in this folder may be required. See the [install section of the collection README](../../../../README.md#install) for plugin installs and current platform notes.
+Copy this complete folder to `~/.claude/skills/problem-first/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/problem-first/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/problem-first/` or `.agents/skills/problem-first/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/problem-first/` or `.claude/skills/problem-first/`. Supporting files in this folder may be required. See the [install section of the collection README](../../../../README.md#install) for plugin installs and current platform notes.
 
 ## Contents
 

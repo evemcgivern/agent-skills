@@ -2,7 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: full](https://img.shields.io/badge/Claude-full-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-full-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
+[![Claude: Code full, app partial](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
+> In the Claude app and ChatGPT it works from exports you upload; live Stripe and PostHog queries depend on network access that is not guaranteed.
 
 Computes and reports MRR, revenue and logo churn, activation, and retention for a small SaaS product from Stripe and PostHog data. It gives simple metric definitions a small team can re-derive every month, a starter Stripe MRR script and HogQL queries, a monthly business-review template, and a list of common miscounts such as trials, refunds, currency mixing, proration, and annual plans. Use it when asked for a business review, MRR or churn numbers, an activation rate, a retention cohort, or recurring metrics reporting.
 

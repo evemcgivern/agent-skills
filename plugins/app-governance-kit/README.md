@@ -19,7 +19,7 @@ The skills are one part of the kit. The full site, **[https://evemcgivern.github
 | [Tools](https://evemcgivern.github.io/app-governance-kit/tools.html) | The skills, the router and the study coach, with downloads for each platform |
 | [Case studies](https://evemcgivern.github.io/app-governance-kit/case-studies.html) | Anonymized case studies (in preparation) |
 
-The source for the site and the skills lives in [evemcgivern/app-governance-kit](https://github.com/evemcgivern/app-governance-kit). This marketplace carries the skills as a Claude Code plugin; the same skill folders also work in Codex and in other agents that read `SKILL.md` folders, such as Gemini CLI, Cursor and GitHub Copilot.
+The source for the site and the skills lives in [evemcgivern/app-governance-kit](https://github.com/evemcgivern/app-governance-kit). This marketplace carries the skills as a Claude Code plugin; the same skill folders also work in Codex and in other agents that read `SKILL.md` folders, such as Gemini CLI, Antigravity CLI, Cursor and GitHub Copilot.
 
 ## Install
 

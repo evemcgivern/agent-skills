@@ -12,6 +12,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -157,21 +158,62 @@ def check_release_config():
         fail(".release-please-manifest.json", f"missing {path}")
 
 
-COMPAT_COLUMNS = [  # JSON key, badge label, URL-encoded label
-    ("claude", "Claude", "Claude"),
-    ("codex_chatgpt", "Codex / ChatGPT", "Codex%20%2F%20ChatGPT"),
-    ("other", "Other agents", "Other%20agents"),
-]
+COMPAT_LEVELS = {"full": "✔", "partial": "◐", "no": "✖"}
 COMPAT_COLORS = {"full": "brightgreen", "partial": "yellow", "no": "lightgrey"}
+COMPAT_HOSTS = {"claude_code", "claude_app", "codex", "chatgpt", "other"}
+# JSON column, badge label, [(sub-level key, word in alt text and message)]; the first part sets the colour.
+COMPAT_BADGES = [
+    ("claude", "Claude", [("code", "Code"), ("app", "app")]),
+    ("codex_chatgpt", "Codex / ChatGPT", [("codex", "Codex"), ("chatgpt", "ChatGPT")]),
+    ("other", "Other agents", [(None, None)]),
+]
 
 
-def check_compatibility():
-    path = ROOT / "compatibility.json"
+def shields(text):
+    """Encode text the way a shields.io static badge path expects it."""
+    return quote(text.replace("-", "--").replace("_", "__"), safe="-_")
+
+
+def compat_cell(skill, where, cell):
+    """Return the level of one {level, note} cell, or None after recording a failure."""
+    level = cell.get("level") if isinstance(cell, dict) else None
+    if level not in COMPAT_LEVELS:
+        fail(skill, f"compatibility.json {where}.level is {level!r} (use full, partial or no)")
+        return None
+    note = cell.get("note")
+    if note is not None and not isinstance(note, str):
+        fail(skill, f"compatibility.json {where}.note is not a string")
+    elif level != "full" and not (note or "").strip():
+        fail(skill, f"compatibility.json {where} is {level} but has no note")
+    return level
+
+
+def expected_badge(label, parts, levels, rel):
+    """The exact badge Markdown for one column, given its sub-levels in order."""
+    if parts[0][0] is None:
+        alt = f"{label}: {levels[0]}"
+        message = COMPAT_LEVELS[levels[0]]
+    else:
+        alt = f"{label}: " + ", ".join(f"{word} {lv}" for (_, word), lv in zip(parts, levels))
+        message = " · ".join(f"{word} {COMPAT_LEVELS[lv]}" for (_, word), lv in zip(parts, levels))
+    url = f"https://img.shields.io/badge/{shields(label)}-{shields(message)}-{COMPAT_COLORS[levels[0]]}"
+    return f"[![{alt}]({url})]({rel}README.md#compatibility)"
+
+
+def check_compatibility(path=None, root=None):
+    root = root or ROOT
+    path = path or root / "compatibility.json"
     try:
-        skills = json.loads(path.read_text())["skills"]
+        data = json.loads(path.read_text(encoding="utf-8"))
+        skills = data["skills"]
     except (OSError, ValueError, KeyError) as e:
         return fail("compatibility.json", f"cannot read a 'skills' object: {e}")
-    names = {d.name: d for d in skill_dirs()}
+    hosts = data.get("hosts")
+    if not isinstance(hosts, dict) or set(hosts) != COMPAT_HOSTS:
+        fail("compatibility.json", f"'hosts' must have exactly {sorted(COMPAT_HOSTS)}")
+    if not isinstance(data.get("levels"), dict) or set(data["levels"]) != set(COMPAT_LEVELS):
+        fail("compatibility.json", f"'levels' must have exactly {sorted(COMPAT_LEVELS)}")
+    names = {d.name: d for d in sorted(p for p in root.glob("plugins/*/skills/*") if p.is_dir())}
     for name in sorted(set(skills) - set(names)):
         fail("compatibility.json", f"entry {name!r} has no skill folder")
     for name, d in names.items():
@@ -183,25 +225,26 @@ def check_compatibility():
             fail(name, f"compatibility.json plugin {entry.get('plugin')!r} != {d.parent.parent.name!r}")
         readme_path = d / "README.md"
         readme = readme_path.read_text(encoding="utf-8") if readme_path.is_file() else ""
-        for key, label, enc in COMPAT_COLUMNS:
-            cell = entry.get(key)
-            level = cell.get("level") if isinstance(cell, dict) else None
-            if level not in COMPAT_COLORS:
-                fail(name, f"compatibility.json {key}.level is {level!r} (use full, partial or no)")
+        rel = "../" * (len(readme_path.relative_to(root).parts) - 1)
+        for key, label, parts in COMPAT_BADGES:
+            column = entry.get(key)
+            if parts[0][0] is None:
+                levels = [compat_cell(name, key, column)]
+            elif not isinstance(column, dict) or set(column) != {k for k, _ in parts}:
+                fail(name, f"compatibility.json {key} must have exactly {[k for k, _ in parts]}")
                 continue
-            if not (isinstance(cell.get("note"), str) and cell["note"].strip()):
-                fail(name, f"compatibility.json {key}.note is empty")
-            found = re.findall(
-                rf"\[!\[{re.escape(label)}: (\w+)\]\(https://img\.shields\.io/badge/{re.escape(enc)}-(\w+)-(\w+)\)\]"
-                r"\(\.\./\.\./\.\./\.\./README\.md#compatibility\)",
-                readme,
-            )
-            if not found:
-                fail(name, f"README.md has no '{label}' compatibility badge linked to README.md#compatibility")
-            elif found[0] != (level, level, COMPAT_COLORS[level]):
-                alt, shown, color = found[0]
-                fail(name, f"README.md '{label}' badge says {alt}/{shown}/{color}; "
-                           f"compatibility.json says {level} ({COMPAT_COLORS[level]})")
+            else:
+                levels = [compat_cell(name, f"{key}.{k}", column.get(k)) for k, _ in parts]
+            if None in levels:
+                continue
+            want = expected_badge(label, parts, levels, rel)
+            if want in readme:
+                continue
+            found = re.findall(rf"\[!\[{re.escape(label)}:[^\]]*\]\([^)]*\)\]\([^)]*\)", readme)
+            if found:
+                fail(name, f"README.md '{label}' badge is {found[0]}; compatibility.json expects {want}")
+            else:
+                fail(name, f"README.md has no '{label}' compatibility badge; expected {want}")
 
 
 def main():

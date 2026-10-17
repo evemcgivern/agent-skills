@@ -2,8 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
-> Claude: Works in Claude Code on macOS or Linux; the Claude app cannot see your computer's processes. Codex / ChatGPT: Codex reports processes, and --kill may need approval outside its sandbox; ChatGPT cannot see your computer's processes.
+[![Claude: Code full, app no](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%9C%96-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT no](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%9C%96-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
+> The Claude app and ChatGPT cannot run it: they cannot see your computer's processes.
 
 Inventories stray background processes that long agent sessions leave behind, such as watch loops, `tail -f` on finished logs, orphaned `sleep` calls, and detached runs, and cleans them up without killing anyone else's live work. The rule is to confirm ownership first and kill by PID, never by a broad `pkill -f` pattern. The bundled script reports suspected orphans with PID, parent, age and command, and kills nothing unless you pass `--kill` with specific PIDs that are still on its suspect list. Use it before any pattern-based kill, when a machine feels loaded, or when a run died for no clear reason.
 

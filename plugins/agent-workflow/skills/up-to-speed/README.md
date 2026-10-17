@@ -2,7 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: full](https://img.shields.io/badge/Claude-full-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-full-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
+[![Claude: Code full, app full](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%9C%94-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%9C%94-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
 
 Gets you up to speed on an unfamiliar field in one sitting (roughly 45-90 minutes, shorter on request), one question at a time: the field's map, the 8-10 terms insiders use, the 3-5 ideas that explain most of it, live debates, and a scored exam with no hints. Use with "get me up to speed on", "crash course", "brief me on", or before a meeting in an industry you don't know.
 
@@ -35,7 +35,7 @@ Short on time? The session drops to 5-6 terms, 3 core ideas, a 6-question exam, 
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/up-to-speed/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/up-to-speed/` for Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/up-to-speed/` or `.agents/skills/up-to-speed/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/up-to-speed/` or `.claude/skills/up-to-speed/`. See the [collection README](../../../../README.md#install) for current platform notes.
+Copy this complete folder to `~/.claude/skills/up-to-speed/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/up-to-speed/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/up-to-speed/` or `.agents/skills/up-to-speed/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/up-to-speed/` or `.claude/skills/up-to-speed/`. See the [collection README](../../../../README.md#install) for current platform notes.
 
 ## Contents
 

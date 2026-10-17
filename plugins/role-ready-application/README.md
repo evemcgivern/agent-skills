@@ -58,9 +58,9 @@ If you cannot upload skills, open a new chat or project and paste the contents o
 </details>
 
 <details>
-<summary><b>Gemini CLI, Cursor, GitHub Copilot and other skill-folder agents</b></summary>
+<summary><b>Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and other skill-folder agents</b></summary>
 
-Copy `skills/role-ready-application/` to `~/.agents/skills/role-ready-application/` (Gemini CLI, Cursor, GitHub Copilot, OpenCode) or to the folder your agent reads; `scripts/install.sh --target codex role-ready-application` does this. See [Install](../../README.md#install) in the repository README for Windsurf and Cline.
+Copy `skills/role-ready-application/` to `~/.agents/skills/role-ready-application/` (Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode) or to the folder your agent reads; `scripts/install.sh --target codex role-ready-application` does this. See [Install](../../README.md#install) in the repository README for Windsurf and Cline.
 </details>
 
 <details>

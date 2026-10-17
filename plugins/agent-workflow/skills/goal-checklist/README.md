@@ -2,8 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
-[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
-> Claude: Works in Claude Code; in the Claude app the progress strip works but --sync cannot check git. Codex / ChatGPT: Works in Codex (git fetch needs network access); in ChatGPT the strip works but --sync is unavailable.
+[![Claude: Code full, app partial](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
+> In the Claude app and ChatGPT the progress strip works, but --sync cannot check git.
 
 Tracks a multi-issue goal as a one-line progress strip that the agent re-prints whenever an item changes state. Symbols separate not started, in progress, merged to the integration branch, shipped, and verified, plus unproven and blocked markers. The strip round-trips, so pasting it back restores the list, and `--sync` checks recorded merge SHAs against git to move merged items to shipped.
 
@@ -55,7 +55,7 @@ You never ask for the strip. Once a goal is active, the agent ends any reply whe
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/goal-checklist/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/goal-checklist/` for Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/goal-checklist/` or `.agents/skills/goal-checklist/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/goal-checklist/` or `.claude/skills/goal-checklist/`. Supporting files in this folder may be required. See the [collection README](../../../../README.md#install) for current platform notes.
+Copy this complete folder to `~/.claude/skills/goal-checklist/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/goal-checklist/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/goal-checklist/` or `.agents/skills/goal-checklist/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/goal-checklist/` or `.claude/skills/goal-checklist/`. Supporting files in this folder may be required. See the [collection README](../../../../README.md#install) for current platform notes.
 
 ## Contents
 

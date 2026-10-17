@@ -2,66 +2,70 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-36-blue.svg)](#skills)
 
-Skills for Claude Code, Codex and other agents that read `SKILL.md` folders (Gemini CLI, Cursor, GitHub Copilot and more), packaged as a Claude Code plugin marketplace. Each skill is a folder with a `SKILL.md`. [Compatibility](#compatibility) shows where each skill works; under [Install](#install), pick your tool and one click opens the steps.
+Skills for Claude Code, Codex and other agents that read `SKILL.md` folders (Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and more), packaged as a Claude Code plugin marketplace. Each skill is a folder with a `SKILL.md`. [Compatibility](#compatibility) shows where each skill works; under [Install](#install), pick your tool and one click opens the steps.
 
 ## Compatibility
 
-Every skill README shows three badges. Each badge covers a group of hosts:
+Every skill README shows three badges, one per group of hosts. The first two split into the agent that runs on your computer and the chat app:
 
-| Badge | Hosts |
+| Host | What it is |
 |---|---|
-| Claude | Claude Code (CLI and desktop) and the Claude app (claude.ai skill upload) |
-| Codex / ChatGPT | Codex (CLI, IDE extension and app) and skills in ChatGPT |
-| Other agents | Local agents that read `SKILL.md` folders: Gemini CLI, Cursor, GitHub Copilot, Windsurf, OpenCode, Cline and others |
+| Claude Code | Claude Code (CLI, desktop and IDE extensions), running on your computer |
+| Claude app | The Claude app (claude.ai) with an uploaded skill |
+| Codex | Codex (CLI, IDE extension and app), running on your computer |
+| ChatGPT | Skills uploaded to ChatGPT |
+| Other agents | Local agents that read `SKILL.md` folders: Gemini CLI and Antigravity CLI, Cursor, GitHub Copilot, Windsurf, OpenCode, Cline and others |
 
-**full** means the skill works as written on every host in that group. **partial** means it works with a limit, stated in one line under the badges. **no** means it works on no host in the group; no skill is marked no today.
+**app** means a chat app: the Claude app and ChatGPT run skills in a remote sandbox with no access to your local files, repo or local shell (ChatGPT network access depends on the workspace settings and is not guaranteed). A skill that needs a local shell, repo, git or the GitHub CLI, session logs, local processes or a local MCP server does not work there.
 
-`.agents/skills` is read by Codex, Gemini CLI, Cursor, GitHub Copilot, OpenCode and Windsurf; Claude Code reads `.claude/skills` instead, and Cline reads `.cline/skills` or `.claude/skills`. The Claude app and ChatGPT run uploaded skills in a remote sandbox with no access to your computer, so skills that need a local shell, repo or session logs are partial there.
+**✔ full** works as written. **◐ partial** works with a limit, stated in one line under the badges. **✖ no** does not work on that host. A badge's colour follows the local agent (Claude Code or Codex): green for full, yellow for partial, grey for no.
+
+`.agents/skills` is read by Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode and Windsurf; Claude Code reads `.claude/skills` instead, and Cline reads `.cline/skills` or `.claude/skills`. Antigravity CLI replaced Gemini CLI for unpaid and Google One users on 2026-06-18.
 
 <details>
-<summary><b>All 36 skills</b> (✅ full, ◐ partial, ✖ no)</summary>
+<summary><b>All 36 skills</b> (✔ full, ◐ partial, ✖ no)</summary>
 
-| Skill | Plugin | Claude | Codex / ChatGPT | Other agents |
-|---|---|:-:|:-:|:-:|
-| [`agent-doctor`](plugins/agent-workflow/skills/agent-doctor/README.md) | agent-workflow | ◐ | ◐ | ◐ |
-| [`ambition`](plugins/agent-workflow/skills/ambition/README.md) | agent-workflow | ✅ | ✅ | ✅ |
-| [`check-worth`](plugins/agent-workflow/skills/check-worth/README.md) | agent-workflow | ◐ | ◐ | ✅ |
-| [`efficient-frontier-routing`](plugins/agent-workflow/skills/efficient-frontier-routing/README.md) | agent-workflow | ◐ | ◐ | ◐ |
-| [`fable-chief-agent`](plugins/agent-workflow/skills/fable-chief-agent/README.md) | agent-workflow | ◐ | ◐ | ◐ |
-| [`goal-checklist`](plugins/agent-workflow/skills/goal-checklist/README.md) | agent-workflow | ◐ | ◐ | ✅ |
-| [`handoff`](plugins/agent-workflow/skills/handoff/README.md) | agent-workflow | ◐ | ◐ | ◐ |
-| [`mission`](plugins/agent-workflow/skills/mission/README.md) | agent-workflow | ◐ | ◐ | ✅ |
-| [`problem-first`](plugins/agent-workflow/skills/problem-first/README.md) | agent-workflow | ✅ | ✅ | ✅ |
-| [`quick-recap`](plugins/agent-workflow/skills/quick-recap/README.md) | agent-workflow | ◐ | ◐ | ✅ |
-| [`sonnet-prompt-improver`](plugins/agent-workflow/skills/sonnet-prompt-improver/README.md) | agent-workflow | ✅ | ✅ | ✅ |
-| [`stay-within-limits`](plugins/agent-workflow/skills/stay-within-limits/README.md) | agent-workflow | ◐ | ◐ | ◐ |
-| [`up-to-speed`](plugins/agent-workflow/skills/up-to-speed/README.md) | agent-workflow | ✅ | ✅ | ✅ |
-| [`access-review`](plugins/app-governance-kit/skills/access-review/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
-| [`ai-intake`](plugins/app-governance-kit/skills/ai-intake/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
-| [`app-governance`](plugins/app-governance-kit/skills/app-governance/README.md) | app-governance-kit | ✅ | ◐ | ✅ |
-| [`cert-prep`](plugins/app-governance-kit/skills/cert-prep/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
-| [`crosswalk`](plugins/app-governance-kit/skills/crosswalk/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
-| [`hardware-lifecycle`](plugins/app-governance-kit/skills/hardware-lifecycle/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
-| [`itam-maturity`](plugins/app-governance-kit/skills/itam-maturity/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
-| [`program-setup`](plugins/app-governance-kit/skills/program-setup/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
-| [`rationalization`](plugins/app-governance-kit/skills/rationalization/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
-| [`audit-background-processes`](plugins/engineering-practices/skills/audit-background-processes/README.md) | engineering-practices | ◐ | ◐ | ✅ |
-| [`background-jobs`](plugins/engineering-practices/skills/background-jobs/README.md) | engineering-practices | ✅ | ✅ | ✅ |
-| [`launch-chrome-debug`](plugins/engineering-practices/skills/launch-chrome-debug/README.md) | engineering-practices | ◐ | ◐ | ✅ |
-| [`llm-engineer`](plugins/engineering-practices/skills/llm-engineer/README.md) | engineering-practices | ◐ | ◐ | ✅ |
-| [`review-older-issues`](plugins/engineering-practices/skills/review-older-issues/README.md) | engineering-practices | ◐ | ◐ | ✅ |
-| [`saas-metrics`](plugins/engineering-practices/skills/saas-metrics/README.md) | engineering-practices | ✅ | ✅ | ✅ |
-| [`service-debugging`](plugins/engineering-practices/skills/service-debugging/README.md) | engineering-practices | ◐ | ◐ | ✅ |
-| [`spec-workflow`](plugins/engineering-practices/skills/spec-workflow/README.md) | engineering-practices | ◐ | ◐ | ✅ |
-| [`spec-workflow-drift`](plugins/engineering-practices/skills/spec-workflow-drift/README.md) | engineering-practices | ◐ | ◐ | ✅ |
-| [`transactional-email`](plugins/engineering-practices/skills/transactional-email/README.md) | engineering-practices | ✅ | ✅ | ✅ |
-| [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) | role-ready-application | ✅ | ✅ | ✅ |
-| [`clearly`](plugins/writing/skills/clearly/README.md) | writing | ◐ | ◐ | ✅ |
-| [`scrub-ai-tells`](plugins/writing/skills/scrub-ai-tells/README.md) | writing | ✅ | ✅ | ✅ |
-| [`table`](plugins/writing/skills/table/README.md) | writing | ✅ | ✅ | ✅ |
+| Skill | Plugin | Claude Code | Claude app | Codex | ChatGPT | Other agents |
+|---|---|:-:|:-:|:-:|:-:|:-:|
+| [`agent-doctor`](plugins/agent-workflow/skills/agent-doctor/README.md) | agent-workflow | ✔ | ✖ | ✔ | ✖ | ◐ |
+| [`ambition`](plugins/agent-workflow/skills/ambition/README.md) | agent-workflow | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`check-worth`](plugins/agent-workflow/skills/check-worth/README.md) | agent-workflow | ✔ | ◐ | ✔ | ◐ | ✔ |
+| [`efficient-frontier-routing`](plugins/agent-workflow/skills/efficient-frontier-routing/README.md) | agent-workflow | ✔ | ✖ | ✔ | ✖ | ◐ |
+| [`fable-chief-agent`](plugins/agent-workflow/skills/fable-chief-agent/README.md) | agent-workflow | ✔ | ✖ | ✔ | ✖ | ◐ |
+| [`goal-checklist`](plugins/agent-workflow/skills/goal-checklist/README.md) | agent-workflow | ✔ | ◐ | ✔ | ◐ | ✔ |
+| [`handoff`](plugins/agent-workflow/skills/handoff/README.md) | agent-workflow | ✔ | ◐ | ◐ | ◐ | ◐ |
+| [`mission`](plugins/agent-workflow/skills/mission/README.md) | agent-workflow | ✔ | ✖ | ✔ | ✖ | ✔ |
+| [`problem-first`](plugins/agent-workflow/skills/problem-first/README.md) | agent-workflow | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`quick-recap`](plugins/agent-workflow/skills/quick-recap/README.md) | agent-workflow | ✔ | ◐ | ✔ | ◐ | ✔ |
+| [`sonnet-prompt-improver`](plugins/agent-workflow/skills/sonnet-prompt-improver/README.md) | agent-workflow | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`stay-within-limits`](plugins/agent-workflow/skills/stay-within-limits/README.md) | agent-workflow | ✔ | ✖ | ◐ | ✖ | ◐ |
+| [`up-to-speed`](plugins/agent-workflow/skills/up-to-speed/README.md) | agent-workflow | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`access-review`](plugins/app-governance-kit/skills/access-review/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`ai-intake`](plugins/app-governance-kit/skills/ai-intake/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`app-governance`](plugins/app-governance-kit/skills/app-governance/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ◐ | ✔ |
+| [`cert-prep`](plugins/app-governance-kit/skills/cert-prep/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`crosswalk`](plugins/app-governance-kit/skills/crosswalk/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`hardware-lifecycle`](plugins/app-governance-kit/skills/hardware-lifecycle/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`itam-maturity`](plugins/app-governance-kit/skills/itam-maturity/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`program-setup`](plugins/app-governance-kit/skills/program-setup/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`rationalization`](plugins/app-governance-kit/skills/rationalization/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`audit-background-processes`](plugins/engineering-practices/skills/audit-background-processes/README.md) | engineering-practices | ✔ | ✖ | ✔ | ✖ | ✔ |
+| [`background-jobs`](plugins/engineering-practices/skills/background-jobs/README.md) | engineering-practices | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`launch-chrome-debug`](plugins/engineering-practices/skills/launch-chrome-debug/README.md) | engineering-practices | ✔ | ✖ | ✔ | ✖ | ✔ |
+| [`llm-engineer`](plugins/engineering-practices/skills/llm-engineer/README.md) | engineering-practices | ✔ | ◐ | ✔ | ◐ | ✔ |
+| [`review-older-issues`](plugins/engineering-practices/skills/review-older-issues/README.md) | engineering-practices | ✔ | ✖ | ✔ | ✖ | ✔ |
+| [`saas-metrics`](plugins/engineering-practices/skills/saas-metrics/README.md) | engineering-practices | ✔ | ◐ | ✔ | ◐ | ✔ |
+| [`service-debugging`](plugins/engineering-practices/skills/service-debugging/README.md) | engineering-practices | ✔ | ◐ | ✔ | ◐ | ✔ |
+| [`spec-workflow`](plugins/engineering-practices/skills/spec-workflow/README.md) | engineering-practices | ✔ | ✖ | ✔ | ✖ | ✔ |
+| [`spec-workflow-drift`](plugins/engineering-practices/skills/spec-workflow-drift/README.md) | engineering-practices | ✔ | ✖ | ✔ | ✖ | ✔ |
+| [`transactional-email`](plugins/engineering-practices/skills/transactional-email/README.md) | engineering-practices | ✔ | ◐ | ✔ | ◐ | ✔ |
+| [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) | role-ready-application | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`clearly`](plugins/writing/skills/clearly/README.md) | writing | ✔ | ◐ | ✔ | ◐ | ✔ |
+| [`scrub-ai-tells`](plugins/writing/skills/scrub-ai-tells/README.md) | writing | ✔ | ✔ | ✔ | ◐ | ✔ |
+| [`table`](plugins/writing/skills/table/README.md) | writing | ✔ | ✔ | ✔ | ✔ | ✔ |
 </details>
 
-The notes behind each mark are in [`compatibility.json`](compatibility.json) (checked 2026-10-17).
+The note behind each mark is in [`compatibility.json`](compatibility.json) (checked 2026-10-17).
 
 ## Install
 
@@ -101,15 +105,15 @@ scripts/install.sh --target codex --all            # Codex, into ~/.agents/skill
 scripts/install.sh --project ~/code/myapp clearly  # one repository only
 ```
 
-Add `--force` to replace a skill you already have. Or copy a folder by hand from `plugins/<plugin>/skills/<skill>/` to `~/.claude/skills/<skill>/` (Claude Code) or `~/.agents/skills/<skill>/` (Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode). Keep every file in the folder together. `--target codex` writes to `~/.agents/skills`, so it also works for those agents.
+Add `--force` to replace a skill you already have. Or copy a folder by hand from `plugins/<plugin>/skills/<skill>/` to `~/.claude/skills/<skill>/` (Claude Code) or `~/.agents/skills/<skill>/` (Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode). Keep every file in the folder together. `--target codex` writes to `~/.agents/skills`, so it also works for those agents.
 </details>
 
 <details>
-<summary><b>Gemini CLI, Cursor, GitHub Copilot, Windsurf, OpenCode, Cline</b></summary>
+<summary><b>Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, Windsurf, OpenCode, Cline</b></summary>
 
 These agents load `SKILL.md` folders directly. Copy the whole skill folder to the place your agent reads:
 
-- Gemini CLI, Cursor, GitHub Copilot, OpenCode: `~/.agents/skills/<skill>/` for personal use (`scripts/install.sh --target codex <skill>`), or `<repo>/.agents/skills/<skill>/` for one repository.
+- Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode: `~/.agents/skills/<skill>/` for personal use (`scripts/install.sh --target codex <skill>`), or `<repo>/.agents/skills/<skill>/` for one repository.
 - Windsurf: `<repo>/.agents/skills/<skill>/`.
 - Cline: `<repo>/.cline/skills/<skill>/`, `<repo>/.claude/skills/<skill>/` or `~/.cline/skills/<skill>/`.
 
@@ -133,7 +137,7 @@ Local `~/.claude/skills/` files do not sync to Claude.ai. Zip one skill folder (
 
 Skills in ChatGPT are in beta and available on Business, Enterprise, Edu, Teachers and Healthcare plans, not on personal Free, Plus or Pro plans. On Enterprise and Edu, a workspace admin must first turn skills on and allow skill uploading. Zip one skill folder and upload it from the **Plugins → Skills** tab with **+ → Upload from your computer**. ChatGPT scans each upload and can mark it Needs Review or Blocked. The web and desktop apps do not sync skills. Menu labels change, so OpenAI's [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) article is the source of truth.
 
-ChatGPT runs skills in a remote sandbox with no access to your computer, repo or shell; check [Compatibility](#compatibility) before uploading. On other plans, use Codex, which reads skill folders directly.
+ChatGPT runs skills in a remote sandbox with no access to your local files, repo or local shell; check [Compatibility](#compatibility) before uploading. On other plans, use Codex, which reads skill folders directly.
 </details>
 
 ## Skills
