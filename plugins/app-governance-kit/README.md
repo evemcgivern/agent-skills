@@ -1,6 +1,6 @@
 # App Governance Kit
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue) ![Claude Code CLI](https://img.shields.io/badge/Claude%20Code%20CLI-supported-6B4FBB) ![Claude Code Desktop](https://img.shields.io/badge/Claude%20Code%20Desktop-supported-6B4FBB) ![Codex](https://img.shields.io/badge/Codex-supported-111111) ![ChatGPT](https://img.shields.io/badge/ChatGPT-skill%20upload-74AA9C) ![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-0.1.0-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
 Nine portable application-governance skills for application portfolios, AI, access, hardware, and certification preparation.
 
@@ -19,11 +19,11 @@ The skills are one part of the kit. The full site, **[https://evemcgivern.github
 | [Tools](https://evemcgivern.github.io/app-governance-kit/tools.html) | The skills, the router and the study coach, with downloads for each platform |
 | [Case studies](https://evemcgivern.github.io/app-governance-kit/case-studies.html) | Anonymized case studies (in preparation) |
 
-The source for the site and the skills lives in [evemcgivern/app-governance-kit](https://github.com/evemcgivern/app-governance-kit). This marketplace carries the skills as a Claude Code plugin.
+The source for the site and the skills lives in [evemcgivern/app-governance-kit](https://github.com/evemcgivern/app-governance-kit). This marketplace carries the skills as a Claude Code plugin; the same skill folders also work in Codex and in other agents that read `SKILL.md` folders, such as Gemini CLI, Cursor and GitHub Copilot.
 
 ## Install
 
-See the [repository README](../../README.md#install) for Claude Code, Codex, Claude.ai and ChatGPT steps.
+See the [repository README](../../README.md#install) for Claude Code, Codex, other agents that read skill folders, Claude.ai and ChatGPT steps. In ChatGPT each kit skill is a separate upload, and the `app-governance` router opening a second skill there is not verified; it names the skill for you to open instead. See [Compatibility](../../README.md#compatibility).
 
 ## Included
 

@@ -1,6 +1,6 @@
 # RoleReady Application
 
-![Version](https://img.shields.io/badge/version-0.2.0-blue) ![Claude Code CLI](https://img.shields.io/badge/Claude%20Code%20CLI-supported-6B4FBB) ![Claude Code Desktop](https://img.shields.io/badge/Claude%20Code%20Desktop-supported-6B4FBB) ![Codex](https://img.shields.io/badge/Codex-supported-111111) ![ChatGPT](https://img.shields.io/badge/ChatGPT-skill%20upload-74AA9C) ![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-0.2.0-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
 Build truthful role-tailored resumes, offer a cover letter after each resume build, and review writing while preserving the candidate’s own voice.
 
@@ -52,9 +52,15 @@ Local files in `~/.claude/skills/` do not sync to Claude.ai, so the upload step 
 <details>
 <summary><b>ChatGPT</b></summary>
 
-Skills in ChatGPT are available on Business, Enterprise, Healthcare and Edu plans. Zip the folder as above and upload it under **Plugins → Skills → Create → Upload from your computer**; an admin must enable skill uploading, and ChatGPT may mark an upload Needs Review or Blocked.
+Skills in ChatGPT are in beta and available on Business, Enterprise, Edu, Teachers and Healthcare plans, not on personal Free, Plus or Pro plans. On Enterprise and Edu, a workspace admin must first turn skills on and allow skill uploading. Zip the folder as above and upload it from the **Plugins → Skills** tab with **+ → Upload from your computer**. ChatGPT scans each upload and can mark it Needs Review or Blocked. The web and desktop apps do not sync skills. Menu labels change, so OpenAI's [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) article is the source of truth.
 
 If you cannot upload skills, open a new chat or project and paste the contents of [`COPY-PASTE.txt`](skills/role-ready-application/COPY-PASTE.txt) as the instructions, then attach your resume and the job description. It is the same workflow as a single plain-text file.
+</details>
+
+<details>
+<summary><b>Gemini CLI, Cursor, GitHub Copilot and other skill-folder agents</b></summary>
+
+Copy `skills/role-ready-application/` to `~/.agents/skills/role-ready-application/` (Gemini CLI, Cursor, GitHub Copilot, OpenCode) or to the folder your agent reads; `scripts/install.sh --target codex role-ready-application` does this. See [Install](../../README.md#install) in the repository README for Windsurf and Cline.
 </details>
 
 <details>

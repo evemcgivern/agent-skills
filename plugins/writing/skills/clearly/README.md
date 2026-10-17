@@ -2,6 +2,9 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
+[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
+> Claude: Works in Claude Code on macOS; in the Claude app the writing rules work but not the --explain video. Codex / ChatGPT: Works in Codex on macOS; in ChatGPT the writing rules work but not the --explain video.
+
 Plain, short, scannable writing for tired readers, with comma-delimited lists and an optional `--explain` mode that picks a diagram, page, or short video.
 
 ## Credits

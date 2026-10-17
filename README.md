@@ -2,7 +2,66 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-36-blue.svg)](#skills)
 
-Skills for Claude Code and Codex, packaged as a Claude Code plugin marketplace. Each skill is a folder with a `SKILL.md`. Pick your tool below; one click opens the steps.
+Skills for Claude Code, Codex and other agents that read `SKILL.md` folders (Gemini CLI, Cursor, GitHub Copilot and more), packaged as a Claude Code plugin marketplace. Each skill is a folder with a `SKILL.md`. [Compatibility](#compatibility) shows where each skill works; under [Install](#install), pick your tool and one click opens the steps.
+
+## Compatibility
+
+Every skill README shows three badges. Each badge covers a group of hosts:
+
+| Badge | Hosts |
+|---|---|
+| Claude | Claude Code (CLI and desktop) and the Claude app (claude.ai skill upload) |
+| Codex / ChatGPT | Codex (CLI, IDE extension and app) and skills in ChatGPT |
+| Other agents | Local agents that read `SKILL.md` folders: Gemini CLI, Cursor, GitHub Copilot, Windsurf, OpenCode, Cline and others |
+
+**full** means the skill works as written on every host in that group. **partial** means it works with a limit, stated in one line under the badges. **no** means it works on no host in the group; no skill is marked no today.
+
+`.agents/skills` is read by Codex, Gemini CLI, Cursor, GitHub Copilot, OpenCode and Windsurf; Claude Code reads `.claude/skills` instead, and Cline reads `.cline/skills` or `.claude/skills`. The Claude app and ChatGPT run uploaded skills in a remote sandbox with no access to your computer, so skills that need a local shell, repo or session logs are partial there.
+
+<details>
+<summary><b>All 36 skills</b> (✅ full, ◐ partial, ✖ no)</summary>
+
+| Skill | Plugin | Claude | Codex / ChatGPT | Other agents |
+|---|---|:-:|:-:|:-:|
+| [`agent-doctor`](plugins/agent-workflow/skills/agent-doctor/README.md) | agent-workflow | ◐ | ◐ | ◐ |
+| [`ambition`](plugins/agent-workflow/skills/ambition/README.md) | agent-workflow | ✅ | ✅ | ✅ |
+| [`check-worth`](plugins/agent-workflow/skills/check-worth/README.md) | agent-workflow | ◐ | ◐ | ✅ |
+| [`efficient-frontier-routing`](plugins/agent-workflow/skills/efficient-frontier-routing/README.md) | agent-workflow | ◐ | ◐ | ◐ |
+| [`fable-chief-agent`](plugins/agent-workflow/skills/fable-chief-agent/README.md) | agent-workflow | ◐ | ◐ | ◐ |
+| [`goal-checklist`](plugins/agent-workflow/skills/goal-checklist/README.md) | agent-workflow | ◐ | ◐ | ✅ |
+| [`handoff`](plugins/agent-workflow/skills/handoff/README.md) | agent-workflow | ◐ | ◐ | ◐ |
+| [`mission`](plugins/agent-workflow/skills/mission/README.md) | agent-workflow | ◐ | ◐ | ✅ |
+| [`problem-first`](plugins/agent-workflow/skills/problem-first/README.md) | agent-workflow | ✅ | ✅ | ✅ |
+| [`quick-recap`](plugins/agent-workflow/skills/quick-recap/README.md) | agent-workflow | ◐ | ◐ | ✅ |
+| [`sonnet-prompt-improver`](plugins/agent-workflow/skills/sonnet-prompt-improver/README.md) | agent-workflow | ✅ | ✅ | ✅ |
+| [`stay-within-limits`](plugins/agent-workflow/skills/stay-within-limits/README.md) | agent-workflow | ◐ | ◐ | ◐ |
+| [`up-to-speed`](plugins/agent-workflow/skills/up-to-speed/README.md) | agent-workflow | ✅ | ✅ | ✅ |
+| [`access-review`](plugins/app-governance-kit/skills/access-review/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
+| [`ai-intake`](plugins/app-governance-kit/skills/ai-intake/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
+| [`app-governance`](plugins/app-governance-kit/skills/app-governance/README.md) | app-governance-kit | ✅ | ◐ | ✅ |
+| [`cert-prep`](plugins/app-governance-kit/skills/cert-prep/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
+| [`crosswalk`](plugins/app-governance-kit/skills/crosswalk/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
+| [`hardware-lifecycle`](plugins/app-governance-kit/skills/hardware-lifecycle/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
+| [`itam-maturity`](plugins/app-governance-kit/skills/itam-maturity/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
+| [`program-setup`](plugins/app-governance-kit/skills/program-setup/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
+| [`rationalization`](plugins/app-governance-kit/skills/rationalization/README.md) | app-governance-kit | ✅ | ✅ | ✅ |
+| [`audit-background-processes`](plugins/engineering-practices/skills/audit-background-processes/README.md) | engineering-practices | ◐ | ◐ | ✅ |
+| [`background-jobs`](plugins/engineering-practices/skills/background-jobs/README.md) | engineering-practices | ✅ | ✅ | ✅ |
+| [`launch-chrome-debug`](plugins/engineering-practices/skills/launch-chrome-debug/README.md) | engineering-practices | ◐ | ◐ | ✅ |
+| [`llm-engineer`](plugins/engineering-practices/skills/llm-engineer/README.md) | engineering-practices | ◐ | ◐ | ✅ |
+| [`review-older-issues`](plugins/engineering-practices/skills/review-older-issues/README.md) | engineering-practices | ◐ | ◐ | ✅ |
+| [`saas-metrics`](plugins/engineering-practices/skills/saas-metrics/README.md) | engineering-practices | ✅ | ✅ | ✅ |
+| [`service-debugging`](plugins/engineering-practices/skills/service-debugging/README.md) | engineering-practices | ◐ | ◐ | ✅ |
+| [`spec-workflow`](plugins/engineering-practices/skills/spec-workflow/README.md) | engineering-practices | ◐ | ◐ | ✅ |
+| [`spec-workflow-drift`](plugins/engineering-practices/skills/spec-workflow-drift/README.md) | engineering-practices | ◐ | ◐ | ✅ |
+| [`transactional-email`](plugins/engineering-practices/skills/transactional-email/README.md) | engineering-practices | ✅ | ✅ | ✅ |
+| [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) | role-ready-application | ✅ | ✅ | ✅ |
+| [`clearly`](plugins/writing/skills/clearly/README.md) | writing | ◐ | ◐ | ✅ |
+| [`scrub-ai-tells`](plugins/writing/skills/scrub-ai-tells/README.md) | writing | ✅ | ✅ | ✅ |
+| [`table`](plugins/writing/skills/table/README.md) | writing | ✅ | ✅ | ✅ |
+</details>
+
+The notes behind each mark are in [`compatibility.json`](compatibility.json) (checked 2026-10-17).
 
 ## Install
 
@@ -30,7 +89,7 @@ In a local Code session choose **+ → Plugins → Add plugin**, enter `evemcgiv
 </details>
 
 <details>
-<summary><b>Claude Code or Codex — copy single skills</b></summary>
+<summary><b>Claude Code, Codex or other agents — copy single skills</b></summary>
 
 From a clone of this repo:
 
@@ -42,7 +101,19 @@ scripts/install.sh --target codex --all            # Codex, into ~/.agents/skill
 scripts/install.sh --project ~/code/myapp clearly  # one repository only
 ```
 
-Add `--force` to replace a skill you already have. Or copy a folder by hand from `plugins/<plugin>/skills/<skill>/` to `~/.claude/skills/<skill>/` (Claude Code) or `~/.agents/skills/<skill>/` (Codex). Keep every file in the folder together.
+Add `--force` to replace a skill you already have. Or copy a folder by hand from `plugins/<plugin>/skills/<skill>/` to `~/.claude/skills/<skill>/` (Claude Code) or `~/.agents/skills/<skill>/` (Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode). Keep every file in the folder together. `--target codex` writes to `~/.agents/skills`, so it also works for those agents.
+</details>
+
+<details>
+<summary><b>Gemini CLI, Cursor, GitHub Copilot, Windsurf, OpenCode, Cline</b></summary>
+
+These agents load `SKILL.md` folders directly. Copy the whole skill folder to the place your agent reads:
+
+- Gemini CLI, Cursor, GitHub Copilot, OpenCode: `~/.agents/skills/<skill>/` for personal use (`scripts/install.sh --target codex <skill>`), or `<repo>/.agents/skills/<skill>/` for one repository.
+- Windsurf: `<repo>/.agents/skills/<skill>/`.
+- Cline: `<repo>/.cline/skills/<skill>/`, `<repo>/.claude/skills/<skill>/` or `~/.cline/skills/<skill>/`.
+
+Five skills have limits in these agents (agent-doctor, efficient-frontier-routing, fable-chief-agent, handoff, stay-within-limits); see [Compatibility](#compatibility).
 </details>
 
 <details>
@@ -60,7 +131,9 @@ Local `~/.claude/skills/` files do not sync to Claude.ai. Zip one skill folder (
 <details>
 <summary><b>ChatGPT</b></summary>
 
-A `SKILL.md` folder is not an account-level ChatGPT install. Skills in ChatGPT are available on Business, Enterprise, Healthcare and Edu plans. Zip one skill folder and upload it under **Plugins → Skills → Create → Upload from your computer**; an admin must enable skill uploading, and ChatGPT may mark an upload Needs Review or Blocked. On other plans, paste the skill's instructions into a project's instructions (custom GPTs are being retired), or use Codex, which reads skill folders directly.
+Skills in ChatGPT are in beta and available on Business, Enterprise, Edu, Teachers and Healthcare plans, not on personal Free, Plus or Pro plans. On Enterprise and Edu, a workspace admin must first turn skills on and allow skill uploading. Zip one skill folder and upload it from the **Plugins → Skills** tab with **+ → Upload from your computer**. ChatGPT scans each upload and can mark it Needs Review or Blocked. The web and desktop apps do not sync skills. Menu labels change, so OpenAI's [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) article is the source of truth.
+
+ChatGPT runs skills in a remote sandbox with no access to your computer, repo or shell; check [Compatibility](#compatibility) before uploading. On other plans, use Codex, which reads skill folders directly.
 </details>
 
 ## Skills
@@ -82,7 +155,7 @@ Working habits for coding agents: model routing, status recaps, usage-limit paci
 - [`agent-doctor`](plugins/agent-workflow/skills/agent-doctor/README.md) v0.2.0 — Inspects a project's discovered agent instructions (AGENTS.md, CLAUDE.md) and skill definitions for static wiring problems, without loading, changing, or enabling them, and reports which installed skills are rarely or never called in local session logs.
 - [`ambition`](plugins/agent-workflow/skills/ambition/README.md) v0.2.0 — Reconsiders a project or shelved idea against current capabilities, proposes three ambitious outcomes, and designs an experiment for the hardest uncertainty.
 - [`check-worth`](plugins/agent-workflow/skills/check-worth/README.md) v0.2.0 — Review an external PDF, image, screenshot, article, or URL against a repository's current issues and code to sort its ideas into new, already tracked, shipped, contradicted, or unverifiable, read-only by default.
-- [`efficient-frontier-routing`](plugins/agent-workflow/skills/efficient-frontier-routing/README.md) v0.2.0 — Routes each task to a suitable model tier in Claude Code, Codex, or another agent host, following the user's routing preferences. Keeps small tasks local, delegates discovery, routine coding, and testing to cheaper subagents, and sends difficult decisions and risky reviews to a stronger one.
+- [`efficient-frontier-routing`](plugins/agent-workflow/skills/efficient-frontier-routing/README.md) v0.2.0 — Routes each task to a suitable model tier in Claude Code, Codex, or another agent host that can start subagents on a chosen model (Gemini CLI, for example), following the user's routing preferences. Keeps small tasks local, delegates discovery, routine coding, and testing to cheaper subagents, and sends difficult decisions and risky reviews to a stronger one.
 - [`fable-chief-agent`](plugins/agent-workflow/skills/fable-chief-agent/README.md) v0.2.0 — Makes the most expensive model in a session the senior decision-maker, keeping its reasoning for intent, architecture, decomposition, tradeoffs, final review, and synthesis while cheaper agents handle discovery, implementation, tests, logs, and verification.
 - [`goal-checklist`](plugins/agent-workflow/skills/goal-checklist/README.md) v0.2.0 — Tracks a multi-issue goal as a one-line progress strip: seeds a checklist from issue numbers, adds or drops items, marks state, syncs merged vs shipped from git, and re-emits status unprompted as work advances.
 - [`handoff`](plugins/agent-workflow/skills/handoff/README.md) v0.2.0 — Writes a copy-pasteable handoff prompt that lets a fresh Claude Code session resume the current work cold.
@@ -144,7 +217,7 @@ Each skill has its own `VERSION` and `CHANGELOG.md`. [release-please](https://gi
 2. release-please opens one release PR that bumps `VERSION` and `CHANGELOG.md` for each skill that changed (`fix:` is a patch, `feat:` a minor, `feat!:` or a `BREAKING CHANGE:` footer a major).
 3. Merging that PR tags each skill (`clearly-v0.2.1`) and creates its GitHub release.
 
-Every pull request runs `python3 -I tests/validate.py` (frontmatter, versions, changelogs, scripts, personal-data scan, marketplace and release config), `bash tests/install_test.sh`, and `bash tests/run_skill_tests.sh` (every skill's bundled unit tests).
+Every pull request runs `python3 -I tests/validate.py` (frontmatter, versions, changelogs, scripts, personal-data scan, marketplace and release config, compatibility badges against `compatibility.json`), `bash tests/install_test.sh`, and `bash tests/run_skill_tests.sh` (every skill's bundled unit tests).
 
 ## Provenance
 

@@ -1,0 +1,231 @@
+{
+  "updated": "2026-10-17",
+  "hosts": {
+    "claude": "Claude Code (CLI and desktop) and the Claude app (claude.ai skill upload).",
+    "codex_chatgpt": "Codex (CLI, IDE extension and app) and skills in ChatGPT.",
+    "other": "Local agents that read SKILL.md folders: Gemini CLI, Cursor, GitHub Copilot, Windsurf, OpenCode, Cline and others."
+  },
+  "levels": {
+    "full": "Works as written on every host in the column.",
+    "partial": "Works on at least one host in the column, with the limit stated in the note.",
+    "no": "Works on no host in the column."
+  },
+  "skills": {
+    "agent-doctor": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "partial", "note": "Works in Claude Code; the Claude app cannot run it because its sandbox has no access to your project or session logs."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex; ChatGPT cannot run it because it has no access to your project or session logs."},
+      "other": {"level": "partial", "note": "The scan checks only the .agents, .codex and .claude skill folders, and the usage report reads only Claude Code and Codex logs."}
+    },
+    "ambition": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "full", "note": "Advisory reasoning that works from your files or a description of the project."},
+      "codex_chatgpt": {"level": "full", "note": "Works in Codex and ChatGPT; in ChatGPT, describe or upload the project."},
+      "other": {"level": "full", "note": "Advisory reasoning with nothing host-specific."}
+    },
+    "check-worth": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "partial", "note": "Works in Claude Code; the Claude app can read the source but cannot check it against your repo or GitHub issues."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex once network access is on for the GitHub CLI; ChatGPT can read the source but cannot check your repo or issues."},
+      "other": {"level": "full", "note": "Works in any local agent with git, the GitHub CLI and poppler installed."}
+    },
+    "efficient-frontier-routing": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "partial", "note": "Works in Claude Code; the Claude app has no documented subagents, so it can only report that it cannot route."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex, which starts subagents on a chosen model; ChatGPT has no documented subagents."},
+      "other": {"level": "partial", "note": "Works only where the agent starts subagents on a chosen model, such as Gemini CLI; not verified for Cursor, Copilot, Windsurf, OpenCode or Cline."}
+    },
+    "fable-chief-agent": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "partial", "note": "Works in Claude Code; the Claude app has no documented subagents, so the delegation loop cannot run."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex, with the Claude tier names mapped to OpenAI models; ChatGPT has no documented subagents."},
+      "other": {"level": "partial", "note": "Needs subagents on a chosen model: Gemini CLI has them, other agents are not verified."}
+    },
+    "goal-checklist": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "partial", "note": "Works in Claude Code; in the Claude app the progress strip works but --sync cannot check git."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex (git fetch needs network access); in ChatGPT the strip works but --sync is unavailable."},
+      "other": {"level": "full", "note": "A plain-text strip plus git, which local agents have."}
+    },
+    "handoff": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "partial", "note": "Works in Claude Code; in the Claude app the handoff has no git or GitHub state."},
+      "codex_chatgpt": {"level": "partial", "note": "The handoff is written for a fresh Claude Code session and reads CLAUDE.md, so adapt it by hand in Codex; in ChatGPT it has no git state."},
+      "other": {"level": "partial", "note": "The handoff is written for a fresh Claude Code session and reads CLAUDE.md, not AGENTS.md, so adapt it by hand."}
+    },
+    "mission": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "partial", "note": "Works in Claude Code on macOS or Linux; the Claude app has no git worktree and keeps no state between sessions."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex on macOS or Linux (state outside the workspace needs approval or --state-dir); ChatGPT keeps no state and has no worktree."},
+      "other": {"level": "full", "note": "Works in any local agent with python3 and git on macOS or Linux; not on native Windows."}
+    },
+    "problem-first": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "full", "note": "Pure text rewrite."},
+      "codex_chatgpt": {"level": "full", "note": "Pure text rewrite."},
+      "other": {"level": "full", "note": "Pure text rewrite."}
+    },
+    "quick-recap": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "partial", "note": "Works in Claude Code; in the Claude app the status line works, but paste the install text into project instructions."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex; in ChatGPT the status line works but there is no AGENTS.md to install it into."},
+      "other": {"level": "full", "note": "A plain-text status line installed through AGENTS.md, which most local agents read."}
+    },
+    "sonnet-prompt-improver": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "full", "note": "Pure text rewrite aimed at prompts for Claude Sonnet 5.5."},
+      "codex_chatgpt": {"level": "full", "note": "Runs anywhere, but the advice only helps prompts written for Claude Sonnet 5.5."},
+      "other": {"level": "full", "note": "Runs anywhere, but the advice only helps prompts written for Claude Sonnet 5.5."}
+    },
+    "stay-within-limits": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "partial", "note": "Works in Claude Code; the Claude app has no subagents, shell or scheduled wake-up."},
+      "codex_chatgpt": {"level": "partial", "note": "In Codex the waves run, but the usage checks read Claude Code only, so you supply the usage numbers; ChatGPT cannot run it."},
+      "other": {"level": "partial", "note": "Needs subagents, a usage reading and a scheduled wake-up, and its usage checks target Claude Code only."}
+    },
+    "up-to-speed": {
+      "plugin": "agent-workflow",
+      "claude": {"level": "full", "note": "Interactive tutoring; web search is optional."},
+      "codex_chatgpt": {"level": "full", "note": "Pure conversation."},
+      "other": {"level": "full", "note": "Pure conversation."}
+    },
+    "access-review": {
+      "plugin": "app-governance-kit",
+      "claude": {"level": "full", "note": "Read-only analysis of the exports you supply, with bundled reference files."},
+      "codex_chatgpt": {"level": "full", "note": "Works in Codex and ChatGPT from attached CSV exports."},
+      "other": {"level": "full", "note": "Nothing host-specific."}
+    },
+    "ai-intake": {
+      "plugin": "app-governance-kit",
+      "claude": {"level": "full", "note": "Conversation plus bundled templates."},
+      "codex_chatgpt": {"level": "full", "note": "Works in Codex and ChatGPT with the bundled files."},
+      "other": {"level": "full", "note": "Nothing host-specific."}
+    },
+    "app-governance": {
+      "plugin": "app-governance-kit",
+      "claude": {"level": "full", "note": "Routes to the other kit skills when all nine are installed; the Claude app loads several uploaded skills."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex with the other kit skills installed; in ChatGPT, opening a second uploaded skill is not verified, so it names the skill for you to open."},
+      "other": {"level": "full", "note": "Works when the other kit skills are installed in the same skills folder."}
+    },
+    "cert-prep": {
+      "plugin": "app-governance-kit",
+      "claude": {"level": "full", "note": "Drill coaching from the attached demo files."},
+      "codex_chatgpt": {"level": "full", "note": "Works in Codex and ChatGPT from attached files."},
+      "other": {"level": "full", "note": "Nothing host-specific."}
+    },
+    "crosswalk": {
+      "plugin": "app-governance-kit",
+      "claude": {"level": "full", "note": "Lookup against the bundled crosswalk."},
+      "codex_chatgpt": {"level": "full", "note": "Lookup against the bundled crosswalk."},
+      "other": {"level": "full", "note": "Nothing host-specific."}
+    },
+    "hardware-lifecycle": {
+      "plugin": "app-governance-kit",
+      "claude": {"level": "full", "note": "Read-only analysis of a device list you supply."},
+      "codex_chatgpt": {"level": "full", "note": "Works in Codex and ChatGPT from an attached CSV."},
+      "other": {"level": "full", "note": "Nothing host-specific."}
+    },
+    "itam-maturity": {
+      "plugin": "app-governance-kit",
+      "claude": {"level": "full", "note": "Questionnaire from a bundled template."},
+      "codex_chatgpt": {"level": "full", "note": "Works in Codex and ChatGPT with the bundled files."},
+      "other": {"level": "full", "note": "Nothing host-specific."}
+    },
+    "program-setup": {
+      "plugin": "app-governance-kit",
+      "claude": {"level": "full", "note": "Charter drafting and review from a bundled template."},
+      "codex_chatgpt": {"level": "full", "note": "Works in Codex and ChatGPT with the bundled files."},
+      "other": {"level": "full", "note": "Nothing host-specific."}
+    },
+    "rationalization": {
+      "plugin": "app-governance-kit",
+      "claude": {"level": "full", "note": "Read-only analysis of an app and license inventory you supply."},
+      "codex_chatgpt": {"level": "full", "note": "Works in Codex and ChatGPT from attached CSVs."},
+      "other": {"level": "full", "note": "Nothing host-specific."}
+    },
+    "audit-background-processes": {
+      "plugin": "engineering-practices",
+      "claude": {"level": "partial", "note": "Works in Claude Code on macOS or Linux; the Claude app cannot see your computer's processes."},
+      "codex_chatgpt": {"level": "partial", "note": "Codex reports processes, and --kill may need approval outside its sandbox; ChatGPT cannot see your computer's processes."},
+      "other": {"level": "full", "note": "Works in any local agent with bash on macOS or Linux; not on Windows."}
+    },
+    "background-jobs": {
+      "plugin": "engineering-practices",
+      "claude": {"level": "full", "note": "Design guidance; no tools needed."},
+      "codex_chatgpt": {"level": "full", "note": "Design guidance; no tools needed."},
+      "other": {"level": "full", "note": "Design guidance; no tools needed."}
+    },
+    "launch-chrome-debug": {
+      "plugin": "engineering-practices",
+      "claude": {"level": "partial", "note": "Works in Claude Code with Chrome DevTools MCP set up; the Claude app cannot start Chrome on your computer."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex with Chrome DevTools MCP set up (starting Chrome may need approval); ChatGPT cannot reach your Chrome."},
+      "other": {"level": "full", "note": "Works in local agents that support MCP, with Chrome DevTools MCP set up."}
+    },
+    "llm-engineer": {
+      "plugin": "engineering-practices",
+      "claude": {"level": "partial", "note": "Works in Claude Code; the Claude app can design the experiment but cannot inspect your local runtime."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex; ChatGPT can design the experiment but cannot inspect your runtime."},
+      "other": {"level": "full", "note": "Works in any local agent with a shell and your repo."}
+    },
+    "review-older-issues": {
+      "plugin": "engineering-practices",
+      "claude": {"level": "partial", "note": "Works in Claude Code; the Claude app has no git or GitHub CLI."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex once network access is on for the GitHub CLI; ChatGPT has no repo or GitHub CLI."},
+      "other": {"level": "full", "note": "Works in any local agent with git and a signed-in GitHub CLI."}
+    },
+    "saas-metrics": {
+      "plugin": "engineering-practices",
+      "claude": {"level": "full", "note": "Metric definitions and query snippets; data comes from Stripe and PostHog or from exports."},
+      "codex_chatgpt": {"level": "full", "note": "Works in Codex; ChatGPT cannot call Stripe or PostHog, so it works from uploaded exports."},
+      "other": {"level": "full", "note": "Metric definitions and snippets; live queries need your credentials."}
+    },
+    "service-debugging": {
+      "plugin": "engineering-practices",
+      "claude": {"level": "partial", "note": "Works in Claude Code; the Claude app ranks causes only from evidence you paste in."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex (observability tools need network approval); ChatGPT works only from pasted evidence."},
+      "other": {"level": "full", "note": "Works in any local agent with your repo and observability access."}
+    },
+    "spec-workflow": {
+      "plugin": "engineering-practices",
+      "claude": {"level": "partial", "note": "Works in Claude Code with the spec-workflow MCP server; the Claude app cannot run that server or read your specs."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex with the spec-workflow MCP server; ChatGPT cannot run it or read your repo."},
+      "other": {"level": "full", "note": "Works in local agents that support MCP, with the spec-workflow server set up."}
+    },
+    "spec-workflow-drift": {
+      "plugin": "engineering-practices",
+      "claude": {"level": "partial", "note": "Works in Claude Code; the Claude app has no access to your repo."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex; ChatGPT has no access to your repo."},
+      "other": {"level": "full", "note": "Works in any local agent with your repo; no MCP server needed."}
+    },
+    "transactional-email": {
+      "plugin": "engineering-practices",
+      "claude": {"level": "full", "note": "Setup and audit guidance, with DNS checks run locally."},
+      "codex_chatgpt": {"level": "full", "note": "Works in Codex; in ChatGPT you run the DNS checks yourself."},
+      "other": {"level": "full", "note": "Guidance plus local DNS checks."}
+    },
+    "role-ready-application": {
+      "plugin": "role-ready-application",
+      "claude": {"level": "full", "note": "Works in Claude Code and the Claude app; without document rendering it labels the output Draft."},
+      "codex_chatgpt": {"level": "full", "note": "Works in Codex and ChatGPT (skill upload or COPY-PASTE.txt); without document rendering it labels the output Draft."},
+      "other": {"level": "full", "note": "Nothing host-specific."}
+    },
+    "clearly": {
+      "plugin": "writing",
+      "claude": {"level": "partial", "note": "Works in Claude Code on macOS; in the Claude app the writing rules work but not the --explain video."},
+      "codex_chatgpt": {"level": "partial", "note": "Works in Codex on macOS; in ChatGPT the writing rules work but not the --explain video."},
+      "other": {"level": "full", "note": "Writing rules work anywhere; the --explain video needs macOS say or an ElevenLabs key, plus manim."}
+    },
+    "scrub-ai-tells": {
+      "plugin": "writing",
+      "claude": {"level": "full", "note": "Needs only Python 3; the Claude app runs it on uploaded or pasted text, without the clipboard helpers."},
+      "codex_chatgpt": {"level": "full", "note": "Codex runs it locally, and ChatGPT can run it on uploaded files."},
+      "other": {"level": "full", "note": "Needs only Python 3; its repo override check looks only in .claude/skills."}
+    },
+    "table": {
+      "plugin": "writing",
+      "claude": {"level": "full", "note": "Pure formatting."},
+      "codex_chatgpt": {"level": "full", "note": "Pure formatting."},
+      "other": {"level": "full", "note": "Pure formatting."}
+    }
+  }
+}
