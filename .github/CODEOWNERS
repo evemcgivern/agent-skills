@@ -1,0 +1,6 @@
+# Workflow, release and manifest changes need the owner's review.
+/.github/                       @evemcgivern
+/release-please-config.json     @evemcgivern
+/.release-please-manifest.json  @evemcgivern
+/.claude-plugin/                @evemcgivern
+/scripts/                       @evemcgivern
