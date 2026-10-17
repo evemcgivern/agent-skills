@@ -1,0 +1,61 @@
+id,name,vendor,category,annual_cost_usd,users,data_sensitivity
+APP-001,Northbeam ERP,Northbeam,ERP,12900,57,internal
+APP-002,Paylane Payroll,Paylane,Payroll,20800,94,confidential
+APP-003,Staffhub HR information system,Staffhub,HR information system,28800,131,confidential
+APP-004,Hirewell Recruiting,Hirewell,Recruiting,36700,168,confidential
+APP-005,Coursefield Learning management,Coursefield,Learning management,44600,205,internal
+APP-006,Receiptly Expense management,Receiptly,Expense management,52500,242,confidential
+APP-007,Buyline Procurement,Buyline,Procurement,60400,279,internal
+APP-008,Clausebase Contract management,Clausebase,Contract management,68400,316,internal
+APP-009,Relato CRM,Relato,CRM,76300,353,confidential
+APP-010,Campaignly Marketing automation,Campaignly,Marketing automation,84200,390,internal
+APP-011,Helpwise Customer support desk,Helpwise,Customer support desk,92100,427,confidential
+APP-012,Chattera Live chat,Chattera,Live chat,10000,464,internal
+APP-013,Pollform Survey,Pollform,Survey,17900,501,internal
+APP-014,Signwell E-signature,Signwell,E-signature,25900,538,internal
+APP-015,Docuvault Document management,Docuvault,Document management,33800,575,internal
+APP-016,Hallway Intranet,Hallway,Intranet,41700,612,internal
+APP-017,Meetrix Video conferencing,Meetrix,Video conferencing,49600,649,internal
+APP-018,Threadly Team chat,Threadly,Team chat,57500,686,internal
+APP-019,Taskmoor Project management,Taskmoor,Project management,65500,723,internal
+APP-020,Shapewise Diagramming,Shapewise,Diagramming,73400,760,internal
+APP-021,Keyfort Password manager,Keyfort,Password manager,81300,797,internal
+APP-022,Fleetdesk Endpoint management,Fleetdesk,Endpoint management,89200,834,internal
+APP-023,Shieldline Antivirus,Shieldline,Antivirus,7100,871,internal
+APP-024,Vaultline Backup,Vaultline,Backup,15100,908,internal
+APP-025,Pulseboard Monitoring,Pulseboard,Monitoring,23000,45,internal
+APP-026,Servicely IT service management,Servicely,IT service management,30900,82,internal
+APP-027,Gatekey Identity provider,Gatekey,Identity provider,38800,119,confidential
+APP-028,Stackyard Warehouse management,Stackyard,Warehouse management,46700,156,internal
+APP-029,Routewise Transport management,Routewise,Transport management,54700,193,internal
+APP-030,Trackmile Fleet telematics,Trackmile,Fleet telematics,62600,230,internal
+APP-031,Pathcraft Route optimization,Pathcraft,Route optimization,70500,267,internal
+APP-032,Dockside Yard management,Dockside,Yard management,78400,304,internal
+APP-033,Borderline Customs brokerage,Borderline,Customs brokerage,86300,341,internal
+APP-034,Ratecheck Freight audit,Ratecheck,Freight audit,94200,378,internal
+APP-035,Tradelink EDI gateway,Tradelink,EDI gateway,12200,415,internal
+APP-036,Loadboard Carrier portal,Loadboard,Carrier portal,20100,452,internal
+APP-037,Linkup Endpoint management,Linkup,Endpoint management,28000,489,internal
+APP-038,Foresight Demand forecasting,Foresight,Demand forecasting,35900,526,internal
+APP-039,Chartwell Business intelligence,Chartwell,Business intelligence,43800,563,internal
+APP-040,Lakeshore Data warehouse,Lakeshore,Data warehouse,51800,600,internal
+APP-041,Tallysheet Contract management,Tallysheet,Contract management,59700,637,internal
+APP-042,Pipewright ETL,Pipewright,ETL,67600,674,internal
+APP-043,Cellmate Spreadsheet add-in,Cellmate,Spreadsheet add-in,75500,711,internal
+APP-044,Payflow Accounts payable automation,Payflow,Accounts payable automation,83400,748,confidential
+APP-045,Cashmere Treasury,Cashmere,Treasury,91400,785,confidential
+APP-046,Clearport Customs brokerage,Clearport,Customs brokerage,9300,822,internal
+APP-047,Levywise Tax compliance,Levywise,Tax compliance,17200,859,confidential
+APP-048,Trailmark Audit management,Trailmark,Audit management,25100,896,internal
+APP-049,Controlroom GRC,Controlroom,GRC,33000,33,internal
+APP-050,Rulebook Policy management,Rulebook,Policy management,41000,70,internal
+APP-051,Safeyard Health and safety,Safeyard,Health and safety,48900,107,internal
+APP-052,Quickink E-signature,Quickink,E-signature,56800,144,internal
+APP-053,Frontdesk Visitor management,Frontdesk,Visitor management,64700,181,internal
+APP-054,Roomly Facilities booking,Roomly,Facilities booking,72600,218,internal
+APP-055,Scanwright Invoice OCR,Scanwright,Invoice OCR,80500,255,internal
+APP-056,Askbay Chatbot,Askbay,Chatbot,88500,292,internal
+APP-057,Mailguard Email security,Mailguard,Email security,6400,329,internal
+APP-058,Routesmith Transport management,Routesmith,Transport management,14300,366,internal
+APP-059,Clickpath Web analytics,Clickpath,Web analytics,22200,403,internal
+APP-060,Commitly Code repository,Commitly,Code repository,30100,440,internal

@@ -1,0 +1,133 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "separate-pull-requests": false,
+  "include-component-in-tag": true,
+  "packages": {
+    "plugins/agent-workflow/skills/efficient-frontier": {
+      "release-type": "simple",
+      "package-name": "efficient-frontier",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/agent-workflow/skills/quick-recap": {
+      "release-type": "simple",
+      "package-name": "quick-recap",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/agent-workflow/skills/stay-within-limits": {
+      "release-type": "simple",
+      "package-name": "stay-within-limits",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/app-governance-kit/skills/access-review": {
+      "release-type": "simple",
+      "package-name": "access-review",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/app-governance-kit/skills/ai-intake": {
+      "release-type": "simple",
+      "package-name": "ai-intake",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/app-governance-kit/skills/app-governance": {
+      "release-type": "simple",
+      "package-name": "app-governance",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/app-governance-kit/skills/cert-prep": {
+      "release-type": "simple",
+      "package-name": "cert-prep",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/app-governance-kit/skills/crosswalk": {
+      "release-type": "simple",
+      "package-name": "crosswalk",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/app-governance-kit/skills/hardware-lifecycle": {
+      "release-type": "simple",
+      "package-name": "hardware-lifecycle",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/app-governance-kit/skills/itam-maturity": {
+      "release-type": "simple",
+      "package-name": "itam-maturity",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/app-governance-kit/skills/program-setup": {
+      "release-type": "simple",
+      "package-name": "program-setup",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/app-governance-kit/skills/rationalization": {
+      "release-type": "simple",
+      "package-name": "rationalization",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/build-patterns/skills/analytics-instrumentation": {
+      "release-type": "simple",
+      "package-name": "analytics-instrumentation",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/build-patterns/skills/api-design": {
+      "release-type": "simple",
+      "package-name": "api-design",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/build-patterns/skills/stripe-billing": {
+      "release-type": "simple",
+      "package-name": "stripe-billing",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/role-ready-application/skills/role-ready-application": {
+      "release-type": "simple",
+      "package-name": "role-ready-application",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/ship-and-operate/skills/cdf": {
+      "release-type": "simple",
+      "package-name": "cdf",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/ship-and-operate/skills/incident-response": {
+      "release-type": "simple",
+      "package-name": "incident-response",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/ship-and-operate/skills/observability-setup": {
+      "release-type": "simple",
+      "package-name": "observability-setup",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/ship-and-operate/skills/repo-activity-summary": {
+      "release-type": "simple",
+      "package-name": "repo-activity-summary",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/writing/skills/clearly": {
+      "release-type": "simple",
+      "package-name": "clearly",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    }
+  }
+}

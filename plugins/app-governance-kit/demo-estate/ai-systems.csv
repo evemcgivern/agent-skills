@@ -1,0 +1,7 @@
+id,owner,description
+AI-001,Email security,Classifies inbound email as spam or phishing and quarantines it.
+AI-002,Finance,"Reads supplier invoices and extracts totals, dates, and PO numbers for review."
+AI-003,Operations,"Suggests delivery routes to dispatchers, who approve each plan."
+AI-004,HR,Ranks job applicants' CVs and shortlists candidates for interview.
+AI-005,Customer service,Answers customer shipment-status questions in the website chat.
+AI-006,Planning,Forecasts weekly warehouse volume from historic shipments.

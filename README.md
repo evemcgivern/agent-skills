@@ -1,50 +1,142 @@
-# Eve McGivern’s Agent Skills
+# Eve McGivern's Agent Skills
 
-[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-20-blue.svg)](#skills) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-21-blue.svg)](#skills)
 
-Reusable, portable `SKILL.md` workflows for Claude Code and Codex. They use the open Agent Skills folder format; some workflows also call local CLIs or reference sibling skills, as noted in their documentation.
+Skills for Claude Code and Codex, packaged as a Claude Code plugin marketplace. Each skill is a folder with a `SKILL.md`. Pick your tool below; one click opens the steps.
 
 ## Install
 
-Choose one or more skill directories from `skills/` and copy each complete directory to the target platform’s skill location. Keep supporting files beside `SKILL.md`.
+<details>
+<summary><b>Claude Code (terminal CLI)</b> — recommended</summary>
 
-### Claude Code CLI and Claude Code desktop (local sessions)
+```bash
+claude plugin marketplace add evemcgivern/agent-skills
+claude plugin install ship-and-operate@evemcgivern-skills
+claude plugin install build-patterns@evemcgivern-skills
+claude plugin install agent-workflow@evemcgivern-skills
+claude plugin install writing@evemcgivern-skills
+claude plugin install role-ready-application@evemcgivern-skills
+claude plugin install app-governance-kit@evemcgivern-skills
+```
 
-Copy each selected folder to `~/.claude/skills/<skill-name>/`. For repository-only use, copy it to `<repo>/.claude/skills/<skill-name>/`. Claude Code desktop local sessions use Claude Code’s skill locations. Claude.ai Cowork and cloud sessions use skills enabled in the account settings or project skills committed to the repository; local `~/.claude/skills/` files alone do not sync there. See [Claude Code skills docs](https://code.claude.com/docs/en/skills).
+Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install <plugin>@evemcgivern-skills`. Skills then appear as `/<plugin>:<skill>`, for example `/ship-and-operate:deploy`.
 
-### Codex CLI, IDE extension, and desktop app
+Update later with `claude plugin marketplace update evemcgivern-skills`, then `claude plugin update <plugin>@evemcgivern-skills` for each installed plugin.
+</details>
 
-Copy each selected folder to `~/.agents/skills/<skill-name>/` for personal use, or `<repo>/.agents/skills/<skill-name>/` for one repository. Start a new session or reload skills if needed. See [Codex skills docs](https://developers.openai.com/codex/skills-and-plugins).
+<details>
+<summary><b>Claude Code desktop app</b></summary>
 
-### ChatGPT web / account-level skills
+In a local Code session choose **+ → Plugins → Add plugin**, enter `evemcgivern/agent-skills` as the marketplace, then install the plugins you want. Local desktop and CLI sessions share user-scope installs. Cloud Code sessions do not load local plugins; commit the skill folders to your repository's `.claude/skills/` instead.
+</details>
 
-A `SKILL.md` folder by itself is not an account-level ChatGPT upload/install. Use Codex skill folders in Codex-compatible surfaces, or paste the skill instructions into the relevant ChatGPT configuration where supported. Do not assume local files sync to ChatGPT web.
+<details>
+<summary><b>Claude Code or Codex — copy single skills</b></summary>
+
+From a clone of this repo:
+
+```bash
+git clone https://github.com/evemcgivern/agent-skills.git && cd agent-skills
+scripts/install.sh --list                          # see skill names
+scripts/install.sh deploy pr-wait                  # Claude Code, into ~/.claude/skills
+scripts/install.sh --target codex --all            # Codex, into ~/.agents/skills
+scripts/install.sh --project ~/code/myapp deploy   # one repository only
+```
+
+Add `--force` to replace a skill you already have. Or copy a folder by hand from `plugins/<plugin>/skills/<skill>/` to `~/.claude/skills/<skill>/` (Claude Code) or `~/.agents/skills/<skill>/` (Codex). Keep every file in the folder together.
+</details>
+
+<details>
+<summary><b>Codex (CLI, IDE extension, desktop app)</b></summary>
+
+Codex reads skills from `~/.agents/skills/` for personal use or `<repo>/.agents/skills/` for one repository. Use `scripts/install.sh --target codex <skill>` (see above), start a new session, and invoke the skill by name. See the [Codex skills docs](https://developers.openai.com/codex/skills-and-plugins).
+</details>
+
+<details>
+<summary><b>Claude.ai and Claude Cowork</b></summary>
+
+Local `~/.claude/skills/` files do not sync to Claude.ai. Zip one skill folder (the zip must contain the folder itself, with `SKILL.md` inside) and upload it under **Settings → Capabilities → Skills**, or commit the folder to a project repository's `.claude/skills/`.
+</details>
+
+<details>
+<summary><b>ChatGPT</b></summary>
+
+A `SKILL.md` folder is not an account-level ChatGPT install. On workspaces that allow uploadable skills, zip one skill folder and upload it under **Plugins → Skills → Create → Upload from your computer**. Availability depends on your plan and workspace admin settings. Otherwise paste the skill's instructions into a custom GPT or project instructions.
+</details>
 
 ## Skills
 
-- [`analytics-instrumentation`](skills/analytics-instrumentation/README.md) — PostHog event taxonomy and instrumentation review for products — naming convention, property schemas, identify/group calls, PII exclusion, a starter dashboard set (activation, retention, funnel), and a per-feature instrumentation checklist. Use when instrumenting a new feature, reviewing existing PostHog events, or setting up analytics for a new product.
-- [`api-design`](skills/api-design/README.md) — REST conventions for Next.js App Router route handlers — resource naming, versioning, pagination, a standard error envelope, Zod request/response validation, status-code discipline, OpenAPI generation, and API-response scrubbing (no PII/internal IDs/tokens). Use when asked to "design an API route," "add a new endpoint," "review this route handler," or "generate API docs.
-- [`auth-hardening`](skills/auth-hardening/README.md) — NextAuth v5 security audit and hardening checklist — session/cookie config, CSRF, OAuth scopes, per-route role checks, password-reset/OTP rate limits, secret rotation, session invalidation on privilege change. Use when adding auth to a new product, auditing an existing NextAuth v5 app, or reviewing any PR that touches session/role/permission code.
-- [`backup-verify`](skills/backup-verify/README.md) — Confirm database backups exist AND actually restore, by enumerating Neon branch snapshots / Supabase scheduled backups / pg_dump artifacts, restoring into a scratch branch, running smoke queries, and recording timestamped evidence. Use before any risky migration or production mutation, and on a monthly cadence regardless.
-- [`db-migration-safety`](skills/db-migration-safety/README.md) — Write or review Prisma and Supabase database migrations safely using the expand-contract pattern, idempotent SQL, and batched backfills. Use when adding/changing columns or tables, writing a migration PR, or reviewing one before merge — especially against Neon Postgres or Supabase in production.
-- [`dependency-upgrade`](skills/dependency-upgrade/README.md) — Safe batch dependency upgrades across projects — inventory outdated packages (npm outdated / uv lock --upgrade), group by risk (patch/minor/major), upgrade in waves with tsc/test/Playwright gates, read changelogs for majors, run /exposure-scan for supply-chain checks, and land one PR per wave. Use when asked to "upgrade dependencies," "bump packages," "clear npm outdated," or on a periodic maintenance pass.
-- [`deploy`](skills/deploy/README.md) — Merge dev to main for production deployment. Repo-agnostic — detects the repo's conventions and defers to any repo-local runbook. Use once daily or when ready to push to production.
-- [`efficient-frontier`](skills/efficient-frontier/README.md) — Route model effort efficiently across research, coding, and review, including for users with limited quotas. Use when deciding whether to delegate routine work, reserve stronger models for judgment, or control model usage.
-- [`exposure-scan`](skills/exposure-scan/README.md) — Scan installed packages against bumblebee threat-intelligence exposure catalogs to detect known-compromised dependency releases (supply-chain campaigns like shai-hulud, node-ipc, gemstuffer). Use when checking for compromised packages, running a supply-chain or dependency security scan, auditing the machine after a reported npm/PyPI/Go/gem/extension compromise, or refreshing threat-intel catalogs.
-- [`incident-response`](skills/incident-response/README.md) — Production incident runbook sized for a small team. Use when a service is down, erroring, or degraded in production — Render alert fires, Better Stack paging, users reporting errors, or a bad deploy is suspected. Covers triage order, rollback, comms, and lightweight postmortem.
-- [`observability-setup`](skills/observability-setup/README.md) — Wire a service for observability sized for a small team — Better Stack uptime checks and log drains from Render, error tracking, PostHog product analytics, Render health-check endpoints, and alert thresholds tuned so two humans aren't paged into the ground. Use when launching a new service, adding monitoring to an existing one, or when alert fatigue is a complaint.
-- [`pr-wait`](skills/pr-wait/README.md) — Wait for GitHub PR CI checks to complete, then optionally merge
-- [`quick-recap`](skills/quick-recap/README.md) — Use when adding or following the red/yellow/green final status block convention for agent responses, especially by installing managed AGENTS.md or CLAUDE.md instructions.
-- [`rate-limit-audit`](skills/rate-limit-audit/README.md) — Pre-launch gate that inventories every endpoint calling a paid API (LLM, email, SMS) and every auth endpoint, verifies a rate limiter exists, and actually tests it with scripted burst requests to confirm 429s fire. Use before launching a new product/feature, after adding an LLM-calling or auth route, or when asked to check rate limiting.
-- [`repo-activity-summary`](skills/repo-activity-summary/README.md) — Use when the user asks to summarize repo activity, check project status, gauge progress, list open issues and PRs, or see CI health. Triggers on "activity summary", "what's open", "project status", "progress check", "CI status".
-- [`review-merge-pipeline`](skills/review-merge-pipeline/README.md) — Automated pipeline that code-reviews uncommitted changes, fixes issues found, commits, pushes, creates a PR, and merges with --admin. Accepts an optional worktree path argument and flags --no-review / --no-merge / --rebase / --cross-model. Use when work is done and you want to ship it without manual steps.
-- [`spec-review`](skills/spec-review/README.md) — Use when a design spec, plan, or requirements doc is drafted/ratified/about-to-be-implemented and you want a rigorous second-model review that verifies the spec's claims against the real codebase — catching wrong data-model assumptions (scalar-vs-M2M), unverified schema/API claims, missing acceptance criteria, ambiguity, and internal contradictions before code is written. The spec-world analog of /codex:review for PRs.
-- [`stay-within-limits`](skills/stay-within-limits/README.md) — Use when long-running or parallel agent work must respect 5-hour and weekly usage limits by checking usage between waves, pausing near the cap, and resuming only when the window is clear.
-- [`stripe-billing`](skills/stripe-billing/README.md) — Implement or review Stripe subscription billing for a Next.js App Router product (Checkout, customer portal, webhook handler, plan changes, trials, dunning). Use when adding subscriptions or paywalls to a product or service, when reviewing existing billing code for correctness, or when a webhook/proration/trial bug is reported.
-- [`webhook-reliability`](skills/webhook-reliability/README.md) — Design or review inbound and outbound webhooks for signature verification, idempotency, retry/backoff, dead-letter recording, replay tooling, and timeout budgets. Use when building a new webhook handler or emitter, reviewing an existing one (Stripe, GitHub, or a custom outbound webhook), or investigating a "webhook silently didn't fire" report.
-## Notes
+Looking for `deploy`, `pr-wait`, `review-merge-pipeline`, `spec-review`, `auth-hardening`, `rate-limit-audit`, `webhook-reliability`, `exposure-scan`, `db-migration-safety`, `backup-verify` or `dependency-upgrade`? They live in [stylusnexus/agent-plugins](https://github.com/stylusnexus/agent-plugins), a separate marketplace. Five more worth a look there:
 
-- Review each skill and its required tools before use. A skill is instruction text; tool availability, permissions, and platform behavior depend on the host.
-- Skills do not replace repository-specific documentation, approval rules, or tests.
-- This package does not promise that a task can be completed without the needed model, tools, data, or quota.
-- See [PROVENANCE.md](PROVENANCE.md) for the clean-copy and license history.
+- `ship-issues` takes a batch of GitHub issues from intake through merge, and on to deploy when you ask for a release.
+- `start-issue` reads an issue in full, checks the work isn't already shipped, and cuts a correctly named branch.
+- `prove-it` proves a feature works with real evidence, not just a green CI run.
+- `threat-model` writes down who could abuse a new feature or route, and how, before you build it.
+- `readiness-review` gives a read-only launch-readiness report on a repo and its live product.
+
+Check out others at [stylusnexus/agent-plugins](https://github.com/stylusnexus/agent-plugins).
+
+### `ship-and-operate`
+
+Run production and keep tabs on work: incident response, observability setup, repo activity summaries, comma-delimited issue lists.
+
+- [`cdf`](plugins/ship-and-operate/skills/cdf/README.md) v0.1.0 — Use when the user types /cdf or $cdf, or asks for issue numbers "comma-delimited". Output any list of GitHub issues as one plain comma-separated line of numbers, nothing else added.
+- [`incident-response`](plugins/ship-and-operate/skills/incident-response/README.md) v0.2.0 — Production incident runbook for a small team - severity call, fixed triage order, rollback-first decision, user comms, and a one-page blameless postmortem.
+- [`observability-setup`](plugins/ship-and-operate/skills/observability-setup/README.md) v0.2.0 — Wire a web service for observability sized for a small team - health-check endpoint, uptime checks, log forwarding, error tracking, product analytics, LLM cost tracking, and page-vs-ticket alert thresholds.
+- [`repo-activity-summary`](plugins/ship-and-operate/skills/repo-activity-summary/README.md) v0.2.0 — Summarize current GitHub repo activity - open issues, open PRs with check status, recent CI runs, and local branch state - in one report with planning takeaways, via the gh CLI.
+
+### `build-patterns`
+
+Patterns for building product code: API design, Stripe billing, and analytics instrumentation.
+
+- [`analytics-instrumentation`](plugins/build-patterns/skills/analytics-instrumentation/README.md) v0.2.0 — PostHog event taxonomy and instrumentation review - object_verb naming, flat property schemas, identify/reset/group calls, PII exclusion, LLM usage events, a starter dashboard set (activation, retention, feature funnel), and a per-feature checklist.
+- [`api-design`](plugins/build-patterns/skills/api-design/README.md) v0.2.0 — REST conventions for Next.js App Router route handlers — resource naming, versioning, cursor pagination, one error envelope, Zod request/response validation, status-code rules, OpenAPI generated from Zod, and response scrubbing (no secrets, hashes, or other users' data).
+- [`stripe-billing`](plugins/build-patterns/skills/stripe-billing/README.md) v0.2.0 — Implement or review Stripe subscription billing in a Next.js App Router app — Checkout Sessions, customer portal, signed and idempotent webhook handler, plan changes and proration, trials, and dunning.
+
+### `agent-workflow`
+
+Working habits for coding agents: model routing, final status recaps, and usage-limit pacing.
+
+- [`efficient-frontier`](plugins/agent-workflow/skills/efficient-frontier/README.md) v0.2.0 — Routes model effort across research, coding, testing, and review so strong models handle judgment and cheaper subagents handle volume, including for users with limited quotas.
+- [`quick-recap`](plugins/agent-workflow/skills/quick-recap/README.md) v0.2.0 — Defines a one-line red/yellow/green status line that ends every agent response that completes work, and how to install it as standing instructions in AGENTS.md or CLAUDE.md.
+- [`stay-within-limits`](plugins/agent-workflow/skills/stay-within-limits/README.md) v0.2.0 — Keeps long-running or parallel agent work inside 5-hour and weekly usage limits by running work in bounded waves, checking usage between waves, pausing at 95%, and resuming only after the window resets.
+
+### `writing`
+
+Plain, short, scannable writing: controlled technical English, comma-delimited lists, and an optional explain mode.
+
+- [`clearly`](plugins/writing/skills/clearly/README.md) v0.1.0 — Write plain, short, scannable prose, about 80% of ASD-STE100 (controlled technical English), with habits from Strunk and i-have-adhd.
+
+### `role-ready-application`
+
+Build truthful, role-tailored resumes and cover letters with candidate-voice review and document preflight.
+
+- [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) v0.2.0 — Tailor a truthful resume and cover letter to one job, then review clarity, candidate voice, factual fidelity, and rendered documents.
+
+### `app-governance-kit`
+
+Application portfolio, AI, and access governance methods.
+
+- [`access-review`](plugins/app-governance-kit/skills/access-review/README.md) v0.1.0 — Review application user and role exports against HR records, find orphaned, excessive, and privileged access, and produce an evidence summary and auditor-ready memo mapped to ISO/IEC 27001 and COBIT DSS05.
+- [`ai-intake`](plugins/app-governance-kit/skills/ai-intake/README.md) v0.1.0 — Take a description of an AI use case, assign a risk tier under the EU AI Act with NIST AI RMF and ISO/IEC 42001 controls, and produce an AI inventory record.
+- [`app-governance`](plugins/app-governance-kit/skills/app-governance/README.md) v0.1.0 — Pick the right governance skill for a plain request about a software estate, AI systems, access, or devices, ask for the data, run that skill, and hand every decision back to a person.
+- [`cert-prep`](plugins/app-governance-kit/skills/cert-prep/README.md) v0.1.0 — Coach a learner preparing for CAMP, CSAM, CHAMP, AIGP, ITIL 4 Foundation, or the IAM Certificate with scenario drills on the Halden demo estate, then log gaps and plan the next drills.
+- [`crosswalk`](plugins/app-governance-kit/skills/crosswalk/README.md) v0.1.0 — Map a control, requirement, or policy statement to ISO/IEC 19770-1, COBIT 2019, ISO/IEC 27001, and ISO/IEC 42001 clauses, and show where coverage is missing.
+- [`hardware-lifecycle`](plugins/app-governance-kit/skills/hardware-lifecycle/README.md) v0.1.0 — Check a device fleet for hardware overdue for refresh and retired devices missing a confirmed data wipe, estimate replacement cost, and produce a disposal-readiness summary.
+- [`itam-maturity`](plugins/app-governance-kit/skills/itam-maturity/README.md) v0.1.0 — Score an organization's IT asset management maturity across nine process areas, name the three biggest gaps, and produce a 90-day plan tied to ISO/IEC 19770-1 and COBIT BAI09.
+- [`program-setup`](plugins/app-governance-kit/skills/program-setup/README.md) v0.1.0 — Design or review the launch of a governance body such as a software governance council, ITAM steering group, or AI governance board — charter, decision rights, membership, intake path, cadence, 90-day launch plan, and success measures.
+- [`rationalization`](plugins/app-governance-kit/skills/rationalization/README.md) v0.1.0 — Recommend tolerate, invest, migrate, or eliminate for each application in an inventory, find duplicates and license problems, and summarize savings and risk.
+
+## Keeping versions current
+
+Each skill has its own `VERSION` and `CHANGELOG.md`. [release-please](https://github.com/googleapis/release-please) maintains them:
+
+1. Merge changes to `main` with [Conventional Commit](https://www.conventionalcommits.org/) titles, for example `fix(deploy): handle empty check list`. Squash merges use the PR title, which CI lints.
+2. release-please opens one release PR that bumps `VERSION` and `CHANGELOG.md` for each skill that changed (`fix:` is a patch, `feat:` a minor, `feat!:` or a `BREAKING CHANGE:` footer a major).
+3. Merging that PR tags each skill (`deploy-v0.2.1`) and creates its GitHub release.
+
+Every pull request runs `python3 -I tests/validate.py` (frontmatter, versions, changelogs, scripts, personal-data scan, marketplace and release config) and `bash tests/install_test.sh`.
+
+## Provenance
+
+See [PROVENANCE.md](PROVENANCE.md). Licensed under the [MIT License](LICENSE).

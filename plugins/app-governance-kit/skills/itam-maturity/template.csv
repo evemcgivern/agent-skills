@@ -1,0 +1,10 @@
+area,label,question,score,evidence
+governance,Governance and policy,"Is there a written, approved policy that defines what counts as a managed asset and the rules for managing it?",,
+inventory,Inventory and discovery,"Can you produce a current list of every application and software asset in use, and when was it last checked against what's actually installed?",,
+entitlement,Entitlement and license management,"Can you show purchase records for your top ten software products and match them to what's installed?",,
+lifecycle,"Lifecycle, request to retirement","For an application retired in the last year, can you show its path from the original request through to shutdown?",,
+vendor,Vendor and contract management,"Do you have a current risk rating and renewal date on file for each of your major software vendors?",,
+data-quality,Data quality and reconciliation,"If ten records were pulled at random from the inventory, how many would have every required field filled in and correct?",,
+security,Risk and security integration,"Are new applications checked against your access control policy before they're approved to go live?",,
+cost,Cost and financial management,"Can you show this month's actual software spend against budget, broken out by application and owner?",,
+reporting,Reporting and improvement,"Do you review a fixed set of asset management metrics on a set schedule, and can you show one action taken from the last review?",,
