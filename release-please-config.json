@@ -3,15 +3,39 @@
   "separate-pull-requests": false,
   "include-component-in-tag": true,
   "packages": {
+    "plugins/agent-workflow/skills/check-worth": {
+      "release-type": "simple",
+      "package-name": "check-worth",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
     "plugins/agent-workflow/skills/efficient-frontier": {
       "release-type": "simple",
       "package-name": "efficient-frontier",
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
+    "plugins/agent-workflow/skills/mission": {
+      "release-type": "simple",
+      "package-name": "mission",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/agent-workflow/skills/problem-first": {
+      "release-type": "simple",
+      "package-name": "problem-first",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
     "plugins/agent-workflow/skills/quick-recap": {
       "release-type": "simple",
       "package-name": "quick-recap",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/agent-workflow/skills/sonnet-prompt-improver": {
+      "release-type": "simple",
+      "package-name": "sonnet-prompt-improver",
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
@@ -75,6 +99,60 @@
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
+    "plugins/engineering-practices/skills/audit-background-processes": {
+      "release-type": "simple",
+      "package-name": "audit-background-processes",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/engineering-practices/skills/background-jobs": {
+      "release-type": "simple",
+      "package-name": "background-jobs",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/engineering-practices/skills/llm-engineer": {
+      "release-type": "simple",
+      "package-name": "llm-engineer",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/engineering-practices/skills/review-older-issues": {
+      "release-type": "simple",
+      "package-name": "review-older-issues",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/engineering-practices/skills/saas-metrics": {
+      "release-type": "simple",
+      "package-name": "saas-metrics",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/engineering-practices/skills/service-debugging": {
+      "release-type": "simple",
+      "package-name": "service-debugging",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/engineering-practices/skills/spec-workflow": {
+      "release-type": "simple",
+      "package-name": "spec-workflow",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/engineering-practices/skills/spec-workflow-drift": {
+      "release-type": "simple",
+      "package-name": "spec-workflow-drift",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/engineering-practices/skills/transactional-email": {
+      "release-type": "simple",
+      "package-name": "transactional-email",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
     "plugins/role-ready-application/skills/role-ready-application": {
       "release-type": "simple",
       "package-name": "role-ready-application",
@@ -84,6 +162,18 @@
     "plugins/writing/skills/clearly": {
       "release-type": "simple",
       "package-name": "clearly",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/writing/skills/scrub-ai-tells": {
+      "release-type": "simple",
+      "package-name": "scrub-ai-tells",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/writing/skills/table": {
+      "release-type": "simple",
+      "package-name": "table",
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     }

@@ -10,13 +10,13 @@
     {
       "name": "agent-workflow",
       "source": "./plugins/agent-workflow",
-      "description": "Working habits for coding agents: model routing, final status recaps, and usage-limit pacing.",
+      "description": "Working habits for coding agents: model routing, status recaps, usage-limit pacing, prompt tuning, problem framing, and checking whether an idea is worth acting on.",
       "license": "MIT"
     },
     {
       "name": "writing",
       "source": "./plugins/writing",
-      "description": "Plain, short, scannable writing: controlled technical English, comma-delimited lists, and an optional explain mode.",
+      "description": "Plain, short, scannable writing: controlled technical English, comma-delimited lists, tables, and a pass that removes AI-writing tells.",
       "license": "MIT"
     },
     {
@@ -29,6 +29,12 @@
       "name": "app-governance-kit",
       "source": "./plugins/app-governance-kit",
       "description": "Application portfolio, AI, and access governance methods.",
+      "license": "MIT"
+    },
+    {
+      "name": "engineering-practices",
+      "source": "./plugins/engineering-practices",
+      "description": "Everyday engineering skills: service debugging, background jobs, transactional email, SaaS metrics, spec-workflow companions, LLM engineering, and older-issue triage.",
       "license": "MIT"
     }
   ]

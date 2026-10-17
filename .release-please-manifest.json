@@ -1,6 +1,10 @@
 {
+  "plugins/agent-workflow/skills/check-worth": "0.1.0",
   "plugins/agent-workflow/skills/efficient-frontier": "0.2.0",
+  "plugins/agent-workflow/skills/mission": "0.1.0",
+  "plugins/agent-workflow/skills/problem-first": "0.1.0",
   "plugins/agent-workflow/skills/quick-recap": "0.2.0",
+  "plugins/agent-workflow/skills/sonnet-prompt-improver": "0.1.0",
   "plugins/agent-workflow/skills/stay-within-limits": "0.2.0",
   "plugins/app-governance-kit/skills/access-review": "0.1.0",
   "plugins/app-governance-kit/skills/ai-intake": "0.1.0",
@@ -11,6 +15,17 @@
   "plugins/app-governance-kit/skills/itam-maturity": "0.1.0",
   "plugins/app-governance-kit/skills/program-setup": "0.1.0",
   "plugins/app-governance-kit/skills/rationalization": "0.1.0",
+  "plugins/engineering-practices/skills/audit-background-processes": "0.1.0",
+  "plugins/engineering-practices/skills/background-jobs": "0.1.0",
+  "plugins/engineering-practices/skills/llm-engineer": "0.1.0",
+  "plugins/engineering-practices/skills/review-older-issues": "0.1.0",
+  "plugins/engineering-practices/skills/saas-metrics": "0.1.0",
+  "plugins/engineering-practices/skills/service-debugging": "0.1.0",
+  "plugins/engineering-practices/skills/spec-workflow": "0.1.0",
+  "plugins/engineering-practices/skills/spec-workflow-drift": "0.1.0",
+  "plugins/engineering-practices/skills/transactional-email": "0.1.0",
   "plugins/role-ready-application/skills/role-ready-application": "0.2.0",
-  "plugins/writing/skills/clearly": "0.1.0"
+  "plugins/writing/skills/clearly": "0.1.0",
+  "plugins/writing/skills/scrub-ai-tells": "0.1.0",
+  "plugins/writing/skills/table": "0.1.0"
 }

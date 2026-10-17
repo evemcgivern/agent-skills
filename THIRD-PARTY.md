@@ -25,3 +25,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Pimzino/spec-workflow-mcp
+
+The `spec-workflow` and `spec-workflow-drift` skills are companions for the [spec-workflow-mcp](https://github.com/Pimzino/spec-workflow-mcp) server (GPL-3.0). They call its tools and read its `.spec-workflow/` folder. They contain none of its code. Install the server separately and follow its license.
