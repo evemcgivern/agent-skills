@@ -1,5 +1,12 @@
 # Changelog: agent-doctor
 
+## [0.3.1](https://github.com/evemcgivern/agent-skills/compare/agent-doctor-v0.3.0...agent-doctor-v0.3.1) (2026-10-17)
+
+
+### Bug Fixes
+
+* **agent-doctor:** scan all agents' skill folders ([#53](https://github.com/evemcgivern/agent-skills/issues/53)) ([1ee0b3b](https://github.com/evemcgivern/agent-skills/commit/1ee0b3b5df2d8003195d59b395ea1ced9e1b6839)), closes [#51](https://github.com/evemcgivern/agent-skills/issues/51)
+
 ## [0.3.0](https://github.com/evemcgivern/agent-skills/compare/agent-doctor-v0.2.0...agent-doctor-v0.3.0) (2026-10-17)
 
 
