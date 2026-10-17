@@ -6,7 +6,7 @@ Tailor a truthful resume and cover letter to one job, then review clarity, candi
 
 ## Install
 
-See the [repository README](../../../../README.md#install) for Claude Code, Codex, Claude.ai and ChatGPT steps.
+See [install steps for each platform](../../README.md#install) (Claude Code, Codex, Claude.ai, ChatGPT, or paste `COPY-PASTE.txt` into any assistant).
 
 ## Included
 
