@@ -1,0 +1,9 @@
+{
+  "name": "engineering-practices",
+  "description": "Everyday engineering skills: service debugging, background jobs, transactional email, SaaS metrics, spec-workflow companions, LLM engineering, and older-issue triage.",
+  "author": {
+    "name": "Eve McGivern"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/evemcgivern/agent-skills"
+}

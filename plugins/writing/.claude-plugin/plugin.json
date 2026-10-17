@@ -1,6 +1,6 @@
 {
   "name": "writing",
-  "description": "Plain, short, scannable writing: controlled technical English, comma-delimited lists, and an optional explain mode.",
+  "description": "Plain, short, scannable writing: controlled technical English, comma-delimited lists, tables, and a pass that removes AI-writing tells.",
   "author": {
     "name": "Eve McGivern"
   },

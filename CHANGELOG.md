@@ -4,8 +4,10 @@ Each skill keeps its own `VERSION` and `CHANGELOG.md`; release-please maintains 
 
 ## Unreleased
 
-- Convert the repository to a Claude Code plugin marketplace with six plugins.
-- Add `clearly`, `cdf`, `app-governance-kit` and `role-ready-application`.
+- Convert the repository to a Claude Code plugin marketplace with five plugins and 29 skills: `agent-workflow` (7 skills), `writing` (3), `role-ready-application` (1), `app-governance-kit` (9) and `engineering-practices` (9).
+- Add `clearly`, `app-governance-kit` and `role-ready-application`.
+- Add `check-worth`, `mission`, `problem-first` and `sonnet-prompt-improver` to `agent-workflow`, and `scrub-ai-tells` and `table` to `writing`.
+- Add the `engineering-practices` plugin: `audit-background-processes`, `background-jobs`, `llm-engineer`, `review-older-issues`, `saas-metrics`, `service-debugging`, `spec-workflow`, `spec-workflow-drift` and `transactional-email`.
 - Drop skills that live in the stylusnexus marketplace.
 - Add release-please, validation workflows, and `scripts/install.sh`.
 

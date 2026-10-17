@@ -1,6 +1,6 @@
 {
   "name": "agent-workflow",
-  "description": "Working habits for coding agents: model routing, final status recaps, and usage-limit pacing.",
+  "description": "Working habits for coding agents: model routing, status recaps, usage-limit pacing, prompt tuning, problem framing, and checking whether an idea is worth acting on.",
   "author": {
     "name": "Eve McGivern"
   },
