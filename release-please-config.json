@@ -21,9 +21,9 @@
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
-    "plugins/agent-workflow/skills/efficient-frontier": {
+    "plugins/agent-workflow/skills/efficient-frontier-routing": {
       "release-type": "simple",
-      "package-name": "efficient-frontier",
+      "package-name": "efficient-frontier-routing",
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },

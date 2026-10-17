@@ -9,6 +9,7 @@ Each skill keeps its own `VERSION` and `CHANGELOG.md`; release-please maintains 
 - Add `check-worth`, `mission`, `problem-first` and `sonnet-prompt-improver` to `agent-workflow`, and `scrub-ai-tells` and `table` to `writing`.
 - Add the `engineering-practices` plugin: `audit-background-processes`, `background-jobs`, `llm-engineer`, `review-older-issues`, `saas-metrics`, `service-debugging`, `spec-workflow`, `spec-workflow-drift` and `transactional-email`.
 - Drop skills that live in the stylusnexus marketplace.
+- Rename `efficient-frontier` to `efficient-frontier-routing`; it now carries the fuller routing policy and a configuration reference.
 - Add release-please, validation workflows, and `scripts/install.sh`.
 
 ## 0.1.0 — 2026-10-17
