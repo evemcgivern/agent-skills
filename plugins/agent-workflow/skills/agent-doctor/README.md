@@ -21,7 +21,7 @@ Why does my release-notes skill not load? Check my agent setup.
 Which of my skills have no calls in the last 90 days?
 ```
 
-A table of problems with severity, file and line, or a usage table with a verdict for each skill. For each rarely used skill, the agent asks if you want to update, keep or archive it. It archives only after your yes.
+A table of problems with severity, file and line, or a usage table with a verdict for each skill. For each rarely used skill, the agent asks if you want to update, keep or archive it. It archives only after your yes. If your logs reach back less than 90 days, skills show as unknown instead of unused.
 
 **Skip it when**
 - You need to know if a skill works when it runs. This scan reads files only and does not run anything.

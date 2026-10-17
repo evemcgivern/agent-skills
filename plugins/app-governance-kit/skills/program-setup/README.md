@@ -18,7 +18,7 @@ Design or review the launch of a governance body such as a software governance c
 Draft a charter for an AI governance board at a 400-person company.
 Review this council charter and list the gaps.
 ```
-You get a draft charter, a decision-rights table and a 90-day launch plan. For a review, you get a gap table. The sponsor signs off.
+For a draft, the agent first asks for the body's purpose, the company's size, the sponsor and what goes wrong today. You get a draft charter, a decision-rights table and a 90-day launch plan. For a review, you get a gap table. The sponsor signs off.
 
 **Skip it when**
 - You need a decision on one request. Use ai-intake or rationalization.

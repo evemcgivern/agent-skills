@@ -21,7 +21,7 @@ Tracks a multi-issue goal as a one-line progress strip that the agent re-prints 
 /goal-checklist --sync
 ```
 
-A one-line strip: one symbol per issue (not started, in progress, merged, shipped, verified, unproven or blocked) and a tally. After that, the agent adds the strip to any reply where an item changes. The list lasts for the session. Paste the last strip into a new session to restore it. Other agents can ask in words.
+A one-line strip: one symbol per issue (not started, in progress, merged, shipped, verified, unproven or blocked) and a tally. After that, the agent adds the strip to any reply where an item changes. The list lasts for the session. Paste the last strip into a new session to restore it. --sync can only update items whose merge commit (SHA) was recorded in the strip. Other agents can ask in words.
 
 **Skip it when**
 - You have one issue or one task. A plain to-do list is enough.

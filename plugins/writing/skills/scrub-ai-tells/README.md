@@ -12,7 +12,7 @@ Reports and removes the characters that mark prose as machine-written: invisible
 **Use it when**
 - You will publish a blog post that you drafted with AI help.
 - Pasted text has invisible characters that break search or diffs.
-- You want a check on a docs folder that fails when such characters appear.
+- You want a CI check on a docs folder that fails when invisible characters, em dashes, curly quotes or ellipsis glyphs appear.
 
 **Try it**
 

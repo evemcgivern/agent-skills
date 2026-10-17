@@ -22,7 +22,7 @@ Set up a monthly business review: MRR, gross churn, 7-day activation and 30-day 
 You get metric definitions, a starter Stripe script, PostHog HogQL queries and a review template, with warnings about trials, refunds, currency and proration.
 
 **Skip it when**
-- Your pricing is metered or multi-currency. The starter code assumes one currency and flat prices, so you must extend it.
+- You need accounting-grade revenue recognition. This skill gives metrics a small team can check by hand. (For metered or multi-currency pricing, extend the starter script.)
 
 ## What it looks like
 

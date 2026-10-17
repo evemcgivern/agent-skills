@@ -10,7 +10,7 @@ Score an organization's IT asset management maturity across nine process areas, 
 
 **Use it when**
 - You need a baseline for a new IT asset management program.
-- You run the yearly re-check and want to see what moved.
+- You run the yearly re-check and need fresh scores and a new 90-day plan.
 - Your leadership asks for a 90-day plan.
 
 **Try it**

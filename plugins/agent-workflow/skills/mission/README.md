@@ -17,7 +17,7 @@ Keeps a small mission record outside the repository so work can resume cleanly i
 **Try it**
 
 ```text
-Start a mission called release-notes. Outcome: publish accurate release notes. Milestone: draft, done when the notes name every user-facing change.
+Start a mission called release-notes. Outcome: publish accurate release notes. Milestone: draft, done when the notes name every user-facing change. Next action: draft the notes.
 Resume the release-notes mission.
 ```
 
