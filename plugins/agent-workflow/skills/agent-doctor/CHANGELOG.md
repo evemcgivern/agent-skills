@@ -1,5 +1,12 @@
 # Changelog: agent-doctor
 
+## [0.3.0](https://github.com/evemcgivern/agent-skills/compare/agent-doctor-v0.2.0...agent-doctor-v0.3.0) (2026-10-17)
+
+
+### Features
+
+* **agent-doctor:** add skill usage report ([#24](https://github.com/evemcgivern/agent-skills/issues/24)) ([8f9cf63](https://github.com/evemcgivern/agent-skills/commit/8f9cf63100e3c48395d2b693748cbd154594313a)), closes [#23](https://github.com/evemcgivern/agent-skills/issues/23)
+
 ## [0.2.0](https://github.com/evemcgivern/agent-skills/compare/agent-doctor-v0.1.0...agent-doctor-v0.2.0) (2026-10-17)
 
 
