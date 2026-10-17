@@ -10,5 +10,5 @@
 ## 0.2.0 — initial marketplace package
 
 - Packaged the current RoleReady Application skill for Claude Code, Codex, and eligible ChatGPT skill upload.
-- Added installation notes, version tracking, and a ChatGPT upload archive.
+- Added installation notes and version tracking, and instructions for ChatGPT skill upload (the upload archive is built from the skill folder with the command in the README; no archive is stored in this repository).
 - Source workflow content is unchanged in this package.
