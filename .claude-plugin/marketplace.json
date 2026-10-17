@@ -8,12 +8,6 @@
   },
   "plugins": [
     {
-      "name": "ship-and-operate",
-      "source": "./plugins/ship-and-operate",
-      "description": "Summarize repo activity: open issues and PRs, CI health, and progress.",
-      "license": "MIT"
-    },
-    {
       "name": "agent-workflow",
       "source": "./plugins/agent-workflow",
       "description": "Working habits for coding agents: model routing, final status recaps, and usage-limit pacing.",

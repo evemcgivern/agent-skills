@@ -1,6 +1,6 @@
 # Eve McGivern's Agent Skills
 
-[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-15-blue.svg)](#skills)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-14-blue.svg)](#skills)
 
 Skills for Claude Code and Codex, packaged as a Claude Code plugin marketplace. Each skill is a folder with a `SKILL.md`. Pick your tool below; one click opens the steps.
 
@@ -11,7 +11,6 @@ Skills for Claude Code and Codex, packaged as a Claude Code plugin marketplace. 
 
 ```bash
 claude plugin marketplace add evemcgivern/agent-skills
-claude plugin install ship-and-operate@evemcgivern-skills
 claude plugin install agent-workflow@evemcgivern-skills
 claude plugin install writing@evemcgivern-skills
 claude plugin install role-ready-application@evemcgivern-skills
@@ -65,7 +64,7 @@ A `SKILL.md` folder is not an account-level ChatGPT install. On workspaces that 
 
 ## Skills
 
-Looking for `deploy`, `pr-wait`, `review-merge-pipeline`, `spec-review`, `auth-hardening`, `rate-limit-audit`, `webhook-reliability`, `exposure-scan`, `db-migration-safety`, `backup-verify`, `dependency-upgrade`, `stripe-billing`, `api-design`, `analytics-instrumentation`, `incident-response`, `observability-setup` or `cdf`? They live in [stylusnexus/agent-plugins](https://github.com/stylusnexus/agent-plugins), a separate marketplace. Five more worth a look there:
+Looking for `deploy`, `pr-wait`, `review-merge-pipeline`, `spec-review`, `auth-hardening`, `rate-limit-audit`, `webhook-reliability`, `exposure-scan`, `db-migration-safety`, `backup-verify`, `dependency-upgrade`, `stripe-billing`, `api-design`, `analytics-instrumentation`, `incident-response`, `observability-setup` or `cdf` or `repo-activity-summary`? They live in [stylusnexus/agent-plugins](https://github.com/stylusnexus/agent-plugins), a separate marketplace. Five more worth a look there:
 
 - `ship-issues` takes a batch of GitHub issues from intake through merge, and on to deploy when you ask for a release.
 - `start-issue` reads an issue in full, checks the work isn't already shipped, and cuts a correctly named branch.
@@ -74,12 +73,6 @@ Looking for `deploy`, `pr-wait`, `review-merge-pipeline`, `spec-review`, `auth-h
 - `readiness-review` gives a read-only launch-readiness report on a repo and its live product.
 
 Check out others at [stylusnexus/agent-plugins](https://github.com/stylusnexus/agent-plugins).
-
-### `ship-and-operate`
-
-Summarize repo activity: open issues and PRs, CI health, and progress.
-
-- [`repo-activity-summary`](plugins/ship-and-operate/skills/repo-activity-summary/README.md) v0.2.0 — Summarize current GitHub repo activity - open issues, open PRs with check status, recent CI runs, and local branch state - in one report with planning takeaways, via the gh CLI.
 
 ### `agent-workflow`
 

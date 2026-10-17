@@ -12,6 +12,5 @@
   "plugins/app-governance-kit/skills/program-setup": "0.1.0",
   "plugins/app-governance-kit/skills/rationalization": "0.1.0",
   "plugins/role-ready-application/skills/role-ready-application": "0.2.0",
-  "plugins/ship-and-operate/skills/repo-activity-summary": "0.2.0",
   "plugins/writing/skills/clearly": "0.1.0"
 }
