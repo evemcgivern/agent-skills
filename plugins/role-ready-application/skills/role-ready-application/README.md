@@ -4,6 +4,39 @@
 
 Tailor a truthful resume and cover letter to one job, then review clarity, candidate voice, factual fidelity, and rendered documents.
 
+## What it looks like
+
+How a resume build moves from your documents to a file you can send:
+
+```mermaid
+flowchart TD
+    A[Resume and full job description] --> B{Readable and complete?}
+    B -- No: ask for readable text --> A
+    B -- Yes --> C[Ask questions, build source ledger]
+    C --> D[Tailor resume to the role]
+    D --> E[Voice and clarity review]
+    E --> F[Factual check against ledger]
+    F --> G[Render, count pages, extract text]
+    G --> H{Every check PASS?}
+    H -- Yes --> I[Final resume, offer cover letter]
+    H -- No or unchecked --> J[Draft label, names what is open]
+```
+
+The source ledger links every resume claim to a line of your original resume or an answer you gave. The check results come back next to the documents, never inside them. Example output, invented data:
+
+```text
+Resume checks (target: Operations Analyst, v01)
+Readable and complete inputs      PASS
+Source facts and role relevance   PASS
+Rendered length (2 pages max)     UNVERIFIED  no renderer in this chat
+Readability                       PASS
+Layout                            UNVERIFIED  no renderer in this chat
+Extraction                        UNVERIFIED  no file produced
+Filename and target identity      PASS
+Overall: UNVERIFIED, so the resume is labelled Draft.
+Open question: was the 18% cost cut your project or the team's?
+```
+
 ## Install
 
 Pick your platform. Each section opens with one click.

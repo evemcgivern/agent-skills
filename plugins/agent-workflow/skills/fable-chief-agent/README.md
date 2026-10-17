@@ -4,6 +4,23 @@
 
 Makes the most capable, most expensive model in a session the senior decision-maker. It keeps that model's reasoning for intent, architecture, decomposition, tradeoffs, final review, and synthesis, and routes discovery, implementation, tests, logs, and verification to cheaper agents by tier. For high-risk work it recommends a review by a model from a different vendor when one is available, and otherwise a fresh same-vendor reviewer, labelled as not cross-vendor.
 
+## What it looks like
+
+Who does what. Tier names follow the Claude 5 family; with another provider, map them to its strong, standard, and small models.
+
+| Tier | Owns | Does not |
+|---|---|---|
+| Fable (the top model in the session) | Real intent, scope, approach, task order, tradeoffs, hidden risks, settling disagreements, final review and answer | Search, read, edit, test, or verify when someone cheaper can |
+| Opus | Hardest delegated work: complex implementation, deep debugging, cross-module, security, concurrency, reviewing cheaper agents | Hold final authority |
+| Sonnet | Scoped implementation, tests, local refactors, clear failures, following existing patterns | Make product calls or change architecture |
+| Haiku | Repo discovery, file and log summaries, checklist checks, edge-case scans | Decide direction: it reports facts |
+
+The boundary in one line:
+
+> If the task is mostly searching, reading, editing, testing, or verifying, it belongs to another agent. If it involves intent, design, tradeoffs, risk, disagreement, or final approval, it belongs to Fable.
+
+For high-risk work (auth, billing, migrations, data loss and the like), Fable decides, Opus handles or reviews the hard parts, and a reviewer from a different vendor is recommended when available. A same-vendor review is labelled as not cross-vendor.
+
 ## Install
 
 Copy this complete folder to `~/.claude/skills/fable-chief-agent/` for Claude Code CLI and local Claude Code desktop sessions, or to `~/.agents/skills/fable-chief-agent/` for personal Codex use. For repository-only use, copy to `.claude/skills/fable-chief-agent/` or `.agents/skills/fable-chief-agent/` respectively. Supporting files in this folder may be required. See the [collection README](../../../../README.md#install) for current platform notes.
