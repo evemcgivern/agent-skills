@@ -64,7 +64,7 @@ A `SKILL.md` folder is not an account-level ChatGPT install. On workspaces that 
 
 ## Skills
 
-Looking for `deploy`, `pr-wait`, `review-merge-pipeline`, `spec-review`, `auth-hardening`, `rate-limit-audit`, `webhook-reliability`, `exposure-scan`, `db-migration-safety`, `backup-verify`, `dependency-upgrade`, `stripe-billing`, `api-design`, `analytics-instrumentation`, `incident-response`, `observability-setup` or `cdf` or `repo-activity-summary`? They live in [stylusnexus/agent-plugins](https://github.com/stylusnexus/agent-plugins), a separate marketplace. Five more worth a look there:
+Looking for `deploy`, `pr-wait`, `review-merge-pipeline`, `spec-review`, `auth-hardening`, `rate-limit-audit`, `webhook-reliability`, `exposure-scan`, `db-migration-safety`, `backup-verify`, `dependency-upgrade`, `stripe-billing`, `api-design`, `analytics-instrumentation`, `incident-response`, `observability-setup`, `cdf` or `repo-activity-summary`? They live in [stylusnexus/agent-plugins](https://github.com/stylusnexus/agent-plugins), a separate marketplace. Five more worth a look there:
 
 - `ship-issues` takes a batch of GitHub issues from intake through merge, and on to deploy when you ask for a release.
 - `start-issue` reads an issue in full, checks the work isn't already shipped, and cuts a correctly named branch.
