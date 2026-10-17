@@ -41,108 +41,108 @@ Open question: was the 18% cost cut your project or the team's?
 
 ## Install
 
-Pick your platform. Each section opens with one click.
-
-| Platform | How | Format |
-|---|---|---|
-| Claude Code (terminal or desktop) | Plugin marketplace | Plugin |
-| Codex (CLI, IDE, app) | Copy the folder | Skill folder |
-| Claude app (claude.ai, Desktop, Cowork) | Upload | ZIP |
-| ChatGPT | Upload, or paste | ZIP or `COPY-PASTE.txt` |
-| Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and other skill-folder agents | Copy the folder | Skill folder |
-| Any other assistant | Paste | `COPY-PASTE.txt` |
+<!-- install:begin -->
+Pick your platform. Steps expand below. The [Install section of the collection README](../../../../README.md#install) has the full guide.
 
 <details>
-<summary><b>Claude Code (terminal)</b></summary>
+<summary><b>Claude Code (terminal CLI)</b> — recommended</summary>
 
-1. Add the marketplace: `claude plugin marketplace add evemcgivern/agent-skills`
-2. Install the plugin: `claude plugin install role-ready-application@evemcgivern-skills`
-3. Start a session and ask, for example, "tailor my resume to this job", then paste the job description. Or run `/role-ready-application:role-ready-application`.
+```bash
+claude plugin marketplace add evemcgivern/agent-skills
+claude plugin install role-ready-application@evemcgivern-skills
+```
 
-<details>
-<summary>More</summary>
+The `role-ready-application` plugin holds only this skill. Run it as `/role-ready-application:role-ready-application`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install role-ready-application@evemcgivern-skills`.
 
-- Update later: `claude plugin update role-ready-application@evemcgivern-skills`.
-- Check it worked: `claude plugin list` shows `role-ready-application@evemcgivern-skills` as enabled.
-</details>
+Update later with `claude plugin marketplace update evemcgivern-skills`, then `claude plugin update role-ready-application@evemcgivern-skills`.
+
+To install only this skill, copy it from a clone of the repo:
+
+```bash
+git clone https://github.com/evemcgivern/agent-skills.git && cd agent-skills
+scripts/install.sh role-ready-application   # into ~/.claude/skills/role-ready-application
+```
+
+Add `--project <repo-path>` for one repository only, or `--force` to replace a copy you already have.
+
+Start a session and ask, for example, "tailor my resume to this job", then paste the job description. Or run `/role-ready-application:role-ready-application`.
+
+Check it worked: `claude plugin list` shows `role-ready-application@evemcgivern-skills` as enabled.
+
 </details>
 
 <details>
 <summary><b>Claude Code desktop app</b></summary>
 
-1. Add the marketplace once from a terminal: `claude plugin marketplace add evemcgivern/agent-skills`.
-2. In a local Code session choose **+ → Plugins → Add plugin**, then pick **role-ready-application**.
-3. Ask for a resume or cover letter tailored to a job.
+In a local Code session choose **+ → Plugins → Add plugin**, enter `evemcgivern/agent-skills` as the marketplace, then install **role-ready-application**.
 
-<details>
-<summary>More</summary>
+Local desktop and CLI sessions share user-scope installs. Cloud Code sessions do not load local plugins; commit this skill folder to your repository's `.claude/skills/role-ready-application/` instead.
 
-- The terminal and the desktop app's local sessions share user-scope installs.
-- Cloud sessions do not load plugins installed on your computer.
-</details>
+Then ask for a resume or cover letter tailored to a job.
+
 </details>
 
 <details>
 <summary><b>Codex (CLI, IDE extension, desktop app)</b></summary>
 
-1. Clone the repo: `git clone https://github.com/evemcgivern/agent-skills.git && cd agent-skills`
-2. Copy the skill: `scripts/install.sh --target codex role-ready-application` (installs to `~/.agents/skills/role-ready-application`).
-3. Start a new Codex session and ask for the skill by name.
+```bash
+git clone https://github.com/evemcgivern/agent-skills.git && cd agent-skills
+scripts/install.sh --target codex role-ready-application   # into ~/.agents/skills/role-ready-application
+```
 
-<details>
-<summary>More</summary>
+Add `--project <repo-path>` to install into that repository's `.agents/skills/role-ready-application/` instead. Or copy this folder by hand to `~/.agents/skills/role-ready-application/`, or `.agents/skills/role-ready-application/` in a repository; keep every file in it together. Start a new session and invoke the skill by name. See the [Codex skills docs](https://developers.openai.com/codex/skills-and-plugins).
 
-- For one repository only, add `--project <repo-path>`.
-- Or copy this folder by hand to `~/.agents/skills/role-ready-application/` (keep every file together).
-- Restart Codex if the skill does not appear.
-</details>
+Restart Codex if the skill does not appear.
+
 </details>
 
 <details>
-<summary><b>Claude app (claude.ai, Desktop chat, Cowork)</b></summary>
+<summary><b>Other agents: Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, Windsurf, OpenCode, Cline</b></summary>
 
-1. Zip this folder from a clone of the repo:
+These agents load `SKILL.md` folders directly. Copy this whole folder to the place your agent reads:
+
+- Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode: `~/.agents/skills/role-ready-application/` for personal use (`scripts/install.sh --target codex role-ready-application` does this), or `<repo>/.agents/skills/role-ready-application/` for one repository.
+- Windsurf: `<repo>/.agents/skills/role-ready-application/`.
+- Cline: `<repo>/.cline/skills/role-ready-application/`, `<repo>/.claude/skills/role-ready-application/` or `~/.cline/skills/role-ready-application/`.
+
+</details>
+
+<details>
+<summary><b>Claude app (claude.ai)</b></summary>
+
+1. Zip this folder from a clone of the repo (the ZIP must contain the folder itself, with `SKILL.md` inside):
    ```bash
    cd plugins/role-ready-application/skills && zip -r role-ready-application.zip role-ready-application
    ```
 2. Turn on code execution under **Settings → Capabilities**.
 3. Open **Customize → Skills → + → Create skill → Upload a skill** and upload `role-ready-application.zip`.
-4. Start a chat and attach your resume and the job description.
 
-<details>
-<summary>More</summary>
+On Enterprise, an owner must first enable skills under Organization settings. The same upload works in Claude Cowork. Local `~/.claude/skills/` files do not sync to Claude.ai, so the upload is needed; or commit the folder to a project repository's `.claude/skills/`.
 
-- On Enterprise, an owner must first enable skills under Organization settings.
-- Local files in `~/.claude/skills/` do not sync to Claude.ai, so the upload is needed.
-- To update, delete the skill and upload the new ZIP.
-</details>
+Start a chat and attach your resume and the job description.
+
+To update, delete the skill and upload the new ZIP.
+
 </details>
 
 <details>
 <summary><b>ChatGPT</b></summary>
 
-1. Skills in ChatGPT are in beta and available on Business, Enterprise, Edu, Teachers and Healthcare plans, not on personal Free, Plus or Pro plans. Zip this folder as in the Claude app steps.
-2. Open the **Plugins → Skills** tab, choose **+ → Upload from your computer** and upload the ZIP. ChatGPT scans each upload and can mark it Needs Review or Blocked.
-3. In a chat, type `@` to pick the skill, and attach your resume and the job description.
+1. Skills in ChatGPT are in beta and available on Business, Enterprise, Edu, Teachers and Healthcare plans, not on personal Free, Plus or Pro plans. On Enterprise and Edu, a workspace admin must first turn skills on and allow skill uploading.
+2. Zip this folder (the ZIP must contain the folder itself, with `SKILL.md` inside):
+   ```bash
+   cd plugins/role-ready-application/skills && zip -r role-ready-application.zip role-ready-application
+   ```
+3. Open the **Plugins → Skills** tab, choose **+ → Upload from your computer** and upload the ZIP. ChatGPT scans each upload and can mark it Needs Review or Blocked.
 
-<details>
-<summary>More</summary>
+The web and desktop apps do not sync skills. Menu labels change, so OpenAI's [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) article is the source of truth. ChatGPT runs skills in a remote sandbox with no access to your local files, repo or local shell. On other plans, use Codex, which reads skill folders directly.
 
-- On Enterprise and Edu, a workspace admin must first turn skills on and allow skill uploading.
-- The web and desktop apps do not sync skills.
-- Menu labels change, so OpenAI's [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) article is the source of truth.
-- No skill upload on your plan? Open a new chat or a project and paste the contents of [`COPY-PASTE.txt`](COPY-PASTE.txt) as the instructions, then attach your documents. It is the same workflow as one plain-text file.
-- OpenAI does not list the file types the skill upload accepts, so the ZIP route is untested here.
-</details>
-</details>
+In a chat, type `@` to pick the skill, and attach your resume and the job description.
 
-<details>
-<summary><b>Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and other skill-folder agents</b></summary>
+No skill upload on your plan? Open a new chat or a project and paste the contents of [`COPY-PASTE.txt`](COPY-PASTE.txt) as the instructions, then attach your documents. It is the same workflow as one plain-text file.
 
-1. Copy this folder to `~/.agents/skills/role-ready-application/` (Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode) or to the folder your agent reads. `scripts/install.sh --target codex role-ready-application` does this.
-2. Start a new session and ask for a resume or cover letter tailored to a job.
+OpenAI does not list the file types the skill upload accepts, so the ZIP route is untested here.
 
-See [Install](../../../../README.md#install) in the repository README for Windsurf and Cline.
 </details>
 
 <details>
@@ -150,9 +150,12 @@ See [Install](../../../../README.md#install) in the repository README for Windsu
 
 1. Paste [`COPY-PASTE.txt`](COPY-PASTE.txt) at the start of a chat.
 2. Attach your resume and the job description, and ask for a tailored resume or cover letter.
+
 </details>
 
 The skill works only with what you give it in the conversation. It does not need access to email, contacts or connected accounts.
+
+<!-- install:end -->
 
 ## Included
 

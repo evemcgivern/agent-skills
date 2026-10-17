@@ -33,7 +33,89 @@ then hourly until it drops below 95%. Remaining: waves 3 and 4, six subagents.
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/stay-within-limits/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/stay-within-limits/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/stay-within-limits/` or `.agents/skills/stay-within-limits/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/stay-within-limits/` or `.claude/skills/stay-within-limits/`. The usage checks (`ccusage` and `/usage`) read Claude Code only: in Codex and other agents it still runs work in waves, but you supply the usage numbers and no automatic wake-up is documented for those agents. Supporting files in this folder may be required. See the [collection README](../../../../README.md) for current platform notes.
+<!-- install:begin -->
+Pick your platform. Steps expand below. The [Install section of the collection README](../../../../README.md#install) has the full guide.
+
+<details>
+<summary><b>Claude Code (terminal CLI)</b> — recommended</summary>
+
+```bash
+claude plugin marketplace add evemcgivern/agent-skills
+claude plugin install agent-workflow@evemcgivern-skills
+```
+
+This installs the whole `agent-workflow` plugin, so you also get its other skills: `agent-doctor`, `ambition`, `check-worth`, `efficient-frontier-routing`, `fable-chief-agent`, `goal-checklist`, `handoff`, `mission`, `problem-first`, `quick-recap`, `sonnet-prompt-improver`, `up-to-speed`. Run it as `/agent-workflow:stay-within-limits`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install agent-workflow@evemcgivern-skills`.
+
+Update later with `claude plugin marketplace update evemcgivern-skills`, then `claude plugin update agent-workflow@evemcgivern-skills`.
+
+To install only this skill, copy it from a clone of the repo:
+
+```bash
+git clone https://github.com/evemcgivern/agent-skills.git && cd agent-skills
+scripts/install.sh stay-within-limits   # into ~/.claude/skills/stay-within-limits
+```
+
+Add `--project <repo-path>` for one repository only, or `--force` to replace a copy you already have.
+
+</details>
+
+<details>
+<summary><b>Claude Code desktop app</b></summary>
+
+In a local Code session choose **+ → Plugins → Add plugin**, enter `evemcgivern/agent-skills` as the marketplace, then install **agent-workflow** (it brings the plugin's other skills too).
+
+Local desktop and CLI sessions share user-scope installs. Cloud Code sessions do not load local plugins; commit this skill folder to your repository's `.claude/skills/stay-within-limits/` instead.
+
+</details>
+
+<details>
+<summary><b>Codex (CLI, IDE extension, desktop app)</b> — works with a limit</summary>
+
+```bash
+git clone https://github.com/evemcgivern/agent-skills.git && cd agent-skills
+scripts/install.sh --target codex stay-within-limits   # into ~/.agents/skills/stay-within-limits
+```
+
+Add `--project <repo-path>` to install into that repository's `.agents/skills/stay-within-limits/` instead. Or copy this folder by hand to `~/.agents/skills/stay-within-limits/`, or `.agents/skills/stay-within-limits/` in a repository; keep every file in it together. Start a new session and invoke the skill by name. See the [Codex skills docs](https://developers.openai.com/codex/skills-and-plugins).
+
+**Limit:** The waves run, but the usage checks read Claude Code only, so you supply the usage numbers, and Codex has no documented scheduled wake-up.
+
+</details>
+
+<details>
+<summary><b>Other agents: Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, Windsurf, OpenCode, Cline</b> — works with a limit</summary>
+
+These agents load `SKILL.md` folders directly. Copy this whole folder to the place your agent reads:
+
+- Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode: `~/.agents/skills/stay-within-limits/` for personal use (`scripts/install.sh --target codex stay-within-limits` does this), or `<repo>/.agents/skills/stay-within-limits/` for one repository.
+- Windsurf: `<repo>/.agents/skills/stay-within-limits/`.
+- Cline: `<repo>/.cline/skills/stay-within-limits/`, `<repo>/.claude/skills/stay-within-limits/` or `~/.cline/skills/stay-within-limits/`.
+
+**Limit:** Needs subagents, a usage reading and a scheduled wake-up, and its usage checks target Claude Code only.
+
+</details>
+
+<details>
+<summary><b>Claude app: not supported</b></summary>
+
+The Claude app has no subagents, shell or scheduled wake-up.
+
+Use Claude Code or Codex on your computer instead.
+
+</details>
+
+<details>
+<summary><b>ChatGPT: not supported</b></summary>
+
+ChatGPT has no subagents, shell or scheduled wake-up.
+
+Use Claude Code or Codex on your computer instead.
+
+</details>
+
+The usage checks (`ccusage` and `/usage`) read Claude Code only: in Codex and other agents it still runs work in waves, but you supply the usage numbers and no automatic wake-up is documented for those agents.
+
+<!-- install:end -->
 
 ## Contents
 

@@ -32,7 +32,83 @@ A merged pull request is not proof the change shipped. When it cannot be confirm
 
 ## Install
 
-See [Install](../../../../README.md#install) in the collection README. Copy this complete folder as `review-older-issues/`; keep every file in it together.
+<!-- install:begin -->
+Pick your platform. Steps expand below. The [Install section of the collection README](../../../../README.md#install) has the full guide.
+
+<details>
+<summary><b>Claude Code (terminal CLI)</b> — recommended</summary>
+
+```bash
+claude plugin marketplace add evemcgivern/agent-skills
+claude plugin install engineering-practices@evemcgivern-skills
+```
+
+This installs the whole `engineering-practices` plugin, so you also get its other skills: `audit-background-processes`, `background-jobs`, `launch-chrome-debug`, `llm-engineer`, `saas-metrics`, `service-debugging`, `spec-workflow`, `spec-workflow-drift`, `transactional-email`. Run it as `/engineering-practices:review-older-issues`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install engineering-practices@evemcgivern-skills`.
+
+Update later with `claude plugin marketplace update evemcgivern-skills`, then `claude plugin update engineering-practices@evemcgivern-skills`.
+
+To install only this skill, copy it from a clone of the repo:
+
+```bash
+git clone https://github.com/evemcgivern/agent-skills.git && cd agent-skills
+scripts/install.sh review-older-issues   # into ~/.claude/skills/review-older-issues
+```
+
+Add `--project <repo-path>` for one repository only, or `--force` to replace a copy you already have.
+
+</details>
+
+<details>
+<summary><b>Claude Code desktop app</b></summary>
+
+In a local Code session choose **+ → Plugins → Add plugin**, enter `evemcgivern/agent-skills` as the marketplace, then install **engineering-practices** (it brings the plugin's other skills too).
+
+Local desktop and CLI sessions share user-scope installs. Cloud Code sessions do not load local plugins; commit this skill folder to your repository's `.claude/skills/review-older-issues/` instead.
+
+</details>
+
+<details>
+<summary><b>Codex (CLI, IDE extension, desktop app)</b></summary>
+
+```bash
+git clone https://github.com/evemcgivern/agent-skills.git && cd agent-skills
+scripts/install.sh --target codex review-older-issues   # into ~/.agents/skills/review-older-issues
+```
+
+Add `--project <repo-path>` to install into that repository's `.agents/skills/review-older-issues/` instead. Or copy this folder by hand to `~/.agents/skills/review-older-issues/`, or `.agents/skills/review-older-issues/` in a repository; keep every file in it together. Start a new session and invoke the skill by name. See the [Codex skills docs](https://developers.openai.com/codex/skills-and-plugins).
+
+</details>
+
+<details>
+<summary><b>Other agents: Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, Windsurf, OpenCode, Cline</b></summary>
+
+These agents load `SKILL.md` folders directly. Copy this whole folder to the place your agent reads:
+
+- Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode: `~/.agents/skills/review-older-issues/` for personal use (`scripts/install.sh --target codex review-older-issues` does this), or `<repo>/.agents/skills/review-older-issues/` for one repository.
+- Windsurf: `<repo>/.agents/skills/review-older-issues/`.
+- Cline: `<repo>/.cline/skills/review-older-issues/`, `<repo>/.claude/skills/review-older-issues/` or `~/.cline/skills/review-older-issues/`.
+
+</details>
+
+<details>
+<summary><b>Claude app: not supported</b></summary>
+
+The Claude app runs in a remote sandbox with no access to your repo, git or GitHub CLI.
+
+Use Claude Code or Codex on your computer instead.
+
+</details>
+
+<details>
+<summary><b>ChatGPT: not supported</b></summary>
+
+ChatGPT runs in a remote sandbox with no access to your repo, git or GitHub CLI.
+
+Use Claude Code or Codex on your computer instead.
+
+</details>
+
+<!-- install:end -->
 
 ## Contents
 

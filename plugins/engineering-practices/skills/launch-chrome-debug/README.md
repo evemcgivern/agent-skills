@@ -33,7 +33,83 @@ window while the port is open, so avoid sensitive sites and close it when done.
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/launch-chrome-debug/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/launch-chrome-debug/` for Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/launch-chrome-debug/` or `.agents/skills/launch-chrome-debug/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/launch-chrome-debug/` or `.claude/skills/launch-chrome-debug/`. See the [collection README](../../../../README.md#install) for current platform notes.
+<!-- install:begin -->
+Pick your platform. Steps expand below. The [Install section of the collection README](../../../../README.md#install) has the full guide.
+
+<details>
+<summary><b>Claude Code (terminal CLI)</b> — recommended</summary>
+
+```bash
+claude plugin marketplace add evemcgivern/agent-skills
+claude plugin install engineering-practices@evemcgivern-skills
+```
+
+This installs the whole `engineering-practices` plugin, so you also get its other skills: `audit-background-processes`, `background-jobs`, `llm-engineer`, `review-older-issues`, `saas-metrics`, `service-debugging`, `spec-workflow`, `spec-workflow-drift`, `transactional-email`. Run it as `/engineering-practices:launch-chrome-debug`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install engineering-practices@evemcgivern-skills`.
+
+Update later with `claude plugin marketplace update evemcgivern-skills`, then `claude plugin update engineering-practices@evemcgivern-skills`.
+
+To install only this skill, copy it from a clone of the repo:
+
+```bash
+git clone https://github.com/evemcgivern/agent-skills.git && cd agent-skills
+scripts/install.sh launch-chrome-debug   # into ~/.claude/skills/launch-chrome-debug
+```
+
+Add `--project <repo-path>` for one repository only, or `--force` to replace a copy you already have.
+
+</details>
+
+<details>
+<summary><b>Claude Code desktop app</b></summary>
+
+In a local Code session choose **+ → Plugins → Add plugin**, enter `evemcgivern/agent-skills` as the marketplace, then install **engineering-practices** (it brings the plugin's other skills too).
+
+Local desktop and CLI sessions share user-scope installs. Cloud Code sessions do not load local plugins; commit this skill folder to your repository's `.claude/skills/launch-chrome-debug/` instead.
+
+</details>
+
+<details>
+<summary><b>Codex (CLI, IDE extension, desktop app)</b></summary>
+
+```bash
+git clone https://github.com/evemcgivern/agent-skills.git && cd agent-skills
+scripts/install.sh --target codex launch-chrome-debug   # into ~/.agents/skills/launch-chrome-debug
+```
+
+Add `--project <repo-path>` to install into that repository's `.agents/skills/launch-chrome-debug/` instead. Or copy this folder by hand to `~/.agents/skills/launch-chrome-debug/`, or `.agents/skills/launch-chrome-debug/` in a repository; keep every file in it together. Start a new session and invoke the skill by name. See the [Codex skills docs](https://developers.openai.com/codex/skills-and-plugins).
+
+</details>
+
+<details>
+<summary><b>Other agents: Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, Windsurf, OpenCode, Cline</b></summary>
+
+These agents load `SKILL.md` folders directly. Copy this whole folder to the place your agent reads:
+
+- Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode: `~/.agents/skills/launch-chrome-debug/` for personal use (`scripts/install.sh --target codex launch-chrome-debug` does this), or `<repo>/.agents/skills/launch-chrome-debug/` for one repository.
+- Windsurf: `<repo>/.agents/skills/launch-chrome-debug/`.
+- Cline: `<repo>/.cline/skills/launch-chrome-debug/`, `<repo>/.claude/skills/launch-chrome-debug/` or `~/.cline/skills/launch-chrome-debug/`.
+
+</details>
+
+<details>
+<summary><b>Claude app: not supported</b></summary>
+
+The Claude app cannot start Chrome on your computer or run a local MCP server.
+
+Use Claude Code or Codex on your computer instead.
+
+</details>
+
+<details>
+<summary><b>ChatGPT: not supported</b></summary>
+
+ChatGPT cannot start Chrome on your computer or run a local MCP server.
+
+Use Claude Code or Codex on your computer instead.
+
+</details>
+
+<!-- install:end -->
 
 ## Contents
 
