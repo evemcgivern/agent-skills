@@ -17,7 +17,7 @@
       "plugin": "agent-workflow",
       "claude": {"code": {"level": "full", "note": "Scans your project and reads Claude Code session logs."}, "app": {"level": "no", "note": "The Claude app has no access to your project or session logs."}},
       "codex_chatgpt": {"codex": {"level": "full", "note": "Scans your project and reads Codex session logs; Codex call counts are a best-effort estimate."}, "chatgpt": {"level": "no", "note": "ChatGPT has no access to your project or session logs."}},
-      "other": {"level": "partial", "note": "The scan checks only the .agents, .codex and .claude skill folders, and the usage report reads only Claude Code and Codex logs."}
+      "other": {"level": "partial", "note": "The usage report reads only Claude Code and Codex session logs."}
     },
     "ambition": {
       "plugin": "agent-workflow",

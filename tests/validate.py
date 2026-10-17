@@ -22,7 +22,7 @@ def skill_dirs():
     return sorted(p for p in ROOT.glob("plugins/*/skills/*") if p.is_dir())
 
 
-ALLOWED_FIELDS = {"name", "description", "allowed-tools", "model"}
+ALLOWED_FIELDS = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
 SEMVER = re.compile(r"^\d+\.\d+\.\d+$")
 LEAKS = [
     (re.compile(r"[\w.+-]+@(?!users\.noreply\.github\.com)[\w-]+\.[\w.]+"), "email address"),
