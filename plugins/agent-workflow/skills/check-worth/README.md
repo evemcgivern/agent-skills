@@ -7,6 +7,25 @@
 
 Reviews an external PDF, image, screenshot, article, or URL against a repository's open and closed issues and its code, and sorts each idea into already tracked, shipped, superseded, a candidate new issue, or not actionable, with `file:line` evidence and `UNABLE TO VERIFY` where the source falls short. Read-only unless you authorize issue creation or code changes. Use on "/check-worth" or when asking whether an external idea is worth pulling into a repository.
 
+## When and how to use it
+
+**Use it when**
+- A colleague sends a PDF of ideas and you want to know what your repo already covers.
+- You see an article about retry budgets and wonder if it is worth an issue.
+- A screenshot shows a feature in another product and you want to know if your code has it.
+
+**Try it**
+
+```text
+/check-worth ./vendor-report.pdf
+Is the idea in https://example.com/blog/retry-budgets worth an issue in this repo?
+```
+
+A table with each takeaway, its status in your repo (new, tracked, shipped, contradicted or unverifiable), the evidence and a recommendation. The review is read-only. It files an issue only if you say so. Other agents can ask in words.
+
+**Skip it when**
+- You already know you want the change. Write the issue or the code directly.
+
 ## What it looks like
 
 Example output, invented data. The reply leads with the conclusion, then one row per idea from the source:

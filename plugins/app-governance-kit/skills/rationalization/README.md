@@ -6,6 +6,23 @@
 
 Recommend tolerate, invest, migrate, or eliminate for each application in an inventory, find duplicates and license problems, and summarize savings and risk. Use for portfolio reviews, budget cycles, or post-merger cleanup.
 
+## When and how to use it
+
+**Use it when**
+- Your budget cycle starts and you must cut software spend.
+- A merger left two tools doing the same job.
+- Licenses are close to expiry and nobody has checked them.
+
+**Try it**
+```text
+Review this app inventory. Give each app tolerate, invest, migrate or eliminate.
+Find duplicate apps and licenses that expire within 90 days of 2026-10-01.
+```
+You get a table of apps with a recommendation and reason, duplicate pairs, license problems, a savings range and the main risks. You make the keep or retire calls.
+
+**Skip it when**
+- You want to review who can log in to each app. Use the access-review skill.
+
 ## What it looks like
 
 Example output on the kit's fictional demo estate (60 apps, licenses checked 2026-09-01). The per-app TIME table and data disposition are left out here:

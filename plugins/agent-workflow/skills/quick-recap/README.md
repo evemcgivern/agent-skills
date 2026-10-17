@@ -7,6 +7,25 @@
 
 Defines a one-line red/yellow/green status line that ends every agent response that completes work, and how to install it as standing instructions in AGENTS.md or CLAUDE.md. Use when asked to "add a status line", "end responses with a recap", "show done/pending/blocked at the end", or when project instructions require the quick-recap convention.
 
+## When and how to use it
+
+**Use it when**
+- You run long tasks and want to see in one line if the work is done, pending or blocked.
+- You want every reply in a project to end the same way.
+- You want to add the status rule to AGENTS.md or CLAUDE.md once.
+
+**Try it**
+
+```text
+Add the quick-recap status line to my AGENTS.md.
+End each reply with a one-line status: green, yellow or red.
+```
+
+A short section added to your instruction file, unless one exists. After that, each reply that completes work ends with one line under 100 characters: green for finished, yellow for finished with a named follow-up, red for blocked on you.
+
+**Skip it when**
+- Your message is a plain question. A question needs no status line.
+
 ## What it looks like
 
 The last line of a reply that finished some work. The color is chosen from your point of view:

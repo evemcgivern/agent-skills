@@ -6,6 +6,25 @@
 
 Tailor a truthful resume and cover letter to one job, then review clarity, candidate voice, factual fidelity, and rendered documents.
 
+## When and how to use it
+
+**Use it when**
+- You apply for a job and want a resume that fits the posting.
+- You need a cover letter that uses real examples from your work.
+- You want a review of your draft for clarity and accuracy.
+
+**Try it**
+
+```text
+Tailor my resume to this job. Resume: [paste]. Job description: [paste].
+Review this cover letter for clarity and for claims my resume does not support: [paste]
+```
+
+The agent asks short questions about anything unclear. It then gives a resume of two pages or fewer, with separate notes on evidence gaps and check results (PASS, FAIL or UNVERIFIED). A matching cover letter is offered, not created unasked.
+
+**Skip it when**
+- You want skills added that you do not have, or a promise of an interview. The skill keeps to facts you supply and does not submit applications.
+
 ## What it looks like
 
 How a resume build moves from your documents to a file you can send:

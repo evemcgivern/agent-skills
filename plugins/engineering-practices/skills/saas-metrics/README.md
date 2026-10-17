@@ -7,6 +7,23 @@
 
 Computes and reports MRR, revenue and logo churn, activation, and retention for a small SaaS product from Stripe and PostHog data. It gives simple metric definitions a small team can re-derive every month, a starter Stripe MRR script and HogQL queries, a monthly business-review template, and a list of common miscounts such as trials, refunds, currency mixing, proration, and annual plans. Use it when asked for a business review, MRR or churn numbers, an activation rate, a retention cohort, or recurring metrics reporting.
 
+## When and how to use it
+
+**Use it when**
+- You need MRR and churn for a monthly review and your numbers do not match the Stripe dashboard.
+- You want one activation event defined and kept, not redefined each quarter.
+- You are setting up a 30-day retention report from PostHog.
+
+**Try it**
+```text
+Compute our MRR from Stripe and tell me what you excluded.
+Set up a monthly business review: MRR, gross churn, 7-day activation and 30-day retention.
+```
+You get metric definitions, a starter Stripe script, PostHog HogQL queries and a review template, with warnings about trials, refunds, currency and proration.
+
+**Skip it when**
+- Your pricing is metered or multi-currency. The starter code assumes one currency and flat prices, so you must extend it.
+
 ## What it looks like
 
 Example output, invented data. The monthly review follows the skill's template, with the month's distortions called out so the trend is not misread later:

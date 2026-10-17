@@ -6,6 +6,23 @@
 
 Map a control, requirement, or policy statement to ISO/IEC 19770-1, COBIT 2019, ISO/IEC 27001, and ISO/IEC 42001 clauses, and show where coverage is missing. Use when writing or auditing a control, or explaining how frameworks overlap.
 
+## When and how to use it
+
+**Use it when**
+- You wrote a control and want to know which ISO/IEC 27001 and COBIT clauses it meets.
+- An auditor from one framework asks about a policy you built on another.
+- You want to see where four frameworks overlap and where they do not.
+
+**Try it**
+```text
+Map this control to all four frameworks: Every laptop is recorded in the asset inventory within five days of purchase.
+Which framework has no equivalent for our AI supplier review policy?
+```
+You get a table per control with framework, clause and a plain-words summary, then the gaps. Clauses come from the kit's crosswalk file.
+
+**Skip it when**
+- You need the exact standards text. This skill paraphrases and never quotes.
+
 ## What it looks like
 
 Example output for the three sample controls in the kit's fictional demo estate. Clause numbers come from `crosswalk.csv`:

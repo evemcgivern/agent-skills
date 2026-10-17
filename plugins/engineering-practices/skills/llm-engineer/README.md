@@ -7,6 +7,23 @@
 
 Diagnoses language-model behavior across the model, its serving runtime, the prompt and context, and the application driving it. It separates task, harness, runtime, agent-policy and model-output failures, then turns the observed failure into one bounded, falsifiable experiment with controls and an explicit budget. Use when asked to "evaluate a local language model", "debug tool calling", "diagnose an agent that keeps exploring", "compare LLM runtimes", or "design an LLM experiment".
 
+## When and how to use it
+
+**Use it when**
+- A local model makes bad tool calls and you cannot tell if the model, runtime or prompt is at fault.
+- You want to compare two quantizations or runtimes and need a fair test.
+- An agent keeps reading files and never edits, and you want to know why.
+
+**Try it**
+```text
+Our local model returns broken tool calls through the server. Find which layer fails and propose one small test.
+Design an experiment to compare two quantizations of one model on our coding tasks. Include a negative control.
+```
+You get a diagnosis by layer (task, harness, runtime, agent policy, model output) and a bounded experiment with a hypothesis and a result that would disprove it.
+
+**Skip it when**
+- You are building retrieval, training pipelines or product agents. Ask an AI-application or ML specialist.
+
 ## What it looks like
 
 The first thing the skill does with a failure is place it in one of five layers, because the fix for each is different. More than one layer can contribute, and the report keeps the proven cause apart from the plausible ones:

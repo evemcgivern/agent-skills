@@ -9,6 +9,23 @@
 
 Drives spec-driven development through the spec-workflow MCP server: create a spec, request approval for requirements, design and tasks through the server's dashboard, check progress, execute one task or a range from `tasks.md`, and log each implementation before marking it done. It reads project guidance files such as `CLAUDE.md`, `AGENTS.md` and `vision.md` and follows their build and commit rules. Use on `/spec-workflow` or when asked to "create a spec", "check the spec status", "execute task 1.2", or "run tasks 1.3-1.6".
 
+## When and how to use it
+
+**Use it when**
+- You start a feature and need requirements, design and tasks approved in order.
+- You return to a project and need to see which spec tasks are done.
+- You finished a task and need to log what you built.
+
+**Try it**
+```text
+/spec-workflow status checkout-flow
+Execute task 1.2 of the checkout-flow spec and log the implementation.
+```
+You get status or task work through the spec-workflow MCP server. Approvals happen in its dashboard, because "approved" in chat does not count. Other agents can ask in words.
+
+**Skip it when**
+- You do not run the spec-workflow MCP server. This skill does nothing without it.
+
 ## What it looks like
 
 Each spec document goes through the same approval loop before the next one is written: requirements, then design, then tasks. Approval happens in the server's dashboard or editor extension; a "looks good" typed in chat does not count:

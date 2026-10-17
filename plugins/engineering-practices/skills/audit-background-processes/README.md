@@ -7,6 +7,23 @@
 
 Inventories stray background processes that long agent sessions leave behind, such as watch loops, `tail -f` on finished logs, orphaned `sleep` calls, and detached runs, and cleans them up without killing anyone else's live work. The rule is to confirm ownership first and kill by PID, never by a broad `pkill -f` pattern. The bundled script reports suspected orphans with PID, parent, age and command, and kills nothing unless you pass `--kill` with specific PIDs that are still on its suspect list. Use it before any pattern-based kill, when a machine feels loaded, or when a run died for no clear reason.
 
+## When and how to use it
+
+**Use it when**
+- A machine is slow after a long agent session and you suspect leftover watch loops.
+- A test run died with no error and you fear a broad `pkill` hit it.
+- You want to clean up stray `tail -f` and `sleep` jobs without harming other sessions.
+
+**Try it**
+```text
+List the stray background processes on this machine. Do not kill anything yet.
+The report shows PIDs 4120 and 4133 as old sleep loops that I started. Kill only those two.
+```
+You get a report of shells, live test runs and suspected orphans, each with PID, parent, age and command. Kills go by PID only, and only for PIDs still on the list.
+
+**Skip it when**
+- You started one job and know its PID. Run `kill <pid>` yourself. The Claude app and ChatGPT cannot see your processes.
+
 ## What it looks like
 
 Real output from a report run on a test machine, after starting three throwaway processes and closing the shell that launched them. The other suspects on that machine were login helpers and app agents, which is why you read every line before passing a PID to `--kill`:

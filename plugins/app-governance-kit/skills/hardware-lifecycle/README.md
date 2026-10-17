@@ -6,6 +6,23 @@
 
 Check a device fleet for hardware overdue for refresh and retired devices missing a confirmed data wipe, estimate replacement cost, and produce a disposal-readiness summary. Use for a refresh cycle review, before a hardware budget request, or before closing out a disposal.
 
+## When and how to use it
+
+**Use it when**
+- You prepare a laptop budget request and need to know what is overdue.
+- You are about to close out a batch of retired devices.
+- You run a yearly refresh cycle review.
+
+**Try it**
+```text
+Check this device list for overdue refresh as of 2026-10-01 and estimate the replacement cost.
+Which retired devices still lack a confirmed data wipe?
+```
+You get a table of devices needing action, a refresh cost range, and a list of retired devices that block disposal until wipe evidence is attached.
+
+**Skip it when**
+- You need to review software licenses or duplicate apps. Use the rationalization skill.
+
 ## What it looks like
 
 Example output on the kit's fictional demo estate (60 devices, checked 2026-09-01):

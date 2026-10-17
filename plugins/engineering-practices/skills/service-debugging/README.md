@@ -7,6 +7,23 @@
 
 Turns a live production symptom into a ranked, falsifiable cause. It starts from the system's catalog of known failures and the most recent change, pulls evidence for the leading hypothesis only, and ends with a symptom statement, one to three ranked causes each with the check that would rule it out, links a person can open, and a confirmed or unconfirmed verdict. Use when a deployed service returns 500s, times out, shows a blank page, silently does nothing, or keeps failing the same way, or when asked to "debug prod" or "find the root cause".
 
+## When and how to use it
+
+**Use it when**
+- Users report 500 errors that began after a deploy.
+- A page returns 404 in production but exists in the repo.
+- The same failure came back after "we fixed that".
+
+**Try it**
+```text
+Checkout returns 500 for about 1 in 40 requests since 14:05 UTC. Find the most likely cause.
+Our nightly sync shows green but writes nothing. Rank the causes and tell me how to rule each one out.
+```
+You get four parts: the symptom, one to three ranked causes with a check that would rule each out, links to the evidence, and a verdict of CONFIRMED or UNCONFIRMED.
+
+**Skip it when**
+- The site is down right now. Roll back or run incident response first, then diagnose.
+
 ## What it looks like
 
 Example output, invented data. Every run returns the same four parts, in this order:

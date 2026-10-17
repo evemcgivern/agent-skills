@@ -7,6 +7,23 @@
 
 Pick the right governance skill for a plain request about a software estate, AI systems, access, or devices, ask for the data, run that skill, and hand every decision back to a person. Use when someone has a governance question but has not chosen a tool.
 
+## When and how to use it
+
+**Use it when**
+- You have a governance question but do not know which tool fits.
+- You want a plain answer first and the open decisions listed after it.
+- You want to try the kit on the Halden demo estate.
+
+**Try it**
+```text
+We merged with another company and now run two CRMs. Where do I start?
+Who still has access to our old HR system?
+```
+You get a short routing note (the skill chosen and why), then that skill's output, then the open decisions. It is read-only and gives you a log row to record.
+
+**Skip it when**
+- You already know which skill you need. Ask for it by name.
+
 ## What it looks like
 
 The router never decides. It picks one of the eight skills, runs it, and hands the decisions back:

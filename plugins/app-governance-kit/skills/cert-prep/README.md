@@ -6,6 +6,23 @@
 
 Coach a learner preparing for CAMP, CSAM, CHAMP, AIGP, ITIL 4 Foundation, or the IAM Certificate with scenario drills on the Halden demo estate, then log gaps and plan the next drills. Use for weekly study sessions or a readiness check. Not exam content and not a pass guarantee.
 
+## When and how to use it
+
+**Use it when**
+- You prepare for CAMP, CSAM, CHAMP, AIGP, ITIL 4 Foundation or the IAM Certificate.
+- You want a weekly study session with short scenario drills.
+- You want a readiness check and a list of weak areas.
+
+**Try it**
+```text
+Coach me for CSAM. I have five hours a week and an exam in eight weeks.
+Run a drill on tiering an AI use case, then rate my answer.
+```
+You get scenario drills on the Halden demo estate, a rating of strong, partial or gap for each answer, a ranked gap list and a next-drill plan.
+
+**Skip it when**
+- You want real exam questions or a pass prediction. This skill gives neither. Use the certification body's own outline and training.
+
 ## What it looks like
 
 One drill from a study session. The learner's answers are invented; the device data comes from the kit's fictional demo estate.

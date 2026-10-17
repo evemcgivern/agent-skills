@@ -7,6 +7,23 @@
 
 Sets up and audits the email that sits under account creation, password resets, receipts, and product notifications. It covers choosing between Resend and Postmark, SPF, DKIM, and DMARC with verification commands, keeping templates in code, deliverability testing, the transactional-versus-marketing compliance line, and unsubscribe handling. Use it when asked to set up email, to find out why email lands in spam, to add a template, or to audit deliverability.
 
+## When and how to use it
+
+**Use it when**
+- You launch a web app and password resets must reach the inbox.
+- Customers say they never got a receipt.
+- You want to add a new-feature blurb to a receipt and are unsure if that is allowed.
+
+**Try it**
+```text
+Set up transactional email for our Next.js app on Resend, including SPF, DKIM and DMARC checks.
+Audit our email setup. Why might password resets land in spam?
+```
+You get the DNS records to add with `dig` commands to check them, the template files, and a deliverability test summary.
+
+**Skip it when**
+- You want to plan marketing campaigns. This skill covers the compliance line and unsubscribe handling, not campaign content.
+
 ## What it looks like
 
 The order for authenticating a sending domain. DMARC starts in report-only mode and tightens only after the reports show your own mail passing; jumping straight to `p=reject` can silently drop password resets and receipts:

@@ -6,6 +6,23 @@
 
 Take a description of an AI use case, assign a risk tier under the EU AI Act with NIST AI RMF and ISO/IEC 42001 controls, and produce an AI inventory record. Use whenever a team proposes a new AI tool or changes how one is used.
 
+## When and how to use it
+
+**Use it when**
+- A team wants to buy an AI tool that ranks job applicants.
+- A chatbot gets a new use that changes who it affects.
+- You need an AI inventory record for a tool already in use.
+
+**Try it**
+```text
+A team wants an AI tool to rank job applicants. Tier it and fill in the inventory record.
+We plan a customer support chatbot. What tier is it and which controls apply?
+```
+You get a restatement of the use case, a risk tier with reasoning under the EU AI Act, controls mapped to NIST AI RMF and ISO/IEC 42001, and an inventory record.
+
+**Skip it when**
+- You need a legal opinion. This skill gives a first tier and asks for legal review of any high-risk or prohibited result.
+
 ## What it looks like
 
 Example output for one of the six AI systems in the kit's fictional demo estate:
