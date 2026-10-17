@@ -54,13 +54,13 @@ Codex reads skills from `~/.agents/skills/` for personal use or `<repo>/.agents/
 <details>
 <summary><b>Claude.ai and Claude Cowork</b></summary>
 
-Local `~/.claude/skills/` files do not sync to Claude.ai. Zip one skill folder (the zip must contain the folder itself, with `SKILL.md` inside) and upload it under **Settings → Capabilities → Skills**, or commit the folder to a project repository's `.claude/skills/`.
+Local `~/.claude/skills/` files do not sync to Claude.ai. Zip one skill folder (the zip must contain the folder itself, with `SKILL.md` inside) and upload it under **Customize → Skills → + → Create skill → Upload a skill** (turn on code execution first under **Settings → Capabilities**; on Enterprise an owner must enable skills under Organization settings), or commit the folder to a project repository's `.claude/skills/`.
 </details>
 
 <details>
 <summary><b>ChatGPT</b></summary>
 
-A `SKILL.md` folder is not an account-level ChatGPT install. On workspaces that allow uploadable skills, zip one skill folder and upload it under **Plugins → Skills → Create → Upload from your computer**. Availability depends on your plan and workspace admin settings. Otherwise paste the skill's instructions into a custom GPT or project instructions.
+A `SKILL.md` folder is not an account-level ChatGPT install. Skills in ChatGPT are available on Business, Enterprise, Healthcare and Edu plans. Zip one skill folder and upload it under **Plugins → Skills → Create → Upload from your computer**; an admin must enable skill uploading, and ChatGPT may mark an upload Needs Review or Blocked. On other plans, paste the skill's instructions into a project's instructions (custom GPTs are being retired), or use Codex, which reads skill folders directly.
 </details>
 
 ## Skills
