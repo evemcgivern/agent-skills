@@ -48,6 +48,12 @@ cost-based caution threshold; treat that as their guardrail, not a universal
 rule. If no percentage is obtainable, say so and use the user's threshold or
 ask for one before the next wave.
 
+These usage checks work in Claude Code only: `ccusage` reads Claude Code's
+session logs and `/usage` is a Claude Code command. On any other host (Codex,
+Gemini CLI and others), ask the user to read their 5-hour and weekly usage from
+that host's own usage view before each wave. If the user cannot or prefers not
+to, skip the check, say so, and rely on the wave sizes alone.
+
 ## Pausing And Resuming
 
 When a wake/resume tool is available, schedule the wakeup for:

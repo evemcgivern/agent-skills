@@ -51,9 +51,9 @@
     },
     "handoff": {
       "plugin": "agent-workflow",
-      "claude": {"code": {"level": "full", "note": "Checks git and GitHub state and writes a prompt for a fresh Claude Code session."}, "app": {"level": "partial", "note": "In the Claude app the conversation sections work, but there is no git or GitHub state, and the prompt targets a fresh Claude Code session (the app has no /clear)."}},
-      "codex_chatgpt": {"codex": {"level": "partial", "note": "The handoff is written for a fresh Claude Code session and reads CLAUDE.md, so adapt it by hand."}, "chatgpt": {"level": "partial", "note": "In ChatGPT the conversation sections work, but there is no git or GitHub state, and the prompt targets Claude Code."}},
-      "other": {"level": "partial", "note": "The handoff is written for a fresh Claude Code session and reads CLAUDE.md, not AGENTS.md, so adapt it by hand."}
+      "claude": {"code": {"level": "full", "note": "Checks git and GitHub state and writes a prompt for a fresh session."}, "app": {"level": "partial", "note": "In the Claude app the conversation sections work, but there is no git or GitHub state."}},
+      "codex_chatgpt": {"codex": {"level": "full", "note": "Checks git and GitHub state and reads AGENTS.md for the project name."}, "chatgpt": {"level": "partial", "note": "In ChatGPT the conversation sections work, but there is no git or GitHub state."}},
+      "other": {"level": "full", "note": "Checks git and GitHub state and reads CLAUDE.md, AGENTS.md or GEMINI.md, whichever exists."}
     },
     "mission": {
       "plugin": "agent-workflow",
@@ -221,7 +221,7 @@
       "plugin": "writing",
       "claude": {"code": {"level": "full", "note": "Needs only Python 3."}, "app": {"level": "full", "note": "Runs on uploaded or pasted text, without the clipboard helpers."}},
       "codex_chatgpt": {"codex": {"level": "full", "note": "Needs only Python 3."}, "chatgpt": {"level": "partial", "note": "Whether ChatGPT skills can run the bundled Python script is not verified, so ChatGPT may apply the rules by hand."}},
-      "other": {"level": "full", "note": "Needs only Python 3; its repo override check looks only in .claude/skills."}
+      "other": {"level": "full", "note": "Needs only Python 3."}
     },
     "table": {
       "plugin": "writing",

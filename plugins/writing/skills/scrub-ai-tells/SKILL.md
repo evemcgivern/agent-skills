@@ -5,7 +5,7 @@ description: "Find and remove the characters that mark prose as machine-written 
 
 # Scrub AI tells
 
-If the current repo has its own `.claude/skills/scrub-ai-tells/`, that version is authoritative — follow it instead.
+If the current repo has its own `.agents/skills/scrub-ai-tells/` or `.claude/skills/scrub-ai-tells/`, that version is authoritative — follow it instead.
 
 ## What this actually is
 

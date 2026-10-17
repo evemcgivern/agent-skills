@@ -1,11 +1,11 @@
 ---
 name: handoff
-description: "Writes a copy-pasteable handoff prompt that lets a fresh Claude Code session resume the current work cold. Use when ending a session and the next one has to pick up without re-investigating. Triggers on /handoff and on phrases like 'hand this off', 'write up where we are for a new session', 'I'm going to /clear, catch the next session up', 'park this for tomorrow'."
+description: "Writes a copy-pasteable handoff prompt that lets a fresh session of your agent (Claude Code, Codex, Gemini CLI and others) resume the current work cold. Use when ending a session and the next one has to pick up without re-investigating. Triggers on /handoff and on phrases like 'hand this off', 'write up where we are for a new session', 'I'm going to /clear, catch the next session up', 'park this for tomorrow'."
 ---
 
 # Handoff
 
-Produce a **detailed, copy-pasteable handoff prompt** the user can paste into a fresh Claude Code session (after `/new` or `/clear`) to resume work cold.
+Produce a **detailed, copy-pasteable handoff prompt** the user can paste into a fresh session of their agent (Claude Code, Codex, Gemini CLI or another) to resume work cold.
 
 The receiving session should have enough context to **start executing immediately** — not enough to investigate. That distinction is the whole design: a handoff that says "look into the auth problem" has moved the investigation, not the work.
 
@@ -19,7 +19,7 @@ git status -sb                  # tracking + ahead/behind
 git status --short              # uncommitted files
 git log --oneline -5            # recent commits
 pwd                             # basename is the fallback project name
-head -5 CLAUDE.md               # project name from the first heading
+head -5 CLAUDE.md AGENTS.md GEMINI.md 2>/dev/null  # project name from the first heading of whichever exists
 gh pr status                    # PRs on the current branch
 ```
 
@@ -50,7 +50,7 @@ least load-bearing.
 ### Format
 
 ````
-# RESUME {project-name-from-CLAUDE-heading-or-basename} — handoff
+# RESUME {project-name-from-instructions-file-heading-or-basename} — handoff
 
 ## Why we're here (strategic frame)
 {2-3 sentences on WHY this work is happening — the thesis, the positioning, the
@@ -110,7 +110,7 @@ lets the fresh session hear where the conversation was going.}
 
 After the block, add exactly one line:
 
-> Copy the block above into a fresh Claude Code session after `/new` or `/clear`.
+> Copy the block above into a fresh session of your agent (for example after `/new` or `/clear`).
 
 Nothing else. No explanation, no commentary, no offer to follow up — the output
 is a thing to paste, and anything after it is noise the user has to scroll past.

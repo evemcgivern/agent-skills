@@ -1,11 +1,12 @@
 ---
 name: efficient-frontier-routing
-description: Routes each task to a suitable model tier in Claude Code, Codex, or another agent host, following the user's routing preferences. Keeps small tasks local, delegates discovery, routine coding, and testing to cheaper subagents, and sends difficult decisions and risky reviews to a stronger one. Use when deciding whether to delegate, writing subagent handoffs, or setting routing preferences, or when asked to "save tokens", "use cheaper models", "fan out subagents", "stay inside my quota", or "efficient-frontier-routing help".
+description: Routes each task to a suitable model tier in Claude Code, Codex, or another agent that can start subagents on a chosen model (for example Gemini CLI or Antigravity CLI), following the user's routing preferences. Keeps small tasks local, delegates discovery, routine coding, and testing to cheaper subagents, and sends difficult decisions and risky reviews to a stronger one. Use when deciding whether to delegate, writing subagent handoffs, or setting routing preferences, or when asked to "save tokens", "use cheaper models", "fan out subagents", "stay inside my quota", or "efficient-frontier-routing help".
 ---
 
 # Efficient Frontier Routing
 
-Match the model to the work in Claude Code, Codex, or another agent host,
+Match the model to the work in Claude Code, Codex, or another agent that can
+start subagents on a chosen model (for example Gemini CLI or Antigravity CLI),
 regardless of the main session's model. A cheaper main session can coordinate
 routine work and consult a stronger agent; a stronger main session can
 delegate routine work to cheaper agents.

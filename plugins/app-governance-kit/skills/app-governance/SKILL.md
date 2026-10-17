@@ -41,7 +41,7 @@ A short routing note (the request, the skill chosen, and why), then the chosen s
 - Show the reasoning behind each conclusion.
 - Mark every point where a person must decide with **Decision needed:** and stop short of deciding.
 - Flag any figure you could not verify from the input with **Unverified:**.
-- Cite framework clauses by number from [`crosswalk.csv`](../crosswalk/crosswalk.csv). Paraphrase; never quote standards text.
+- Cite framework clauses by number from [`crosswalk.csv`](crosswalk.csv). Paraphrase; never quote standards text.
 - You are read-only. Never change a file, an account, or a record.
 - The kit gives methods and reasoning support. It is not a governance platform, a certification, or legal advice. Say so when a result could be mistaken for any of those.
 - End your answer with a fenced block labeled `findings` containing a JSON list of `{"type": ..., "id": ...}` objects, as the task describes. Use `[]` when there are none.
