@@ -66,6 +66,11 @@ With `--explain`, choose the best form for the content. The reader does not pick
 3. Say which form you chose and why, in one line.
 4. Open the result with `open`.
 
+Video needs `manim`, `ffmpeg` and the macOS `say` command. Check before you start:
+- Run `command -v manim ffmpeg say`. If all three are found, go on.
+- If one is missing and you have a shell, name what is missing and ask before you install it (`uv tool install manim`, `brew install ffmpeg`). `say` ships with macOS and cannot be installed. If the reader says no, or `say` is missing, choose a diagram or page instead and say why in one line.
+- If you have no shell (for example, a chat app that runs the skill in a sandbox), say that video needs a local install and choose a diagram or page instead.
+
 Video steps:
 1. Write the script first. Follow the Sentences and Words rules. The narration and on-screen text use the same rules.
 2. Make the scenes with `manim` (installed as a `uv` tool). Test with `-ql`, then render with `-qh`.
