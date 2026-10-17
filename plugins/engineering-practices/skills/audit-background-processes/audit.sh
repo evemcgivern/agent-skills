@@ -55,12 +55,13 @@ suspects () {
 }
 
 report () {
-  hdr "interactive shells (never kill)"
-  ps -A -o pid=,ppid=,etime=,args= | awk '$4 ~ /^-/ || / (zsh|bash) -il?$/' \
+  # Only your own processes: other users' command lines can hold secrets.
+  hdr "your interactive shells (never kill)"
+  ps -U "$(id -u)" -o pid=,ppid=,etime=,args= | awk '$4 ~ /^-/ || / (zsh|bash) -il?$/' \
     | cut -c1-120 || true
 
-  hdr "live test and benchmark runs (killing one loses its in-flight work)"
-  ps -A -o pid=,ppid=,etime=,args= \
+  hdr "your live test and benchmark runs (killing one loses its in-flight work)"
+  ps -U "$(id -u)" -o pid=,ppid=,etime=,args= \
     | awk '/[p]ytest|[b]enchmark|[e]val battery|[g]o test|[j]est|[v]itest/ { print; n++ } END { if (!n) print "  none" }' \
     | cut -c1-120
 

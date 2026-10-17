@@ -28,11 +28,17 @@ it resets.
 ## Usage Signals
 
 Prefer a usage tool the host provides to the agent. In Claude Code, the
-community `ccusage` CLI reads local session logs:
+community `ccusage` CLI reads local session logs. It is third-party npm code,
+so ask the user before the first run in a session, and run only this pinned
+version:
 
 ```sh
-npx -y ccusage@latest blocks --active --json
+npx ccusage@20.0.26 blocks --active --json
 ```
+
+The user can instead install it once (`npm install -g ccusage@20.0.26`) and
+let you run `ccusage blocks --active --json`. Do not switch to `@latest` or
+add `-y`.
 
 The JSON has a `blocks` array; the active block carries `startTime`,
 `endTime`, `isActive`, `tokenCounts`, and `costUSD`. Use `endTime` for when

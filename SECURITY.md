@@ -1,6 +1,20 @@
 # Security
 
-These skills are instructions and a few shell scripts that agents run on your machine. Read a skill before you install it, and run its scripts only on code you trust.
+These skills are instructions plus a few shell and Python scripts that agents run on your machine. Read a skill before you install it, and run its scripts only on code you trust.
+
+## Supported versions
+
+Only the latest `main` is supported. Fixes land there and ship in the next release; older releases do not get backported fixes.
+
+## Scope
+
+In scope:
+
+- The shipped shell and Python scripts under `plugins/` and `scripts/`.
+- Skill instructions (`SKILL.md` and the files they point to), including anything that could lead an agent to run a harmful command, leak data, or follow instructions planted in content it reads.
+- The install guidance in the READMEs and `scripts/install.sh`.
+
+Out of scope: third-party tools a skill tells you to install or run (report those to their maintainers), and the agents themselves.
 
 ## Reporting a problem
 

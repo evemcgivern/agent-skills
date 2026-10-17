@@ -32,8 +32,9 @@ A representative exchange on macOS (example output, invented data):
 > The DevTools MCP can't find a browser. Start Chrome for debugging.
 
 Starting Chrome with a debug port and a separate profile:
+  mkdir -p "$HOME/.cache/chrome-debug-profile" && chmod 700 "$HOME/.cache/chrome-debug-profile"
   /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
-    --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-profile-stable &
+    --remote-debugging-port=9222 --user-data-dir="$HOME/.cache/chrome-debug-profile" &
 
 Checking the port:
   curl -s http://127.0.0.1:9222/json/version
@@ -135,4 +136,4 @@ Use Claude Code or Codex on your computer instead.
 
 ## Credit
 
-The Chrome launch commands and the `--browser-url` setup in `SKILL.md` are adapted from the documentation of [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) (`docs/advanced-usage.md`), © Google LLC, licensed under the [Apache License 2.0](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/LICENSE). The macOS, Linux and Command Prompt commands are reproduced unchanged; the PowerShell variant and the rest of this skill are original and MIT-licensed.
+The Chrome launch commands and the `--browser-url` setup in `SKILL.md` are adapted from the documentation of [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) (`docs/advanced-usage.md`), © Google LLC, licensed under the [Apache License 2.0](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/LICENSE). The Command Prompt command is reproduced unchanged; the macOS and Linux commands keep the upstream flags but use a private profile folder in your home directory instead of `/tmp`; the PowerShell variant and the rest of this skill are original and MIT-licensed.
