@@ -4,6 +4,40 @@
 
 Inspects a project's discovered agent instructions (`AGENTS.md`, `CLAUDE.md`) and skill folders under `.agents`, `.codex`, and `.claude` for static wiring problems. The bundled scanner is read-only and bounded: it never loads, changes, or enables anything, rejects symlink escapes, and reports findings as Markdown or JSON. An optional `--model <name>` option reports, as an advisory, skills whose prose claims a different model identity. The `--usage` mode reads local Claude Code and Codex session logs (read-only, skill names and counts only) and lists skills that are rarely or never called, with offline freshness notes. The agent then asks the owner, skill by skill, whether to update, keep, or archive; `scripts/skill_archive.py` archives only after an explicit yes, never deletes, and can restore.
 
+## What it looks like
+
+Real output, from a run on a throwaway project and home folder built for this example (paths shortened to `~` and `<project>`, sources list left out). The wiring scan lists each problem with its file and line:
+
+```text
+$ python3 scripts/agent_doctor.py --project <project> --home ~ --model claude-opus-5-5
+| Severity | Code                      | File                                            | Line |
+| -------- | ------------------------- | ----------------------------------------------- | ---: |
+| advisory | model_role_mismatch       | ~/.agents/skills/daily-brief/SKILL.md           |    5 |
+| observed | duplicate_skill_name      | ~/.agents/skills/release-notes/SKILL.md         |    1 |
+| observed | missing_skill_metadata    | <project>/.claude/skills/lint-fix/SKILL.md      |    1 |
+| observed | duplicate_skill_name      | <project>/.claude/skills/release-notes/SKILL.md |    1 |
+| observed | broken_markdown_reference | <project>/.claude/skills/release-notes/SKILL.md |    5 |
+```
+
+The usage report counts calls in local session logs (here, synthetic logs) and gives each skill a verdict:
+
+```text
+$ python3 scripts/agent_doctor.py --usage --project <project> --home ~
+Window: last 90 days. RARELY USED means fewer than 3 calls found. Names and counts only.
+Logs reach back 200 days and cover the window.
+
+| Skill         | Uses in window | Last used  | Days since SKILL.md changed | Verdict        |
+| ------------- | -------------: | ---------- | --------------------------: | -------------- |
+| lint-fix      |              0 | -          |                         400 | NO CALLS FOUND |
+| old-helper    |              0 | -          |                         400 | NO CALLS FOUND |
+| daily-brief   |              1 | 2026-09-07 |                         400 | RARELY USED    |
+| release-notes |              7 | 2026-10-16 |                         400 | ACTIVE         |
+
+Totals: 4 skills, 8 calls found in the window; NO CALLS FOUND 2, RARELY USED 1, ACTIVE 1.
+```
+
+Both tables are trimmed: the scan also prints a Message column, and the usage report a Source column and freshness notes. After the usage table, the agent asks about each flagged skill in turn: update, keep, or archive. It archives only after an explicit yes, and `scripts/skill_archive.py restore` brings a skill back.
+
 ## Install
 
 Copy this complete folder to `~/.claude/skills/agent-doctor/` for Claude Code CLI and local Claude Code desktop sessions, or to `~/.agents/skills/agent-doctor/` for personal Codex use. For repository-only use, copy to `.claude/skills/agent-doctor/` or `.agents/skills/agent-doctor/` respectively. Supporting files in this folder may be required. See the [collection README](../../../../README.md#install) for current platform notes.

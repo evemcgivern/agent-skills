@@ -4,6 +4,29 @@
 
 Design or review the launch of a governance body such as a software governance council, ITAM steering group, or AI governance board — charter, decision rights, membership, intake path, cadence, 90-day launch plan, and success measures. Use when starting a council or when an existing one has become a bottleneck or a rubber stamp.
 
+## What it looks like
+
+Review mode on the draft council charter in the kit's fictional demo estate:
+
+| Step | What's missing | Why it matters | Fix |
+|---|---|---|---|
+| Sponsor | No executive sponsor named | No sponsor means no enforcement | Name an executive who controls the software budget |
+| Decision rights | Purpose says the council oversees software; no decide or advise split, no stated thresholds | Every item can land on the agenda | Fill the decision-rights table, with a cost and risk threshold for each decision |
+| Membership | 14 voting members | More than 9 slows decisions | Keep 5 to 9 voting; move the rest to consulted |
+| Enforcement | No rule that procurement buys only approved items above threshold | Teams can buy around the council | Add the procurement rule and settle overlaps with other boards in writing |
+
+````text
+Decision needed: sponsor sign-off.
+
+```findings
+[{"type": "charter_gap", "id": "sponsor"},
+ {"type": "charter_gap", "id": "decision-rights"},
+ {"type": "charter_gap", "id": "membership-size"}]
+```
+````
+
+The enforcement gap stays in the table only, because `charter_gap` findings use a fixed list of seven slugs. Review the same charter yourself in [practicum exercise 1](https://evemcgivern.github.io/app-governance-kit/practicum.html#program-setup).
+
 ## Install
 
 See the [repository README](../../../../README.md#install) for Claude Code, Codex, Claude.ai and ChatGPT steps.
