@@ -1,0 +1,47 @@
+{
+  "name": "evemcgivern-skills",
+  "owner": {
+    "name": "Eve McGivern"
+  },
+  "metadata": {
+    "description": "Skills and plugins by Eve McGivern for Claude Code and Codex."
+  },
+  "plugins": [
+    {
+      "name": "ship-and-operate",
+      "source": "./plugins/ship-and-operate",
+      "description": "Run production and keep tabs on work: incident response, observability setup, repo activity summaries, comma-delimited issue lists.",
+      "license": "MIT"
+    },
+    {
+      "name": "build-patterns",
+      "source": "./plugins/build-patterns",
+      "description": "Patterns for building product code: API design, Stripe billing, and analytics instrumentation.",
+      "license": "MIT"
+    },
+    {
+      "name": "agent-workflow",
+      "source": "./plugins/agent-workflow",
+      "description": "Working habits for coding agents: model routing, final status recaps, and usage-limit pacing.",
+      "license": "MIT"
+    },
+    {
+      "name": "writing",
+      "source": "./plugins/writing",
+      "description": "Plain, short, scannable writing: controlled technical English, comma-delimited lists, and an optional explain mode.",
+      "license": "MIT"
+    },
+    {
+      "name": "role-ready-application",
+      "source": "./plugins/role-ready-application",
+      "description": "Build truthful, role-tailored resumes and cover letters with candidate-voice review and document preflight.",
+      "license": "MIT"
+    },
+    {
+      "name": "app-governance-kit",
+      "source": "./plugins/app-governance-kit",
+      "description": "Application portfolio, AI, and access governance methods.",
+      "license": "MIT"
+    }
+  ]
+}

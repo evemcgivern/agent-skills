@@ -1,0 +1,23 @@
+{
+  "plugins/agent-workflow/skills/efficient-frontier": "0.2.0",
+  "plugins/agent-workflow/skills/quick-recap": "0.2.0",
+  "plugins/agent-workflow/skills/stay-within-limits": "0.2.0",
+  "plugins/app-governance-kit/skills/access-review": "0.1.0",
+  "plugins/app-governance-kit/skills/ai-intake": "0.1.0",
+  "plugins/app-governance-kit/skills/app-governance": "0.1.0",
+  "plugins/app-governance-kit/skills/cert-prep": "0.1.0",
+  "plugins/app-governance-kit/skills/crosswalk": "0.1.0",
+  "plugins/app-governance-kit/skills/hardware-lifecycle": "0.1.0",
+  "plugins/app-governance-kit/skills/itam-maturity": "0.1.0",
+  "plugins/app-governance-kit/skills/program-setup": "0.1.0",
+  "plugins/app-governance-kit/skills/rationalization": "0.1.0",
+  "plugins/build-patterns/skills/analytics-instrumentation": "0.2.0",
+  "plugins/build-patterns/skills/api-design": "0.2.0",
+  "plugins/build-patterns/skills/stripe-billing": "0.2.0",
+  "plugins/role-ready-application/skills/role-ready-application": "0.2.0",
+  "plugins/ship-and-operate/skills/cdf": "0.1.0",
+  "plugins/ship-and-operate/skills/incident-response": "0.2.0",
+  "plugins/ship-and-operate/skills/observability-setup": "0.2.0",
+  "plugins/ship-and-operate/skills/repo-activity-summary": "0.2.0",
+  "plugins/writing/skills/clearly": "0.1.0"
+}

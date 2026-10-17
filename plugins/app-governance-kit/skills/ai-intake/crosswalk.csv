@@ -1,0 +1,29 @@
+id,theme,iso19770_1,cobit2019,iso27001,iso42001,summary,verified
+XW-001,Application and software inventory,"8.3; 19770-2 §8.5.1 (SoftwareIdentity)",BAI09.01,A.5.9,,"Keep a current, complete record of every application and software asset in use.",2026-09-24
+XW-002,Asset ownership assigned,7.6.2,BAI09.01,A.5.9,,Assign a named owner accountable for each application or software asset.,2026-09-24
+XW-003,Asset management policy and scope,"4.3, 5.2",APO01,A.5.1,"4.3, 5.2",Define and approve a policy that sets the scope and rules for managing software assets.,2026-09-24
+XW-004,Roles and responsibilities,5.3,APO01,A.5.2,5.3,Define who holds each governance role and keep those assignments current.,2026-09-24
+XW-005,Discovery and reconciliation of installs,"8.3; 19770-2 §8.5.1 (SoftwareIdentity)",BAI09.01,A.5.9,,Regularly discover installed software and reconcile it against the inventory record.,2026-09-24
+XW-006,Entitlement records kept,"8.4; 19770-3 §8.6.3 (Ent)",BAI09.05,A.5.32,,Keep records of the software licenses and entitlements the organization holds.,2026-09-24
+XW-007,License compliance position,"8.4; 19770-3 §8.6.3 (Ent); 19770-4 §8.4.1/8.4.3 (Resource Utilization/Measurement)",BAI09.05,A.5.32,,Compare entitlements against deployed installs to know whether the organization is over- or under-licensed.,2026-09-24
+XW-008,License renewal and expiry tracking,"8.4; 19770-3 §8.6.3 (Ent)",BAI09.05,A.5.32,,Track license renewal and expiry dates so contracts do not lapse or overrun unnoticed.,2026-09-24
+XW-009,"Lifecycle, request to retirement","Annex A, Table A.1 (IT asset life cycle management processes)",BAI09.03,A.5.9,,"Manage each application through its full lifecycle, from initial request to eventual retirement.",2026-10-14
+XW-010,Retirement and decommissioning,"Annex A, Table A.1 (Retirement)",BAI09.03,A.8.10,,Formally decommission applications and remove their data and access when they are retired.,2026-10-14
+XW-011,Portfolio value optimization (rationalization),"TS 19770-13 §6.1 Table 1 (Rightsize consumption); §4.4.3",BAI09.04,,,"Periodically assess the application portfolio to decide what to keep, consolidate, or eliminate.",2026-10-14
+XW-012,Cost and budget tracking,"Annex A, Table A.1 (Financial management)",APO06,,,Track software costs against budget and attribute spend to the right owners.,2026-10-14
+XW-013,Vendor and contract management,"8.7; Annex A, Table A.1 (Relationship and contract management)",APO10,"A.5.19, A.5.20",,"Manage vendor relationships and contract terms, including the risks a supplier introduces.",2026-10-14
+XW-014,Access control policy,,DSS05.04,A.5.15,,Define and approve a policy setting the rules for granting and controlling system access.,2026-09-24
+XW-015,Access provisioning,,DSS05.04,A.5.18,,"Grant user access through an approved, auditable process.",2026-09-24
+XW-016,Periodic access review,,DSS05.04,A.5.18,,Periodically review who has access to a system and confirm it is still needed.,2026-09-24
+XW-017,Leaver access removal,,DSS05.04,"A.5.18, A.6.5",,Remove a person's access promptly when they leave or change roles.,2026-09-24
+XW-018,Privileged access,,DSS05.04,A.8.2,,Apply tighter controls to accounts with elevated or administrative privileges.,2026-09-24
+XW-019,Segregation of duties,,DSS06.03,A.5.3,,Separate conflicting duties so no one person can both request and approve the same action.,2026-09-24
+XW-020,Evidence retention for audit,7.6.3,MEA02,A.5.33,7.5,Retain evidence of governance activity so it can be produced for an audit.,2026-09-24
+XW-021,AI system risk and impact assessment before deployment,,APO12,,"6.1.4, A.5",Assess an AI system's risk and likely impact before it goes into production.,2026-09-24
+XW-022,AI system inventory,"8.3; 19770-2 §8.5.1 (SoftwareIdentity)",BAI09.01,,,"Maintain a record of every AI system in use, alongside the software asset inventory.",2026-09-24
+XW-023,AI supplier and third-party oversight,8.7,APO10,A.5.19,A.10,Extend vendor oversight to cover AI suppliers and the third parties they rely on.,2026-09-24
+XW-024,Risk register and treatment,"6.1.2, 6.1.3",APO12,"6.1.2, 6.1.3","6.1.2, 6.1.3",Log identified risks in a register and track their treatment to closure.,2026-10-14
+XW-025,Performance review and improvement,"9.1, 9.2, 9.3, 10.3",MEA01,"9.1, 10.1","9.1, 9.2, 9.3, 10.1",Regularly review process performance and act on what the review finds.,2026-09-24
+XW-026,Data quality of asset records,"8.3; 19770-2 §8.5.1 (SoftwareIdentity)",BAI09.01,A.5.9,,Keep asset records accurate and complete enough to be trusted for decisions.,2026-09-24
+XW-027,"Governance body, sponsor, and decision rights","5.1, 5.3","EDM01, APO01","5.1, 5.3","5.1, 5.3",Establish a governance body with a named sponsor and clear decision rights.,2026-09-24
+XW-028,Data classification and handling,,APO14,"A.5.12, A.5.13",A.7,Classify data by sensitivity and handle it according to that classification.,2026-09-24

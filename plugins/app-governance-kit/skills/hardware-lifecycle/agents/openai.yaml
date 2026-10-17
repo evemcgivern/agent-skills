@@ -1,0 +1,3 @@
+interface:
+  display_name: "Hardware Lifecycle"
+  short_description: "Check a device fleet for hardware overdue for refresh and retired devices…"

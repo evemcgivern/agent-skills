@@ -1,7 +1,11 @@
 # Provenance
 
-This public collection is a clean, history-free copy of current skill files from the owner’s private source repository. It retains owner-authored workflows and supporting scripts while removing or generalizing personal references, project names, private examples, and internal deployment details. The private source history is not included.
+Most skills here are owner-authored and were copied from the owner's private source repository after personal references, project names, private examples, and internal deployment details were removed or generalized. The private source history is not included.
 
-No other private repository, external skill package, or third-party skill text was copied into this collection. References to programming languages, frameworks, vendors, and open standards identify tools and formats; they do not imply endorsement or ownership.
+- `app-governance-kit` and `role-ready-application` were authored by the owner and moved in from the owner's separate skills drafts.
+- `clearly` is adapted from ASD-STE100, Strunk's *The Elements of Style*, and the i-have-adhd plugin (MIT, Ayoub Ghriss). See [THIRD-PARTY.md](THIRD-PARTY.md).
+- Skills that overlap the separate stylusnexus marketplace are not duplicated here.
 
-The source repository had no license file. The owner selected the MIT License for this reviewed public copy. See `LICENSE`.
+References to programming languages, frameworks, vendors, and open standards identify tools and formats; they do not imply endorsement or ownership.
+
+See `LICENSE`.

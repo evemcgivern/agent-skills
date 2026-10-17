@@ -1,0 +1,3 @@
+interface:
+  display_name: "Access Review"
+  short_description: "Review application user and role exports against HR records, find orphaned,…"
