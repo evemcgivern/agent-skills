@@ -81,12 +81,6 @@
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
-    "plugins/ship-and-operate/skills/repo-activity-summary": {
-      "release-type": "simple",
-      "package-name": "repo-activity-summary",
-      "version-file": "VERSION",
-      "changelog-path": "CHANGELOG.md"
-    },
     "plugins/writing/skills/clearly": {
       "release-type": "simple",
       "package-name": "clearly",
