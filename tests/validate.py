@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Validate every skill under plugins/*/skills/: frontmatter, versions, scripts, leaks,
-plus marketplace and release-please config consistency, and the compatibility
-badges in each skill README against compatibility.json.
+plus marketplace and release-please config consistency, the compatibility
+badges in each skill README against compatibility.json, and each README's
+generated Install section (scripts/gen-skill-install.py).
 
 Run from anywhere:  python3 -I tests/validate.py
 Exit code 0 = all checks pass, 1 = at least one failure.
@@ -247,6 +248,66 @@ def check_compatibility(path=None, root=None):
                 fail(name, f"README.md has no '{label}' compatibility badge; expected {want}")
 
 
+INSTALL_BEGIN, INSTALL_END = "<!-- install:begin -->", "<!-- install:end -->"
+# Summary prefix, compatibility.json cell, and text the block must hold ({s} skill, {p} plugin).
+INSTALL_PLATFORMS = [
+    ("<b>Claude Code (terminal CLI)", ("claude", "code"),
+     ["claude plugin install {p}@evemcgivern-skills", "scripts/install.sh {s} "]),
+    ("<b>Claude Code desktop app", ("claude", "code"), ["**{p}**", ".claude/skills/{s}/"]),
+    ("<b>Codex", ("codex_chatgpt", "codex"), ["scripts/install.sh --target codex {s} ", "~/.agents/skills/{s}/"]),
+    ("<b>Other agents", ("other", None), ["~/.agents/skills/{s}/", ".cline/skills/{s}/"]),
+    ("<b>Claude app", ("claude", "app"), ["cd plugins/{p}/skills && zip -r {s}.zip {s}"]),
+    ("<b>ChatGPT", ("codex_chatgpt", "chatgpt"), ["cd plugins/{p}/skills && zip -r {s}.zip {s}"]),
+]
+DETAILS = re.compile(r"<details>\s*<summary>(.*?)</summary>(.*?)</details>", re.S)
+
+
+def check_install_sections():
+    try:
+        compat = json.loads((ROOT / "compatibility.json").read_text(encoding="utf-8"))["skills"]
+    except (OSError, ValueError, KeyError):
+        return  # check_compatibility already reports this
+    for d in skill_dirs():
+        name, plugin = d.name, d.parent.parent.name
+        readme_path = d / "README.md"
+        readme = readme_path.read_text(encoding="utf-8") if readme_path.is_file() else ""
+        if readme.count(INSTALL_BEGIN) != 1 or readme.count(INSTALL_END) != 1:
+            fail(name, f"README.md needs one {INSTALL_BEGIN} and one {INSTALL_END}")
+            continue
+        block = readme.split(INSTALL_BEGIN, 1)[1].split(INSTALL_END, 1)[0]
+        if not re.search(r"^## Install\s*\n\s*" + re.escape(INSTALL_BEGIN), readme, re.M):
+            fail(name, "install markers must sit right under '## Install'")
+        blocks = DETAILS.findall(block)
+        entry = compat.get(name)
+        if not isinstance(entry, dict):
+            continue
+        for i, (prefix, (col, sub), needles) in enumerate(INSTALL_PLATFORMS):
+            if i >= len(blocks) or not blocks[i][0].startswith(prefix):
+                fail(name, f"Install section block {i + 1} should be {prefix[3:]!r}")
+                continue
+            summary, body = blocks[i]
+            try:
+                level = entry[col]["level"] if sub is None else entry[col][sub]["level"]
+            except (KeyError, TypeError):
+                continue
+            unsupported = "not supported" in summary
+            if unsupported != (level == "no"):
+                fail(name, f"Install '{prefix[3:]}' says {'not supported' if unsupported else 'supported'}"
+                           f" but compatibility.json level is {level!r}")
+            if level == "no":
+                continue
+            for needle in needles:
+                want = needle.format(s=name, p=plugin)
+                if want not in body:
+                    fail(name, f"Install '{prefix[3:]}' block is missing {want!r}")
+    r = subprocess.run(
+        [sys.executable, "-I", str(ROOT / "scripts" / "gen-skill-install.py"), "--check"],
+        capture_output=True, text=True,
+    )
+    if r.returncode:
+        fail("scripts/gen-skill-install.py", f"--check failed:\n{r.stderr.strip()}")
+
+
 def main():
     dirs = skill_dirs()
     if not dirs:
@@ -258,6 +319,7 @@ def main():
     check_marketplace()
     check_release_config()
     check_compatibility()
+    check_install_sections()
     if failures:
         print(f"FAIL: {len(failures)} problem(s) across {len(dirs)} skills\n")
         print("\n".join(f"- {f}" for f in failures))
