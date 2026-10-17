@@ -17,7 +17,7 @@ Tailor a truthful resume and cover letter to one job, then review clarity, candi
 
 ```text
 Tailor my resume to this job. Resume: [paste]. Job description: [paste].
-Review this cover letter for clarity and for claims my resume does not support: [paste]
+Review this cover letter for clarity and for claims my resume does not support. Resume: [paste]. Cover letter: [paste].
 ```
 
 The agent asks short questions about anything unclear. It then gives a resume of two pages or fewer, with separate notes on evidence gaps and check results (PASS, FAIL or UNVERIFIED). A matching cover letter is offered, not created unasked.

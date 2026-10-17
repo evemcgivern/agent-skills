@@ -20,7 +20,7 @@ Rewrites a prompt, system prompt, agent definition or skill so Claude Sonnet 5.5
 Improve this agent definition for Sonnet 5.5: [paste]
 ```
 
-The improved prompt in one code block, with one line per change tied to the symptom you named. For standing prompts, you also get a suggested effort setting. Other agents can ask in words.
+The improved prompt in one code block, with one line per change tied to the symptom you named. For standing prompts and JSON API calls, you also get suggested effort and thinking settings. Other agents can ask in words.
 
 **Skip it when**
 - The prompt works, or the model is not Sonnet 5.5. The skill adds fixes only for a symptom you can see.

@@ -13,7 +13,7 @@ Compares the specs in `.spec-workflow/` with the code. It maps which source file
 
 **Use it when**
 - You finished an implementation phase and want to know which files no spec covers.
-- You prepare a code review and want to check that specs still match the code.
+- You prepare a code review and want to see which changed files no spec covers.
 - You suspect some specs went stale.
 
 **Try it**

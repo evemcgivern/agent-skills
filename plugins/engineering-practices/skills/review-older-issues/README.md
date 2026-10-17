@@ -17,9 +17,9 @@ Revalidates a bounded batch of open GitHub issues against current code, pull req
 **Try it**
 ```text
 /review-older-issues 1-50
-Are issues 12, 18 and 31 still valid? Check the code and the pull requests.
+Review issues 12, 18 and 31 against the code and the pull requests.
 ```
-You get one verdict per open issue (VALID, SHIPPED, SUPERSEDED, RESCOPE, UNWARRANTED or UNVERIFIED) with evidence. It closes or rescopes issues with a comment, so start with a small batch. Other agents can ask in words.
+You get one verdict per open issue (VALID, SHIPPED, SUPERSEDED, RESCOPE, UNWARRANTED or UNVERIFIED) with evidence. When called, the skill closes or rescopes issues on GitHub with a comment, even if you only asked a question, so start with a small batch. Other agents can ask in words.
 
 **Skip it when**
 - You want new issues written or code changed. This skill does neither.

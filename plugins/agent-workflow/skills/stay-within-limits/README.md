@@ -11,7 +11,7 @@ Keeps long-running or parallel agent work inside 5-hour and weekly usage limits 
 
 **Use it when**
 - You start a job that uses many subagents and will run while you sleep.
-- You are close to your weekly cap and need the work to stop in time.
+- You are close to your weekly cap and can report your usage between waves so the work stops in time.
 - You want the job to resume after the 5-hour window resets.
 
 **Try it**
@@ -21,7 +21,7 @@ Run the 12 migration checks in waves of 3 subagents. Stay within my limits and p
 Watch my usage and resume when the 5-hour window resets.
 ```
 
-Usage is checked before each wave. If either window reaches 95%, the agent stops, tells you which window, the usage, the next check time and the remaining work, and schedules a resume if it can. Automatic checks work in Claude Code only. Elsewhere the agent asks you to read your usage.
+Usage is checked before each wave. If either window reaches 95%, the agent stops, tells you which window, the usage, the next check time and the remaining work, and schedules a resume if it can. In Claude Code the agent reads the 5-hour token count itself, but it needs you to read /usage (or give a limit) for percentages and the weekly window. Elsewhere it asks you for both.
 
 **Skip it when**
 - The task is short and uses one agent. A usage check adds no value.
