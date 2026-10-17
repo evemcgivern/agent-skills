@@ -3,9 +3,9 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
 [![Claude: Code full, app no](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%9C%96-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT no](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%9C%96-brightgreen)](../../../../README.md#compatibility) [![Other agents: partial](https://img.shields.io/badge/Other%20agents-%E2%97%90-yellow)](../../../../README.md#compatibility)
-> The Claude app and ChatGPT cannot run it: they have no access to your project or session logs. Other agents: the scan checks only the .agents, .codex and .claude skill folders, and usage reads only Claude Code and Codex logs.
+> The Claude app and ChatGPT cannot run it: they have no access to your project or session logs. Other agents: the usage report reads only Claude Code and Codex session logs.
 
-Inspects a project's discovered agent instructions (`AGENTS.md`, `CLAUDE.md`) and skill folders under `.agents`, `.codex`, and `.claude` for static wiring problems. The bundled scanner is read-only and bounded: it never loads, changes, or enables anything, rejects symlink escapes, and reports findings as Markdown or JSON. An optional `--model <name>` option reports, as an advisory, skills whose prose claims a different model identity. The `--usage` mode reads local Claude Code and Codex session logs (read-only, skill names and counts only) and lists skills that are rarely or never called, with offline freshness notes. The agent then asks the owner, skill by skill, whether to update, keep, or archive; `scripts/skill_archive.py` archives only after an explicit yes, never deletes, and can restore.
+Inspects a project's discovered agent instructions (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`) and the skill folders of every documented host (`.agents`, `.codex`, `.claude`, `.gemini`, `.cursor`, `.github`, `.copilot`, `.opencode`, `.cline`, `.clinerules`, `.devin`, `.windsurf`, `.codeium/windsurf`) for static wiring problems. The bundled scanner is read-only and bounded: it never loads, changes, or enables anything, rejects symlink escapes, and reports findings as Markdown or JSON. An optional `--model <name>` option reports, as an advisory, skills whose prose claims a different model identity. The `--usage` mode reads local Claude Code and Codex session logs (read-only, skill names and counts only) and lists skills that are rarely or never called, with offline freshness notes. The agent then asks the owner, skill by skill, whether to update, keep, or archive; `scripts/skill_archive.py` archives only after an explicit yes, never deletes, and can restore.
 
 ## When and how to use it
 
@@ -118,7 +118,7 @@ These agents load `SKILL.md` folders directly. Copy this whole folder to the pla
 - Windsurf: `<repo>/.agents/skills/agent-doctor/`.
 - Cline: `<repo>/.cline/skills/agent-doctor/`, `<repo>/.claude/skills/agent-doctor/` or `~/.cline/skills/agent-doctor/`.
 
-**Limit:** The scan checks only the .agents, .codex and .claude skill folders, and the usage report reads only Claude Code and Codex logs.
+**Limit:** The usage report reads only Claude Code and Codex session logs.
 
 </details>
 

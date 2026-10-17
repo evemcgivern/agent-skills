@@ -22,7 +22,7 @@ python3 scripts/agent_doctor.py --usage --exclude my-keeper --exclude other-keep
 | `--claude-logs DIR` | `~/.claude/projects` | Claude Code session logs. |
 | `--codex-logs DIR` | `~/.codex/sessions` | Codex session logs. |
 | `--exclude NAME` | none | Skill the owner always keeps; repeatable. |
-| `--project DIR` | current folder | Adds the project's `.claude`, `.agents`, `.codex` skills. |
+| `--project DIR` | current folder | Adds the project's skill folders (`.agents`, `.codex`, `.claude`, `.gemini`, `.cursor`, `.github`, `.opencode`, `.cline`, `.clinerules`, `.devin`, `.windsurf`). |
 | `--home DIR` | your home | Alternate home, for fixtures. |
 
 Skills listed one per line in `~/.agent-doctor-ignore` or
@@ -30,8 +30,9 @@ Skills listed one per line in `~/.agent-doctor-ignore` or
 table and named as "excluded by the owner".
 
 Installed skills come from the same discovery as the wiring scan
-(`~/.claude/skills`, `~/.agents/skills`, `~/.codex/skills`, the project
-folders) plus the skills of plugins listed in
+(`~/.claude/skills`, `~/.agents/skills`, `~/.codex/skills`,
+`~/.gemini/skills`, `~/.cursor/skills`, `~/.copilot/skills`,
+`~/.codeium/windsurf/skills`, the project folders) plus the skills of plugins listed in
 `~/.claude/plugins/installed_plugins.json`. Plugin skills show as
 `plugin:skill`.
 

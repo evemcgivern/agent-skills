@@ -1,6 +1,6 @@
 ---
 name: agent-doctor
-description: Inspects a project's discovered agent instructions (AGENTS.md, CLAUDE.md) and skill definitions for static wiring problems, without loading, changing, or enabling them, and reports which installed skills are rarely or never called in local session logs. Use when asked "why isn't my skill loading", "check my agent setup", "diagnose skill discovery", "audit AGENTS.md and skills", or "which skills do I never use".
+description: Inspects a project's discovered agent instructions (AGENTS.md, CLAUDE.md, GEMINI.md) and skill definitions for static wiring problems, without loading, changing, or enabling them, and reports which installed skills are rarely or never called in local session logs. Use when asked "why isn't my skill loading", "check my agent setup", "diagnose skill discovery", "audit AGENTS.md and skills", or "which skills do I never use".
 ---
 
 # Agent Doctor
@@ -34,8 +34,14 @@ focused diagnosis.
 
 The scan bounds depth, directories, files, and bytes; it skips dependency, VCS, cache, and
 worktree directories. It recognizes ancestor and nested `AGENTS.md`/
-`CLAUDE.md`, the allowlisted global instruction files, and flat skill folders
-under the project and home `.agents`, `.codex`, and `.claude` folders. It keeps
+`CLAUDE.md`/`GEMINI.md`, the allowlisted global instruction files
+(`~/.codex/AGENTS.md`, `~/.claude/CLAUDE.md`, `~/.gemini/GEMINI.md`), and flat
+skill folders in every documented host folder: home `.agents`, `.codex`,
+`.claude`, `.gemini`, `.cursor`, `.copilot` and `.codeium/windsurf` skills, and
+project `.agents`, `.codex`, `.claude`, `.gemini`, `.cursor`, `.github`,
+`.opencode`, `.cline`, `.clinerules`, `.devin` and `.windsurf` skills. A skill
+reached through several folders (for example the Skills CLI's symlinks) is
+reported once. It keeps
 canonical paths and aliases separate, rejects symlink escapes, and emits no raw
 file content.
 

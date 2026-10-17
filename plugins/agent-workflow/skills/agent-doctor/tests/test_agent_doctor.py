@@ -269,6 +269,93 @@ class AgentDoctorCliTests(unittest.TestCase):
 
             self.assertTrue(any(source.get("skill_name") == "local" for source in report["sources"]))
 
+    def test_discovers_project_local_gemini_skill_folder(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            project, home = base / "project", base / "home"
+            project.mkdir()
+            self.make_skill(
+                project / ".gemini" / "skills",
+                "local",
+                "---\nname: local\ndescription: project local\n---\n",
+            )
+
+            report = self.json_report(project, home)
+
+            self.assertTrue(any(source.get("skill_name") == "local" for source in report["sources"]))
+
+    def test_discovers_project_local_github_skill_folder(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            project, home = base / "project", base / "home"
+            project.mkdir()
+            self.make_skill(
+                project / ".github" / "skills",
+                "local",
+                "---\nname: local\ndescription: project local\n---\n",
+            )
+
+            report = self.json_report(project, home)
+
+            self.assertTrue(any(source.get("skill_name") == "local" for source in report["sources"]))
+
+    def test_discovers_global_gemini_skill_folder(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            project, home = base / "project", base / "home"
+            project.mkdir()
+            self.make_skill(
+                home / ".gemini" / "skills",
+                "personal",
+                "---\nname: personal\ndescription: global gemini\n---\n",
+            )
+
+            report = self.json_report(project, home)
+
+            self.assertTrue(any(source.get("skill_name") == "personal" for source in report["sources"]))
+
+    def test_reads_nested_and_global_gemini_instructions(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            project, home = base / "project", base / "home"
+            project.mkdir()
+            (project / "GEMINI.md").write_text("# Project\n", encoding="utf-8")
+            (home / ".gemini").mkdir(parents=True)
+            (home / ".gemini" / "GEMINI.md").write_text("# Global\n", encoding="utf-8")
+
+            report = self.json_report(project, home)
+
+            paths = {
+                Path(source["path"]).resolve()
+                for source in report["sources"] if source["kind"] == "instruction"
+            }
+            self.assertIn((project / "GEMINI.md").resolve(), paths)
+            self.assertIn((home / ".gemini" / "GEMINI.md").resolve(), paths)
+
+    def test_reports_skill_once_through_symlinked_cursor_folder(self) -> None:
+        # The Skills CLI installs one canonical copy and symlinks each agent's folder to it.
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            project, home = base / "project", base / "home"
+            project.mkdir()
+            self.make_skill(
+                project / ".agents" / "skills",
+                "shared",
+                "---\nname: shared\ndescription: shared\n---\n",
+            )
+            (project / ".cursor").mkdir()
+            (project / ".cursor" / "skills").symlink_to(
+                project / ".agents" / "skills", target_is_directory=True,
+            )
+
+            report = self.json_report(project, home)
+
+            skills = [item for item in report["sources"] if item["kind"] == "skill"]
+            self.assertEqual(len(skills), 1)
+            self.assertGreaterEqual(len(skills[0]["aliases"]), 2)
+            self.assertNotIn("duplicate_skill_name", self.codes(report))
+            self.assertNotIn("symlink_outside_allowed_root", self.codes(report))
+
     def test_deduplicates_global_claude_alias_to_agents_skills(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             base = Path(directory)

@@ -17,14 +17,17 @@ DEFAULT_MAX_FILES = 1_000
 DEFAULT_MAX_BYTES = 4_194_304
 DEFAULT_MAX_DIRECTORIES = 1_000
 MAX_DEPTH = 5
-INSTRUCTION_NAMES = {"AGENTS.md", "CLAUDE.md"}
+INSTRUCTION_NAMES = {"AGENTS.md", "CLAUDE.md", "GEMINI.md"}
 SKIP_DIRECTORIES = {
     ".git", ".hg", ".svn", ".next", ".cache", ".pytest_cache",
     "node_modules", "vendor", "dist", "build", "coverage", "__pycache__",
     ".venv", "venv", "worktrees", ".worktrees",
     ".ssh", ".aws", ".gnupg", ".kube", ".docker", ".azure", ".npm",
 }
-ALLOWED_HIDDEN_DIRECTORIES = {".agents", ".claude", ".codex", ".github"}
+ALLOWED_HIDDEN_DIRECTORIES = {
+    ".agents", ".claude", ".codex", ".github", ".gemini", ".cursor",
+    ".opencode", ".cline", ".clinerules", ".devin", ".windsurf",
+}
 SENSITIVE_DIRECTORIES = {".ssh", ".aws", ".gnupg", ".kube", ".docker", ".azure"}
 SENSITIVE_FILE_NAMES = {"credentials", "credentials.json", "id_rsa", "id_ed25519"}
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^]]*\]\(([^)]+)\)")
@@ -230,7 +233,11 @@ class Scan:
                     return
 
     def global_instructions(self) -> None:
-        for relative in (Path(".codex") / "AGENTS.md", Path(".claude") / "CLAUDE.md"):
+        for relative in (
+            Path(".codex") / "AGENTS.md",
+            Path(".claude") / "CLAUDE.md",
+            Path(".gemini") / "GEMINI.md",
+        ):
             candidate = self.home / relative
             if candidate.exists() or candidate.is_symlink():
                 resolved = self.allowed_global_instruction(candidate)
@@ -440,11 +447,23 @@ class Scan:
             self.home / ".agents" / "skills",
             self.home / ".codex" / "skills",
             self.home / ".claude" / "skills",
+            self.home / ".gemini" / "skills",
+            self.home / ".cursor" / "skills",
+            self.home / ".copilot" / "skills",
+            self.home / ".codeium" / "windsurf" / "skills",
         ]
         project_roots = [
             self.project / ".agents" / "skills",
             self.project / ".codex" / "skills",
             self.project / ".claude" / "skills",
+            self.project / ".gemini" / "skills",
+            self.project / ".cursor" / "skills",
+            self.project / ".github" / "skills",
+            self.project / ".opencode" / "skills",
+            self.project / ".cline" / "skills",
+            self.project / ".clinerules" / "skills",
+            self.project / ".devin" / "skills",
+            self.project / ".windsurf" / "skills",
         ]
         accepted_global_roots, accepted_global_by_alias = self.accepted_native_skill_roots(
             global_roots, self.home, "Global",
