@@ -535,23 +535,566 @@ def markdown(report: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+# ---------------------------------------------------------------------------
+# --usage: per-skill call counts from local session logs (names and counts only)
+# ---------------------------------------------------------------------------
+
+DAY = 86_400.0
+USAGE_MAX_FILES = 10_000
+USAGE_MAX_BYTES = 67_108_864
+SKILL_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,127}(?::[A-Za-z0-9][A-Za-z0-9._-]{0,127})?$")
+COMMAND_NAME = re.compile(r"<command-name>/?([^<\s]{1,200})</command-name>")
+LOG_TIMESTAMP = re.compile(rb'"timestamp"\s*:\s*"([0-9T:.+Z-]{10,40})"')
+CODEX_SKILL_READ = re.compile(r"skills/([A-Za-z0-9][A-Za-z0-9._-]{0,127})/SKILL\.md")
+CODEX_DOLLAR = re.compile(r"(?<![\w$])\$([a-z][a-z0-9_-]{0,127})\b")
+CODEX_TOOL_CALLS = {"function_call", "custom_tool_call", "local_shell_call"}
+SKILL_MENTIONS = (
+    re.compile(r"`[/$]?([a-z0-9][a-z0-9-]*(?::[a-z0-9][a-z0-9-]*)?)` skill\b"),
+    re.compile(r"\bskill `[/$]?([a-z0-9][a-z0-9-]*(?::[a-z0-9][a-z0-9-]*)?)`"),
+    re.compile(r"`\$([a-z0-9][a-z0-9-]*)`"),
+)
+VERDICT_ORDER = {"NO CALLS FOUND": 0, "RARELY USED": 1, "UNKNOWN-WINDOW": 2, "NEW": 3, "ACTIVE": 4}
+
+
+def parse_time(value: object) -> Optional[float]:
+    if not isinstance(value, str) or not value:
+        return None
+    try:
+        from datetime import datetime, timezone
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed.timestamp()
+    except ValueError:
+        return None
+
+
+def iso_date(stamp: Optional[float]) -> str:
+    if stamp is None:
+        return "-"
+    from datetime import datetime, timezone
+    return datetime.fromtimestamp(stamp, timezone.utc).strftime("%Y-%m-%d")
+
+
+def days_since(stamp: Optional[float], now: float) -> Optional[int]:
+    return None if stamp is None else max(0, int((now - stamp) // DAY))
+
+
+class LogTally:
+    """Streams one log family; keeps only skill names, timestamps, and counts."""
+
+    def __init__(self, label: str, cutoff: float) -> None:
+        self.label = label
+        self.cutoff = cutoff
+        self.counts: Dict[str, int] = {}
+        self.last: Dict[str, float] = {}
+        self.seen_ids: set = set()
+        self.files_found = 0
+        self.files_read = 0
+        self.files_skipped = 0
+        self.malformed_lines = 0
+        self.oldest: Optional[float] = None
+
+    def note_time(self, stamp: Optional[float]) -> None:
+        if stamp is not None and (self.oldest is None or stamp < self.oldest):
+            self.oldest = stamp
+
+    def credit(self, name: object, stamp: float, dedupe: object) -> None:
+        if not isinstance(name, str):
+            return
+        name = name.strip().lstrip("/$")
+        if not SKILL_NAME.match(name):
+            return
+        if dedupe is not None:
+            if dedupe in self.seen_ids:
+                return
+            self.seen_ids.add(dedupe)
+        names = [name]
+        if ":" in name:
+            names.append(name.split(":", 1)[1])
+        for item in names:
+            if stamp >= self.cutoff:
+                self.counts[item] = self.counts.get(item, 0) + 1
+            if stamp > self.last.get(item, 0.0):
+                self.last[item] = stamp
+
+    def files(self, root: Path) -> Iterable[Tuple[Path, float]]:
+        if not root.is_dir():
+            return
+        for directory, subdirs, filenames in os.walk(root, followlinks=False):
+            subdirs.sort()
+            for name in sorted(filenames):
+                if not name.endswith(".jsonl"):
+                    continue
+                path = Path(directory) / name
+                try:
+                    mtime = path.lstat().st_mtime
+                except OSError:
+                    continue
+                if path.is_symlink():
+                    continue
+                self.files_found += 1
+                self.note_time(mtime)
+                if mtime < self.cutoff:
+                    self.files_skipped += 1
+                    continue
+                yield path, mtime
+
+    def stream(self, path: Path, prefilter, handle) -> None:
+        try:
+            stream = path.open("rb")
+        except OSError:
+            self.files_skipped += 1
+            return
+        self.files_read += 1
+        with stream:
+            for number, raw in enumerate(stream):
+                if number < 5:
+                    match = LOG_TIMESTAMP.search(raw[:65_536])
+                    if match:
+                        self.note_time(parse_time(match.group(1).decode("ascii", "replace")))
+                if not prefilter(raw):
+                    continue
+                try:
+                    entry = json.loads(raw)
+                except ValueError:
+                    self.malformed_lines += 1
+                    continue
+                if isinstance(entry, dict):
+                    handle(entry)
+
+
+def tally_claude(root: Path, cutoff: float) -> LogTally:
+    tally = LogTally("claude", cutoff)
+
+    def prefilter(raw: bytes) -> bool:
+        return b'"name":"Skill"' in raw or b"<command-name>" in raw
+
+    for path, mtime in tally.files(root):
+        def handle(entry: dict, path: Path = path, mtime: float = mtime) -> None:
+            stamp = parse_time(entry.get("timestamp")) or mtime
+            message = entry.get("message")
+            if not isinstance(message, dict):
+                return
+            content = message.get("content")
+            if entry.get("type") == "assistant" and isinstance(content, list):
+                for item in content:
+                    if isinstance(item, dict) and item.get("type") == "tool_use" and item.get("name") == "Skill":
+                        payload = item.get("input")
+                        if isinstance(payload, dict):
+                            tool_id = item.get("id")
+                            tally.credit(payload.get("skill"), stamp, ("t", tool_id) if isinstance(tool_id, str) else None)
+            elif entry.get("type") == "user" and message.get("role") == "user":
+                if isinstance(content, str):
+                    texts = [content]
+                elif isinstance(content, list):
+                    texts = [item.get("text") for item in content if isinstance(item, dict) and item.get("type") == "text"]
+                else:
+                    texts = []
+                for text in texts:
+                    if isinstance(text, str):
+                        for match in COMMAND_NAME.finditer(text):
+                            uuid = entry.get("uuid")
+                            key = ("c", uuid if isinstance(uuid, str) else str(path), match.group(1))
+                            tally.credit(match.group(1), stamp, key)
+
+        tally.stream(path, prefilter, handle)
+    return tally
+
+
+def tally_codex(root: Path, cutoff: float) -> LogTally:
+    tally = LogTally("codex", cutoff)
+
+    def prefilter(raw: bytes) -> bool:
+        if b"response_item" not in raw:
+            return False
+        return b"SKILL.md" in raw or (b"$" in raw and (b'"role":"user"' in raw or b'"role": "user"' in raw))
+
+    for path, mtime in tally.files(root):
+        def handle(entry: dict, path: Path = path, mtime: float = mtime) -> None:
+            payload = entry.get("payload")
+            if entry.get("type") != "response_item" or not isinstance(payload, dict):
+                return
+            stamp = parse_time(entry.get("timestamp")) or mtime
+            kind = payload.get("type")
+            if kind in CODEX_TOOL_CALLS:
+                call = payload.get("arguments") or payload.get("input") or payload.get("action")
+                text = call if isinstance(call, str) else json.dumps(call)
+                call_id = payload.get("call_id") or payload.get("id")
+                call_id = call_id if isinstance(call_id, str) else None
+                for name in set(CODEX_SKILL_READ.findall(text)):
+                    tally.credit(name, stamp, ("r", str(path), call_id, name) if call_id else None)
+            elif kind == "message" and payload.get("role") == "user":
+                content = payload.get("content")
+                for item in content if isinstance(content, list) else []:
+                    text = item.get("text") if isinstance(item, dict) else None
+                    if not isinstance(text, str):
+                        continue
+                    head = text.lstrip()
+                    # Injected instructions and harness notices are not owner requests.
+                    if head.startswith("<") or head.startswith("# AGENTS.md"):
+                        continue
+                    for name in set(CODEX_DOLLAR.findall(text)):
+                        tally.credit(name, stamp, None)
+
+        tally.stream(path, prefilter, handle)
+    return tally
+
+
+def read_name_list(path: Path) -> List[str]:
+    try:
+        lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+    except OSError:
+        return []
+    names = []
+    for line in lines:
+        line = line.split("#", 1)[0].strip()
+        if line:
+            names.append(line)
+    return names
+
+
+def load_skill_lock(home: Path) -> Dict[str, dict]:
+    try:
+        data = json.loads((home / ".agents" / ".skill-lock.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    skills = data.get("skills") if isinstance(data, dict) else None
+    return skills if isinstance(skills, dict) else {}
+
+
+def plugin_skill_roots(home: Path) -> List[Tuple[str, Path, Optional[float]]]:
+    """Installed plugin skill folders from the Claude Code plugin registry."""
+    plugins_dir = home / ".claude" / "plugins"
+    try:
+        data = json.loads((plugins_dir / "installed_plugins.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return []
+    plugins = data.get("plugins") if isinstance(data, dict) else None
+    if not isinstance(plugins, dict):
+        return []
+    roots: Dict[str, Tuple[str, Path, Optional[float]]] = {}
+    for key, installs in plugins.items():
+        plugin = str(key).split("@", 1)[0]
+        for install in installs if isinstance(installs, list) else []:
+            if not isinstance(install, dict) or not isinstance(install.get("installPath"), str):
+                continue
+            skills = Path(install["installPath"]) / "skills"
+            try:
+                resolved = skills.resolve(strict=True)
+            except OSError:
+                continue
+            if not Scan.within(resolved, plugins_dir.resolve()) or not resolved.is_dir():
+                continue
+            installed = parse_time(install.get("installedAt"))
+            previous = roots.get(str(resolved))
+            if previous is None or (installed is not None and (previous[2] is None or installed < previous[2])):
+                roots[str(resolved)] = (plugin, resolved, installed)
+    return sorted(roots.values(), key=lambda item: (item[0], str(item[1])))
+
+
+def entry_birth(entry: Path, skill_file: Path) -> Optional[float]:
+    """Oldest of the folder's creation time and the folder and SKILL.md modification times."""
+    stamps = []
+    for path in (entry, skill_file):
+        try:
+            info = path.lstat() if path == entry else path.stat()
+        except OSError:
+            continue
+        stamps.append(info.st_mtime)
+        if getattr(info, "st_birthtime", None):
+            stamps.append(info.st_birthtime)
+    return min(stamps) if stamps else None
+
+
+def skill_mentions(text: str) -> List[str]:
+    names: List[str] = []
+    in_code_block = False
+    for line in text.splitlines():
+        if line.lstrip().startswith("```"):
+            in_code_block = not in_code_block
+            continue
+        if in_code_block:
+            continue
+        for pattern in SKILL_MENTIONS:
+            for name in pattern.findall(line):
+                if name not in names:
+                    names.append(name)
+    return names
+
+
+def usage_report(args: argparse.Namespace, now: Optional[float] = None) -> dict:
+    import time
+    now = time.time() if now is None else now
+    home = Path(args.home)
+    project = Path(args.project or os.getcwd())
+    cutoff = now - args.days * DAY
+    plugin_roots = plugin_skill_roots(home)
+    scan = Scan(
+        project, home, [Path(root) for root in args.skill_root] + [root for _, root, _ in plugin_roots],
+        None, USAGE_MAX_FILES, USAGE_MAX_BYTES, DEFAULT_MAX_DIRECTORIES,
+    )
+    scan.skills()
+    lock = load_skill_lock(home)
+    plugin_by_root = {str(root): (plugin, installed) for plugin, root, installed in plugin_roots}
+
+    claude = tally_claude(Path(args.claude_logs or home / ".claude" / "projects"), cutoff)
+    codex = tally_codex(Path(args.codex_logs or home / ".codex" / "sessions"), cutoff)
+    present = [tally for tally in (claude, codex) if tally.files_found]
+    coverage_days: Optional[int] = None
+    if present and all(tally.oldest is not None for tally in present):
+        coverage_days = min(days_since(tally.oldest, now) or 0 for tally in present)
+    window_covered = coverage_days is not None and coverage_days >= args.days
+
+    findings_by_path: Dict[str, List[str]] = {}
+    for finding in scan.findings:
+        findings_by_path.setdefault(finding["path"], []).append(finding["code"])
+
+    # Group discovered skill files by the name a caller would invoke.
+    rows: Dict[str, dict] = {}
+    for source in scan.sources.values():
+        if source["kind"] != "skill":
+            continue
+        skill_file = Path(source["path"])
+        alias_entries = [Path(alias).parent for alias in source["aliases"]]
+        folder = alias_entries[0].name if alias_entries else skill_file.parent.name
+        declared = source.get("skill_name") or folder
+        plugin = None
+        installed = None
+        for root, (plugin_name, plugin_installed) in plugin_by_root.items():
+            if Scan.within(skill_file, Path(root)):
+                plugin, installed = plugin_name, plugin_installed
+        if plugin:
+            display, scope, match_names = "%s:%s" % (plugin, declared), "plugin", ["%s:%s" % (plugin, declared)]
+        else:
+            display = declared
+            scope = "project" if any(Scan.within(entry.absolute(), scan.project) for entry in alias_entries) else "global"
+            match_names = list(dict.fromkeys([declared, folder]))
+        lock_entry = lock.get(declared) or lock.get(folder) if not plugin else None
+        if isinstance(lock_entry, dict):
+            installed = parse_time(lock_entry.get("installedAt")) or installed
+        if installed is None:
+            births = [entry_birth(entry, skill_file) for entry in alias_entries]
+            births = [stamp for stamp in births if stamp is not None]
+            installed = min(births) if births else None
+        try:
+            changed = skill_file.stat().st_mtime
+        except OSError:
+            changed = None
+        row = rows.setdefault(display, {
+            "skill": display, "scopes": [], "match_names": [], "files": [], "installed": None,
+            "changed": None, "lock": None, "folders": [],
+        })
+        row["scopes"] = sorted(set(row["scopes"]) | {scope})
+        row["match_names"] = list(dict.fromkeys(row["match_names"] + match_names))
+        row["files"].append(str(skill_file))
+        row["folders"].append(folder)
+        if installed is not None and (row["installed"] is None or installed < row["installed"]):
+            row["installed"] = installed
+        if changed is not None and (row["changed"] is None or changed > row["changed"]):
+            row["changed"] = changed
+        if isinstance(lock_entry, dict) and row["lock"] is None:
+            row["lock"] = lock_entry
+
+    flat_names = {name for row in rows.values() if "plugin" not in row["scopes"] for name in row["match_names"]}
+    installed_names = set(flat_names) | set(rows)
+    for row in rows.values():
+        if "plugin" in row["scopes"]:
+            installed_names.add(row["skill"].split(":", 1)[1])
+
+    excluded_names = set(args.exclude or [])
+    for ignore in (home / ".agent-doctor-ignore", project / ".agent-doctor-ignore"):
+        excluded_names.update(read_name_list(ignore))
+
+    skills: List[dict] = []
+    excluded: List[str] = []
+    for display in sorted(rows):
+        row = rows[display]
+        if display in excluded_names or any(name in excluded_names for name in row["match_names"]):
+            excluded.append(display)
+            continue
+        uses_claude = sum(claude.counts.get(name, 0) for name in row["match_names"])
+        uses_codex = sum(codex.counts.get(name, 0) for name in row["match_names"])
+        lasts = [tally.last.get(name) for tally in (claude, codex) for name in row["match_names"]]
+        lasts = [stamp for stamp in lasts if stamp]
+        last_used = max(lasts) if lasts else None
+        uses = uses_claude + uses_codex
+        installed_days = days_since(row["installed"], now)
+        if uses >= args.min_uses:
+            verdict = "ACTIVE"
+        elif installed_days is not None and installed_days < args.days:
+            verdict = "NEW"
+        elif not window_covered:
+            verdict = "UNKNOWN-WINDOW"
+        elif uses == 0:
+            verdict = "NO CALLS FOUND"
+        else:
+            verdict = "RARELY USED"
+        notes: List[str] = []
+        lock_entry = row["lock"]
+        source = "local"
+        if "plugin" in row["scopes"]:
+            source = "plugin"
+        if isinstance(lock_entry, dict) and lock_entry.get("source"):
+            source = str(lock_entry["source"])
+            updated = days_since(parse_time(lock_entry.get("updatedAt")), now)
+            notes.append(
+                "installed from %s, last updated %s days ago: check upstream"
+                % (source, "?" if updated is None else updated)
+            )
+        codes = [code for path in row["files"] for code in findings_by_path.get(path, [])]
+        broken = codes.count("broken_markdown_reference")
+        if broken:
+            notes.append("%d broken relative link(s) or missing referenced file(s)" % broken)
+        if "duplicate_skill_name" in codes:
+            notes.append("another installed skill has the same name with different content")
+        if "missing_skill_metadata" in codes:
+            notes.append("SKILL.md frontmatter lacks name or description")
+        missing: List[str] = []
+        for path in row["files"]:
+            try:
+                with open(path, "r", encoding="utf-8", errors="replace") as handle:
+                    text = handle.read(1_048_576)
+            except OSError:
+                continue
+            for name in skill_mentions(text):
+                if name not in installed_names and name not in row["match_names"] and name not in missing:
+                    missing.append(name)
+        if missing:
+            notes.append("mentions skill(s) not installed: %s" % ", ".join(missing[:5]))
+        skills.append({
+            "skill": display,
+            "scope": ",".join(row["scopes"]),
+            "uses": uses,
+            "uses_claude": uses_claude,
+            "uses_codex_best_effort": uses_codex,
+            "last_used": iso_date(last_used) if last_used else None,
+            "skill_md_changed_days": days_since(row["changed"], now),
+            "installed_days": installed_days,
+            "source": source,
+            "verdict": verdict,
+            "notes": notes,
+        })
+    skills.sort(key=lambda item: (
+        VERDICT_ORDER[item["verdict"]], item["uses"], -(item["skill_md_changed_days"] or 0), item["skill"],
+    ))
+    verdicts: Dict[str, int] = {}
+    for item in skills:
+        verdicts[item["verdict"]] = verdicts.get(item["verdict"], 0) + 1
+
+    def log_summary(tally: LogTally, heuristic: str) -> dict:
+        return {
+            "files_found": tally.files_found,
+            "files_read": tally.files_read,
+            "files_skipped": tally.files_skipped,
+            "malformed_lines": tally.malformed_lines,
+            "reaches_back_days": days_since(tally.oldest, now),
+            "method": heuristic,
+        }
+
+    return {
+        "mode": "usage",
+        "window_days": args.days,
+        "min_uses": args.min_uses,
+        "coverage_days": coverage_days,
+        "window_covered": window_covered,
+        "logs": {
+            "claude": log_summary(claude, "Skill tool calls and slash commands"),
+            "codex": log_summary(codex, "best effort: SKILL.md reads and $name mentions"),
+        },
+        "totals": {
+            "skills": len(skills),
+            "excluded": len(excluded),
+            "uses": sum(item["uses"] for item in skills),
+            "verdicts": verdicts,
+        },
+        "excluded": excluded,
+        "skills": skills,
+    }
+
+
+def usage_markdown(report: dict) -> str:
+    days, logs = report["window_days"], report["logs"]
+    lines = ["# Agent Doctor: skill usage", ""]
+    lines.append(
+        "Window: last %d days. RARELY USED means fewer than %d calls found. Names and counts only."
+        % (days, report["min_uses"])
+    )
+    if report["coverage_days"] is None:
+        lines.append("No session logs found, so no skill can be judged: verdicts are UNKNOWN-WINDOW.")
+    elif not report["window_covered"]:
+        lines.append(
+            "Logs only reach back %d days, less than the %d-day window: skills with few or no calls "
+            "are UNKNOWN-WINDOW." % (report["coverage_days"], days)
+        )
+    else:
+        lines.append("Logs reach back %d days and cover the window." % report["coverage_days"])
+    for label, key in (("Claude Code", "claude"), ("Codex (best effort)", "codex")):
+        item = logs[key]
+        reach = "-" if item["reaches_back_days"] is None else "%d days" % item["reaches_back_days"]
+        lines.append(
+            "- %s logs: %d found, %d read, %d skipped (older than the window or unreadable), "
+            "%d malformed lines; reach back %s."
+            % (label, item["files_found"], item["files_read"], item["files_skipped"], item["malformed_lines"], reach)
+        )
+    lines.extend([
+        "", "| Skill | Uses in window | Last used | Days since SKILL.md changed | Source | Verdict |",
+        "| --- | ---: | --- | ---: | --- | --- |",
+    ])
+    for item in report["skills"]:
+        changed = "-" if item["skill_md_changed_days"] is None else str(item["skill_md_changed_days"])
+        lines.append("| {skill} | {uses} | {last} | {changed} | {source} | {verdict} |".format(
+            skill=item["skill"], uses=item["uses"], last=item["last_used"] or "-",
+            changed=changed, source=item["source"], verdict=item["verdict"],
+        ))
+    if not report["skills"]:
+        lines.append("| - | - | - | - | - | No installed skills discovered. |")
+    noted = [item for item in report["skills"] if item["notes"]]
+    if noted:
+        lines.extend(["", "## Freshness notes", "", "| Severity | Skill | Note |", "| --- | --- | --- |"])
+        for item in noted:
+            for note in item["notes"]:
+                lines.append("| advisory | %s | %s |" % (item["skill"], note))
+    totals = report["totals"]
+    verdicts = ", ".join("%s %d" % (name, totals["verdicts"][name]) for name in sorted(
+        totals["verdicts"], key=lambda name: VERDICT_ORDER[name]))
+    lines.extend([
+        "", "Totals: %d skills, %d calls found in the window; %s." % (totals["skills"], totals["uses"], verdicts or "none"),
+    ])
+    if report["excluded"]:
+        lines.append("Excluded by the owner (always kept): %s." % ", ".join(report["excluded"]))
+    lines.append("No calls found in the logs is not proof a skill is unneeded; ask the owner before any change.")
+    return "\n".join(lines) + "\n"
+
+
 def parser() -> argparse.ArgumentParser:
     argument_parser = argparse.ArgumentParser(
         description="Read-only, bounded discovery of agent instructions and skills."
     )
-    argument_parser.add_argument("--project", required=True, help="Project directory to inspect.")
+    argument_parser.add_argument("--project", help="Project directory to inspect (required unless --usage; --usage defaults to the current directory).")
     argument_parser.add_argument("--home", default=str(Path.home()), help="Home directory for allowlisted global discovery.")
     argument_parser.add_argument("--skill-root", action="append", default=[], help="Additional skill root to inspect; repeatable.")
     argument_parser.add_argument("--model", help="Caller-supplied model role for literal advisory comparison.")
     argument_parser.add_argument("--max-files", type=int, default=DEFAULT_MAX_FILES, help="Maximum discovered files to read (1-10000).")
     argument_parser.add_argument("--max-bytes", type=int, default=DEFAULT_MAX_BYTES, help="Maximum source bytes to read (1-67108864).")
     argument_parser.add_argument("--max-directories", type=int, default=DEFAULT_MAX_DIRECTORIES, help="Maximum project directories to traverse (1-10000).")
-    argument_parser.add_argument("--format", choices=("json", "markdown"), default="markdown", help="Output format.")
+    argument_parser.add_argument("--format", choices=("json", "markdown", "text"), default="markdown", help="Output format; text is the Markdown report.")
+    usage = argument_parser.add_argument_group("skill usage (--usage)")
+    usage.add_argument("--usage", action="store_true", help="Report per-skill call counts from local session logs (names and counts only).")
+    usage.add_argument("--days", type=int, default=90, help="Usage window in days (1-3650, default 90).")
+    usage.add_argument("--min-uses", type=int, default=3, help="Calls below this count are RARELY USED (1-100000, default 3).")
+    usage.add_argument("--claude-logs", help="Claude Code session log folder (default <home>/.claude/projects).")
+    usage.add_argument("--codex-logs", help="Codex session log folder (default <home>/.codex/sessions).")
+    usage.add_argument("--exclude", action="append", default=[], help="Skill name the owner always keeps; repeatable.")
     return argument_parser
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parser().parse_args(argv)
+    if args.usage:
+        return usage_main(args)
+    if not args.project:
+        parser().error("the following arguments are required: --project")
     project = Path(args.project)
     home = Path(args.home)
     if not project.exists() or not project.is_dir():
@@ -575,6 +1118,26 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         print(json.dumps(report, indent=2, sort_keys=True))
     else:
         print(markdown(report), end="")
+    return 0
+
+
+def usage_main(args: argparse.Namespace) -> int:
+    home = Path(args.home)
+    if not home.is_dir():
+        parser().error("--home must name a readable directory")
+    if args.project and not Path(args.project).is_dir():
+        parser().error("--project must name a readable directory")
+    if not 1 <= args.days <= 3650:
+        parser().error("--days must be between 1 and 3650")
+    if not 1 <= args.min_uses <= 100_000:
+        parser().error("--min-uses must be between 1 and 100000")
+    if any(not Path(root).is_dir() for root in args.skill_root):
+        parser().error("--skill-root must name readable directories")
+    report = usage_report(args)
+    if args.format == "json":
+        print(json.dumps(report, indent=2, sort_keys=True))
+    else:
+        print(usage_markdown(report), end="")
     return 0
 
 
