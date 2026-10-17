@@ -1,6 +1,6 @@
 ---
 name: agent-doctor
-description: Inspects a project's discovered agent instructions (AGENTS.md, CLAUDE.md) and skill definitions for static wiring problems, without loading, changing, or enabling them. Use when asked "why isn't my skill loading", "check my agent setup", "diagnose skill discovery", or "audit AGENTS.md and skills".
+description: Inspects a project's discovered agent instructions (AGENTS.md, CLAUDE.md) and skill definitions for static wiring problems, without loading, changing, or enabling them, and reports which installed skills are rarely or never called in local session logs. Use when asked "why isn't my skill loading", "check my agent setup", "diagnose skill discovery", "audit AGENTS.md and skills", or "which skills do I never use".
 ---
 
 # Agent Doctor
@@ -38,3 +38,14 @@ worktree directories. It recognizes ancestor and nested `AGENTS.md`/
 under the project and home `.agents`, `.codex`, and `.claude` folders. It keeps
 canonical paths and aliases separate, rejects symlink escapes, and emits no raw
 file content.
+
+## Skill usage and archiving
+
+For rarely or never called skills, run `python3 scripts/agent_doctor.py
+--usage` and follow [references/usage.md](references/usage.md). It reads
+session logs read-only and prints skill names and counts only. Show the
+owner the table, then ask per skill: update, keep, or archive. Say "no calls
+found in the logs", never "unused". Archive only with
+`scripts/skill_archive.py`: `plan`, show it, get an explicit yes for that
+skill, then `archive --yes`; never in the same turn as the question.
+Mention `restore`.
