@@ -2,6 +2,9 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
+[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: partial](https://img.shields.io/badge/Other%20agents-partial-yellow)](../../../../README.md#compatibility)
+> Claude: Works in Claude Code; the Claude app cannot run it because its sandbox has no access to your project or session logs. Codex / ChatGPT: Works in Codex; ChatGPT cannot run it because it has no access to your project or session logs. Other agents: The scan checks only the .agents, .codex and .claude skill folders, and the usage report reads only Claude Code and Codex logs.
+
 Inspects a project's discovered agent instructions (`AGENTS.md`, `CLAUDE.md`) and skill folders under `.agents`, `.codex`, and `.claude` for static wiring problems. The bundled scanner is read-only and bounded: it never loads, changes, or enables anything, rejects symlink escapes, and reports findings as Markdown or JSON. An optional `--model <name>` option reports, as an advisory, skills whose prose claims a different model identity. The `--usage` mode reads local Claude Code and Codex session logs (read-only, skill names and counts only) and lists skills that are rarely or never called, with offline freshness notes. The agent then asks the owner, skill by skill, whether to update, keep, or archive; `scripts/skill_archive.py` archives only after an explicit yes, never deletes, and can restore.
 
 ## What it looks like
@@ -40,7 +43,7 @@ Both tables are trimmed: the scan also prints a Message column, and the usage re
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/agent-doctor/` for Claude Code CLI and local Claude Code desktop sessions, or to `~/.agents/skills/agent-doctor/` for personal Codex use. For repository-only use, copy to `.claude/skills/agent-doctor/` or `.agents/skills/agent-doctor/` respectively. Supporting files in this folder may be required. See the [collection README](../../../../README.md#install) for current platform notes.
+Copy this complete folder to `~/.claude/skills/agent-doctor/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/agent-doctor/` for Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/agent-doctor/` or `.agents/skills/agent-doctor/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/agent-doctor/` or `.claude/skills/agent-doctor/`. In other agents the scan still runs, but it checks only the `.agents`, `.codex` and `.claude` skill folders and reads only Claude Code and Codex session logs. Supporting files in this folder may be required. See the [collection README](../../../../README.md#install) for current platform notes.
 
 ## Contents
 

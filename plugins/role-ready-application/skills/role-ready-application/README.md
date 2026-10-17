@@ -1,6 +1,8 @@
 # RoleReady Application
 
-![Version](https://img.shields.io/badge/version-0.2.0-blue) ![Claude Code](https://img.shields.io/badge/Claude%20Code-supported-6B4FBB) ![Codex](https://img.shields.io/badge/Codex-supported-111111) ![ChatGPT](https://img.shields.io/badge/ChatGPT-skill%20upload-74AA9C) ![License](https://img.shields.io/badge/license-MIT-green)
+![Version](https://img.shields.io/badge/version-0.2.0-blue) ![License](https://img.shields.io/badge/license-MIT-green)
+
+[![Claude: full](https://img.shields.io/badge/Claude-full-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-full-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
 
 Tailor a truthful resume and cover letter to one job, then review clarity, candidate voice, factual fidelity, and rendered documents.
 
@@ -47,6 +49,7 @@ Pick your platform. Each section opens with one click.
 | Codex (CLI, IDE, app) | Copy the folder | Skill folder |
 | Claude app (claude.ai, Desktop, Cowork) | Upload | ZIP |
 | ChatGPT | Upload, or paste | ZIP or `COPY-PASTE.txt` |
+| Gemini CLI, Cursor, GitHub Copilot and other skill-folder agents | Copy the folder | Skill folder |
 | Any other assistant | Paste | `COPY-PASTE.txt` |
 
 <details>
@@ -118,16 +121,28 @@ Pick your platform. Each section opens with one click.
 <details>
 <summary><b>ChatGPT</b></summary>
 
-1. Skills in ChatGPT are available on Business, Enterprise, Healthcare and Edu plans. Zip this folder as in the Claude app steps.
-2. Open **Plugins → Skills → Create → Upload from your computer** and upload the ZIP. An admin must enable skill uploading, and ChatGPT may mark an upload Needs Review or Blocked.
+1. Skills in ChatGPT are in beta and available on Business, Enterprise, Edu, Teachers and Healthcare plans, not on personal Free, Plus or Pro plans. Zip this folder as in the Claude app steps.
+2. Open the **Plugins → Skills** tab, choose **+ → Upload from your computer** and upload the ZIP. ChatGPT scans each upload and can mark it Needs Review or Blocked.
 3. In a chat, type `@` to pick the skill, and attach your resume and the job description.
 
 <details>
 <summary>More</summary>
 
+- On Enterprise and Edu, a workspace admin must first turn skills on and allow skill uploading.
+- The web and desktop apps do not sync skills.
+- Menu labels change, so OpenAI's [Skills in ChatGPT](https://help.openai.com/en/articles/20001066-skills-in-chatgpt) article is the source of truth.
 - No skill upload on your plan? Open a new chat or a project and paste the contents of [`COPY-PASTE.txt`](COPY-PASTE.txt) as the instructions, then attach your documents. It is the same workflow as one plain-text file.
 - OpenAI does not list the file types the skill upload accepts, so the ZIP route is untested here.
 </details>
+</details>
+
+<details>
+<summary><b>Gemini CLI, Cursor, GitHub Copilot and other skill-folder agents</b></summary>
+
+1. Copy this folder to `~/.agents/skills/role-ready-application/` (Gemini CLI, Cursor, GitHub Copilot, OpenCode) or to the folder your agent reads. `scripts/install.sh --target codex role-ready-application` does this.
+2. Start a new session and ask for a resume or cover letter tailored to a job.
+
+See [Install](../../../../README.md#install) in the repository README for Windsurf and Cline.
 </details>
 
 <details>

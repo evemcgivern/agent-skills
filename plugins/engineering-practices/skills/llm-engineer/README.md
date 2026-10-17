@@ -2,6 +2,9 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
+[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
+> Claude: Works in Claude Code; the Claude app can design the experiment but cannot inspect your local runtime. Codex / ChatGPT: Works in Codex; ChatGPT can design the experiment but cannot inspect your runtime.
+
 Diagnoses language-model behavior across the model, its serving runtime, the prompt and context, and the application driving it. It separates task, harness, runtime, agent-policy and model-output failures, then turns the observed failure into one bounded, falsifiable experiment with controls and an explicit budget. Use when asked to "evaluate a local language model", "debug tool calling", "diagnose an agent that keeps exploring", "compare LLM runtimes", or "design an LLM experiment".
 
 ## What it looks like

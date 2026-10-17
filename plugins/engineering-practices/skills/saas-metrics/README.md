@@ -2,6 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
+[![Claude: full](https://img.shields.io/badge/Claude-full-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-full-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
+
 Computes and reports MRR, revenue and logo churn, activation, and retention for a small SaaS product from Stripe and PostHog data. It gives simple metric definitions a small team can re-derive every month, a starter Stripe MRR script and HogQL queries, a monthly business-review template, and a list of common miscounts such as trials, refunds, currency mixing, proration, and annual plans. Use it when asked for a business review, MRR or churn numbers, an activation rate, a retention cohort, or recurring metrics reporting.
 
 ## What it looks like

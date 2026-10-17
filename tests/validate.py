@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Validate every skill under plugins/*/skills/: frontmatter, versions, scripts, leaks,
-plus marketplace and release-please config consistency.
+plus marketplace and release-please config consistency, and the compatibility
+badges in each skill README against compatibility.json.
 
 Run from anywhere:  python3 -I tests/validate.py
 Exit code 0 = all checks pass, 1 = at least one failure.
@@ -156,6 +157,53 @@ def check_release_config():
         fail(".release-please-manifest.json", f"missing {path}")
 
 
+COMPAT_COLUMNS = [  # JSON key, badge label, URL-encoded label
+    ("claude", "Claude", "Claude"),
+    ("codex_chatgpt", "Codex / ChatGPT", "Codex%20%2F%20ChatGPT"),
+    ("other", "Other agents", "Other%20agents"),
+]
+COMPAT_COLORS = {"full": "brightgreen", "partial": "yellow", "no": "lightgrey"}
+
+
+def check_compatibility():
+    path = ROOT / "compatibility.json"
+    try:
+        skills = json.loads(path.read_text())["skills"]
+    except (OSError, ValueError, KeyError) as e:
+        return fail("compatibility.json", f"cannot read a 'skills' object: {e}")
+    names = {d.name: d for d in skill_dirs()}
+    for name in sorted(set(skills) - set(names)):
+        fail("compatibility.json", f"entry {name!r} has no skill folder")
+    for name, d in names.items():
+        entry = skills.get(name)
+        if not isinstance(entry, dict):
+            fail(name, "no entry in compatibility.json")
+            continue
+        if entry.get("plugin") != d.parent.parent.name:
+            fail(name, f"compatibility.json plugin {entry.get('plugin')!r} != {d.parent.parent.name!r}")
+        readme_path = d / "README.md"
+        readme = readme_path.read_text(encoding="utf-8") if readme_path.is_file() else ""
+        for key, label, enc in COMPAT_COLUMNS:
+            cell = entry.get(key)
+            level = cell.get("level") if isinstance(cell, dict) else None
+            if level not in COMPAT_COLORS:
+                fail(name, f"compatibility.json {key}.level is {level!r} (use full, partial or no)")
+                continue
+            if not (isinstance(cell.get("note"), str) and cell["note"].strip()):
+                fail(name, f"compatibility.json {key}.note is empty")
+            found = re.findall(
+                rf"\[!\[{re.escape(label)}: (\w+)\]\(https://img\.shields\.io/badge/{re.escape(enc)}-(\w+)-(\w+)\)\]"
+                r"\(\.\./\.\./\.\./\.\./README\.md#compatibility\)",
+                readme,
+            )
+            if not found:
+                fail(name, f"README.md has no '{label}' compatibility badge linked to README.md#compatibility")
+            elif found[0] != (level, level, COMPAT_COLORS[level]):
+                alt, shown, color = found[0]
+                fail(name, f"README.md '{label}' badge says {alt}/{shown}/{color}; "
+                           f"compatibility.json says {level} ({COMPAT_COLORS[level]})")
+
+
 def main():
     dirs = skill_dirs()
     if not dirs:
@@ -166,6 +214,7 @@ def main():
     check_leaks()
     check_marketplace()
     check_release_config()
+    check_compatibility()
     if failures:
         print(f"FAIL: {len(failures)} problem(s) across {len(dirs)} skills\n")
         print("\n".join(f"- {f}" for f in failures))

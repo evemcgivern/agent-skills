@@ -2,6 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
+[![Claude: full](https://img.shields.io/badge/Claude-full-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-full-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
+
 Rewrites a prompt, system prompt, agent definition or skill so Claude Sonnet 5.5 does what you meant. It frames the request problem-first, adds only the fixes that match a symptom you have seen, and suggests effort and thinking settings. The fixes paraphrase Anthropic's [Prompting Claude Sonnet 5.5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5) guide (read 2026-10-03, rechecked 2026-10-17). Use on `/sonnet-prompt-improver` or when asked to "improve this prompt for Sonnet".
 
 ## What it looks like

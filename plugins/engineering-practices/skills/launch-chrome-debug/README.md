@@ -2,6 +2,9 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](../../../../LICENSE) [![Version](https://img.shields.io/badge/version-0.1.0-informational.svg)](CHANGELOG.md)
 
+[![Claude: partial](https://img.shields.io/badge/Claude-partial-yellow)](../../../../README.md#compatibility) [![Codex / ChatGPT: partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-partial-yellow)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-full-brightgreen)](../../../../README.md#compatibility)
+> Claude: Works in Claude Code with Chrome DevTools MCP set up; the Claude app cannot start Chrome on your computer. Codex / ChatGPT: Works in Codex with Chrome DevTools MCP set up (starting Chrome may need approval); ChatGPT cannot reach your Chrome.
+
 Starts Google Chrome with remote debugging on port 9222 and a separate profile on macOS, Linux or Windows, so the Chrome DevTools MCP server can connect to it through `--browser-url`. Use when Chrome DevTools MCP tools fail because no debug target is available.
 
 ## What it looks like
@@ -30,7 +33,7 @@ window while the port is open, so avoid sensitive sites and close it when done.
 
 ## Install
 
-Copy this complete folder to `~/.claude/skills/launch-chrome-debug/` for Claude Code CLI and local Claude Code desktop sessions, or to `~/.agents/skills/launch-chrome-debug/` for personal Codex use. For repository-only use, copy to `.claude/skills/launch-chrome-debug/` or `.agents/skills/launch-chrome-debug/` respectively. See the [collection README](../../../../README.md#install) for current platform notes.
+Copy this complete folder to `~/.claude/skills/launch-chrome-debug/` for Claude Code (CLI and local desktop sessions), or to `~/.agents/skills/launch-chrome-debug/` for Codex, Gemini CLI, Cursor, GitHub Copilot and OpenCode. For one repository only, copy it to `.claude/skills/launch-chrome-debug/` or `.agents/skills/launch-chrome-debug/` (Windsurf also reads `.agents/skills`); Cline reads `.cline/skills/launch-chrome-debug/` or `.claude/skills/launch-chrome-debug/`. See the [collection README](../../../../README.md#install) for current platform notes.
 
 ## Contents
 
