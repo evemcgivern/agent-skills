@@ -16,7 +16,6 @@ claude plugin install writing@evemcgivern-skills
 claude plugin install role-ready-application@evemcgivern-skills
 claude plugin install app-governance-kit@evemcgivern-skills
 claude plugin install engineering-practices@evemcgivern-skills
-claude plugin install tutor@evemcgivern-skills
 ```
 
 Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install <plugin>@evemcgivern-skills`. Skills then appear as `/<plugin>:<skill>`, for example `/writing:clearly`.
@@ -137,11 +136,6 @@ Everyday engineering skills: service debugging, background jobs, transactional e
 - [`spec-workflow-drift`](plugins/engineering-practices/skills/spec-workflow-drift/README.md) v0.2.0 — Detect drift between spec-workflow specs (.spec-workflow/) and the code: map which source files each spec covers, list files no spec documents, flag stale specs, and write a coverage report.
 - [`transactional-email`](plugins/engineering-practices/skills/transactional-email/README.md) v0.2.0 — Set up and audit transactional email for a web app — provider choice (Resend or Postmark), SPF/DKIM/DMARC with verification commands, templates in code, deliverability testing, the transactional-vs-marketing compliance line, and unsubscribe handling.
 
-### `tutor`
-
-Spaced-repetition tutoring for Claude Code and Codex: generation-first Socratic teaching, blind-graded free recall, and FSRS-scheduled review.
-
-Lives in its own repository: [evemcgivern/tutor](https://github.com/evemcgivern/tutor). Installing it from this marketplace pulls release `v0.1.0` from there.
 
 ## Keeping versions current
 

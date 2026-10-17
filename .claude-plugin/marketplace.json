@@ -36,17 +36,6 @@
       "source": "./plugins/engineering-practices",
       "description": "Everyday engineering skills: service debugging, background jobs, transactional email, SaaS metrics, spec-workflow companions, LLM engineering, older-issue triage, and debugging a browser from your agent.",
       "license": "MIT"
-    },
-    {
-      "name": "tutor",
-      "source": {
-        "source": "github",
-        "repo": "evemcgivern/tutor",
-        "ref": "v0.1.0"
-      },
-      "description": "Spaced-repetition tutoring for Claude Code and Codex: generation-first Socratic teaching, blind-graded free recall, and FSRS-scheduled review.",
-      "license": "MIT",
-      "homepage": "https://github.com/evemcgivern/tutor"
     }
   ]
 }
