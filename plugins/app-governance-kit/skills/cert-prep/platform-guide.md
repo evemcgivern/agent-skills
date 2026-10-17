@@ -4,9 +4,9 @@ This tool has no platform integration. It runs in a chat with the Halden demo fi
 
 ## Where to run it
 
-- **Claude and Codex:** install the skill from the Tools page, then ask for a study session by certification name.
-- **Microsoft Copilot:** use the agent instructions and knowledge files from the Copilot download, or paste the chat prompt.
-- Attach only files from `demo-estate/`. Do not attach real company data to a study session.
+- **Claude and Codex:** install the skill from the [install steps](https://github.com/evemcgivern/agent-skills#install), then ask for a study session by certification name.
+- **Microsoft Copilot:** paste the skill's `SKILL.md` into the agent's instructions and add its other files as knowledge.
+- Attach only files from the kit's [`demo-estate/`](https://github.com/evemcgivern/agent-skills/tree/main/plugins/app-governance-kit/demo-estate) folder. Do not attach real company data to a study session.
 
 ## Where to keep the log
 

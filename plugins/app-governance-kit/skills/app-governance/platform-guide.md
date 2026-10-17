@@ -4,9 +4,9 @@ This skill has no platform integration. It routes between the kit's other skills
 
 ## Where to run it
 
-- **Claude Code:** install the skills from the Tools page. Optionally save the app governance agent to `~/.claude/agents`; it loads this skill.
+- **Claude Code:** install the skills from the [install steps](https://github.com/evemcgivern/agent-skills#install). Optionally save the app governance agent to `~/.claude/agents`; it loads this skill.
 - **Codex:** install the skills, then describe the task, or type `$app-governance`.
-- **Microsoft Copilot:** use the agent instructions and knowledge files from the Copilot download. A Copilot agent cannot call other agents, so the router names the right tool and you open that tool's agent yourself.
+- **Microsoft Copilot:** paste the skill's `SKILL.md` into the agent's instructions and add its other files as knowledge. A Copilot agent cannot call other agents, so the router names the right tool and you open that tool's agent yourself.
 
 ## Where to keep the log
 

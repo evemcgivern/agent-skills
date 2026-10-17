@@ -1,0 +1,127 @@
+[
+  {
+    "tool": "access-review",
+    "type": "orphaned_account",
+    "id": "ACC-019"
+  },
+  {
+    "tool": "access-review",
+    "type": "orphaned_account",
+    "id": "ACC-063"
+  },
+  {
+    "tool": "access-review",
+    "type": "orphaned_account",
+    "id": "ACC-104"
+  },
+  {
+    "tool": "ai-intake",
+    "type": "high_risk_ai",
+    "id": "AI-004"
+  },
+  {
+    "tool": "crosswalk",
+    "type": "crosswalk_match",
+    "id": "C1:XW-001"
+  },
+  {
+    "tool": "crosswalk",
+    "type": "crosswalk_match",
+    "id": "C2:XW-016"
+  },
+  {
+    "tool": "crosswalk",
+    "type": "crosswalk_match",
+    "id": "C3:XW-021"
+  },
+  {
+    "tool": "hardware-lifecycle",
+    "type": "overdue_refresh",
+    "id": "DEV-008"
+  },
+  {
+    "tool": "hardware-lifecycle",
+    "type": "overdue_refresh",
+    "id": "DEV-027"
+  },
+  {
+    "tool": "hardware-lifecycle",
+    "type": "overdue_refresh",
+    "id": "DEV-045"
+  },
+  {
+    "tool": "hardware-lifecycle",
+    "type": "unwiped_retired_device",
+    "id": "DEV-011"
+  },
+  {
+    "tool": "hardware-lifecycle",
+    "type": "unwiped_retired_device",
+    "id": "DEV-042"
+  },
+  {
+    "tool": "itam-maturity",
+    "type": "maturity_gap",
+    "id": "data-quality"
+  },
+  {
+    "tool": "itam-maturity",
+    "type": "maturity_gap",
+    "id": "entitlement"
+  },
+  {
+    "tool": "itam-maturity",
+    "type": "maturity_gap",
+    "id": "lifecycle"
+  },
+  {
+    "tool": "program-setup",
+    "type": "charter_gap",
+    "id": "decision-rights"
+  },
+  {
+    "tool": "program-setup",
+    "type": "charter_gap",
+    "id": "membership-size"
+  },
+  {
+    "tool": "program-setup",
+    "type": "charter_gap",
+    "id": "sponsor"
+  },
+  {
+    "tool": "rationalization",
+    "type": "duplicate_app",
+    "id": "APP-008+APP-041"
+  },
+  {
+    "tool": "rationalization",
+    "type": "duplicate_app",
+    "id": "APP-014+APP-052"
+  },
+  {
+    "tool": "rationalization",
+    "type": "duplicate_app",
+    "id": "APP-022+APP-037"
+  },
+  {
+    "tool": "rationalization",
+    "type": "duplicate_app",
+    "id": "APP-029+APP-058"
+  },
+  {
+    "tool": "rationalization",
+    "type": "duplicate_app",
+    "id": "APP-033+APP-046"
+  },
+  {
+    "tool": "rationalization",
+    "type": "expired_license",
+    "id": "LIC-017"
+  },
+  {
+    "tool": "rationalization",
+    "type": "expired_license",
+    "id": "LIC-044"
+  }
+]
