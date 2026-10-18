@@ -10,7 +10,7 @@
     {
       "name": "agent-workflow",
       "source": "./plugins/agent-workflow",
-      "description": "Working habits for coding agents: model routing, status recaps, usage-limit pacing, goal tracking, handoffs, onboarding briefings, prompt tuning, problem framing, and agent-setup checks.",
+      "description": "Working habits for coding agents: model routing, background dispatching, status recaps, usage-limit pacing, goal tracking, handoffs, onboarding briefings, prompt tuning, problem framing, and agent-setup checks.",
       "license": "MIT"
     },
     {

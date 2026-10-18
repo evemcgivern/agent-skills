@@ -61,6 +61,11 @@ EXTRAS = {
             "The git and GitHub checks work in any local agent, and the project name comes from `CLAUDE.md`, `AGENTS.md` or `GEMINI.md`, whichever exists.",
         ],
     },
+    "orchestrator": {
+        "footer": [
+            "The dispatcher needs subagents. Claude Code runs them in the background. Codex runs them in parallel but can hold its reply until they finish. In other agents, where work cannot run in the background, the skill says so and runs small batches.",
+        ],
+    },
     "stay-within-limits": {
         "footer": [
             "The usage checks (`ccusage` and `/usage`) read Claude Code only: in Codex and other agents it still runs work in waves, but you supply the usage numbers and no automatic wake-up is documented for those agents.",

@@ -7,6 +7,7 @@
   "plugins/agent-workflow/skills/goal-checklist": "0.2.0",
   "plugins/agent-workflow/skills/handoff": "0.2.1",
   "plugins/agent-workflow/skills/mission": "0.2.0",
+  "plugins/agent-workflow/skills/orchestrator": "0.1.0",
   "plugins/agent-workflow/skills/problem-first": "0.2.0",
   "plugins/agent-workflow/skills/quick-recap": "0.2.0",
   "plugins/agent-workflow/skills/sonnet-prompt-improver": "0.2.0",

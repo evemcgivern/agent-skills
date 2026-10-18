@@ -61,6 +61,12 @@
       "codex_chatgpt": {"codex": {"level": "full", "note": "Works on macOS or Linux; state outside the workspace needs approval or --state-dir."}, "chatgpt": {"level": "no", "note": "ChatGPT has no git worktree and keeps no state between sessions."}},
       "other": {"level": "full", "note": "Works in any local agent with python3 and git on macOS or Linux; not on native Windows."}
     },
+    "orchestrator": {
+      "plugin": "agent-workflow",
+      "claude": {"code": {"level": "full", "note": "Runs subagents and long shell commands in the background, so the main thread stays free."}, "app": {"level": "no", "note": "The Claude app has no background subagents."}},
+      "codex_chatgpt": {"codex": {"level": "partial", "note": "Codex runs subagents in parallel but can hold its reply until they finish, so the main thread may block between batches."}, "chatgpt": {"level": "no", "note": "ChatGPT has no documented subagents."}},
+      "other": {"level": "partial", "note": "Works where the agent can start subagents; where it cannot run them in the background, the skill says so and runs small batches."}
+    },
     "problem-first": {
       "plugin": "agent-workflow",
       "claude": {"code": {"level": "full", "note": "Pure text rewrite."}, "app": {"level": "full", "note": "Pure text rewrite."}},
