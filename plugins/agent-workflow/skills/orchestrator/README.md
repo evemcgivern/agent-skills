@@ -5,7 +5,7 @@
 [![Claude: Code full, app no](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%9C%96-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex partial, ChatGPT no](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%97%90%20%C2%B7%20ChatGPT%20%E2%9C%96-yellow)](../../../../README.md#compatibility) [![Other agents: partial](https://img.shields.io/badge/Other%20agents-%E2%97%90-yellow)](../../../../README.md#compatibility)
 > The Claude app and ChatGPT cannot run it. Codex can hold its reply until its subagents finish, so the main thread may block between batches. Other agents need subagents; Gemini CLI's are experimental. Without background runs, the skill says so.
 
-Turns the main session into a dispatcher that never blocks. It splits the work, sends each task to a background subagent with a self-contained brief, tracks every agent in a ledger file, checks each result before it reports, and answers you in a few lines, so you can keep talking while the work runs. Model choice follows `efficient-frontier-routing` when it is installed. Use with "orchestrate this", "fan this out" or "keep me unblocked".
+Turns the main session into a dispatcher that stays free where the host allows. It splits the work, sends each task to a subagent, in the background where the host can, with a self-contained brief, tracks every agent in a ledger file, checks each result before it reports, and answers you in a few lines, so you can keep talking while the work runs. Model choice follows `efficient-frontier-routing` when it is installed. Use with "orchestrate this", "fan this out" or "keep me unblocked".
 
 Rewritten from [olivieropinotti/orchestrator-skill](https://github.com/olivieropinotti/orchestrator-skill) (MIT). See [THIRD-PARTY.md](../../../../THIRD-PARTY.md).
 
@@ -33,7 +33,7 @@ Each task goes to its own named agent. The reply says what started and under whi
 
 ## What it looks like
 
-Example ledger, invented data. It lives in `.claude/orchestrator.md` (or `.codex/orchestrator.md` in Codex) and is kept out of git:
+Example ledger, invented data. It lives in `orchestrator.md` inside the host's folder (`.claude/`, `.codex/` or `.gemini/`), is optional where the sandbox is read-only, and is kept out of git:
 
 ```text
 - [running] audit-auth (strong tier) — find routes that skip the session check — started 14:02

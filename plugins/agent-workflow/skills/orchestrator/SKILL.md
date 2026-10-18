@@ -20,8 +20,8 @@ Keep these in the main thread:
 
 ## Never block the main thread
 
-- Start every task in the background. Never wait on an agent, poll it or sleep.
-- In Claude Code, the host tells you when an agent finishes. That message starts your next turn. Codex differs; see Host tools.
+- Where the host can run agents in the background, start every task there. Never wait on an agent, poll it or sleep. Background runs depend on the host; see Host tools. Where the host cannot, run small foreground batches and say so.
+- In Claude Code, the host tells you when an agent finishes. That message starts your next turn.
 - If the host can, run any shell command that can take more than 10 seconds in the background: tests, builds, installs and dev servers.
 - Do at most a few quick reads yourself, and only to write a better brief.
 - End the turn right after you dispatch.
@@ -34,9 +34,10 @@ unset or `true`. Give each agent a short kebab-case `name`. Follow up with
 with `run_in_background: true`. Use `isolation: "worktree"` for parallel writers.
 
 **Codex.** Do not look for `Agent`, `SendMessage` or `TaskStop`. Ask for subagents in
-plain words ("spawn an agent to …"), or use a custom agent from `.codex/agents/`.
-Steer, stop or close one by asking Codex the same way. Subagents inherit the
-parent's sandbox and approval settings. Codex may hold its reply until the agents
+plain words ("spawn an agent to …"), or use a custom agent if your Codex setup
+defines one. Steer, stop or close one by asking Codex the same way; these controls
+depend on the Codex version and harness, so report it if one is missing. Subagents
+inherit the parent's sandbox and approval settings. Codex may hold its reply until the agents
 it started finish. If it does, the main thread is not free. Say so to the user
 once, keep each batch small, and report results when they arrive.
 
@@ -61,7 +62,7 @@ Then run small batches. Never claim work runs in the background when it does not
 
 1. Split the user's message into independent tasks.
 2. For each task, pick: a follow-up to the running agent on that topic, or a new agent.
-3. Check the concurrency cap and file ownership (see Guardrails).
+3. Check that each task is worth an agent: skip the handoff when doing it here costs less (see When not to orchestrate). Check the concurrency cap and file ownership (see Guardrails).
 4. Start all new agents at once, in parallel.
 5. Update the ledger.
 6. Reply in three lines or fewer: what started, under which name, what the user can do next. Then stop.
@@ -86,8 +87,10 @@ Never describe an agent's result before its report arrives. If the user asks, sa
 
 The ledger keeps track of agents across context compaction. Your memory does not.
 
-- Default: `.claude/orchestrator.md` in the current project. In Codex, use `.codex/orchestrator.md`.
-- Alternative: a file in the home folder (`~/.claude/` or `~/.codex/`) when there is no project.
+- Default: `orchestrator.md` in the host's own folder in the current project (`.claude/`, `.codex/` or `.gemini/`).
+- Alternative: the same file in the home folder when there is no project.
+- Optional: if the sandbox is read-only or a write fails, keep the ledger in the conversation and tell the user once.
+- Put a session name and an update time at the top. If the file names another live session, write a separate file instead of sharing it.
 - Keep it out of git. Add it to `.git/info/exclude`, not `.gitignore`. Outside a git repo, skip this. Do not add files to the user's repo uninvited.
 
 One line per agent:
@@ -134,11 +137,13 @@ Write the tier in the ledger line.
 
 - Concurrency: honor the user's or host's cap. With no cap, run at most 4 agents at a time and queue the rest.
 - One writer per file: two agents never edit the same files at once. Give each its own worktree, or run them one after the other.
-- Subagents never commit, push, send, publish or delete unless the user named that action.
+- Subagents never commit, push, send, publish or delete unless the user named that action. They stay inside the user's approvals and pause to ask before any other action with a lasting effect outside the task.
 - Check before you relay: a result counts only after you check its evidence against the brief.
 - Stop work the user stops. Do not restart it unless asked.
 
 ## Control
+
+These work as far as the host allows. If the host has no way to list, stop or message an agent, say so instead of pretending.
 
 - "status": reconcile the ledger with live agents, then list each agent and its state.
 - "stop <name>": stop that agent and mark it `[stopped]`.
