@@ -1,5 +1,12 @@
 # Changelog: check-worth
 
+## [0.3.0](https://github.com/evemcgivern/agent-skills/compare/check-worth-v0.2.1...check-worth-v0.3.0) (2026-10-18)
+
+
+### Features
+
+* **agent-workflow:** add orchestrator skill ([#63](https://github.com/evemcgivern/agent-skills/issues/63)) ([6367a7a](https://github.com/evemcgivern/agent-skills/commit/6367a7a5b2114fcd83d7cf015878295ab4ca8fe6))
+
 ## [0.2.1](https://github.com/evemcgivern/agent-skills/compare/check-worth-v0.2.0...check-worth-v0.2.1) (2026-10-17)
 
 
