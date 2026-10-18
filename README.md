@@ -1,6 +1,6 @@
 # Eve McGivern's Agent Skills
 
-[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-36-blue.svg)](#skills)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-37-blue.svg)](#skills)
 
 Skills for Claude Code, Codex and other agents that read `SKILL.md` folders (Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and more), packaged as a Claude Code plugin marketplace. Each skill is a folder with a `SKILL.md`. [Compatibility](#compatibility) shows where each skill works; under [Install](#install), pick your tool and one click opens the steps.
 
@@ -23,7 +23,7 @@ Every skill README shows three badges, one per group of hosts. The first two spl
 `.agents/skills` is read by Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode and Windsurf; Claude Code reads `.claude/skills` instead, and Cline reads `.cline/skills` or `.claude/skills`. Antigravity CLI replaced Gemini CLI for unpaid and Google One users on 2026-06-18.
 
 <details>
-<summary><b>All 36 skills</b> (✔ full, ◐ partial, ✖ no)</summary>
+<summary><b>All 37 skills</b> (✔ full, ◐ partial, ✖ no)</summary>
 
 | Skill | Plugin | Claude Code | Claude app | Codex | ChatGPT | Other agents |
 |---|---|:-:|:-:|:-:|:-:|:-:|
@@ -35,6 +35,7 @@ Every skill README shows three badges, one per group of hosts. The first two spl
 | [`goal-checklist`](plugins/agent-workflow/skills/goal-checklist/README.md) | agent-workflow | ✔ | ◐ | ✔ | ◐ | ✔ |
 | [`handoff`](plugins/agent-workflow/skills/handoff/README.md) | agent-workflow | ✔ | ◐ | ✔ | ◐ | ✔ |
 | [`mission`](plugins/agent-workflow/skills/mission/README.md) | agent-workflow | ✔ | ✖ | ✔ | ✖ | ✔ |
+| [`orchestrator`](plugins/agent-workflow/skills/orchestrator/README.md) | agent-workflow | ✔ | ✖ | ◐ | ✖ | ◐ |
 | [`problem-first`](plugins/agent-workflow/skills/problem-first/README.md) | agent-workflow | ✔ | ✔ | ✔ | ✔ | ✔ |
 | [`quick-recap`](plugins/agent-workflow/skills/quick-recap/README.md) | agent-workflow | ✔ | ◐ | ✔ | ◐ | ✔ |
 | [`sonnet-prompt-improver`](plugins/agent-workflow/skills/sonnet-prompt-improver/README.md) | agent-workflow | ✔ | ✔ | ✔ | ✔ | ✔ |
@@ -117,7 +118,7 @@ These agents load `SKILL.md` folders directly. Copy the whole skill folder to th
 - Windsurf: `<repo>/.agents/skills/<skill>/`.
 - Cline: `<repo>/.cline/skills/<skill>/`, `<repo>/.claude/skills/<skill>/` or `~/.cline/skills/<skill>/`.
 
-Four skills have limits in these agents (agent-doctor, efficient-frontier-routing, fable-chief-agent, stay-within-limits); see [Compatibility](#compatibility).
+Five skills have limits in these agents (agent-doctor, efficient-frontier-routing, fable-chief-agent, orchestrator, stay-within-limits); see [Compatibility](#compatibility).
 </details>
 
 <details>
@@ -154,7 +155,7 @@ Check out others at [stylusnexus/agent-plugins](https://github.com/stylusnexus/a
 
 ### `agent-workflow`
 
-Working habits for coding agents: model routing, status recaps, usage-limit pacing, goal tracking, handoffs, onboarding briefings, prompt tuning, problem framing, and agent-setup checks.
+Working habits for coding agents: model routing, background dispatching, status recaps, usage-limit pacing, goal tracking, handoffs, onboarding briefings, prompt tuning, problem framing, and agent-setup checks.
 
 - [`agent-doctor`](plugins/agent-workflow/skills/agent-doctor/README.md) v0.2.0 — Inspects a project's discovered agent instructions (AGENTS.md, CLAUDE.md, GEMINI.md) and skill definitions for static wiring problems, without loading, changing, or enabling them, and reports which installed skills are rarely or never called in local session logs.
 - [`ambition`](plugins/agent-workflow/skills/ambition/README.md) v0.2.0 — Reconsiders a project or shelved idea against current capabilities, proposes three ambitious outcomes, and designs an experiment for the hardest uncertainty.
@@ -164,6 +165,7 @@ Working habits for coding agents: model routing, status recaps, usage-limit paci
 - [`goal-checklist`](plugins/agent-workflow/skills/goal-checklist/README.md) v0.2.0 — Tracks a multi-issue goal as a one-line progress strip: seeds a checklist from issue numbers, adds or drops items, marks state, syncs merged vs shipped from git, and re-emits status unprompted as work advances.
 - [`handoff`](plugins/agent-workflow/skills/handoff/README.md) v0.2.0 — Writes a copy-pasteable handoff prompt that lets a fresh session of your agent (Claude Code, Codex, Gemini CLI and others) resume the current work cold.
 - [`mission`](plugins/agent-workflow/skills/mission/README.md) v0.2.0 — Persist a small, worktree-bound mission record across agent sessions: outcome, constraints, milestones, decisions, next action, and hashed evidence files.
+- [`orchestrator`](plugins/agent-workflow/skills/orchestrator/README.md) v0.1.0 — Turns the main session into a dispatcher that never blocks: it sends each task to a background subagent with a self-contained brief, tracks them in a ledger, checks each result, and reports in a few lines.
 - [`problem-first`](plugins/agent-workflow/skills/problem-first/README.md) v0.2.0 — Rewrites a draft agent prompt into problem, evidence, ideas, autonomy and done criteria, so you hand over the problem instead of your solution.
 - [`quick-recap`](plugins/agent-workflow/skills/quick-recap/README.md) v0.2.0 — Defines a one-line red/yellow/green status line that ends every agent response that completes work, and how to install it as standing instructions in AGENTS.md or CLAUDE.md.
 - [`sonnet-prompt-improver`](plugins/agent-workflow/skills/sonnet-prompt-improver/README.md) v0.2.0 — Improves a prompt, system prompt, agent definition or skill for Claude Sonnet 5.5 by applying problem-first framing, adding only the Sonnet 5.5 fixes that match an observed symptom, and suggesting effort and thinking settings.

@@ -51,6 +51,12 @@
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
+    "plugins/agent-workflow/skills/orchestrator": {
+      "release-type": "simple",
+      "package-name": "orchestrator",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
     "plugins/agent-workflow/skills/problem-first": {
       "release-type": "simple",
       "package-name": "problem-first",
