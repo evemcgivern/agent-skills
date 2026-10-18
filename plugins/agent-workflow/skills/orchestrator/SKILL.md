@@ -1,6 +1,6 @@
 ---
 name: orchestrator
-description: "Turns the main session into a dispatcher that never blocks: it splits the work, sends each task to a background subagent with a self-contained brief, tracks them in a ledger, checks each result, and reports in a few lines, so the user can keep talking while the work runs. Works in Claude Code and, with limits, in Codex. Use on /orchestrator and on phrases like 'orchestrate this', 'run it in the background', 'keep me unblocked', 'fan this out', 'dispatch agents for these', 'status', 'stop <name>', 'stop orchestrating'."
+description: "Turns the main session into a dispatcher that never blocks: it splits the work, sends each task to a background subagent with a self-contained brief, tracks them in a ledger, checks each result, and reports in a few lines, so the user can keep talking while the work runs. Works in Claude Code, and with limits in Codex, Gemini CLI and other agents that can start subagents. Use on /orchestrator and on phrases like 'orchestrate this', 'run it in the background', 'keep me unblocked', 'fan this out', 'dispatch agents for these', 'status', 'stop <name>', 'stop orchestrating'."
 ---
 
 # Orchestrator
@@ -39,6 +39,19 @@ Steer, stop or close one by asking Codex the same way. Subagents inherit the
 parent's sandbox and approval settings. Codex may hold its reply until the agents
 it started finish. If it does, the main thread is not free. Say so to the user
 once, keep each batch small, and report results when they arrive.
+
+**Gemini CLI.** Subagents are experimental. Define them as Markdown files in
+`.gemini/agents/` (project) or `~/.gemini/agents/` (personal), then delegate to one
+by name or by plain request. Gemini can run several subagents in parallel. Check
+the subagent's tools and approval mode before dispatching a writer; do not assume
+it asks before acting. Check the current Gemini CLI docs for background behavior
+before you promise the main thread stays free. Use `.gemini/orchestrator.md` for the ledger.
+
+**Any other host or model.** Look for the host's own way to start a subagent,
+parallel task or separate session, and use it. Do not assume the Claude tool
+names exist. The rules below hold on every host: write self-contained briefs,
+keep a ledger, own files one writer at a time, check results before relaying them.
+If the host has no subagents, say so and work in the main thread in small steps.
 
 **Any host that cannot run work in the background.** Tell the user in one line:
 "This host runs agents in the foreground, so each batch blocks until it ends."
