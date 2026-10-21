@@ -12,12 +12,14 @@ Tailor a truthful resume and cover letter to one job, then review clarity, candi
 - You apply for a job and want a resume that fits the posting.
 - You need a cover letter that uses real examples from your work.
 - You want a review of your draft for clarity and accuracy.
+- You want to know where you fit a posting, and what is unsupported, before you tailor anything.
 
 **Try it**
 
 ```text
 Tailor my resume to this job. Resume: [paste]. Job description: [paste].
 Review this cover letter for clarity and for claims my resume does not support. Resume: [paste]. Cover letter: [paste].
+Should I apply to this job? Fit check only. Resume: [paste]. Job description: [paste].
 ```
 
 The agent asks short questions about anything unclear. It then gives a resume of two pages or fewer, with separate notes on evidence gaps and check results (PASS, FAIL or UNVERIFIED). A matching cover letter is offered, not created unasked.
