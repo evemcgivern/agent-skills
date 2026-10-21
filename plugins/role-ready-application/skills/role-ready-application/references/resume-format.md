@@ -35,7 +35,7 @@ Keep questions, job-fit notes, evidence references, change notes, and missing qu
 | Profile | 11 pt; 1.0 line spacing; 3 pt before/after |
 | Section headings | 11 pt, bold, uppercase, navy; 6.5 pt before, 2.6 pt after; 0.75 pt gray `#808080` bottom paragraph border, 2 pt border spacing |
 | Grouped capability/technical/education lines | 11 pt; bold category label, regular values; 1.0 line spacing; 0 pt before, 2.2 pt after |
-| Role line | 11 pt; bold title and dates; regular employer/location; 5.2 pt before, 0.4 pt after; right tab 6.5 in from left text margin, no leader if available |
+| Role line | 11 pt; bold title and dates; regular employer/location; 5.2 pt before, 0.4 pt after; right tab at the text width (7.25 in on US Letter with 0.625 in side margins; recompute if margins change), no leader if available |
 | Context | 11 pt, italic, gray `#404040`; 1.0 line spacing; 0 pt before, 2.5 pt after |
 | Bullets | 11 pt, black; 1.0 line spacing; 0 pt before, 1.4 pt after; left indent 0.15 in, hanging indent 0.125 in; real Word list numbering |
 | Earlier-career paragraph | 11 pt; bold introductory label; 1.0 line spacing; 5 pt before, 2 pt after |

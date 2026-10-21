@@ -184,7 +184,7 @@ Plain, short, scannable writing: controlled technical English, comma-delimited l
 
 Build truthful, role-tailored resumes and cover letters with candidate-voice review and document preflight.
 
-- [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) v0.3.0 — Tailor a truthful resume and cover letter to one job, then review clarity, candidate voice, factual fidelity, and rendered documents.
+- [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) v0.3.0 — Tailor a truthful resume or CV and a matching cover letter to one specific job posting without inventing experience, then review clarity, candidate voice, factual fidelity, and rendered layout. Use when someone says "tailor my resume", "customize my CV for this job", "write a cover letter for this role", or asks for an application review.
 
 ### `app-governance-kit`
 
