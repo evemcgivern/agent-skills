@@ -1,6 +1,6 @@
 ---
 name: role-ready-application
-description: Tailor a truthful resume and cover letter to one job, then review clarity, candidate voice, factual fidelity, and rendered documents.
+description: Tailor a truthful resume or CV and a matching cover letter to one specific job posting without inventing experience, then review clarity, candidate voice, factual fidelity, and rendered layout. Use when someone says "tailor my resume", "customize my CV for this job", "write a cover letter for this role", or asks for an application review.
 ---
 
 # RoleReady application documents

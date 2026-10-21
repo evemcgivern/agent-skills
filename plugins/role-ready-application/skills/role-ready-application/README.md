@@ -4,7 +4,7 @@
 
 [![Claude: Code full, app full](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%9C%94-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT full](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%9C%94-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
 
-Tailor a truthful resume and cover letter to one job, then review clarity, candidate voice, factual fidelity, and rendered documents.
+Tailor a truthful resume or CV and a matching cover letter to one specific job posting without inventing experience, then review clarity, candidate voice, factual fidelity, and rendered layout. Use when someone says "tailor my resume", "customize my CV for this job", "write a cover letter for this role", or asks for an application review.
 
 ## When and how to use it
 
