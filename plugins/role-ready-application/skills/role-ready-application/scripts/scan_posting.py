@@ -51,6 +51,21 @@ def _is_tag(ch: str) -> bool:
     return TAG_START <= ord(ch) <= TAG_END
 
 
+def _is_subdivision_flag(run: str) -> bool:
+    """True for a tag run shaped like gbeng or usca: 2 letters, 1-3 letters/digits, one cancel."""
+    if ord(run[-1]) != TAG_CANCEL:
+        return False
+    body = run[:-1]
+    if not 3 <= len(body) <= 5 or any(not _is_tag(c) for c in body):
+        return False
+    decoded = "".join(chr(ord(c) - TAG_START) for c in body)
+    return bool(re.fullmatch(r"[a-z]{2}[a-z0-9]{1,3}", decoded))
+
+
+def _is_non_latin_letter(ch: str) -> bool:
+    return ch.isalpha() and not unicodedata.name(ch, "").startswith("LATIN")
+
+
 def _script(ch: str) -> str | None:
     if not ch.isalpha():
         return None
@@ -72,7 +87,7 @@ def _scan_line(line: str, number: int) -> tuple[str, list[Finding]]:
             while j < len(line) and _is_tag(line[j]):
                 j += 1
             run = line[i:j]
-            is_flag = bool(kept) and kept[-1] == chr(FLAG_BASE) and ord(run[-1]) == TAG_CANCEL
+            is_flag = bool(kept) and kept[-1] == chr(FLAG_BASE) and _is_subdivision_flag(run)
             if is_flag:
                 kept.append(run)
             else:
@@ -85,7 +100,9 @@ def _scan_line(line: str, number: int) -> tuple[str, list[Finding]]:
         elif ch in INVISIBLE:
             before = line[i - 1] if i > 0 else ""
             after = line[i + 1] if i + 1 < len(line) else ""
-            if before.isalnum() and after.isalnum():
+            if ch in "\u200c\u200d" and _is_non_latin_letter(before) and _is_non_latin_letter(after):
+                kept.append(ch)  # ordinary spelling in Persian and similar scripts
+            elif before.isalnum() and after.isalnum():
                 findings.append(Finding("tampering", number, f"invisible {_code(ch)} inside a word"))
             else:
                 findings.append(Finding("invisible", number, f"invisible {_code(ch)}"))
