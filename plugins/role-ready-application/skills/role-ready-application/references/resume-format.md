@@ -46,7 +46,7 @@ If a font substitution or candidate content creates clipping, fix wrapping/pagin
 
 ## Length and accessible fallback
 
-Maximum two **rendered resume pages**; one is fine. Start at 11 pt and maintain >=0.5 in margins and >=single spacing. Only for a few overflow lines try 10.75, then 10.5 pt if needed. Keep the largest size that passes. No text, including contacts, below 10.5 pt. Rerender, recount and inspect after each adjustment. For substantial overflow, first condense repetition and lower-priority wording, preserving unique evidence and qualifiers. If still too long, ask what may be omitted. Never call an overlength document compliant.
+Maximum two **rendered resume pages**; one is fine. Start at 11 pt and maintain >=0.5 in margins and >=single spacing. Only for a few overflow lines try 10.75, then 10.5 pt if needed. Keep the largest size that passes. No text, including contacts, below 10.5 pt. Rerender, recount and inspect after each adjustment. For substantial overflow, first condense repetition and lower-priority wording, preserving unique evidence and qualifiers. If still too long, cut by score and ask when scores tie, following SKILL.md's length and presentation gate. Never call an overlength document compliant.
 
 Plain text uses the same information order, uppercase section labels, grouped labels, role/employer/location/date order, context and bullets; visual styling can be omitted. Deliver a complete copyable resume without requiring paid tools. Plain text cannot verify pagination. Disclose formatting limits outside the resume.
 
