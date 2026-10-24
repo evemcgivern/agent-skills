@@ -184,7 +184,7 @@ Plain, short, scannable writing: controlled technical English, comma-delimited l
 
 ### `role-ready-application`
 
-Build truthful, role-tailored resumes and cover letters with candidate-voice review and document preflight.
+Build truthful role-tailored resumes and cover letters, check whether a job posting is worth applying to, and prepare candidates for interviews, keeping to facts the candidate supplies.
 
 - [`interview-prep`](plugins/role-ready-application/skills/interview-prep/README.md) v0.1.0 — Prepare for an interview from the posting and the exact resume and cover letter you sent, with likely questions mapped to your own confirmed examples and honest answers for gaps.
 - [`posting-fit-check`](plugins/role-ready-application/skills/posting-fit-check/README.md) v0.1.0 — Decide whether a job posting is worth applying to by mapping each requirement to your real evidence, then get apply, apply with caveats, or skip.

@@ -13,7 +13,7 @@ Ask for what is missing: the candidate's resume or candidate pack (only if they 
 
 ## Output
 
-A requirement is a must-have when the posting lists it under required, must, minimum or essential, or states a years or credential threshold for it. Everything else is preferred. If the posting does not separate them, treat every listed requirement as a must-have and say so.
+A requirement is a must-have when the posting lists it under required, must, minimum or essential, or states a years or credential threshold for it. A requirement under a preferred, nice-to-have or bonus heading is preferred even if it states a years or credential threshold; the heading wins. Everything else is preferred. If the posting does not separate them, treat every listed requirement as a must-have and say so.
 
 1. **Evidence table**, one row per requirement, with "(must)" after each must-have in the requirement cell:
    `requirement | evidence (resume or pack reference) | direct / adjacent/partial / absent / unclear | note`
