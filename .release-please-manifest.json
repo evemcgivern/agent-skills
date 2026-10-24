@@ -32,6 +32,7 @@
   "plugins/engineering-practices/skills/spec-workflow": "0.2.0",
   "plugins/engineering-practices/skills/spec-workflow-drift": "0.2.1",
   "plugins/engineering-practices/skills/transactional-email": "0.2.0",
+  "plugins/role-ready-application/skills/interview-prep": "0.1.0",
   "plugins/role-ready-application/skills/posting-fit-check": "0.1.0",
   "plugins/role-ready-application/skills/role-ready-application": "0.3.0",
   "plugins/writing/skills/clearly": "0.1.1",

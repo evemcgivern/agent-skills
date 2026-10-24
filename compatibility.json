@@ -217,6 +217,12 @@
       "codex_chatgpt": {"codex": {"level": "full", "note": "Without document rendering it labels the output Draft."}, "chatgpt": {"level": "full", "note": "Works by skill upload or COPY-PASTE.txt; without document rendering it labels the output Draft."}},
       "other": {"level": "full", "note": "Nothing host-specific."}
     },
+    "interview-prep": {
+      "plugin": "role-ready-application",
+      "claude": {"code": {"level": "full"}, "app": {"level": "full"}},
+      "codex_chatgpt": {"codex": {"level": "full"}, "chatgpt": {"level": "full"}},
+      "other": {"level": "full"}
+    },
     "posting-fit-check": {
       "plugin": "role-ready-application",
       "claude": {"code": {"level": "full"}, "app": {"level": "full"}},
