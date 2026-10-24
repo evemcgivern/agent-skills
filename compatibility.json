@@ -219,15 +219,15 @@
     },
     "interview-prep": {
       "plugin": "role-ready-application",
-      "claude": {"code": {"level": "full"}, "app": {"level": "full"}},
-      "codex_chatgpt": {"codex": {"level": "full"}, "chatgpt": {"level": "full"}},
-      "other": {"level": "full"}
+      "claude": {"code": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}, "app": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}},
+      "codex_chatgpt": {"codex": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}, "chatgpt": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}},
+      "other": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}
     },
     "posting-fit-check": {
       "plugin": "role-ready-application",
-      "claude": {"code": {"level": "full"}, "app": {"level": "full"}},
-      "codex_chatgpt": {"codex": {"level": "full"}, "chatgpt": {"level": "full"}},
-      "other": {"level": "full"}
+      "claude": {"code": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}, "app": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}},
+      "codex_chatgpt": {"codex": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}, "chatgpt": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}},
+      "other": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}
     },
     "clearly": {
       "plugin": "writing",
