@@ -69,7 +69,7 @@ Copy `skills/role-ready-application/` to `~/.agents/skills/role-ready-applicatio
 Paste [`COPY-PASTE.txt`](skills/role-ready-application/COPY-PASTE.txt) at the start of a chat, then attach your resume and the job description.
 </details>
 
-The skill works only with what you give it in the conversation. It does not need access to email, contacts or connected accounts.
+The skills work only with what you give them in the conversation. It does not need access to email, contacts or connected accounts.
 
 
 ## Skills
@@ -84,6 +84,6 @@ The candidate pack is a plain text file you own, holding your confirmed facts an
 
 ## Included
 
-The plugin installs one skill: `role-ready-application`, with reference guides for writing review, resume formatting, and role-specific filenames.
+The plugin installs three skills: `role-ready-application`, `posting-fit-check` and `interview-prep`, each with its own reference guides.
 
 See the package-specific skill folders for exact file lists, versions, and changelogs.
