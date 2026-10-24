@@ -71,7 +71,7 @@ claude plugin marketplace add evemcgivern/agent-skills
 claude plugin install role-ready-application@evemcgivern-skills
 ```
 
-The `role-ready-application` plugin holds only this skill. Run it as `/role-ready-application:role-ready-application`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install role-ready-application@evemcgivern-skills`.
+This installs the whole `role-ready-application` plugin, so you also get its other skills: `posting-fit-check`. Run it as `/role-ready-application:role-ready-application`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install role-ready-application@evemcgivern-skills`.
 
 Update later with `claude plugin marketplace update evemcgivern-skills`, then `claude plugin update role-ready-application@evemcgivern-skills`.
 
@@ -93,7 +93,7 @@ Check it worked: `claude plugin list` shows `role-ready-application@evemcgivern-
 <details>
 <summary><b>Claude Code desktop app</b></summary>
 
-In a local Code session choose **+ → Plugins → Add plugin**, enter `evemcgivern/agent-skills` as the marketplace, then install **role-ready-application**.
+In a local Code session choose **+ → Plugins → Add plugin**, enter `evemcgivern/agent-skills` as the marketplace, then install **role-ready-application** (it brings the plugin's other skills too).
 
 Local desktop and CLI sessions share user-scope installs. Cloud Code sessions do not load local plugins; commit this skill folder to your repository's `.claude/skills/role-ready-application/` instead.
 
