@@ -47,6 +47,7 @@ Rules:
 - If something the friend says contradicts a pack fact, ask which is correct. Keep the old line and mark it `status: superseded`. Never use both.
 - Use the pack only when the friend names the file or pastes it. Never search the disk for one.
 - In chat-only tools, print the updated pack at the end of the session so the friend can save it.
+- If no pack is loaded when the work ends and none was printed or saved, close with one line: nothing was saved, and a candidate pack (the plain text file above, holding only confirmed facts and deal-breakers) can be started if the friend wants one. Offer to print one (in tools that can write files, to save it to a file the friend names). Do this once, not in every message.
 
 ## Work-account warning
 

@@ -30,6 +30,7 @@ CANDIDATE PACK
 4. Reuse facts marked status: current without asking again. Treat them as ledger entries marked pack, and list the pack facts you used in the notes.
 5. If something the candidate says contradicts a pack fact, ask which is correct. Keep the old line and mark it status: superseded. Never use both.
 6. At the end, write the updated pack to the named file, or print it in the chat if this tool cannot write files, so the candidate can save it.
+7. If no pack is loaded when the work ends and none was printed or saved, close with one line: nothing was saved, and a candidate pack (the plain text file described above, holding only confirmed facts and deal-breakers) can be started if the candidate wants one. Offer to print one (if you can write files, to save it to a file the candidate names). Do this once, not in every message.
 
 WORK-ACCOUNT WARNING
 - Before the first resume is shared, say once that a work-managed Claude or ChatGPT account may be visible to the employer, and that a pack saved in a work-managed cloud folder is too. Repeat this in every session that has no pack loaded.
