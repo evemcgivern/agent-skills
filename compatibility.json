@@ -217,6 +217,18 @@
       "codex_chatgpt": {"codex": {"level": "full", "note": "Without document rendering it labels the output Draft."}, "chatgpt": {"level": "full", "note": "Works by skill upload or COPY-PASTE.txt; without document rendering it labels the output Draft."}},
       "other": {"level": "full", "note": "Nothing host-specific."}
     },
+    "interview-prep": {
+      "plugin": "role-ready-application",
+      "claude": {"code": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}, "app": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}},
+      "codex_chatgpt": {"codex": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}, "chatgpt": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}},
+      "other": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}
+    },
+    "posting-fit-check": {
+      "plugin": "role-ready-application",
+      "claude": {"code": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}, "app": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}},
+      "codex_chatgpt": {"codex": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}, "chatgpt": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}},
+      "other": {"level": "full", "note": "Plain instructions; tested only with simulated chat sessions, not yet run on this host."}
+    },
     "clearly": {
       "plugin": "writing",
       "claude": {"code": {"level": "full", "note": "Works on macOS. The --explain video needs manim and ffmpeg; the skill asks before installing them."}, "app": {"level": "partial", "note": "In the Claude app the writing rules work; the --explain video needs a local install, so it uses a diagram or page."}},

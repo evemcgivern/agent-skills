@@ -1,6 +1,6 @@
 {
   "name": "role-ready-application",
-  "description": "Build truthful, role-tailored resumes and cover letters with candidate-voice review and document preflight.",
+  "description": "Build truthful role-tailored resumes and cover letters, check whether a job posting is worth applying to, and prepare candidates for interviews, keeping to facts the candidate supplies.",
   "author": {
     "name": "Eve McGivern"
   }

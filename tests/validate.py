@@ -310,6 +310,23 @@ def check_install_sections():
         fail("scripts/gen-skill-install.py", f"--check failed:\n{r.stderr.strip()}")
 
 
+def check_shared_references():
+    shared = ROOT / "plugins" / "role-ready-application" / "shared" / "candidate-rules.md"
+    if not shared.is_file():
+        fail("role-ready-application", "missing shared/candidate-rules.md")
+        source = None
+    else:
+        source = shared.read_bytes()
+    for d in sorted((ROOT / "plugins" / "role-ready-application" / "skills").glob("*")):
+        if not d.is_dir():
+            continue
+        copy = d / "references" / "candidate-rules.md"
+        if not copy.is_file():
+            fail(d.name, "missing references/candidate-rules.md")
+        elif source is not None and copy.read_bytes() != source:
+            fail(d.name, "references/candidate-rules.md differs from shared/candidate-rules.md")
+
+
 def main():
     dirs = skill_dirs()
     if not dirs:
@@ -322,6 +339,7 @@ def main():
     check_release_config()
     check_compatibility()
     check_install_sections()
+    check_shared_references()
     if failures:
         print(f"FAIL: {len(failures)} problem(s) across {len(dirs)} skills\n")
         print("\n".join(f"- {f}" for f in failures))

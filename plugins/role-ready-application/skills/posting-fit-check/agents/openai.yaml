@@ -1,0 +1,3 @@
+interface:
+  display_name: "Posting Fit Check"
+  short_description: "Decide whether a job posting is worth applying to by mapping each requirement to…"

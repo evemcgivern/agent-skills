@@ -207,6 +207,18 @@
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
+    "plugins/role-ready-application/skills/interview-prep": {
+      "release-type": "simple",
+      "package-name": "interview-prep",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
+    "plugins/role-ready-application/skills/posting-fit-check": {
+      "release-type": "simple",
+      "package-name": "posting-fit-check",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
     "plugins/writing/skills/clearly": {
       "release-type": "simple",
       "package-name": "clearly",

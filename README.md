@@ -1,6 +1,6 @@
 # Eve McGivern's Agent Skills
 
-[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-37-blue.svg)](#skills)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-39-blue.svg)](#skills)
 
 Skills for Claude Code, Codex and other agents that read `SKILL.md` folders (Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and more), packaged as a Claude Code plugin marketplace. Each skill is a folder with a `SKILL.md`. [Compatibility](#compatibility) shows where each skill works; under [Install](#install), pick your tool and one click opens the steps.
 
@@ -23,7 +23,7 @@ Every skill README shows three badges, one per group of hosts. The first two spl
 `.agents/skills` is read by Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode and Windsurf; Claude Code reads `.claude/skills` instead, and Cline reads `.cline/skills` or `.claude/skills`. Antigravity CLI replaced Gemini CLI for unpaid and Google One users on 2026-06-18.
 
 <details>
-<summary><b>All 37 skills</b> (✔ full, ◐ partial, ✖ no)</summary>
+<summary><b>All 39 skills</b> (✔ full, ◐ partial, ✖ no)</summary>
 
 | Skill | Plugin | Claude Code | Claude app | Codex | ChatGPT | Other agents |
 |---|---|:-:|:-:|:-:|:-:|:-:|
@@ -60,6 +60,8 @@ Every skill README shows three badges, one per group of hosts. The first two spl
 | [`spec-workflow`](plugins/engineering-practices/skills/spec-workflow/README.md) | engineering-practices | ✔ | ✖ | ✔ | ✖ | ✔ |
 | [`spec-workflow-drift`](plugins/engineering-practices/skills/spec-workflow-drift/README.md) | engineering-practices | ✔ | ✖ | ✔ | ✖ | ✔ |
 | [`transactional-email`](plugins/engineering-practices/skills/transactional-email/README.md) | engineering-practices | ✔ | ◐ | ✔ | ◐ | ✔ |
+| [`interview-prep`](plugins/role-ready-application/skills/interview-prep/README.md) | role-ready-application | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`posting-fit-check`](plugins/role-ready-application/skills/posting-fit-check/README.md) | role-ready-application | ✔ | ✔ | ✔ | ✔ | ✔ |
 | [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) | role-ready-application | ✔ | ✔ | ✔ | ✔ | ✔ |
 | [`clearly`](plugins/writing/skills/clearly/README.md) | writing | ✔ | ◐ | ✔ | ◐ | ✔ |
 | [`scrub-ai-tells`](plugins/writing/skills/scrub-ai-tells/README.md) | writing | ✔ | ✔ | ✔ | ◐ | ✔ |
@@ -182,8 +184,10 @@ Plain, short, scannable writing: controlled technical English, comma-delimited l
 
 ### `role-ready-application`
 
-Build truthful, role-tailored resumes and cover letters with candidate-voice review and document preflight.
+Build truthful role-tailored resumes and cover letters, check whether a job posting is worth applying to, and prepare candidates for interviews, keeping to facts the candidate supplies.
 
+- [`interview-prep`](plugins/role-ready-application/skills/interview-prep/README.md) v0.1.0 — Prepare for an interview from the posting and the exact resume and cover letter you sent, with likely questions mapped to your own confirmed examples and honest answers for gaps.
+- [`posting-fit-check`](plugins/role-ready-application/skills/posting-fit-check/README.md) v0.1.0 — Decide whether a job posting is worth applying to by mapping each requirement to your real evidence, then get apply, apply with caveats, or skip.
 - [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) v0.3.0 — Tailor a truthful resume and cover letter to one job, then review clarity, candidate voice, factual fidelity, and rendered documents.
 
 ### `app-governance-kit`
