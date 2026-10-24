@@ -52,4 +52,4 @@ Plain text uses the same information order, uppercase section labels, grouped la
 
 ## Final check
 
-Render each delivered DOCX/PDF, count actual pages, inspect every page for clipping, collisions, orphan headings, date conflicts, bullet indentation, and density. Extract each rendition including link labels and compare order, contacts, names, titles, dates, credentials, and bullets to the source ledger. Recompute credential headings from final entries. Verify actual Word numbering indentation as well as style indentation. If rendering or extraction is unavailable, report exactly what is UNVERIFIED and label the artifact Draft. Never claim ATS certification.
+Apply the checklist in SKILL.md's length and presentation gate to each delivered DOCX/PDF. Extract each rendition including link labels and compare order, contacts, names, titles, dates, credentials, and bullets to the source ledger. Recompute credential headings from final entries. Verify actual Word numbering indentation as well as style indentation. If rendering or extraction is unavailable, report exactly what is UNVERIFIED and label the artifact Draft. Never claim ATS certification.
