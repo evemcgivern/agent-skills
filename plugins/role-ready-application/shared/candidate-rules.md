@@ -46,7 +46,9 @@ Rules:
 - Later sessions reuse facts marked `status: current` without asking again, and list the pack facts they used in the notes.
 - If something the friend says contradicts a pack fact, ask which is correct. Keep the old line and mark it `status: superseded`. Never use both.
 - Use the pack only when the friend names the file or pastes it. Never search the disk for one.
-- In chat-only tools, print the updated pack at the end of the session so the friend can save it.
+- At the end, write the updated pack to the file the friend named, or print it if this tool cannot write files, so the friend can save it. If the friend named no file and the tool can write files, ask once for a file name; otherwise print it.
+- A deal-breaker enters the pack when the friend states it and you read it back. If the friend changes or withdraws one, keep the old line, append ` | status: superseded` to it, and add the new line; never use both.
+- Attach a pack fact to a specific line of the resume only when the friend's words or the fact itself make clear they are the same item; if it is not explicit (for example 'the stock dashboard' against 'the weekly stock dashboard in Excel'), ask the friend before joining them.
 - If no pack is loaded when the work ends and none was printed or saved, close with one line: nothing was saved, and a candidate pack (the plain text file above, holding only confirmed facts and deal-breakers) can be started if the friend wants one. Offer to print one (in tools that can write files, to save it to a file the friend names). Do this once, not in every message.
 
 ## Work-account warning

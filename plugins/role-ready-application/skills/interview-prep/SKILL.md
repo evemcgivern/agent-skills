@@ -37,4 +37,4 @@ After the prep, offer a mock interview. If accepted, ask one question at a time 
 
 ## Limits
 
-Never predict outcomes or odds. Do not draft thank-you or follow-up messages; this suite does not cover them. In chat-only tools, print the updated pack at the end if new facts were confirmed.
+Never predict outcomes or odds. Do not draft thank-you or follow-up messages; this suite does not cover them. At the end, save or print the updated pack as candidate-rules.md says, if new facts were confirmed.

@@ -35,7 +35,7 @@ Follow the candidate pack rules in [Candidate rules](references/candidate-rules.
 - Use a pack only when the candidate names the file or pastes it. Never look for one on disk.
 - Treat pack facts as ledger entries marked `pack`, and list the pack facts used in the change notes.
 - Deal-breakers follow the rules file; this skill adds no rule for them.
-- At the end, write the updated pack to the named file, or print it in the chat when the tool cannot write files.
+- At the end, save or print the updated pack as the candidate rules say.
 
 ## Resume workflow
 
