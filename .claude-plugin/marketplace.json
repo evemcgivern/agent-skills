@@ -22,7 +22,7 @@
     {
       "name": "role-ready-application",
       "source": "./plugins/role-ready-application",
-      "description": "Build truthful, role-tailored resumes and cover letters with candidate-voice review and document preflight.",
+      "description": "Build truthful role-tailored resumes and cover letters, check whether a job posting is worth applying to, and prepare candidates for interviews, keeping to facts the candidate supplies.",
       "license": "MIT"
     },
     {
