@@ -9,6 +9,7 @@ in the findings and left in the cleaned text. Standard library only.
 from __future__ import annotations
 
 import argparse
+import bisect
 import re
 import sys
 import unicodedata
@@ -17,15 +18,22 @@ from dataclasses import dataclass
 INVISIBLE = {chr(c) for c in (*range(0x200B, 0x2010), *range(0x2060, 0x2065), 0xFEFF, 0x00AD)}
 BIDI = {chr(c) for c in (*range(0x202A, 0x202F), *range(0x2066, 0x206A))}
 TAG_START, TAG_END, TAG_CANCEL, FLAG_BASE = 0xE0000, 0xE007F, 0xE007F, 0x1F3F4
+VS_START, VS_END = 0xE0100, 0xE01EF  # supplementary variation selectors; U+FE0F is left alone
+
+JOB_WORDS = r"(?:manager|director|coordinator|professor|lecturer|buyer|editor)"
+CANDIDATE = r"(?:this|the)\s+(?:candidate|applicant)"
 
 INSTRUCTION_PATTERNS = [
-    re.compile(r"\b(ignore|disregard|forget)\b.{0,20}\b(previous|prior|above|earlier)\b.{0,20}\b(instructions?|prompts?|rules)\b", re.I),
-    re.compile(r"\byou are now\b\s+(an?\s+|the\s+)?(ai|assistant|llm|chatbot|language model)\b", re.I),
-    re.compile(r"\b(recommend|rate|rank|select|hire)\b[^.\n]{0,30}\b(this|the) candidate\b", re.I),
+    re.compile(r"\b(ignore|disregard|forget)\b.{0,25}\b(previous|prior|above|earlier)\b.{0,25}\b(instructions?|guidance|rules|prompts?|messages?)\b", re.I),
+    re.compile(r"\byou are now\b\s+(?:an?\s+|the\s+)?(?:(?:ai|llm|chatbot|language model)\b|assistant\b(?!\s+" + JOB_WORDS + r"\b))", re.I),
+    re.compile(r"\brecommend(?:ing)?\s+(?:hiring|hire|selecting|advancing)\s+" + CANDIDATE + r"\b", re.I),
+    re.compile(r"\b(?:rate|rank|score)\s+" + CANDIDATE + r"\s+(?:highly|higher|first|favou?rably|as\s+(?:a\s+)?(?:top|best|strong|excellent)\b)", re.I),
+    re.compile(r"\bgive\s+(?:this|the)\s+(?:candidate|applicant)\s+(?:top|full|highest|maximum)\s+(?:marks?|scores?|ratings?)\b", re.I),
     re.compile(r"\bdo not (tell|mention|reveal|disclose|inform)\b[^.\n]{0,30}\b(user|human|reader|recruiter)\b", re.I),
 ]
 
 WORD = re.compile(r"\w+", re.UNICODE)
+UNIT_WORD = re.compile(r"\d+[\u0370-\u03ff\u1f00-\u1fff]+[A-Za-z]{0,2}")  # for example 5 micrometres
 SCRIPTS = ("LATIN", "CYRILLIC", "GREEK")
 
 
@@ -49,6 +57,10 @@ def _code(ch: str) -> str:
 
 def _is_tag(ch: str) -> bool:
     return TAG_START <= ord(ch) <= TAG_END
+
+
+def _is_variation_selector(ch: str) -> bool:
+    return VS_START <= ord(ch) <= VS_END
 
 
 def _is_subdivision_flag(run: str) -> bool:
@@ -94,13 +106,22 @@ def _scan_line(line: str, number: int) -> tuple[str, list[Finding]]:
                 findings.append(Finding("tag", number, f"{len(run)} tag character(s), hidden text: {_tag_text(run)!r}"))
             i = j
             continue
+        if _is_variation_selector(ch):
+            j = i
+            while j < len(line) and _is_variation_selector(line[j]):
+                j += 1
+            findings.append(Finding("tag", number, f"{j - i} variation selector character(s), possible hidden data"))
+            i = j
+            continue
         if ch in BIDI:
             findings.append(Finding("tampering", number, f"direction control {_code(ch)}"))
             kept.append(ch)
         elif ch in INVISIBLE:
             before = line[i - 1] if i > 0 else ""
             after = line[i + 1] if i + 1 < len(line) else ""
-            if ch in "\u200c\u200d" and _is_non_latin_letter(before) and _is_non_latin_letter(after):
+            if ch == "\u00ad":
+                findings.append(Finding("invisible", number, f"invisible {_code(ch)}"))  # soft hyphen: ordinary typesetting
+            elif ch in "\u200c\u200d" and _is_non_latin_letter(before) and _is_non_latin_letter(after):
                 kept.append(ch)  # ordinary spelling in Persian and similar scripts
             elif before.isalnum() and after.isalnum():
                 findings.append(Finding("tampering", number, f"invisible {_code(ch)} inside a word"))
@@ -112,6 +133,8 @@ def _scan_line(line: str, number: int) -> tuple[str, list[Finding]]:
         i += 1
     cleaned = "".join(kept)
     for word in WORD.findall(cleaned):
+        if UNIT_WORD.fullmatch(word):
+            continue
         scripts = {s for s in map(_script, word) if s}
         if len(scripts) > 1:
             findings.append(Finding("mixed-script", number, word.encode("ascii", "backslashreplace").decode("ascii")))
@@ -126,6 +149,28 @@ def _tag_text(run: str) -> str:
     return "".join(chr(ord(c) - TAG_START) for c in run if 0x20 <= ord(c) - TAG_START < 0x7F)
 
 
+def _scan_across_lines(cleaned_lines: list[str], findings: list[Finding]) -> list[Finding]:
+    """Find instruction patterns split over a line break; one finding per start line."""
+    starts: list[int] = []
+    offset = 0
+    for line in cleaned_lines:
+        starts.append(offset)
+        offset += len(line) + 1
+    joined = "\n".join(cleaned_lines).replace("\n", " ")
+    seen = {f.line for f in findings if f.kind == "instruction"}
+    extra: list[Finding] = []
+    for pattern in INSTRUCTION_PATTERNS:
+        for match in pattern.finditer(joined):
+            first = bisect.bisect_right(starts, match.start()) - 1
+            last = bisect.bisect_right(starts, max(match.end() - 1, match.start())) - 1
+            if first == last or first + 1 in seen:
+                continue
+            seen.add(first + 1)
+            excerpt = " ".join(line.strip() for line in cleaned_lines[first : last + 1])
+            extra.append(Finding("instruction", first + 1, excerpt))
+    return extra
+
+
 def scan(text: str) -> ScanResult:
     cleaned_lines: list[str] = []
     findings: list[Finding] = []
@@ -133,6 +178,8 @@ def scan(text: str) -> ScanResult:
         cleaned, found = _scan_line(line, number)
         cleaned_lines.append(cleaned)
         findings.extend(found)
+    findings.extend(_scan_across_lines(cleaned_lines, findings))
+    findings.sort(key=lambda f: f.line)
     flagged = any(f.kind != "invisible" for f in findings)
     return ScanResult("\n".join(cleaned_lines), tuple(findings), flagged)
 
