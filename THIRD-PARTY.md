@@ -52,6 +52,32 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+## ai-job-search-dev/ai-job-search
+
+The `role-ready-application` skill adapts ideas from [ai-job-search](https://github.com/ai-job-search-dev/ai-job-search): page-check wording, an overflow cutting rule, a keyword coverage report, a posting scan and a fresh-context reviewer. Ideas only; the text is new and no code was copied.
+
+MIT License
+
+Copyright (c) 2026 Mads Lorentzen
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 ## Pimzino/spec-workflow-mcp
 
 The `spec-workflow` and `spec-workflow-drift` skills are companions for the [spec-workflow-mcp](https://github.com/Pimzino/spec-workflow-mcp) server (GPL-3.0). They call its tools and read its `.spec-workflow/` folder. They contain none of its code. Install the server separately and follow its license.

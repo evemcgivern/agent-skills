@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-0.2.0-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
-Build truthful role-tailored resumes, offer a cover letter after each resume build, and review writing while preserving the candidate’s own voice.
+Build truthful role-tailored resumes and cover letters, check whether a job posting is worth applying to, and prepare candidates for interviews, keeping to facts the candidate supplies.
 
 ## Install
 
@@ -69,11 +69,21 @@ Copy `skills/role-ready-application/` to `~/.agents/skills/role-ready-applicatio
 Paste [`COPY-PASTE.txt`](skills/role-ready-application/COPY-PASTE.txt) at the start of a chat, then attach your resume and the job description.
 </details>
 
-The skill works only with what you give it in the conversation. It does not need access to email, contacts or connected accounts.
+The skills work only with what you give them in the conversation. They do not need access to email, contacts or connected accounts.
 
+
+## Skills
+
+| Skill | Use it to |
+| --- | --- |
+| [`role-ready-application`](skills/role-ready-application/README.md) | Tailor a resume and cover letter to one job, then review the writing |
+| [`posting-fit-check`](skills/posting-fit-check/README.md) | Decide whether a posting is worth applying to |
+| [`interview-prep`](skills/interview-prep/README.md) | Prepare for an interview |
+
+The candidate pack is a plain text file you own, holding your confirmed facts and stated deal-breakers. A skill uses it only when you name or paste it. Keep it on your own device, never in this repository. See [`shared/candidate-rules.md`](shared/candidate-rules.md) for the layout. The same rules file is copied into each skill, so each works when installed alone.
 
 ## Included
 
-The plugin installs one skill: `role-ready-application`, with reference guides for writing review, resume formatting, and role-specific filenames.
+The plugin installs three skills: `role-ready-application`, `posting-fit-check` and `interview-prep`, each carrying the shared candidate rules in its references folder.
 
 See the package-specific skill folders for exact file lists, versions, and changelogs.
