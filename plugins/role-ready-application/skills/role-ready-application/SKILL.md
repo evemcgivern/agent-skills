@@ -1,6 +1,6 @@
 ---
 name: role-ready-application
-description: Tailor a truthful resume and cover letter to one job, then review clarity, candidate voice, factual fidelity, and rendered documents.
+description: Tailor a truthful resume or CV and a matching cover letter to one specific job posting without inventing experience, then review clarity, candidate voice, factual fidelity, and rendered layout. Use when someone says "tailor my resume", "customize my CV for this job", "write a cover letter for this role", or asks for an application review.
 ---
 
 # RoleReady application documents
@@ -27,6 +27,7 @@ Use [Resume format](references/resume-format.md) for the default section order a
 - Keep each target role isolated: distinct evidence map, questions, resume, letter, notes, and filename. For multiple roles, confirm which one to target or follow an explicit batch request. Rebuild from the original resume and applicable confirmed answers, not another role's tailored document. Never transfer role-specific motivations or company claims across applications.
 - Candidate wording, examples, dialect, technical terms, and stated voice preferences outrank generic style suggestions. Do not impose the creator's or another person's personal style. No sample is required, and later voice follow-up is only needed when useful. Without a sample or preference, preserve existing wording; distinctive voice assessment may be UNVERIFIED, but clarity review can proceed.
 - Make one bounded repair pass after findings, then recheck affected claims. Do not recursively review. Never promise ATS ranking, an interview, detector evasion, or that text will pass an AI detector.
+- Stay focused on this candidate and role. Redirect tangents briefly without unrequested career coaching; a new role or task, a correction, or an urgent safety concern is not a tangent, so follow it.
 
 ## Candidate pack
 

@@ -188,7 +188,7 @@ Build truthful role-tailored resumes and cover letters, check whether a job post
 
 - [`interview-prep`](plugins/role-ready-application/skills/interview-prep/README.md) v0.1.0 — Prepare for an interview from the posting and the exact resume and cover letter you sent, with likely questions mapped to your own confirmed examples and honest answers for gaps.
 - [`posting-fit-check`](plugins/role-ready-application/skills/posting-fit-check/README.md) v0.1.0 — Decide whether a job posting is worth applying to by mapping each requirement to your real evidence, then get apply, apply with caveats, or skip.
-- [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) v0.3.0 — Tailor a truthful resume and cover letter to one job, then review clarity, candidate voice, factual fidelity, and rendered documents.
+- [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) v0.3.0 — Tailor a truthful resume or CV and a matching cover letter to one specific job posting without inventing experience, then review clarity, candidate voice, factual fidelity, and rendered layout. Use when someone says "tailor my resume", "customize my CV for this job", "write a cover letter for this role", or asks for an application review.
 
 ### `app-governance-kit`
 
