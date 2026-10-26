@@ -20,7 +20,7 @@ Is this job worth applying to? Resume: [paste]. Job description: [paste]. Deal-b
 Compare these three postings against my resume and rank them. Resume: [paste]. Postings: [paste each].
 ```
 
-The agent asks for anything missing. It then gives a table of each requirement with your evidence marked direct, adjacent/partial, absent or unclear, the honest gaps, a deal-breaker check, questions, and a verdict: apply, apply with caveats, or skip. After apply or apply with caveats it offers to continue with `role-ready-application`.
+The agent asks for anything missing. It then gives a table of each requirement with your evidence marked direct, adjacent/partial, absent or unclear, the honest gaps (a missing "N+ years" or credential is named first as a hard gap), a deal-breaker check, questions, and a verdict: apply, apply with caveats, or skip. After apply or apply with caveats it offers to continue with `role-ready-application`.
 
 **Skip it when**
 - You want a hiring prediction. The skill gives no odds or scores.
