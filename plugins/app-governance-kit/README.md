@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-0.1.0-blue) ![License](https://img.shields.io/badge/license-MIT-green)
 
-Nine portable application-governance skills for application portfolios, AI, access, hardware, and certification preparation.
+Ten portable application-governance skills for application portfolios, AI, access, software lifecycle, hardware, and certification preparation.
 
 ## The full site: visuals and practice
 
@@ -27,6 +27,6 @@ See the [repository README](../../README.md#install) for Claude Code, Codex, oth
 
 ## Included
 
-Skills: access-review, ai-intake, app-governance, cert-prep, crosswalk, hardware-lifecycle, itam-maturity, program-setup, rationalization. Includes the app-governance routing agent and skill reference/template files.
+Skills: access-review, ai-intake, app-governance, cert-prep, crosswalk, hardware-lifecycle, itam-maturity, program-setup, rationalization, software-lifecycle. Includes the app-governance routing agent and skill reference/template files.
 
 See the package-specific skill folders for exact file lists, versions, and changelogs.

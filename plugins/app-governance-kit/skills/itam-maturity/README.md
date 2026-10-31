@@ -73,7 +73,7 @@ claude plugin marketplace add evemcgivern/agent-skills
 claude plugin install app-governance-kit@evemcgivern-skills
 ```
 
-This installs the whole `app-governance-kit` plugin, so you also get its other skills: `access-review`, `ai-intake`, `app-governance`, `cert-prep`, `crosswalk`, `hardware-lifecycle`, `program-setup`, `rationalization`. Run it as `/app-governance-kit:itam-maturity`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install app-governance-kit@evemcgivern-skills`.
+This installs the whole `app-governance-kit` plugin, so you also get its other skills: `access-review`, `ai-intake`, `app-governance`, `cert-prep`, `crosswalk`, `hardware-lifecycle`, `program-setup`, `rationalization`, `software-lifecycle`. Run it as `/app-governance-kit:itam-maturity`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install app-governance-kit@evemcgivern-skills`.
 
 Update later with `claude plugin marketplace update evemcgivern-skills`, then `claude plugin update app-governance-kit@evemcgivern-skills`.
 

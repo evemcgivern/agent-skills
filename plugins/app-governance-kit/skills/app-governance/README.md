@@ -57,7 +57,7 @@ claude plugin marketplace add evemcgivern/agent-skills
 claude plugin install app-governance-kit@evemcgivern-skills
 ```
 
-This installs the whole `app-governance-kit` plugin, so you also get its other skills: `access-review`, `ai-intake`, `cert-prep`, `crosswalk`, `hardware-lifecycle`, `itam-maturity`, `program-setup`, `rationalization`. Run it as `/app-governance-kit:app-governance`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install app-governance-kit@evemcgivern-skills`.
+This installs the whole `app-governance-kit` plugin, so you also get its other skills: `access-review`, `ai-intake`, `cert-prep`, `crosswalk`, `hardware-lifecycle`, `itam-maturity`, `program-setup`, `rationalization`, `software-lifecycle`. Run it as `/app-governance-kit:app-governance`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install app-governance-kit@evemcgivern-skills`.
 
 Update later with `claude plugin marketplace update evemcgivern-skills`, then `claude plugin update app-governance-kit@evemcgivern-skills`.
 
@@ -70,7 +70,7 @@ scripts/install.sh app-governance   # into ~/.claude/skills/app-governance
 
 Add `--project <repo-path>` for one repository only, or `--force` to replace a copy you already have.
 
-The router runs the kit's other skills, so all nine must be installed together. The plugin install does that. For single-skill copies, copy all nine: `scripts/install.sh access-review ai-intake app-governance cert-prep crosswalk hardware-lifecycle itam-maturity program-setup rationalization`.
+The router runs the kit's other skills, so all ten must be installed together. The plugin install does that. For single-skill copies, copy all ten: `scripts/install.sh access-review ai-intake app-governance cert-prep crosswalk hardware-lifecycle itam-maturity program-setup rationalization software-lifecycle`.
 
 </details>
 
@@ -93,7 +93,7 @@ scripts/install.sh --target codex app-governance   # into ~/.agents/skills/app-g
 
 Add `--project <repo-path>` to install into that repository's `.agents/skills/app-governance/` instead. Or copy this folder by hand to `~/.agents/skills/app-governance/`, or `.agents/skills/app-governance/` in a repository; keep every file in it together. Start a new session and invoke the skill by name. See the [Codex skills docs](https://developers.openai.com/codex/skills-and-plugins).
 
-The router runs the kit's other skills, so install all nine together: `scripts/install.sh --target codex access-review ai-intake app-governance cert-prep crosswalk hardware-lifecycle itam-maturity program-setup rationalization`.
+The router runs the kit's other skills, so install all ten together: `scripts/install.sh --target codex access-review ai-intake app-governance cert-prep crosswalk hardware-lifecycle itam-maturity program-setup rationalization software-lifecycle`.
 
 </details>
 
@@ -106,7 +106,7 @@ These agents load `SKILL.md` folders directly. Copy this whole folder to the pla
 - Windsurf: `<repo>/.agents/skills/app-governance/`.
 - Cline: `<repo>/.cline/skills/app-governance/`, `<repo>/.claude/skills/app-governance/` or `~/.cline/skills/app-governance/`.
 
-The router runs the kit's other skills, so copy all nine kit skill folders into the same skills folder.
+The router runs the kit's other skills, so copy all ten kit skill folders into the same skills folder.
 
 </details>
 
@@ -122,7 +122,7 @@ The router runs the kit's other skills, so copy all nine kit skill folders into 
 
 On Enterprise, an owner must first enable skills under Organization settings. The same upload works in Claude Cowork. Local `~/.claude/skills/` files do not sync to Claude.ai, so the upload is needed; or commit the folder to a project repository's `.claude/skills/`.
 
-Upload all nine kit skills, one ZIP each, so the router can run the one it picks.
+Upload the kit skills, one ZIP each, so the router can run the one it picks. `software-lifecycle` is not for the Claude app, because running it there would mean uploading your inventory.
 
 </details>
 

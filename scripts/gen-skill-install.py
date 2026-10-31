@@ -38,7 +38,7 @@ PLATFORMS = [
 SHORT_NAME = {"cli": "Claude Code (terminal CLI)", "desktop": "Claude Code desktop app", "codex": "Codex",
               "other": "Other agents", "app": "Claude app", "chatgpt": "ChatGPT"}
 
-KIT_ALL = "access-review ai-intake app-governance cert-prep crosswalk hardware-lifecycle itam-maturity program-setup rationalization"
+KIT_ALL = "access-review ai-intake app-governance cert-prep crosswalk hardware-lifecycle itam-maturity program-setup rationalization software-lifecycle"
 KIT_SITE_LINE = f"The kit's full site, with visuals and an interactive practicum: {KIT_SITE}"
 KIT_SKILLS = KIT_ALL.split()
 
@@ -78,22 +78,27 @@ EXTRAS = {
     },
     "app-governance": {
         "cli": [
-            f"The router runs the kit's other skills, so all nine must be installed together. The plugin install does that. For single-skill copies, copy all nine: `scripts/install.sh {KIT_ALL}`.",
+            f"The router runs the kit's other skills, so all ten must be installed together. The plugin install does that. For single-skill copies, copy all ten: `scripts/install.sh {KIT_ALL}`.",
         ],
         "codex": [
-            f"The router runs the kit's other skills, so install all nine together: `scripts/install.sh --target codex {KIT_ALL}`.",
+            f"The router runs the kit's other skills, so install all ten together: `scripts/install.sh --target codex {KIT_ALL}`.",
         ],
         "other": [
-            "The router runs the kit's other skills, so copy all nine kit skill folders into the same skills folder.",
+            "The router runs the kit's other skills, so copy all ten kit skill folders into the same skills folder.",
         ],
         "app": [
-            "Upload all nine kit skills, one ZIP each, so the router can run the one it picks.",
+            "Upload the kit skills, one ZIP each, so the router can run the one it picks. `software-lifecycle` is not for the Claude app, because running it there would mean uploading your inventory.",
         ],
         "chatgpt": [
             "In ChatGPT each kit skill is a separate upload, and opening a second skill from this router is not verified, so it names the skill for you to open instead.",
         ],
         "footer": [
             f"With no data of your own, the router offers the fictional Halden demo estate. A single-skill install does not include it; download the files from [`demo-estate/`]({DEMO_ESTATE}).",
+        ],
+    },
+    "software-lifecycle": {
+        "footer": [
+            "The skill needs the [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool, Python 3.9 or newer and git on your own machine. Its steps fetch the tool at release v0.4.0, commit `5e06c829b8211aa061c0de7d1dbc1688626407fd`, and check `git rev-parse HEAD`.",
         ],
     },
     "cert-prep": {

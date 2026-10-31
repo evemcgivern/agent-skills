@@ -81,3 +81,15 @@ SOFTWARE.
 ## Pimzino/spec-workflow-mcp
 
 The `spec-workflow` and `spec-workflow-drift` skills are companions for the [spec-workflow-mcp](https://github.com/Pimzino/spec-workflow-mcp) server (GPL-3.0). They call its tools and read its `.spec-workflow/` folder. They contain none of its code. Install the server separately and follow its license.
+
+## evemcgivern/software-lifecycle
+
+The `software-lifecycle` skill is a companion for the [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool (MIT, Eve McGivern), pinned to release v0.4.0, commit `5e06c829b8211aa061c0de7d1dbc1688626407fd`. The skill tells an agent how to fetch and run the tool. It contains none of the tool's code or data. Fetch the tool separately and follow its license and its THIRD-PARTY.md.
+
+## endoflife.date
+
+The software-lifecycle tool bundles end-of-life dates derived from the [endoflife.date](https://github.com/endoflife-date/endoflife.date) product files (MIT, endoflife.date contributors). The `software-lifecycle` skill bundles none of that data; the tool carries the attribution and license text.
+
+## CISA Known Exploited Vulnerabilities catalog
+
+The software-lifecycle tool bundles vendor, product, CVE id and date-added fields from the [CISA Known Exploited Vulnerabilities catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), a public US government catalog that CISA publishes under CC0 1.0 (license in [cisagov/kev-data](https://github.com/cisagov/kev-data)). The `software-lifecycle` skill bundles none of that data.

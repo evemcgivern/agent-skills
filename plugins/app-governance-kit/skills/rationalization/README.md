@@ -22,6 +22,7 @@ You get a table of apps with a recommendation and reason, duplicate pairs, licen
 
 **Skip it when**
 - You want to review who can log in to each app. Use the access-review skill.
+- You want to know which installed software is past or near end of life. Use the software-lifecycle skill.
 
 ## What it looks like
 
@@ -71,7 +72,7 @@ claude plugin marketplace add evemcgivern/agent-skills
 claude plugin install app-governance-kit@evemcgivern-skills
 ```
 
-This installs the whole `app-governance-kit` plugin, so you also get its other skills: `access-review`, `ai-intake`, `app-governance`, `cert-prep`, `crosswalk`, `hardware-lifecycle`, `itam-maturity`, `program-setup`. Run it as `/app-governance-kit:rationalization`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install app-governance-kit@evemcgivern-skills`.
+This installs the whole `app-governance-kit` plugin, so you also get its other skills: `access-review`, `ai-intake`, `app-governance`, `cert-prep`, `crosswalk`, `hardware-lifecycle`, `itam-maturity`, `program-setup`, `software-lifecycle`. Run it as `/app-governance-kit:rationalization`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install app-governance-kit@evemcgivern-skills`.
 
 Update later with `claude plugin marketplace update evemcgivern-skills`, then `claude plugin update app-governance-kit@evemcgivern-skills`.
 

@@ -111,8 +111,8 @@
     },
     "app-governance": {
       "plugin": "app-governance-kit",
-      "claude": {"code": {"level": "full", "note": "Routes to the other kit skills when all nine are installed."}, "app": {"level": "full", "note": "Routes to the other kit skills when all nine are uploaded."}},
-      "codex_chatgpt": {"codex": {"level": "full", "note": "Routes to the other kit skills when all nine are installed."}, "chatgpt": {"level": "partial", "note": "Opening a second uploaded skill is not verified in ChatGPT, so it names the skill for you to open."}},
+      "claude": {"code": {"level": "full", "note": "Routes to the other kit skills when all ten are installed."}, "app": {"level": "full", "note": "Routes to the other kit skills when they are uploaded; software-lifecycle is not for the app, because it would mean uploading the inventory."}},
+      "codex_chatgpt": {"codex": {"level": "full", "note": "Routes to the other kit skills when all ten are installed."}, "chatgpt": {"level": "partial", "note": "Opening a second uploaded skill is not verified in ChatGPT, so it names the skill for you to open."}},
       "other": {"level": "full", "note": "Works when the other kit skills are installed in the same skills folder."}
     },
     "cert-prep": {
@@ -150,6 +150,12 @@
       "claude": {"code": {"level": "full", "note": "Read-only analysis of an app and license inventory you attach."}, "app": {"level": "full", "note": "Read-only analysis of an app and license inventory you attach."}},
       "codex_chatgpt": {"codex": {"level": "full", "note": "Read-only analysis of an app and license inventory you attach."}, "chatgpt": {"level": "full", "note": "Read-only analysis of an app and license inventory you attach."}},
       "other": {"level": "full", "note": "Nothing host-specific."}
+    },
+    "software-lifecycle": {
+      "plugin": "app-governance-kit",
+      "claude": {"code": {"level": "full", "note": "Runs the software-lifecycle tool locally with python3 and git, in counts-only mode."}, "app": {"level": "no", "note": "Running it in the Claude app would mean uploading your confidential inventory to a remote sandbox; run it on your own machine instead."}},
+      "codex_chatgpt": {"codex": {"level": "full", "note": "Runs the software-lifecycle tool locally with python3 and git, in counts-only mode."}, "chatgpt": {"level": "no", "note": "Running it in ChatGPT would mean uploading your confidential inventory to a remote sandbox; run it on your own machine instead."}},
+      "other": {"level": "full", "note": "Works in any local agent with python3 3.9 or newer and git; the tool is tested on macOS and Linux, not on Windows."}
     },
     "audit-background-processes": {
       "plugin": "engineering-practices",
