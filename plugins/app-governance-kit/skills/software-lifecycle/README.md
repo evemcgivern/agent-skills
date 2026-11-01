@@ -7,7 +7,7 @@
 
 Find installed software past or near end of life, with a CISA KEV needs-review flag, by running the offline [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool on a software inventory export on your own machine. Reports summary counts only, never names or item IDs. Use for a quarterly software lifecycle review or before an upgrade budget request.
 
-The skill holds instructions only. The check itself is done by the software-lifecycle tool, pinned to release v0.6.0, commit `55152ec805166b3c15a62469cacdeb6e13d71116`. Runs locally with no network by default; not independently assessed.
+The skill holds instructions only. The check itself is done by the software-lifecycle tool, pinned to release v0.7.0, commit `1ebc996e52b728507a4113aee6c67ea0e208a9e7`. Runs locally with no network by default; not independently assessed.
 
 ## When and how to use it
 
@@ -29,7 +29,7 @@ The agent asks for your header row, gets the tool at the pinned commit, runs `pr
 
 ## What it looks like
 
-Example of what the agent reports on the tool's synthetic demo (`examples/` at the pinned commit, 60 rows, checked 2026-10-24 against the synthetic test data). The counts come from an earlier release of the tool and were not re-run on v0.6.0: Unverified.
+Example of what the agent reports on the tool's synthetic demo (`examples/` at the pinned commit, 60 rows, checked 2026-10-24 against the synthetic test data). The counts come from an earlier release of the tool and were not re-run on v0.7.0: Unverified.
 
 ````text
 Checked on 2026-10-24. KEV data current: yes (synthetic demo data).
@@ -130,11 +130,13 @@ Use Claude Code or Codex on your computer instead.
 
 </details>
 
-The skill needs the [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool, Python 3.9 or newer and git on your own machine. Its steps fetch the tool at release v0.6.0, commit `55152ec805166b3c15a62469cacdeb6e13d71116`, and check `git rev-parse HEAD`.
+The skill needs the [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool, Python 3.9 or newer and git on your own machine. Its steps fetch the tool at release v0.7.0, commit `1ebc996e52b728507a4113aee6c67ea0e208a9e7`, and check `git rev-parse HEAD`.
 
 The kit's full site, with visuals and an interactive practicum: https://evemcgivern.github.io/app-governance-kit/
 
 <!-- install:end -->
+
+The tool also ships an optional counts-only server for desktop chat apps and a one-click Claude Desktop package, which is unsigned. The tool's docs say each was tested once on one Mac; everything beyond that is Unverified. See the tool's [docs/mcp-setup.md](https://github.com/evemcgivern/software-lifecycle/blob/main/docs/mcp-setup.md). This skill does not use them.
 
 ## Included
 
