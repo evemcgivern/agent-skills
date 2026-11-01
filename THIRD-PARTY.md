@@ -84,7 +84,7 @@ The `spec-workflow` and `spec-workflow-drift` skills are companions for the [spe
 
 ## evemcgivern/software-lifecycle
 
-The `software-lifecycle` skill is a companion for the [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool (MIT, Eve McGivern), pinned to release v0.4.0, commit `5e06c829b8211aa061c0de7d1dbc1688626407fd`. The skill tells an agent how to fetch and run the tool. It contains none of the tool's code or data. Fetch the tool separately and follow its license and its THIRD-PARTY.md.
+The `software-lifecycle` skill is a companion for the [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool (MIT, Eve McGivern), pinned to release v0.6.0, commit `55152ec805166b3c15a62469cacdeb6e13d71116`. The skill tells an agent how to fetch and run the tool. It contains none of the tool's code or data. Fetch the tool separately and follow its license and its THIRD-PARTY.md.
 
 ## endoflife.date
 

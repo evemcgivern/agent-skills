@@ -5,9 +5,9 @@
 [![Claude: Code full, app no](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%9C%96-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT no](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%9C%96-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
 > Not for the Claude app or ChatGPT: running it there would mean uploading your inventory to a remote sandbox. The tool runs on your own machine, next to the inventory.
 
-Find installed software past or near end of life, with a CISA KEV needs-review flag, by running the offline [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool on a software inventory export on your own machine. Reports counts and item IDs only, never names. Use for a quarterly software lifecycle review or before an upgrade budget request.
+Find installed software past or near end of life, with a CISA KEV needs-review flag, by running the offline [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool on a software inventory export on your own machine. Reports summary counts only, never names or item IDs. Use for a quarterly software lifecycle review or before an upgrade budget request.
 
-The skill holds instructions only. The check itself is done by the software-lifecycle tool, pinned to release v0.4.0, commit `5e06c829b8211aa061c0de7d1dbc1688626407fd`. Runs locally with no network by default; built to enterprise security practices; not independently assessed.
+The skill holds instructions only. The check itself is done by the software-lifecycle tool, pinned to release v0.6.0, commit `55152ec805166b3c15a62469cacdeb6e13d71116`. Runs locally with no network by default; not independently assessed.
 
 ## When and how to use it
 
@@ -21,7 +21,7 @@ The skill holds instructions only. The check itself is done by the software-life
 Check our software inventory export for end of life as of 2026-10-24. Counts only.
 Which item IDs need review because their vendor and product appear in CISA KEV?
 ```
-The agent asks for your header row, gets the tool at the pinned commit, runs it with `--counts-only` into a folder you name, and reports counts and item IDs. It does not open the inventory or the full report.
+The agent asks for your header row, gets the tool at the pinned commit, runs `preflight` and then the check with `--counts-only` into a folder you name, and reports summary counts. It does not name item IDs, and it does not open the inventory or the full report.
 
 **Skip it when**
 - You need to review software licenses or duplicate apps. Use the rationalization skill.
@@ -29,7 +29,7 @@ The agent asks for your header row, gets the tool at the pinned commit, runs it 
 
 ## What it looks like
 
-Example output on the tool's synthetic demo (`examples/` at the pinned commit, 60 rows, checked 2026-10-24 against the synthetic test data):
+Example of what the agent reports on the tool's synthetic demo (`examples/` at the pinned commit, 60 rows, checked 2026-10-24 against the synthetic test data). The counts come from an earlier release of the tool and were not re-run on v0.6.0: Unverified.
 
 ````text
 Checked on 2026-10-24. KEV data current: yes (synthetic demo data).
@@ -40,27 +40,17 @@ Supported 25 · Unmatched 11
 Names to review: 1 (unmatched on purpose, not a finding).
 Classification: governable 40, component 0, bundle member 3, unknown 7.
 
-Review urgently (2): a3f0e99e87b4, c3756f7f9c32
+Item IDs are not relayed. Read each list in report.md yourself.
 The vendor and product appear in CISA KEV. This does not mean your version is affected.
-
-Unmatched (11): no date is claimed. Unmatched does not mean safe.
 
 Decision needed: for each past-end-of-life or ends-soon item, the asset owner
 chooses replace, upgrade, retire, or request risk acceptance.
 Decision needed: a person checks each review-urgently version against KEV.
-Decision needed: the ITAM lead settles the 4 dates-disagree items.
 
 ```findings
-[{"type": "past_eol", "id": "0a668be21645"},
- {"type": "past_eol", "id": "c3756f7f9c32"},
- {"type": "ends_soon", "id": "a3f0e99e87b4"},
- {"type": "kev_needs_review", "id": "a3f0e99e87b4"},
- {"type": "kev_needs_review", "id": "c3756f7f9c32"},
- {"type": "unmatched_review", "id": "0879b8a5b037"}]
+[]
 ```
 ````
-
-The findings block is shortened here; a real run lists every item ID on each list.
 
 ## Install
 
@@ -140,7 +130,7 @@ Use Claude Code or Codex on your computer instead.
 
 </details>
 
-The skill needs the [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool, Python 3.9 or newer and git on your own machine. Its steps fetch the tool at release v0.4.0, commit `5e06c829b8211aa061c0de7d1dbc1688626407fd`, and check `git rev-parse HEAD`.
+The skill needs the [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool, Python 3.9 or newer and git on your own machine. Its steps fetch the tool at release v0.6.0, commit `55152ec805166b3c15a62469cacdeb6e13d71116`, and check `git rev-parse HEAD`.
 
 The kit's full site, with visuals and an interactive practicum: https://evemcgivern.github.io/app-governance-kit/
 

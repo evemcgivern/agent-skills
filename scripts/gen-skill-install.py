@@ -98,7 +98,7 @@ EXTRAS = {
     },
     "software-lifecycle": {
         "footer": [
-            "The skill needs the [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool, Python 3.9 or newer and git on your own machine. Its steps fetch the tool at release v0.4.0, commit `5e06c829b8211aa061c0de7d1dbc1688626407fd`, and check `git rev-parse HEAD`.",
+            "The skill needs the [software-lifecycle](https://github.com/evemcgivern/software-lifecycle) tool, Python 3.9 or newer and git on your own machine. Its steps fetch the tool at release v0.6.0, commit `55152ec805166b3c15a62469cacdeb6e13d71116`, and check `git rev-parse HEAD`.",
         ],
     },
     "cert-prep": {
