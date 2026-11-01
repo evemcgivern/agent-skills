@@ -1,5 +1,12 @@
 # Changelog — RoleReady Application
 
+## [0.5.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.4.0...role-ready-application-v0.5.0) (2026-11-01)
+
+
+### Features
+
+* **role-ready:** lead bullets with results ([#81](https://github.com/evemcgivern/agent-skills/issues/81)) ([2c0f717](https://github.com/evemcgivern/agent-skills/commit/2c0f71775a3db8f8d0a0ec14fd865f7440ca232c)), closes [#82](https://github.com/evemcgivern/agent-skills/issues/82)
+
 ## [0.4.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.3.0...role-ready-application-v0.4.0) (2026-10-25)
 
 
