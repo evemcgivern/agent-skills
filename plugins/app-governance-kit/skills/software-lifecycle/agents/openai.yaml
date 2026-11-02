@@ -1,0 +1,3 @@
+interface:
+  display_name: "Software Lifecycle"
+  short_description: "Find installed software past or near end of life, with a CISA KEV…"

@@ -1,6 +1,6 @@
 # Eve McGivern's Agent Skills
 
-[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-39-blue.svg)](#skills)
+[![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE) [![Skills](https://img.shields.io/badge/skills-40-blue.svg)](#skills)
 
 Skills for Claude Code, Codex and other agents that read `SKILL.md` folders (Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot and more), packaged as a Claude Code plugin marketplace. Each skill is a folder with a `SKILL.md`. [Compatibility](#compatibility) shows where each skill works; under [Install](#install), pick your tool and one click opens the steps.
 
@@ -23,7 +23,7 @@ Every skill README shows three badges, one per group of hosts. The first two spl
 `.agents/skills` is read by Codex, Gemini CLI, Antigravity CLI, Cursor, GitHub Copilot, OpenCode and Windsurf; Claude Code reads `.claude/skills` instead, and Cline reads `.cline/skills` or `.claude/skills`. Antigravity CLI replaced Gemini CLI for unpaid and Google One users on 2026-06-18.
 
 <details>
-<summary><b>All 39 skills</b> (✔ full, ◐ partial, ✖ no)</summary>
+<summary><b>All 40 skills</b> (✔ full, ◐ partial, ✖ no)</summary>
 
 | Skill | Plugin | Claude Code | Claude app | Codex | ChatGPT | Other agents |
 |---|---|:-:|:-:|:-:|:-:|:-:|
@@ -50,6 +50,7 @@ Every skill README shows three badges, one per group of hosts. The first two spl
 | [`itam-maturity`](plugins/app-governance-kit/skills/itam-maturity/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ✔ | ✔ |
 | [`program-setup`](plugins/app-governance-kit/skills/program-setup/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ✔ | ✔ |
 | [`rationalization`](plugins/app-governance-kit/skills/rationalization/README.md) | app-governance-kit | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`software-lifecycle`](plugins/app-governance-kit/skills/software-lifecycle/README.md) | app-governance-kit | ✔ | ✖ | ✔ | ✖ | ✔ |
 | [`audit-background-processes`](plugins/engineering-practices/skills/audit-background-processes/README.md) | engineering-practices | ✔ | ✖ | ✔ | ✖ | ✔ |
 | [`background-jobs`](plugins/engineering-practices/skills/background-jobs/README.md) | engineering-practices | ✔ | ✔ | ✔ | ✔ | ✔ |
 | [`launch-chrome-debug`](plugins/engineering-practices/skills/launch-chrome-debug/README.md) | engineering-practices | ✔ | ✖ | ✔ | ✖ | ✔ |
@@ -203,6 +204,7 @@ Application portfolio, AI, and access governance methods. Full site with visuals
 - [`itam-maturity`](plugins/app-governance-kit/skills/itam-maturity/README.md) v0.1.1 — Score an organization's IT asset management maturity across nine process areas, name the three biggest gaps, and produce a 90-day plan tied to ISO/IEC 19770-1 and COBIT BAI09.
 - [`program-setup`](plugins/app-governance-kit/skills/program-setup/README.md) v0.1.1 — Design or review the launch of a governance body such as a software governance council, ITAM steering group, or AI governance board — charter, decision rights, membership, intake path, cadence, 90-day launch plan, and success measures.
 - [`rationalization`](plugins/app-governance-kit/skills/rationalization/README.md) v0.1.1 — Recommend tolerate, invest, migrate, or eliminate for each application in an inventory, find duplicates and license problems, and summarize savings and risk.
+- [`software-lifecycle`](plugins/app-governance-kit/skills/software-lifecycle/README.md) v0.1.0 — Find installed software past or near end of life, with a CISA KEV needs-review flag, by running the offline software-lifecycle tool on a software inventory export on the person's own machine. Reports summary counts only, never names or item IDs.
 
 ### `engineering-practices`
 

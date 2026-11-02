@@ -141,6 +141,12 @@
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
+    "plugins/app-governance-kit/skills/software-lifecycle": {
+      "release-type": "simple",
+      "package-name": "software-lifecycle",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
     "plugins/engineering-practices/skills/audit-background-processes": {
       "release-type": "simple",
       "package-name": "audit-background-processes",

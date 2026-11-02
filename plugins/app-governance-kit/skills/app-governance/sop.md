@@ -42,4 +42,5 @@ Run on demand, whenever a governance question arrives without a chosen tool.
 - [Access review pack](../access-review/) (`access-review`)
 - [AI system intake and risk tiering](../ai-intake/) (`ai-intake`)
 - [Hardware lifecycle check](../hardware-lifecycle/) (`hardware-lifecycle`)
+- [Software lifecycle check](../software-lifecycle/) (`software-lifecycle`)
 - [Certification study coach](../cert-prep/) (`cert-prep`)
