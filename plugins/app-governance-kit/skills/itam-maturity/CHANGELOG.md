@@ -1,5 +1,12 @@
 # Changelog — Itam Maturity
 
+## [0.2.0](https://github.com/evemcgivern/agent-skills/compare/itam-maturity-v0.1.1...itam-maturity-v0.2.0) (2026-11-02)
+
+
+### Features
+
+* **app-governance-kit:** add lifecycle skill ([#84](https://github.com/evemcgivern/agent-skills/issues/84)) ([add22cb](https://github.com/evemcgivern/agent-skills/commit/add22cbfd107572a7f18f8524096493f63bee6a1)), closes [#78](https://github.com/evemcgivern/agent-skills/issues/78)
+
 ## [0.1.1](https://github.com/evemcgivern/agent-skills/compare/itam-maturity-v0.1.0...itam-maturity-v0.1.1) (2026-10-17)
 
 
