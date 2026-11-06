@@ -20,8 +20,13 @@ Existing Sonnet 5 prompts work on 5.5 without changes. Add a fix only when the u
    - **B. A standing prompt** (system prompt, agent definition, SKILL.md, CLAUDE.md block).
    - **C. An API call that must return JSON.**
    If unclear, assume A and say so.
-2. **Frame it problem-first** (the `problem-first` skill, if installed, holds the full rules): the user's problem and evidence in their own words, their fix ideas labelled as ideas, an autonomy line, and a finish line they stated. A fully specified mechanical edit stays as is. Leave `[ ]` slots for missing facts; never invent them.
-3. **Match symptoms to fixes.** Use only the rows that apply:
+2. **List the gaps first.** Write down four things from the prompt: intent and the entities it names (files, systems, people); output goal and format; constraints stated; what is missing. Each missing fact becomes a `[ ]` slot in step 3 or a question in step 6. Then pick the task type and note which slots matter most:
+   - **Creative**: tone, audience, how many alternatives.
+   - **Technical**: exact target, hard constraints, the output format or acceptance check.
+   - **Educational**: the learner's level, whether examples are wanted.
+   - **Complex**: scope boundaries, step order, where to stop and check in.
+3. **Frame it problem-first** (the `problem-first` skill, if installed, holds the full rules): the user's problem and evidence in their own words, their fix ideas labelled as ideas, an autonomy line, and a finish line they stated. A fully specified mechanical edit stays as is. Leave `[ ]` slots for missing facts; never invent them.
+4. **Match symptoms to fixes.** Use only the rows that apply:
 
    | Symptom | Fix |
    |---|---|
@@ -38,13 +43,13 @@ Existing Sonnet 5 prompts work on 5.5 without changes. Add a fix only when the u
    | Refusal with `reasoning_extraction` | Remove instructions that ask the model to reproduce its reasoning in the reply. Ask for a short explanation or action summary instead. |
 
    Do not add "think less" lines: they do not reliably cut thinking. Lower the effort setting instead.
-4. **Suggest settings** (one line, only for B and C):
+5. **Suggest settings** (one line, only for B and C):
    - Effort levels are recalibrated for 5.5, so sweep them against real evals instead of reusing the Sonnet 5 setting.
    - Start at high. For agentic coding, start at medium for well-specified tasks and high for harder ones. For chat or latency-sensitive work, medium or low.
    - Reserve xhigh and max for cases where a quality gain was measured.
    - Leave room in max_tokens for thinking plus the reply.
    - Changing the top-level effort between requests breaks the prompt cache; a per-message effort change (beta, adaptive thinking only) keeps it.
-5. **Show** the improved prompt in one code block, then one line per change, each tied to its symptom. Ask at most two questions, only for slots that block the prompt.
+6. **Show** the improved prompt in one code block, then one line per change, each tied to its symptom. Ask at most two questions, only for slots that block the prompt.
 
 ## Repo rules win
 
