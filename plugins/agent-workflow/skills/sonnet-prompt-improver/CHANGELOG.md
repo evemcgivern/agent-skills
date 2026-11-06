@@ -1,5 +1,12 @@
 # Changelog: sonnet-prompt-improver
 
+## [0.4.0](https://github.com/evemcgivern/agent-skills/compare/sonnet-prompt-improver-v0.3.0...sonnet-prompt-improver-v0.4.0) (2026-11-06)
+
+
+### Features
+
+* **sonnet-prompt-improver:** add gap list ([#87](https://github.com/evemcgivern/agent-skills/issues/87)) ([820b442](https://github.com/evemcgivern/agent-skills/commit/820b442e82981fe7d1de3048afe1c9fdfc4ceec8))
+
 ## [0.3.0](https://github.com/evemcgivern/agent-skills/compare/sonnet-prompt-improver-v0.2.0...sonnet-prompt-improver-v0.3.0) (2026-10-18)
 
 
