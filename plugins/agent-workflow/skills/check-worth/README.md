@@ -5,7 +5,7 @@
 [![Claude: Code full, app partial](https://img.shields.io/badge/Claude-Code%20%E2%9C%94%20%C2%B7%20app%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Codex / ChatGPT: Codex full, ChatGPT partial](https://img.shields.io/badge/Codex%20%2F%20ChatGPT-Codex%20%E2%9C%94%20%C2%B7%20ChatGPT%20%E2%97%90-brightgreen)](../../../../README.md#compatibility) [![Other agents: full](https://img.shields.io/badge/Other%20agents-%E2%9C%94-brightgreen)](../../../../README.md#compatibility)
 > In the Claude app and ChatGPT it reads the source but cannot check it against your repo or GitHub issues.
 
-Reviews an external PDF, image, screenshot, article, or URL against a repository's open and closed issues and its code, and sorts each idea into already tracked, shipped, superseded, a candidate new issue, or not actionable, with `file:line` evidence and `UNABLE TO VERIFY` where the source falls short. Read-only unless you authorize issue creation or code changes. Use on "/check-worth" or when asking whether an external idea is worth pulling into a repository.
+Reviews an external PDF, image, screenshot, article, or URL against a repository's open and closed issues and its code, and sorts each idea into already tracked, shipped, superseded, a candidate new issue, or not actionable, with `file:line` evidence and `UNABLE TO VERIFY` where the source falls short. Read-only unless you authorize issue creation or code changes. Use on "/check-worth" or when asking whether an external idea is worth pulling into a repository. Add `--book <title>` to review a book from your own books folder.
 
 ## When and how to use it
 
@@ -13,15 +13,28 @@ Reviews an external PDF, image, screenshot, article, or URL against a repository
 - A colleague sends a PDF of ideas and you want to know what your repo already covers.
 - You see an article about retry budgets and wonder if it is worth an issue.
 - A screenshot shows a feature in another product and you want to know if your code has it.
+- A book in your local library might change how you build something, and you want to know which chapters are worth acting on.
 
 **Try it**
 
 ```text
 /check-worth ./vendor-report.pdf
+/check-worth --book "Context Engineering"
 Is the idea in https://example.com/blog/retry-budgets worth an issue in this repo?
 ```
 
 A table with each takeaway, its status in your repo (new, tracked, shipped, contradicted or unverifiable), the evidence and a recommendation. The review is read-only. It files an issue only if you say so. Other agents can ask in words.
+
+### Book mode
+
+`/check-worth --book <title, partial title, or path>` reviews a book from a local folder of PDFs and epubs, found by title.
+
+1. Set `CHECK_WORTH_BOOKS_DIR` to your books folder, for example in the `env` block of `~/.claude/settings.json`. If it is unset and you pass a title instead of a path, the skill asks for the folder and does not search your disk.
+2. It searches that folder for the title and asks which one you meant if several match. If none match it says "Not found" and stops.
+3. It reads the table of contents, picks the chapters that bear on the current repository, and reads only those. The report names the chapters it read and what it did not, so you know how far the verdict reaches.
+4. It never moves, renames, deletes or adds files in your library. Extraction output goes in a temporary directory that is removed afterward.
+
+Everything else works as in a normal review.
 
 **Skip it when**
 - You already know you want the change. Write the issue or the code directly.
