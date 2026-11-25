@@ -1,5 +1,12 @@
 # Changelog — RoleReady Application
 
+## [0.10.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.9.0...role-ready-application-v0.10.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** make project sections optional ([#107](https://github.com/evemcgivern/agent-skills/issues/107)) ([1ea4827](https://github.com/evemcgivern/agent-skills/commit/1ea482762c5210f3730348525fe939f0290c5c8b)), closes [#106](https://github.com/evemcgivern/agent-skills/issues/106)
+
 ## [0.9.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.8.0...role-ready-application-v0.9.0) (2026-11-25)
 
 
