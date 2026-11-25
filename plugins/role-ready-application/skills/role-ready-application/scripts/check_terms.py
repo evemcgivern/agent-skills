@@ -50,7 +50,10 @@ def stem(word: str) -> str:
         word = word[:-1]
     for suffix in ("ing", "ed"):
         if word.endswith(suffix) and len(word) > len(suffix) + 3:
-            return word[: -len(suffix)]
+            word = word[: -len(suffix)]
+            break
+    if word.endswith("e") and len(word) > 4:
+        word = word[:-1]  # manage, managed and managing share one stem
     return word
 
 

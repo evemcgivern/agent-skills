@@ -31,6 +31,12 @@ class CheckTermsTests(unittest.TestCase):
     def test_plural_and_tense_variants_match_the_source(self) -> None:
         self.assertEqual(flagged("Audits and tracing of applications."), [])
 
+    def test_silent_e_forms_share_a_stem(self) -> None:
+        self.assertEqual(check_terms.check("manage the team", "managed", "managed the team"), [])
+
+    def test_a_different_derived_form_is_flagged(self) -> None:
+        self.assertEqual([t for t, _ in check_terms.check("reconciled records", "reconciliation", "reconciliation of records")], ["reconciliation"])
+
     def test_words_only_in_the_resume_are_not_flagged(self) -> None:
         self.assertEqual(flagged("Wrote a data glossary."), [])
 

@@ -6,6 +6,9 @@ under 4 pt, Word's hidden-text flag, display:none, zero-size or transparent styl
 Findings are possible matches. Quote them and let the candidate judge. A clean result does not prove
 the file has no hidden text, and PDF files are not covered (mark them UNVERIFIED).
 
+Linked external stylesheets are not read, so text hidden by one is not found; inline styles, attributes
+and embedded <style> class rules are.
+
 Usage: scan_hidden_text.py FILE.docx|FILE.html
 """
 
@@ -70,6 +73,16 @@ def scan_html(path: str) -> list[Finding]:
     html = open(path, encoding="utf-8", errors="replace").read()
     findings: list[Finding] = [Finding("HTML comment", c.strip()) for c in re.findall(r"<!--(.*?)-->", html, flags=re.S) if c.strip()]
     hidden = r"display\s*:\s*none|visibility\s*:\s*hidden|font-size\s*:\s*0(?:px|pt|em|rem)?(?![\d.])|opacity\s*:\s*0(?![.\d])|color\s*:\s*(?:white|#f{3}\b|#f{6}\b)|text-indent\s*:\s*-\d{3,}"
+    hidden_classes: set[str] = set()
+    for block in re.findall(r"<style[^>]*>(.*?)</style>", html, flags=re.S | re.I):
+        for selector, body in re.findall(r"([^{}]+)\{([^}]*)\}", block):
+            if re.search(hidden, body, re.I):
+                hidden_classes.update(re.findall(r"\.([\w-]+)", selector))
+    for m in re.finditer(r"<(\w+)[^>]*\bclass\s*=\s*\"([^\"]*)\"[^>]*>(.*?)</\1>", html, flags=re.S | re.I):
+        if hidden_classes & set(m.group(2).split()):
+            text = unescape(re.sub(r"<[^>]+>", " ", m.group(3))).strip()
+            if text:
+                findings.append(Finding("hidden by a style rule", " ".join(text.split())))
     for m in re.finditer(r"<(\w+)([^>]*?(?:style\s*=\s*\"[^\"]*(?:" + hidden + r")[^\"]*\"|hidden|aria-hidden\s*=\s*\"true\")[^>]*)>(.*?)</\1>", html, flags=re.S | re.I):
         text = unescape(re.sub(r"<[^>]+>", " ", m.group(3))).strip()
         if text:
