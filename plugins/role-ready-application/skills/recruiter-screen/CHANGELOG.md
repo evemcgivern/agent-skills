@@ -1,5 +1,12 @@
 # Changelog — Recruiter Screen
 
+## [0.3.0](https://github.com/evemcgivern/agent-skills/compare/recruiter-screen-v0.2.0...recruiter-screen-v0.3.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** profile signals, term check, word list ([#117](https://github.com/evemcgivern/agent-skills/issues/117)) ([d3f312b](https://github.com/evemcgivern/agent-skills/commit/d3f312b5c2c8066aaf2d4514a73da851b2ecbf60)), closes [#116](https://github.com/evemcgivern/agent-skills/issues/116)
+
 ## [0.2.0](https://github.com/evemcgivern/agent-skills/compare/recruiter-screen-v0.1.0...recruiter-screen-v0.2.0) (2026-11-25)
 
 

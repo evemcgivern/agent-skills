@@ -1,5 +1,12 @@
 # Changelog — Interview Prep
 
+## [0.4.0](https://github.com/evemcgivern/agent-skills/compare/interview-prep-v0.3.0...interview-prep-v0.4.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** profile signals, term check, word list ([#117](https://github.com/evemcgivern/agent-skills/issues/117)) ([d3f312b](https://github.com/evemcgivern/agent-skills/commit/d3f312b5c2c8066aaf2d4514a73da851b2ecbf60)), closes [#116](https://github.com/evemcgivern/agent-skills/issues/116)
+
 ## [0.3.0](https://github.com/evemcgivern/agent-skills/compare/interview-prep-v0.2.0...interview-prep-v0.3.0) (2026-11-25)
 
 
