@@ -13,7 +13,7 @@ If no sample or preference is available, preserve the candidate's existing wordi
 ## Review method
 
 1. Check factual support and qualifiers before style. Preserve claims, evidence, technical terms, uncertainty, responsibility level, chronology, and attribution exactly. A style edit that changes factual meaning is a failure.
-2. Look for specific passages that are generic, over-smoothed, repetitive, inflated, cliché, or unsupported by the candidate's concrete evidence. Do not mark ordinary or formal language as a problem merely because it is common.
+2. Look for specific passages that are generic, over-smoothed, repetitive, inflated, cliché, or unsupported by the candidate's concrete evidence. Do not mark ordinary or formal language as a problem merely because it is common. For filler, unverifiable self-description and AI-tell wording, use [Word choices](word-choices.md).
 3. Cite each finding by section and short passage. Explain its reader effect in one sentence.
 4. Offer a minimal edit using candidate-supplied language or evidence. In an authorized editing task, apply meaning-preserving edits and mark unresolved decisions; in a standalone review, present suggestions without silently changing the draft. When missing specificity or a view belongs to the candidate, ask a neutral question instead of writing it for them.
 5. Remove filler only when facts, nuance, and voice remain intact. Preserve technical vocabulary even when it is uncommon. Do not replace accurate terms with generic synonyms.
