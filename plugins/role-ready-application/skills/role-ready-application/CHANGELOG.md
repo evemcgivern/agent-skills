@@ -1,5 +1,18 @@
 # Changelog — RoleReady Application
 
+## [0.11.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.10.0...role-ready-application-v0.11.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** add recruiter-screen skill ([#115](https://github.com/evemcgivern/agent-skills/issues/115)) ([b6130e8](https://github.com/evemcgivern/agent-skills/commit/b6130e89507aea25a8509044d7f82f2d1a35ad76)), closes [#113](https://github.com/evemcgivern/agent-skills/issues/113)
+* **role-ready:** keep role order and match themes ([#114](https://github.com/evemcgivern/agent-skills/issues/114)) ([25c6cb4](https://github.com/evemcgivern/agent-skills/commit/25c6cb426137d8455b53973e32ec66fbddc05bc6)), closes [#112](https://github.com/evemcgivern/agent-skills/issues/112)
+
+
+### Bug Fixes
+
+* **role-ready:** stop flagging 'to AI governance' ([#110](https://github.com/evemcgivern/agent-skills/issues/110)) ([9b99c6d](https://github.com/evemcgivern/agent-skills/commit/9b99c6d79d0fb91cae6d3051a6088d981574ecdb)), closes [#109](https://github.com/evemcgivern/agent-skills/issues/109)
+
 ## [0.10.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.9.0...role-ready-application-v0.10.0) (2026-11-25)
 
 
