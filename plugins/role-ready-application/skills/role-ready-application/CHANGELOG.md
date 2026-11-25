@@ -1,5 +1,17 @@
 # Changelog — RoleReady Application
 
+## [0.8.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.7.0...role-ready-application-v0.8.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** add ATS and posting-trap checks ([#99](https://github.com/evemcgivern/agent-skills/issues/99)) ([c74b882](https://github.com/evemcgivern/agent-skills/commit/c74b882c2ea35fdf8e1af41e674f85b80548bcab)), closes [#98](https://github.com/evemcgivern/agent-skills/issues/98)
+
+
+### Bug Fixes
+
+* **role-ready:** fail only single stray lines ([#102](https://github.com/evemcgivern/agent-skills/issues/102)) ([7cde16b](https://github.com/evemcgivern/agent-skills/commit/7cde16b90377e0d327025694ab2e5b1589b405cb)), closes [#101](https://github.com/evemcgivern/agent-skills/issues/101)
+
 ## [0.7.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.6.0...role-ready-application-v0.7.0) (2026-11-25)
 
 
