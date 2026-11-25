@@ -1,5 +1,12 @@
 # Changelog — RoleReady Application
 
+## [0.12.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.11.0...role-ready-application-v0.12.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** profile signals, term check, word list ([#117](https://github.com/evemcgivern/agent-skills/issues/117)) ([d3f312b](https://github.com/evemcgivern/agent-skills/commit/d3f312b5c2c8066aaf2d4514a73da851b2ecbf60)), closes [#116](https://github.com/evemcgivern/agent-skills/issues/116)
+
 ## [0.11.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.10.0...role-ready-application-v0.11.0) (2026-11-25)
 
 
