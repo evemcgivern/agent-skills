@@ -1,5 +1,12 @@
 # Changelog — RoleReady Application
 
+## [0.7.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.6.0...role-ready-application-v0.7.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** add vague-wording review checks ([#96](https://github.com/evemcgivern/agent-skills/issues/96)) ([e4955e3](https://github.com/evemcgivern/agent-skills/commit/e4955e3a9b4c2722abd26530f0ad3c4f410420a4)), closes [#95](https://github.com/evemcgivern/agent-skills/issues/95)
+
 ## [0.6.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.5.0...role-ready-application-v0.6.0) (2026-11-25)
 
 
