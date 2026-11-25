@@ -63,6 +63,7 @@ Every skill README shows three badges, one per group of hosts. The first two spl
 | [`transactional-email`](plugins/engineering-practices/skills/transactional-email/README.md) | engineering-practices | ✔ | ◐ | ✔ | ◐ | ✔ |
 | [`interview-prep`](plugins/role-ready-application/skills/interview-prep/README.md) | role-ready-application | ✔ | ✔ | ✔ | ✔ | ✔ |
 | [`posting-fit-check`](plugins/role-ready-application/skills/posting-fit-check/README.md) | role-ready-application | ✔ | ✔ | ✔ | ✔ | ✔ |
+| [`recruiter-screen`](plugins/role-ready-application/skills/recruiter-screen/README.md) | role-ready-application | ✔ | ✔ | ✔ | ✔ | ✔ |
 | [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) | role-ready-application | ✔ | ✔ | ✔ | ✔ | ✔ |
 | [`clearly`](plugins/writing/skills/clearly/README.md) | writing | ✔ | ◐ | ✔ | ◐ | ✔ |
 | [`scrub-ai-tells`](plugins/writing/skills/scrub-ai-tells/README.md) | writing | ✔ | ✔ | ✔ | ◐ | ✔ |
@@ -189,6 +190,7 @@ Build truthful role-tailored resumes and cover letters, check whether a job post
 
 - [`interview-prep`](plugins/role-ready-application/skills/interview-prep/README.md) v0.1.0 — Prepare for an interview from the posting and the exact resume and cover letter you sent, with likely questions mapped to your own confirmed examples and honest answers for gaps.
 - [`posting-fit-check`](plugins/role-ready-application/skills/posting-fit-check/README.md) v0.1.0 — Decide whether a job posting is worth applying to by mapping each requirement to your real evidence, then get apply, apply with caveats, or skip.
+- [`recruiter-screen`](plugins/role-ready-application/skills/recruiter-screen/README.md) v0.1.0 — Read a finished resume against one posting as a recruiter and then a hiring manager, with a check for unsupported claims.
 - [`role-ready-application`](plugins/role-ready-application/skills/role-ready-application/README.md) v0.3.0 — Tailor a truthful resume or CV and a matching cover letter to one specific job posting without inventing experience, then review clarity, candidate voice, factual fidelity, and rendered layout. Use when someone says "tailor my resume", "customize my CV for this job", "write a cover letter for this role", or asks for an application review.
 
 ### `app-governance-kit`
