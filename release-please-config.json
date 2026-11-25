@@ -225,6 +225,12 @@
       "version-file": "VERSION",
       "changelog-path": "CHANGELOG.md"
     },
+    "plugins/role-ready-application/skills/recruiter-screen": {
+      "release-type": "simple",
+      "package-name": "recruiter-screen",
+      "version-file": "VERSION",
+      "changelog-path": "CHANGELOG.md"
+    },
     "plugins/writing/skills/clearly": {
       "release-type": "simple",
       "package-name": "clearly",

@@ -78,12 +78,13 @@ The skills work only with what you give them in the conversation. They do not ne
 | --- | --- |
 | [`role-ready-application`](skills/role-ready-application/README.md) | Tailor a resume and cover letter to one job, then review the writing |
 | [`posting-fit-check`](skills/posting-fit-check/README.md) | Decide whether a posting is worth applying to |
+| [`recruiter-screen`](skills/recruiter-screen/README.md) | Read a finished resume as a recruiter, then a hiring manager |
 | [`interview-prep`](skills/interview-prep/README.md) | Prepare for an interview |
 
 The candidate pack is a plain text file you own, holding your confirmed facts and stated deal-breakers. A skill uses it only when you name or paste it. Keep it on your own device, never in this repository. See [`shared/candidate-rules.md`](shared/candidate-rules.md) for the layout. The same rules file is copied into each skill, so each works when installed alone.
 
 ## Included
 
-The plugin installs three skills: `role-ready-application`, `posting-fit-check` and `interview-prep`, each carrying the shared candidate rules in its references folder.
+The plugin installs four skills: `role-ready-application`, `posting-fit-check`, `recruiter-screen` and `interview-prep`, each carrying the shared candidate rules in its references folder.
 
 See the package-specific skill folders for exact file lists, versions, and changelogs.

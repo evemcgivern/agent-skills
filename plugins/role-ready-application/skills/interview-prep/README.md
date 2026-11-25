@@ -40,7 +40,7 @@ claude plugin marketplace add evemcgivern/agent-skills
 claude plugin install role-ready-application@evemcgivern-skills
 ```
 
-This installs the whole `role-ready-application` plugin, so you also get its other skills: `posting-fit-check`, `role-ready-application`. Run it as `/role-ready-application:interview-prep`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install role-ready-application@evemcgivern-skills`.
+This installs the whole `role-ready-application` plugin, so you also get its other skills: `posting-fit-check`, `recruiter-screen`, `role-ready-application`. Run it as `/role-ready-application:interview-prep`. Inside a session, the same thing is `/plugin marketplace add evemcgivern/agent-skills`, then `/plugin install role-ready-application@evemcgivern-skills`.
 
 Update later with `claude plugin marketplace update evemcgivern-skills`, then `claude plugin update role-ready-application@evemcgivern-skills`.
 
