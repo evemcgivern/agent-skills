@@ -24,7 +24,7 @@ Then give **keep** or **reject** with up to three reasons.
 **Hiring-manager pass.** Answer in this order:
 1. Map the posting's main responsibilities to the resume as direct, adjacent/partial, absent or unclear, with the resume line cited.
 2. Is the evidence concrete (figures, scope, who did what) or vague?
-3. Which claims would you test in an interview? List up to five questions, in neutral wording.
+3. Which claims would you test in an interview? List up to five questions, in neutral wording. Name the one bullet you would dig into and ask three follow-ups: what did you do, what broke, and what would you do differently. For each ownership verb (led, managed, owned, built, delivered), ask who else was involved; a claim with no one else named is a flag to probe, not a finding.
 Then give **strong**, **maybe** or **weak** with up to three reasons. Say plainly when a must-have with a years or credential threshold is absent.
 
 ## Output

@@ -20,7 +20,7 @@ I have a first-round interview for a Support Operations Analyst role at Example 
 Prep me for a phone screen. Posting: [paste]. Resume I sent: [paste]. I did not send a cover letter. Run a mock interview after.
 ```
 
-The agent asks for anything missing. It then gives up to eight likely questions, your own example for each laid out as situation, action and result, honest bridge answers for gaps, questions to ask the interviewer, company notes with sources (or a list of what to look up), and the facts it used. It then offers a mock interview.
+The agent asks for anything missing. It then gives up to eight likely questions, your own example for each laid out as situation, action and result, honest bridge answers for gaps, questions to ask the interviewer (including three standing ones), one deep project with what broke, what you would change and who you did it with, your own honest answer to why you might not want the job, company notes with sources (or a list of what to look up), and the facts it used. It then offers a mock interview.
 
 **Skip it when**
 - You want a prediction of the interview result. The skill gives no odds or scores.
