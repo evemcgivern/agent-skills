@@ -1,5 +1,12 @@
 # Changelog — Interview Prep
 
+## [0.5.0](https://github.com/evemcgivern/agent-skills/compare/interview-prep-v0.4.0...interview-prep-v0.5.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** add interview deep-dive prompts ([#120](https://github.com/evemcgivern/agent-skills/issues/120)) ([d590f6b](https://github.com/evemcgivern/agent-skills/commit/d590f6b069e18d5fdbe5308ccf25a05c363580ed)), closes [#119](https://github.com/evemcgivern/agent-skills/issues/119)
+
 ## [0.4.0](https://github.com/evemcgivern/agent-skills/compare/interview-prep-v0.3.0...interview-prep-v0.4.0) (2026-11-25)
 
 

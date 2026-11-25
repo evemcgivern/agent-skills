@@ -1,5 +1,12 @@
 # Changelog — RoleReady Application
 
+## [0.13.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.12.0...role-ready-application-v0.13.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** add interview deep-dive prompts ([#120](https://github.com/evemcgivern/agent-skills/issues/120)) ([d590f6b](https://github.com/evemcgivern/agent-skills/commit/d590f6b069e18d5fdbe5308ccf25a05c363580ed)), closes [#119](https://github.com/evemcgivern/agent-skills/issues/119)
+
 ## [0.12.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.11.0...role-ready-application-v0.12.0) (2026-11-25)
 
 
