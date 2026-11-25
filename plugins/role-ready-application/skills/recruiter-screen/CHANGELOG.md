@@ -1,5 +1,12 @@
 # Changelog — Recruiter Screen
 
+## [0.4.0](https://github.com/evemcgivern/agent-skills/compare/recruiter-screen-v0.3.0...recruiter-screen-v0.4.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** add interview deep-dive prompts ([#120](https://github.com/evemcgivern/agent-skills/issues/120)) ([d590f6b](https://github.com/evemcgivern/agent-skills/commit/d590f6b069e18d5fdbe5308ccf25a05c363580ed)), closes [#119](https://github.com/evemcgivern/agent-skills/issues/119)
+
 ## [0.3.0](https://github.com/evemcgivern/agent-skills/compare/recruiter-screen-v0.2.0...recruiter-screen-v0.3.0) (2026-11-25)
 
 
