@@ -19,7 +19,7 @@ This is a presentation default, not a source of candidate facts. The candidate m
    - Neither: omit the entire section and all sublabels.
    A course is not automatically a certification. Preserve exact names and classification; ask if materially ambiguous. In-progress certifications may determine the heading but must remain marked unearned. A `Certifications:` sublabel appears only for earned certificates; an `In progress:` line only for explicitly supplied ongoing ones. Never infer a credential from the JD.
 
-Keep questions, job-fit notes, evidence references, change notes, and missing qualifications outside the resume. Never add an empty heading or placeholder.
+Keep questions, job-fit notes, evidence references, change notes, and missing qualifications outside the resume, and never put a DRAFT banner or check status inside the resume text; the Draft label belongs in the filename and the notes. Never reorder roles: keep reverse chronological order by end date exactly as the source has it. Never add an empty heading or placeholder.
 
 ## DOCX defaults
 
