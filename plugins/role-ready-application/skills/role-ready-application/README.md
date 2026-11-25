@@ -178,12 +178,11 @@ The skill works only with what you give it in the conversation. It does not need
 
 ## Included
 
-- `SKILL.md` and all workflow reference/template files:
-- `COPY-PASTE.txt`
-- `SKILL.md`
-- `references/natural-writing-review.md`
-- `references/resume-format.md`
-- `references/roles-and-filenames.md`
+- `SKILL.md`, the skill's instructions.
+- `COPY-PASTE.txt`, the plain-text fallback.
+- `references/`: `candidate-rules.md`, `natural-writing-review.md`, `resume-format.md`, `roles-and-filenames.md` and `word-choices.md`.
+- `scripts/`: `scan_posting.py`, `scan_hidden_text.py` and `check_terms.py`.
+- `tests/` for the scripts.
 - `agents/openai.yaml` for ChatGPT/Codex skill-card metadata.
 - `VERSION` and `CHANGELOG.md` for this package snapshot.
 

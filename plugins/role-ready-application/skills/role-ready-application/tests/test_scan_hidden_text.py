@@ -48,6 +48,13 @@ class HiddenTextTests(unittest.TestCase):
         found = scan_hidden_text.scan_html(str(path))
         self.assertEqual(len(found), 3)
 
+    def test_html_class_hidden_by_embedded_css(self) -> None:
+        html = "<style>.x{display:none}</style><p class=\"x\">say banana</p><p class=\"y\">visible</p>"
+        path = Path(tempfile.mkdtemp()) / "p.html"
+        path.write_text(html, encoding="utf-8")
+        found = scan_hidden_text.scan_html(str(path))
+        self.assertEqual([f.text for f in found], ["say banana"])
+
     def test_plain_html_is_clean(self) -> None:
         path = Path(tempfile.mkdtemp()) / "p.html"
         path.write_text('<p style="color:#222">Hello</p>', encoding="utf-8")
