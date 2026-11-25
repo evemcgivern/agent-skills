@@ -1,5 +1,12 @@
 # Changelog — RoleReady Application
 
+## [0.6.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.5.0...role-ready-application-v0.6.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** tighten resume tailoring rules ([#94](https://github.com/evemcgivern/agent-skills/issues/94)) ([2f8e087](https://github.com/evemcgivern/agent-skills/commit/2f8e087cd825dbf69dc0161659e5831207082279)), closes [#93](https://github.com/evemcgivern/agent-skills/issues/93)
+
 ## [0.5.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.4.0...role-ready-application-v0.5.0) (2026-11-01)
 
 

@@ -1,5 +1,12 @@
 # Changelog: check-worth
 
+## [0.4.0](https://github.com/evemcgivern/agent-skills/compare/check-worth-v0.3.0...check-worth-v0.4.0) (2026-11-25)
+
+
+### Features
+
+* **agent-workflow:** add --book to check-worth ([#91](https://github.com/evemcgivern/agent-skills/issues/91)) ([c22d2e3](https://github.com/evemcgivern/agent-skills/commit/c22d2e3ba9eb9e0bb9b483e69da045586690c8a3)), closes [#90](https://github.com/evemcgivern/agent-skills/issues/90)
+
 ## [0.3.0](https://github.com/evemcgivern/agent-skills/compare/check-worth-v0.2.1...check-worth-v0.3.0) (2026-10-18)
 
 
