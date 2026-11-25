@@ -42,7 +42,7 @@ Keep questions, job-fit notes, evidence references, change notes, and missing qu
 
 Use editable paragraphs/runs, paragraph borders and defined styles. Do not make layout out of images, tables, floating shapes, text boxes, or columns. Do not put important text or contacts in headers/footers. Keep headings with next paragraph; avoid separated role headings and unnecessary bullet splits without keeping entire long experience sections together and creating blank space. Do not add repeating contact headers or page furniture by default.
 
-If a font substitution or candidate content creates clipping, fix wrapping/pagination first and increase type size or line spacing as needed for legibility. Keep bullets together where practical without creating large blank areas. Use these compact reference measurements as starting points, then judge the rendered document.
+If a font substitution or candidate content creates clipping, fix wrapping/pagination first and increase type size or line spacing as needed for legibility. Keep bullets together where practical without creating large blank areas. Never leave a single bullet or a single line alone at the top or bottom of a page: set keep-with-next on the second-to-last bullet of a role so the last two bullets move together. Use these compact reference measurements as starting points, then judge the rendered document.
 
 ## Length and accessible fallback
 
