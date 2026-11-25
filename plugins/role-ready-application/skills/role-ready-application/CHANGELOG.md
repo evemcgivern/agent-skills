@@ -1,5 +1,12 @@
 # Changelog — RoleReady Application
 
+## [0.9.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.8.0...role-ready-application-v0.9.0) (2026-11-25)
+
+
+### Features
+
+* **role-ready:** ask to merge skills sections ([#104](https://github.com/evemcgivern/agent-skills/issues/104)) ([e29a131](https://github.com/evemcgivern/agent-skills/commit/e29a1316b6a713f0f344a1cef7ba6843f02fed32)), closes [#103](https://github.com/evemcgivern/agent-skills/issues/103)
+
 ## [0.8.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.7.0...role-ready-application-v0.8.0) (2026-11-25)
 
 
