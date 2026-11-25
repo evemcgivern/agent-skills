@@ -1,5 +1,12 @@
 # Changelog — RoleReady Application
 
+## [0.13.1](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.13.0...role-ready-application-v0.13.1) (2026-11-25)
+
+
+### Bug Fixes
+
+* **role-ready:** surface lower-section evidence ([#123](https://github.com/evemcgivern/agent-skills/issues/123)) ([730fb3e](https://github.com/evemcgivern/agent-skills/commit/730fb3e87fe11c1a14a4be062dcb2a9bf79814ea)), closes [#122](https://github.com/evemcgivern/agent-skills/issues/122)
+
 ## [0.13.0](https://github.com/evemcgivern/agent-skills/compare/role-ready-application-v0.12.0...role-ready-application-v0.13.0) (2026-11-25)
 
 
