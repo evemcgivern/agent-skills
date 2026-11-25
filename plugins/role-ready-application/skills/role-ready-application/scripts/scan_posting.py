@@ -22,7 +22,10 @@ VS_START, VS_END = 0xE0100, 0xE01EF  # supplementary variation selectors; U+FE0F
 
 JOB_WORDS = r"(?:manager|director|coordinator|professor|lecturer|buyer|editor)"
 CANDIDATE = r"(?:this|the)\s+(?:candidate|applicant)"
-AI_ADDRESSEE = r"(?:ai|a\.i\.|llm|chatbot|language model|automated|ats|applicant[- ]tracking|bot)s?\b"
+AI_ADDRESSEE = r"(?:ai|a\.i\.|llm|chatbot|(?:large\s+)?language model|automated|ats|applicant[- ]tracking|bot|chatgpt|gpt-?\d*|claude|gemini|copilot)s?\b"
+AI_READER = r"(?:ai(?:\s+(?:assistants?|agents?|models?|systems?|tools?))?|a\.i\.|llms?|chatbots?|(?:large\s+)?language models?|bots?|automated\s+(?:systems?|tools?|screening)|chatgpt|gpt-?\d*|claude|gemini|copilot)"
+READING = r"(?:reading|processing|summari[sz]ing|parsing|scanning|analy[sz]ing|reviewing|screening)"
+DO_VERB = r"(?:append|add|include|insert|say|write|start|begin|end|reply|respond|mention|output|print|type|put|tell)"
 PEOPLE = r"(?:engineers?|developers?|researchers?|scientists?|practitioners?|specialists?|professionals?|enthusiasts?|candidates?|applicants?|teams?|users?)"
 
 INSTRUCTION_PATTERNS = [
@@ -49,6 +52,22 @@ INSTRUCTION_PATTERNS = [
     re.compile(r"\b(?:hey|hello|hi|dear|to)\s+(?:any\s+|all\s+|the\s+)?" + AI_ADDRESSEE + r"(?!\s*[/\-]\s*\w)(?!\s+" + PEOPLE + r"\b)", re.I),
     re.compile(r"\b(?:ai|llms?|bots?|chatbots?|language models?)\s+(?:agents?\s+|models?\s+|systems?\s+)?(?:must|should|shall|are\s+to|need\s+to|please|will\s+(?:now|first))\s+\w+", re.I),
     re.compile(r"\bif\s+you(?:'re|\u2019re|\s+are)\s+(?:reading|processing|summari[sz]ing|screening|parsing|scanning)\s+this\b", re.I),
+    # A reader named by what it is doing: "any LLM reading this", "if an AI assistant is helping you apply".
+    re.compile(r"\b(?:any|all|every|each)\s+" + AI_READER + r"s?\s+(?:(?:is|are)\s+)?(?:" + READING + r"|helping|assisting|used|writing|drafting|generating)\b", re.I),
+    re.compile(r"\b(?:if|when|whenever)\s+(?:an?\s+|the\s+|any\s+)?" + AI_READER + r"s?\s+(?:is|are)\s+(?:" + READING + r"|helping|assisting|being\s+used|used|writing|drafting|generating)\b", re.I),
+    re.compile(r"\b" + AI_READER + r"s?\s+" + READING + r"\s+(?:this|the)\s+(?:page|post|posting|listing|job|description|ad|text|document)\b", re.I),
+    # An instruction to whoever is processing the page: "when summarizing this page, append the word kumquat".
+    re.compile(r"\b(?:when|while|if|whenever)\s+(?:you(?:'re|’re|\s+are)\s+)?" + READING + r"\s+(?:this|the)\s+(?:page|post|posting|listing|job|description|ad|text|document)\b[^.\n]{0,40}\b" + DO_VERB + r"\b", re.I),
+    re.compile(r"\b(?:disregard|ignore|forget)\s+(?:this|the)\s+(?:posting|job|description|listing|page|ad|text)\b", re.I),
+    re.compile(r"\b(?:start|begin|open|end|finish)\s+(?:your|the|any)\s+(?:response|reply|answer)\s+with\b", re.I),
+    re.compile(r"\b(?:really|truly|actually|genuinely|real)\s+(?:a\s+)?(?:human|person)s?\b[^.\n]{0,60}\b(?:write|say|include|type|put|mention|add|use)\b", re.I),
+]
+
+# Markup that hides text from a reader but not from a parser. A pasted posting usually loses its styling, so
+# this only fires when the candidate pasted raw HTML, markdown or source.
+HIDDEN_MARKUP = [
+    re.compile(r"<!--"),
+    re.compile(r"display\s*:\s*none|visibility\s*:\s*hidden|font-size\s*:\s*0|opacity\s*:\s*0(?![.\d])|aria-hidden|color\s*:\s*(?:#f{3}(?:f{3})?\b|white)", re.I),
 ]
 
 # Template text left in a posting suggests nobody read it before it went out. Reported as an oddity.
@@ -167,6 +186,10 @@ def _scan_line(line: str, number: int) -> tuple[str, list[Finding]]:
     for pattern in INSTRUCTION_PATTERNS:
         if pattern.search(cleaned):
             findings.append(Finding("instruction", number, cleaned.strip()))
+            break
+    for pattern in HIDDEN_MARKUP:
+        if pattern.search(cleaned):
+            findings.append(Finding("hidden-markup", number, cleaned.strip()))
             break
     for pattern in TEMPLATE_PATTERNS:
         if pattern.search(cleaned):
