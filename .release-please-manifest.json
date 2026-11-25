@@ -36,7 +36,7 @@
   "plugins/role-ready-application/skills/interview-prep": "0.5.0",
   "plugins/role-ready-application/skills/posting-fit-check": "0.5.0",
   "plugins/role-ready-application/skills/recruiter-screen": "0.4.0",
-  "plugins/role-ready-application/skills/role-ready-application": "0.13.0",
+  "plugins/role-ready-application/skills/role-ready-application": "0.13.1",
   "plugins/writing/skills/clearly": "0.1.1",
   "plugins/writing/skills/scrub-ai-tells": "0.2.1",
   "plugins/writing/skills/table": "0.2.0"
